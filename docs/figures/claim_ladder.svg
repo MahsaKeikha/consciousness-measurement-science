@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+<title id="title">Consciousness measurement claim ladder</title>
+<desc id="desc">Eight levels from condition difference M0 to adversarial unique theory prediction M7. Higher levels require stronger validation and do not by themselves license direct measurement of qualia.</desc>
+<defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#111827}.h{font-size:30px;font-weight:700}.t{font-size:18px}.n{font-size:20px;font-weight:700}.r{fill:#f9fafb;stroke:#374151;stroke-width:2}</style></defs>
+<rect width="1200" height="700" fill="#fff"/>
+<text x="55" y="55" class="h">Measurement claims must climb an evidence ladder</text>
+<g transform="translate(85,95)">
+<rect x="0" y="504" width="1030" height="58" rx="8" class="r"/><text x="20" y="540" class="n">M0</text><text x="85" y="540" class="t">signal differs between conditions</text>
+<rect x="55" y="432" width="975" height="58" rx="8" class="r"/><text x="75" y="468" class="n">M1</text><text x="140" y="468" class="t">out-of-sample prediction of validated report / behavioral target</text>
+<rect x="110" y="360" width="920" height="58" rx="8" class="r"/><text x="130" y="396" class="n">M2</text><text x="195" y="396" class="t">generalizes across participants and sites</text>
+<rect x="165" y="288" width="865" height="58" rx="8" class="r"/><text x="185" y="324" class="n">M3</text><text x="250" y="324" class="t">transports across distinct consciousness manipulations</text>
+<rect x="220" y="216" width="810" height="58" rx="8" class="r"/><text x="240" y="252" class="n">M4</text><text x="305" y="252" class="t">survives confounds and causal perturbation tests</text>
+<rect x="275" y="144" width="755" height="58" rx="8" class="r"/><text x="295" y="180" class="n">M5</text><text x="360" y="180" class="t">identifies or bounds a latent experiential target under explicit assumptions</text>
+<rect x="330" y="72" width="700" height="58" rx="8" class="r"/><text x="350" y="108" class="n">M6</text><text x="415" y="108" class="t">held-out phenomenal ↔ physical structural prediction</text>
+<rect x="385" y="0" width="645" height="58" rx="8" class="r"/><text x="405" y="36" class="n">M7</text><text x="470" y="36" class="t">unique preregistered theory prediction survives while rivals fail</text>
+</g>
+<text x="600" y="680" text-anchor="middle" class="t">No rung alone licenses “we directly measured qualia” without an additional validated bridge principle.</text>
+</svg>
