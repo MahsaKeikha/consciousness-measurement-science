@@ -1,7 +1,6 @@
 import importlib.util
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_SCRIPT = ROOT / "scripts" / "verify_repository_policy.py"
 
