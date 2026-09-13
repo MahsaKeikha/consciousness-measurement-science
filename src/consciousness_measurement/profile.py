@@ -7,9 +7,9 @@ state instead of forcing heterogeneous evidence into a universal scalar.
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Mapping
 
 
 class Target(str, Enum):
