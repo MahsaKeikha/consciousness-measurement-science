@@ -10,19 +10,19 @@ This document is a research blueprint. Any human study requires institutional et
 
 ## 1. Primary aims
 
-### Aim 1 — Cross-state transport
+### Aim 1 - Cross-state transport
 
 Test whether candidate neural and physiological features learned in ordinary wakefulness retain predictive/calibration value across sleep and clinically supervised altered states.
 
-### Aim 2 — Report confound separation
+### Aim 2 - Report confound separation
 
 Test whether candidate signatures survive removal, delay, or alteration of overt report requirements.
 
-### Aim 3 — Multimodal incremental value
+### Aim 3 - Multimodal incremental value
 
 Test whether a preregistered multimodal model improves held-out calibration relative to the strongest single channel.
 
-### Aim 4 — Structural correspondence
+### Aim 4 - Structural correspondence
 
 In communicative conditions, test whether a preregistered neural relational geometry predicts held-out phenomenal similarity structure.
 
@@ -42,7 +42,7 @@ Presence as a latent target is analyzed only through an explicit measurement mod
 
 A staged design is recommended.
 
-### Cohort A — Healthy waking participants
+### Cohort A - Healthy waking participants
 
 Within-subject conditions:
 
@@ -52,11 +52,11 @@ Within-subject conditions:
 - report versus matched no-report blocks;
 - attention and working-memory control manipulations.
 
-### Cohort B — Sleep
+### Cohort B - Sleep
 
 Repeated NREM/REM awakenings with immediate structured experience sampling. Analyses must distinguish "no recall" from "no experience".
 
-### Cohort C — Medically supervised altered state
+### Cohort C - Medically supervised altered state
 
 Where ethically and operationally appropriate, use more than one pharmacological mechanism because a marker that tracks one drug may track drug physiology rather than consciousness. Protocol-specific safety and clinical procedures remain outside this repository.
 
@@ -95,15 +95,15 @@ The study should compare families, not cherry-pick one favorable metric after se
 
 ## 6. Primary confirmatory endpoints
 
-### Endpoint E1 — Held-out content calibration
+### Endpoint E1 - Held-out content calibration
 
 For a predefined subset of communicative trials, evaluate whether predicted probability of reportable content is calibrated on held-out participants.
 
-### Endpoint E2 — Report-operation invariance
+### Endpoint E2 - Report-operation invariance
 
 Estimate the change in candidate signal when report requirements change while stimulus/perceptual conditions are matched. A marker proposed as consciousness-specific should not be explainable entirely by motor/report preparation.
 
-### Endpoint E3 — Cross-state transport loss
+### Endpoint E3 - Cross-state transport loss
 
 For each feature/model, define
 
@@ -115,11 +115,11 @@ For each feature/model, define
 
 where \(\mathcal L\) is a preregistered proper scoring loss. Smaller transport loss is better, but only within the target being tested.
 
-### Endpoint E4 — Multimodal incremental value
+### Endpoint E4 - Multimodal incremental value
 
 Compare the locked multimodal model with the best locked single-channel model using held-out log score/Brier score and calibration. Improvement must be demonstrated prospectively.
 
-### Endpoint E5 — Phenomenal-neural geometry prediction
+### Endpoint E5 - Phenomenal-neural geometry prediction
 
 Fit the mapping only on a training subset of experience labels and test preregistered relational predictions on held-out experience pairs. Report alignment, normalized distortion, and permutation-based evidence.
 
@@ -140,9 +140,9 @@ A candidate measure that cannot survive these dissociations is not a general con
 
 Use three non-overlapping partitions whenever sample size permits:
 
-1. **discovery** — feature engineering and exploratory models;
-2. **internal confirmation** — locked pipeline, held-out participants;
-3. **external confirmation** — held-out site or independently collected dataset.
+1. **discovery** - feature engineering and exploratory models;
+2. **internal confirmation** - locked pipeline, held-out participants;
+3. **external confirmation** - held-out site or independently collected dataset.
 
 Repeated measures must remain grouped by participant during splitting.
 

@@ -17,7 +17,7 @@ The central premise is epistemic rather than metaphysical:
 - conscious experience is directly available only to the subject having it;
 - third-person science therefore measures reports, behavior, physiology, neural dynamics, perturbational responses, and their relationships;
 - a scientific “consciousness measure” is an **inference system with explicit assumptions and uncertainty**, not a magic sensor that reads qualia directly;
-- the ontological status of consciousness — emergent, fundamental, dual-aspect, fully physical, or otherwise — remains an open question unless independently established.
+- the ontological status of consciousness - emergent, fundamental, dual-aspect, fully physical, or otherwise - remains an open question unless independently established.
 
 ---
 
@@ -95,7 +95,7 @@ The arrows are **hypotheses to test**, not declarations that every channel is ca
 
 ## Two research arms
 
-### Arm A — Conscious-state inference
+### Arm A - Conscious-state inference
 
 The goal is to infer evidence for preserved conscious processing across conditions where report and behavior may fail.
 
@@ -109,7 +109,7 @@ with channel-specific uncertainty, validity domain, and dependence assumptions.
 
 A composite score is allowed only after prospective validation demonstrates that combining channels improves calibrated prediction without erasing meaningful dissociations.
 
-### Arm B — Phenomenal-structure measurement
+### Arm B - Phenomenal-structure measurement
 
 ![Phenomenal structural measurement pipeline](docs/figures/structural_measurement_pipeline.svg)
 
@@ -150,7 +150,7 @@ Low distortion would support a structural correspondence hypothesis. High distor
 This project separates five targets that are often conflated:
 
 1. **Presence:** is there evidence that any experience is occurring?
-2. **Global state:** what multidimensional condition is the system in — arousal, connectedness to environment, cognitive availability, complexity, stability, etc.?
+2. **Global state:** what multidimensional condition is the system in - arousal, connectedness to environment, cognitive availability, complexity, stability, etc.?
 3. **Content:** what is being experienced?
 4. **Structure:** what relations hold among contents or qualities of experience?
 5. **Capacity:** does the system have the causal/dynamical organization associated with supporting experience, even when content is inaccessible to us?
@@ -243,7 +243,7 @@ The human program should include:
 - autonomic/ocular channels;
 - multicenter replication and held-out-site validation.
 
-Sample sizes must be determined from preregistered primary endpoints, anticipated effect sizes, repeated-measures structure, desired calibration error, and external-validation requirements — not from an arbitrary universal number.
+Sample sizes must be determined from preregistered primary endpoints, anticipated effect sizes, repeated-measures structure, desired calibration error, and external-validation requirements - not from an arbitrary universal number.
 
 ---
 
@@ -313,8 +313,8 @@ The goal is not “objective measures instead of subjective data.” It is **wel
 
 The initial code contains two intentionally modest tools:
 
-1. `structural_alignment.py` — compares normalized relational geometries and provides permutation-based evidence for cross-domain structural correspondence.
-2. `evidence.py` — demonstrates transparent likelihood-ratio fusion under an explicitly declared conditional-independence assumption.
+1. `structural_alignment.py` - compares normalized relational geometries and provides permutation-based evidence for cross-domain structural correspondence.
+2. `evidence.py` - demonstrates transparent likelihood-ratio fusion under an explicitly declared conditional-independence assumption.
 
 These are research scaffolds, **not clinical classifiers**.
 
@@ -346,7 +346,9 @@ pytest -q
 - [Claim registry](docs/claim-registry.md)
 - [Machine-readable CEP schema](schemas/cep.schema.json) and [worked example](examples/cep_example.json)
 - [Literature map](docs/literature.md)
+- [Reproducibility](docs/reproducibility.md)
 - [Roadmap](ROADMAP.md)
+- [Repository policy](docs/repository-policy.md)
 
 ---
 

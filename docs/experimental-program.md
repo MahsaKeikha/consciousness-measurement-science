@@ -1,6 +1,6 @@
 # Experimental Program
 
-## Phase 0 — Measurement specification
+## Phase 0 - Measurement specification
 
 Before collecting data:
 
@@ -12,7 +12,7 @@ Before collecting data:
 6. define negative and positive controls;
 7. freeze preprocessing for confirmatory evaluation.
 
-## Phase 1 — Healthy benchmark
+## Phase 1 - Healthy benchmark
 
 Within-subject repeated measurements across:
 
@@ -33,7 +33,7 @@ Acquire as feasible:
 - trial-level report and confidence;
 - TMS-EEG in dedicated sessions.
 
-## Phase 2 — Confound dissection
+## Phase 2 - Confound dissection
 
 Manipulate independently:
 
@@ -47,7 +47,7 @@ Manipulate independently:
 
 A candidate measure should not be accepted if these variables reproduce its full effect without corresponding changes in experiential evidence.
 
-## Phase 3 — Causal perturbation
+## Phase 3 - Causal perturbation
 
 Use perturbation to separate passive correlation from causal capacity.
 
@@ -58,7 +58,7 @@ Candidate tools:
 - clinically justified pharmacology;
 - focused ultrasound or intracranial stimulation only within established ethical/clinical protocols.
 
-## Phase 4 — Disorders of consciousness
+## Phase 4 - Disorders of consciousness
 
 Multicenter protocol:
 
@@ -72,7 +72,7 @@ Multicenter protocol:
 
 Primary outcome is not a binary “conscious/unconscious” label from one test. It is a multimodal evidence profile with calibrated uncertainty.
 
-## Phase 5 — External validation
+## Phase 5 - External validation
 
 Lock models and evaluate at entirely held-out sites.
 
@@ -86,7 +86,7 @@ Report:
 - data-quality failure rates;
 - transportability across hardware and sites.
 
-## Phase 6 — Structural phenomenology
+## Phase 6 - Structural phenomenology
 
 In communicative participants:
 
@@ -97,7 +97,7 @@ In communicative participants:
 - test held-out experiences and participants;
 - perturb neural geometry and predict phenomenal distortion.
 
-## Phase 7 — Theory tournament
+## Phase 7 - Theory tournament
 
 For each major theory:
 
