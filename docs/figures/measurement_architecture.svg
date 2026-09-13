@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+<title id="title">Consciousness measurement architecture</title>
+<desc id="desc">A latent experiential target is inferred from first-person report, behavior, neural data, perturbational response, physiology, interventions, and context. The output is a target-specific claim with uncertainty and assumptions rather than a direct qualia reading.</desc>
+<defs><style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#111827}.h{font-size:30px;font-weight:700}.s{font-size:18px}.b{font-size:17px;font-weight:700}.box{fill:#fff;stroke:#111827;stroke-width:2}.latent{fill:#f3f4f6;stroke:#111827;stroke-width:3}.out{fill:#eef2ff;stroke:#3730a3;stroke-width:2}.line{stroke:#374151;stroke-width:2;fill:none;marker-end:url(#a)}
+</style><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#374151"/></marker></defs>
+<rect width="1200" height="640" fill="#ffffff"/>
+<text x="50" y="55" class="h">What can a consciousness measurement actually observe?</text>
+<rect x="430" y="95" rx="18" ry="18" width="340" height="90" class="latent"/>
+<text x="600" y="132" text-anchor="middle" class="b">Latent experiential target E</text>
+<text x="600" y="160" text-anchor="middle" class="s">presence · state · content · structure · capacity</text>
+<g>
+<rect x="50" y="245" width="170" height="72" rx="12" class="box"/><text x="135" y="275" text-anchor="middle" class="b">Report R</text><text x="135" y="300" text-anchor="middle" class="s">first-person anchor</text>
+<rect x="240" y="245" width="170" height="72" rx="12" class="box"/><text x="325" y="275" text-anchor="middle" class="b">Behavior B</text><text x="325" y="300" text-anchor="middle" class="s">intentional output</text>
+<rect x="430" y="245" width="170" height="72" rx="12" class="box"/><text x="515" y="275" text-anchor="middle" class="b">Neural N</text><text x="515" y="300" text-anchor="middle" class="s">EEG · fMRI · MEG</text>
+<rect x="620" y="245" width="170" height="72" rx="12" class="box"/><text x="705" y="275" text-anchor="middle" class="b">Perturbation P</text><text x="705" y="300" text-anchor="middle" class="s">TMS-EEG response</text>
+<rect x="810" y="245" width="170" height="72" rx="12" class="box"/><text x="895" y="275" text-anchor="middle" class="b">Physiology A</text><text x="895" y="300" text-anchor="middle" class="s">eye · ECG · EDA</text>
+<rect x="1000" y="245" width="150" height="72" rx="12" class="box"/><text x="1075" y="275" text-anchor="middle" class="b">Context C</text><text x="1075" y="300" text-anchor="middle" class="s">state · task · injury</text>
+</g>
+<path d="M600 185 L515 245" class="line"/><path d="M570 185 L325 245" class="line"/><path d="M530 185 L135 245" class="line"/><path d="M630 185 L705 245" class="line"/><path d="M680 185 L895 245" class="line"/>
+<rect x="265" y="385" width="670" height="86" rx="16" class="out"/>
+<text x="600" y="420" text-anchor="middle" class="b">Consciousness Evidence Profile (CEP)</text>
+<text x="600" y="449" text-anchor="middle" class="s">multimodal evidence + quality + uncertainty + validation domain + assumptions</text>
+<path d="M135 317 L410 385" class="line"/><path d="M325 317 L470 385" class="line"/><path d="M515 317 L540 385" class="line"/><path d="M705 317 L660 385" class="line"/><path d="M895 317 L735 385" class="line"/><path d="M1075 317 L835 385" class="line"/>
+<rect x="330" y="520" width="540" height="76" rx="16" class="out"/>
+<text x="600" y="550" text-anchor="middle" class="b">Allowed scientific output</text>
+<text x="600" y="578" text-anchor="middle" class="s">supporting · opposing · mixed/dissociated · inconclusive</text>
+<path d="M600 471 L600 520" class="line"/>
+</svg>
