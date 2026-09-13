@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/consciousness-measurement/cep.schema.json",
+  "title": "Consciousness Evidence Profile",
+  "description": "Research schema for target-specific multimodal consciousness evidence. Not a clinical diagnostic schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "subject_id",
+    "target",
+    "context",
+    "state",
+    "channels",
+    "assumptions",
+    "allowed_claim",
+    "forbidden_claims"
+  ],
+  "properties": {
+    "subject_id": {"type": "string", "minLength": 1},
+    "target": {
+      "enum": ["presence", "global_state", "content", "structure", "capacity"]
+    },
+    "context": {"type": "string", "minLength": 1},
+    "state": {
+      "enum": [
+        "evidence_supporting",
+        "evidence_opposing",
+        "mixed_or_dissociated",
+        "inconclusive"
+      ]
+    },
+    "channels": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/channel"}
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "allowed_claim": {"type": "string"},
+    "forbidden_claims": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value",
+        "interpretable",
+        "validation_domain",
+        "uncertainty",
+        "quality_notes",
+        "negative_supports_absence"
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "value": {"type": ["number", "null"]},
+        "interpretable": {"type": "boolean"},
+        "validation_domain": {"type": "string", "minLength": 1},
+        "uncertainty": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {"type": "number"}
+            }
+          ]
+        },
+        "quality_notes": {"type": "string"},
+        "negative_supports_absence": {"type": "boolean"}
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this research program, please cite the repository and the specific scientific sources supporting the analysis."
+title: "Consciousness Measurement Science"
+type: software
+authors:
+  - family-names: Keikha
+    given-names: Mahsa
+version: 0.1.0
+date-released: 2026-09-13
