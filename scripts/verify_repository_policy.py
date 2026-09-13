@@ -1,4 +1,4 @@
-"""Repository-wide publication and style policy checks."""
+"""Repository-wide publication, documentation, and style policy checks."""
 
 from __future__ import annotations
 
@@ -23,28 +23,50 @@ TEXT_SUFFIXES = {
 TEXT_NAMES = {"LICENSE", "Makefile"}
 PROHIBITED_DASHES = {"\u2013": "en dash", "\u2014": "em dash"}
 MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
+PLACEHOLDER_TOKENS = ("TO" + "DO", "T" + "BD", "FIX" + "ME", "FILL" + "_ME")
 REQUIRED_READER_FILES = {
+    "CONTRIBUTING.md",
     "RESEARCH_QUESTIONS.md",
     "ROADMAP.md",
+    "claims/README.md",
+    "data/README.md",
+    "docs/README.md",
+    "docs/assumption-registry.md",
     "docs/claim-registry.md",
+    "docs/clinical-translation.md",
+    "docs/edge-cases.md",
     "docs/epistemic-boundaries.md",
+    "docs/ethics.md",
+    "docs/experimental-program.md",
+    "docs/failure-modes.md",
+    "docs/falsification-matrix.md",
+    "docs/glossary.md",
+    "docs/literature.md",
     "docs/measurement-framework.md",
     "docs/measurement-instrument-spec.md",
-    "docs/protocol-phase1.md",
-    "docs/preregistration-template.md",
     "docs/phenomenal-structure.md",
-    "docs/theory-landscape.md",
-    "docs/falsification-matrix.md",
-    "docs/experimental-program.md",
-    "docs/statistical-validation.md",
-    "docs/clinical-translation.md",
-    "docs/ethics.md",
-    "docs/edge-cases.md",
-    "docs/literature.md",
-    "docs/reproducibility.md",
+    "docs/preregistration-template.md",
+    "docs/protocol-phase1.md",
     "docs/repository-policy.md",
-    "schemas/cep.schema.json",
+    "docs/reproducibility.md",
+    "docs/software-guide.md",
+    "docs/start-here.md",
+    "docs/statistical-validation.md",
+    "docs/theory-landscape.md",
+    "examples/README.md",
     "examples/cep_example.json",
+    "examples/claim_example.json",
+    "schemas/README.md",
+    "schemas/cep.schema.json",
+    "schemas/claim.schema.json",
+}
+REQUIRED_README_MARKERS = {
+    "Consciousness Evidence Profile",
+    "Measurement claim ladder",
+    "Current implementation status",
+    "Not yet established",
+    "Negative evidence rule",
+    "Machine-readable research objects",
 }
 
 
@@ -66,6 +88,20 @@ def check_prohibited_dashes(files: list[Path]) -> list[str]:
             if char in text:
                 line = text[: text.index(char)].count("\n") + 1
                 errors.append(f"{path.relative_to(ROOT)}:{line}: prohibited {label}")
+    return errors
+
+
+def check_placeholders(files: list[Path]) -> list[str]:
+    errors: list[str] = []
+    for path in files:
+        relative = path.relative_to(ROOT)
+        if relative == Path("scripts/verify_repository_policy.py"):
+            continue
+        text = path.read_text(encoding="utf-8")
+        for token in PLACEHOLDER_TOKENS:
+            if token in text:
+                line = text[: text.index(token)].count("\n") + 1
+                errors.append(f"{relative}:{line}: unresolved placeholder token {token}")
     return errors
 
 
@@ -122,6 +158,9 @@ def check_reader_contract() -> list[str]:
             errors.append(f"missing required reader file: {relative}")
         if f"]({relative})" not in readme:
             errors.append(f"README does not link required reader file: {relative}")
+    for marker in sorted(REQUIRED_README_MARKERS):
+        if marker not in readme:
+            errors.append(f"README missing required reader marker: {marker}")
     for figure in (
         "docs/figures/measurement_architecture.svg",
         "docs/figures/claim_ladder.svg",
@@ -133,8 +172,10 @@ def check_reader_contract() -> list[str]:
 
 
 def main() -> int:
+    files = tracked_text_files()
     checks = [
-        *check_prohibited_dashes(tracked_text_files()),
+        *check_prohibited_dashes(files),
+        *check_placeholders(files),
         *check_json(),
         *check_svg(),
         *check_markdown_links(),
