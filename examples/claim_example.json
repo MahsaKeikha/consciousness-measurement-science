@@ -1,0 +1,36 @@
+{
+  "claim_id": "C6-demo-001",
+  "target": "structure",
+  "statement": "A preregistered neural distance matrix predicts held-out phenomenal similarity structure in the declared benchmark.",
+  "claim_level": "M6",
+  "population": "healthy adult research participants",
+  "contexts": [
+    "visual similarity benchmark"
+  ],
+  "evidence": {
+    "datasets": [
+      "demo-benchmark-v1"
+    ],
+    "analyses": [
+      "held-out structural alignment"
+    ]
+  },
+  "assumptions": [
+    "A1",
+    "A2",
+    "A10",
+    "A11",
+    "A15"
+  ],
+  "identifiability": "partial",
+  "external_validation": false,
+  "falsification_condition": "Held-out structural alignment is indistinguishable from the preregistered null or distortion exceeds the preregistered bound.",
+  "nonclaims": [
+    "Neural geometry is identical to phenomenology.",
+    "The mapping is universal across states or populations."
+  ],
+  "status": "proposed",
+  "preregistration": null,
+  "code_commit": null,
+  "notes": "Synthetic documentation example only. This file is not an empirical result."
+}

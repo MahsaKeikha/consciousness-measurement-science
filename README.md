@@ -2,38 +2,49 @@
 
 ## A theory-neutral, multimodal, causal, and structural research program
 
-**Research status:** foundational research program, not a clinical device and not a claim to have solved the hard problem.
+**Repository release:** v0.2.0 foundational measurement architecture.
 
-This repository asks a narrower and more tractable question than “What is consciousness made of?”:
+**Scientific status:** research specification and computational scaffold. This repository is not a clinical device, does not claim to have solved the hard problem, and does not assume in advance that consciousness is physical, nonphysical, emergent, fundamental, dual-aspect, or reducible to one signal.
 
-> **What observations, interventions, mathematical structures, and validation standards would justify a scientific measurement claim about consciousness?**
+The central question is:
+
+> **What observations, interventions, mathematical structures, assumptions, and validation standards would justify a scientific measurement claim about consciousness?**
 
 ![Consciousness measurement architecture](docs/figures/measurement_architecture.svg)
 
-The project deliberately separates **experience itself** from the **evidence used to infer it**. It does not define consciousness as EEG complexity, report, behavior, a neural network property, integrated information, global broadcasting, or any other currently contested marker.
+The project separates **experience itself** from the **evidence used to infer it**. Reports, behavior, neural activity, physiology, perturbational responses, complexity, connectivity, or any theory-specific quantity may become evidence for a declared target after validation. None is defined to be consciousness by fiat.
 
-The central premise is epistemic rather than metaphysical:
+## Start here
 
-- conscious experience is directly available only to the subject having it;
-- third-person science therefore measures reports, behavior, physiology, neural dynamics, perturbational responses, and their relationships;
-- a scientific “consciousness measure” is an **inference system with explicit assumptions and uncertainty**, not a magic sensor that reads qualia directly;
-- the ontological status of consciousness - emergent, fundamental, dual-aspect, fully physical, or otherwise - remains an open question unless independently established.
+For a first reading, use this path:
+
+1. [Start Here](docs/start-here.md) - plain-language explanation.
+2. [Research Questions](RESEARCH_QUESTIONS.md) - the questions and what would count as progress.
+3. [Epistemic Boundaries](docs/epistemic-boundaries.md) - what can and cannot be inferred.
+4. [Formal Measurement Framework](docs/measurement-framework.md) - latent targets, observables, identification, and causality.
+5. [Consciousness Evidence Profile specification](docs/measurement-instrument-spec.md) - target-specific multimodal evidence architecture.
+6. [Assumption Registry](docs/assumption-registry.md) and [Failure Modes](docs/failure-modes.md) - hidden dependencies and ways the inference can fail.
+7. [Phase 1 Protocol](docs/protocol-phase1.md), [Experimental Program](docs/experimental-program.md), and [Statistical Validation](docs/statistical-validation.md) - the empirical path.
+8. [Phenomenal Structure](docs/phenomenal-structure.md), [Theory Landscape](docs/theory-landscape.md), and [Falsification Matrix](docs/falsification-matrix.md) - structural and theory-comparison arms.
+9. [Roadmap](ROADMAP.md) - staged deliverables and exit criteria.
+
+The complete documentation map is in [docs/README.md](docs/README.md), and recurring terms are defined in the [Glossary](docs/glossary.md).
 
 ---
 
-## The research question
+## The measurement problem
 
-Let \(E\) denote the experiential target, \(R\) first-person report, \(B\) overt behavior, \(N\) neural measurements, \(P\) perturbational responses, \(A\) autonomic/physiological signals, \(I\) interventions, and \(C\) context.
+Let \(E\) denote the experiential target. Let \(R\) denote first-person report, \(B\) overt intentional behavior, \(N\) neural measurements, \(P\) perturbational responses, \(A\) autonomic or ocular physiology, \(I\) interventions, and \(C\) context and confounds.
 
-We observe
+Science observes
 
 \[
 D=(R,B,N,P,A,I,C),
 \]
 
-but we do not directly observe another subject's \(E\).
+but does not directly observe another subject's \(E\) in the same way.
 
-The measurement problem is therefore:
+The program therefore asks
 
 \[
 \boxed{
@@ -42,350 +53,226 @@ The measurement problem is therefore:
 }
 \]
 
-The project will not hide non-identifiability. When the data do not uniquely determine the experiential claim, the scientifically correct output is an **identification region**, competing explanations, or an inconclusive result.
+This makes three things mandatory: a declared target, an explicit evidence model, and visible assumptions. When the evidence does not identify one conclusion, the allowed output is a bound, competing explanations, abstention, or an inconclusive result.
 
----
+## Five targets that must remain distinct
 
-## Why this needs a new framework
+| Target | Scientific question | Example anchors | Main warning |
+|---|---|---|---|
+| **Presence** | Is there evidence that any experience is occurring? | reliable report, covert command following, state and perturbational evidence | one failed channel is not proof of absence |
+| **Global state** | What multidimensional condition is the system in? | arousal, connectedness, complexity, stability, availability | do not force every state onto one scalar ladder |
+| **Content** | What is being experienced? | trial report, discrimination, decoding, structured behavior | stimulus decoding is not automatically experience decoding |
+| **Phenomenal structure** | What relations hold among experiences? | similarity, ordering, discriminability, experiential geometry | structural correspondence is not ontological identity |
+| **Capacity** | Does the system have organization associated with supporting experience? | causal organization, perturbational response, recurrent dynamics | capacity is not the same as a currently occurring content |
 
-Current consciousness science already has powerful tools, but each measures a different evidential layer:
+A measure validated for one target cannot automatically be promoted to another.
 
-| Evidence channel | What it can establish well | What it cannot establish by itself |
+## Evidence channels
+
+| Channel | What it can support | What it cannot establish alone |
 |---|---|---|
 | First-person report | experienced content when communication is reliable | third-person access to qualia as such |
-| Intentional behavior | command following, discrimination, communication | absence of experience when motor output fails |
-| Task EEG/fMRI | covert command following and content-related responses | universal absence of consciousness when negative |
-| Resting EEG/MEG/fMRI | state-dependent complexity, connectivity, spectral and network features | direct reading of subjective feel |
-| TMS-EEG / PCI family | perturbational capacity for differentiated, integrated cortical responses | a universal metaphysical cutoff for consciousness |
-| Autonomic/ocular signals | covert state/content clues without overt report | a unique consciousness-specific signature in all settings |
-| Lesion/stimulation/pharmacology | causal constraints on candidate mechanisms | a complete explanation of why experience exists |
+| Intentional behavior | command following and discrimination | absence of experience when motor output fails |
+| Task EEG/fMRI | covert task performance and content-related responses | universal absence of consciousness when negative |
+| Resting EEG/MEG/fMRI | state-dependent spectra, complexity, connectivity, and networks | a direct reading of subjective feel |
+| TMS-EEG / PCI family | perturbational capacity for differentiated and integrated response | a universal metaphysical cutoff |
+| Autonomic and ocular signals | covert state or content clues | a unique consciousness-specific signature in every context |
+| Lesion, stimulation, pharmacology | causal constraints on mechanisms | a complete explanation of why experience exists |
 
-A rigorous program therefore needs **triangulation, causal interventions, cross-context validation, and explicit theory comparison**.
+A rigorous measurement program therefore needs triangulation, causal interventions, cross-context validation, explicit uncertainty, and theory comparison.
 
----
+## Research Arm A: target-specific state and content inference
 
-## Core architecture
-
-```mermaid
-flowchart LR
-    E[Latent experiential target E] --> R[First-person report R]
-    E --> B[Intentional behavior B]
-    E --> N[Neural dynamics N]
-    E --> A[Autonomic / ocular A]
-    I[Causal intervention I] --> N
-    I --> P[Perturbational response P]
-    C[Context C: sleep, anesthesia, injury, task] --> R
-    C --> B
-    C --> N
-    C --> P
-    C --> A
-    R --> F[Measurement inference]
-    B --> F
-    N --> F
-    P --> F
-    A --> F
-    F --> Q[Claim + uncertainty + assumptions]
-```
-
-The arrows are **hypotheses to test**, not declarations that every channel is caused only by experience.
-
----
-
-![Measurement claim ladder](docs/figures/claim_ladder.svg)
-
-## Two research arms
-
-### Arm A - Conscious-state inference
-
-The goal is to infer evidence for preserved conscious processing across conditions where report and behavior may fail.
-
-The output is not initially a single scalar. We use an evidence vector
+The initial evidence object is a vector rather than one universal number:
 
 \[
-\mathbf V=(V_R,V_B,V_N,V_P,V_A),
+\mathbf V=(V_R,V_B,V_N,V_P,V_A).
 \]
 
-with channel-specific uncertainty, validity domain, and dependence assumptions.
+The proposed **Consciousness Evidence Profile (CEP)** records channel values, quality, uncertainty, assumptions, validation domain, and the strongest claim supported by the evidence:
 
-A composite score is allowed only after prospective validation demonstrates that combining channels improves calibrated prediction without erasing meaningful dissociations.
+\[
+\operatorname{CEP}(s,t,\tau,c)
+=(\mathbf v,\mathbf q,\mathbf u,\mathcal A,\mathcal D,\Gamma).
+\]
 
-### Arm B - Phenomenal-structure measurement
+The CEP permits four top-level evidence states: supporting, opposing, mixed/dissociated, and inconclusive. It is intentionally a structured profile before it is a scalar.
+
+### Negative evidence rule
+
+A negative detector output is not automatically evidence of absence. It can count against a target only when negative sensitivity is validated for the relevant person, context, task, acquisition, and analysis domain. Otherwise the result remains missing, uninterpretable, or inconclusive.
+
+### Multimodal fusion
+
+A generic fusion model is
+
+\[
+p(E\mid Y_1,\ldots,Y_K,C)
+\propto p(E\mid C)p(Y_1,\ldots,Y_K\mid E,C).
+\]
+
+Conditional independence is not assumed by default. Shared dependence on arousal, medication, injury severity, site, stimulus, or task can make naive multiplication of evidence strongly overconfident.
+
+## Research Arm B: phenomenal-structure measurement
 
 ![Phenomenal structural measurement pipeline](docs/figures/structural_measurement_pipeline.svg)
 
-The “fabric” question is approached without assuming a substance.
-
-For communicative participants, construct a phenomenal relational space
+The phrase "fabric of consciousness" is treated as a research question, not as a declaration about substance. For communicative participants, the program constructs a phenomenal relational space
 
 \[
 (\mathcal E,d_E)
 \]
 
-from similarity judgments, discriminability, ordering, and structured reports. Construct a physical/neural relational space
+from similarity, discriminability, ordering, and structured report, and a physical or neural relational space
 
 \[
 (\mathcal N,d_N)
 \]
 
-from neural population activity, effective connectivity, perturbational response, or representational geometry.
+from population activity, effective connectivity, perturbational responses, or representational geometry.
 
-Then test whether there exists a structure-preserving map \(f:\mathcal N\to\mathcal E\). A simple distortion statistic is
+A preregistered mapping \(f:\mathcal N\to\mathcal E\) can be tested using alignment and distortion. One simple statistic is
 
 \[
-\boxed{
 D(f)=\frac{1}{|\mathcal P|}
 \sum_{(i,j)\in\mathcal P}
-\left|
-\tilde d_E(e_i,e_j)-\tilde d_N(n_i,n_j)
-\right|.
-}
+\left|\tilde d_E(e_i,e_j)-\tilde d_N(n_i,n_j)\right|.
 \]
 
-Low distortion would support a structural correspondence hypothesis. High distortion would reject that particular mapping. Neither result, by itself, proves that the neural structure **is** experience.
+Low distortion supports the declared correspondence family; high distortion rejects it. Neither result by itself establishes that neural structure is identical to experience.
 
----
+## Necessary, sufficient, enabling, and correlated
 
-## What exactly are we trying to measure?
+Candidate mechanisms are classified by the strongest role actually tested:
 
-This project separates five targets that are often conflated:
+- **necessary:** removing the condition eliminates the target within the declared scope;
+- **sufficient:** producing the condition produces the target within the declared scope;
+- **enabling:** the condition permits the target but is not enough by itself;
+- **correlated:** the condition tracks the target but may be a prerequisite, consequence, or confound.
 
-1. **Presence:** is there evidence that any experience is occurring?
-2. **Global state:** what multidimensional condition is the system in - arousal, connectedness to environment, cognitive availability, complexity, stability, etc.?
-3. **Content:** what is being experienced?
-4. **Structure:** what relations hold among contents or qualities of experience?
-5. **Capacity:** does the system have the causal/dynamical organization associated with supporting experience, even when content is inaccessible to us?
+Prediction, causation, and ontological identity are different claims.
 
-A measure validated for one target cannot automatically be promoted to another.
+## Candidate hypothesis families
 
----
-
-## Necessary, sufficient, enabling, and correlated conditions
-
-The project will classify candidate mechanisms into four logically different roles:
-
-- **necessary:** removing the condition eliminates the target under the declared scope;
-- **sufficient:** producing the condition produces the target under the declared scope;
-- **enabling:** the condition permits consciousness but is not itself enough;
-- **correlated:** the condition tracks consciousness but may be a prerequisite, consequence, or confound.
-
-This distinction is essential. Arousal systems, recurrent cortical processing, thalamocortical interactions, global availability, posterior content representations, prefrontal metacognitive processes, complexity, and integration may occupy different roles in different theories and states.
-
----
-
-## Candidate “fabric” hypotheses
-
-The project does not select one ontology in advance. It organizes candidate accounts by the empirical commitments they make.
-
-| Hypothesis family | Candidate substrate/process | Measurement strategy | Scientific status in this project |
-|---|---|---|---|
-| Global workspace | widespread availability/broadcast | ignition, long-range coupling, access and report | testable, theory-dependent |
-| Integrated causal structure | irreducible cause-effect organization | perturbation, integration/differentiation, causal structure | testable, theory-dependent |
-| Recurrent processing | local/recurrent feedback | timing, laminar/recurrent signatures, masking | testable, theory-dependent |
-| Higher-order/metacognitive | representation of lower-order states | confidence, metacognition, prefrontal signatures | testable, theory-dependent |
-| Dynamical/critical regime | rich recurrent metastable dynamics | complexity, entropy, effective connectivity, criticality | testable, non-unique |
-| Structural correspondence | relational structure of experience mirrored by physical structure | geometry/topology/representation alignment | central research arm |
-| Fundamental or dual-aspect | experiential properties are basic or dual-aspect | requires unique bridge laws/predictions | open; not assumed |
-| Quantum-specific | uniquely quantum mechanism is necessary | must predict effects not captured classically | open; high evidential burden |
-
-The 2025 large adversarial test of IIT and GNWT is treated as a methodological model: derive risky, divergent predictions in advance and allow data to challenge all favored theories.
-
----
+The program keeps global-workspace, integrated-causal-structure, recurrent-processing, higher-order/metacognitive, dynamical/critical, structural-correspondence, fundamental/dual-aspect, and quantum-specific hypotheses distinct. Each must be translated into risky empirical predictions before confirmatory testing. A quantum-specific proposal has the additional burden of predicting results not adequately captured by relevant classical alternatives.
 
 ## Measurement claim ladder
 
-The repository uses a conservative claim ladder.
+![Measurement claim ladder](docs/figures/claim_ladder.svg)
 
-| Level | Allowed claim |
+| Level | Strongest allowed claim |
 |---|---|
-| M0 | signal or behavior differs between experimental conditions |
-| M1 | signal predicts a validated report/behavioral target out of sample |
-| M2 | signal generalizes across subjects/sites within a declared context |
-| M3 | signal generalizes across distinct consciousness manipulations (sleep, anesthesia, injury, etc.) |
-| M4 | signal survives confound controls and causal perturbation tests |
-| M5 | multimodal model identifies/bounds a latent experiential target under explicit assumptions |
-| M6 | structural mapping links phenomenal organization to physical organization with preregistered out-of-sample predictions |
-| M7 | candidate theory makes unique successful predictions that rival theories fail |
+| M0 | signal or behavior differs across conditions |
+| M1 | signal predicts a validated report or behavioral target out of sample |
+| M2 | relation generalizes across participants or sites within a declared domain |
+| M3 | relation transports across distinct consciousness manipulations |
+| M4 | relation survives confound controls and causal perturbation tests |
+| M5 | multimodal model identifies or bounds a latent experiential target under explicit assumptions |
+| M6 | preregistered physical-to-phenomenal structural prediction succeeds on held-out relations |
+| M7 | a unique theory prediction survives while relevant rivals fail |
 
-No level licenses the statement “we directly measured qualia” without an additional defensible bridge principle.
+A smaller p-value cannot move a result up this ladder. Claim level is determined by design and validation.
 
----
+## Minimum empirical program
 
-## Minimum viable experimental program
+The staged program includes healthy waking benchmarks, threshold and no-report paradigms, NREM and REM sleep, multiple anesthesia mechanisms, dissociative states, explicit confound manipulations, perturbational studies, multicenter disorders-of-consciousness validation, phenomenal geometry, multimodal partial-identification models, adversarial theory tests, and separate transfer criteria for infants, animals, organoids, and artificial systems.
 
-```mermaid
-flowchart TD
-    W[Healthy waking benchmark] --> S[Sleep / dreaming]
-    W --> AN[Anesthesia: multiple agents]
-    W --> K[Dissociative states]
-    W --> NR[No-report paradigms]
-    S --> F[Cross-state feature validation]
-    AN --> F
-    K --> F
-    NR --> F
-    F --> T[TMS-EEG / perturbation]
-    F --> M[Multimodal latent model]
-    T --> M
-    M --> DOC[Disorders of consciousness]
-    DOC --> X[Prospective external validation]
-    X --> C[Calibrated scientific claim]
-```
+See [Experimental Program](docs/experimental-program.md), [Phase 1 Protocol](docs/protocol-phase1.md), [Preregistration Template](docs/preregistration-template.md), and [Roadmap](ROADMAP.md).
 
-The human program should include:
+## Statistical validation requirements
 
-- healthy wakefulness with trial-level reports;
-- sleep with dream sampling;
-- multiple anesthetic regimes rather than one drug;
-- dissociative conditions such as ketamine, where responsiveness and experience can decouple;
-- no-report perceptual paradigms;
-- motor impairment/locked-in controls;
-- disorders of consciousness with serial CRS-R plus task EEG/fMRI where feasible;
-- TMS-EEG perturbational recordings;
-- autonomic/ocular channels;
-- multicenter replication and held-out-site validation.
+Strong claims require more than in-sample discrimination. The program requires, as appropriate, participant-level and site-level holdout, calibration, proper scoring rules, hierarchical uncertainty, transport tests, measurement invariance, negative and positive controls, missingness analysis, channel-dependence sensitivity, multiplicity control, abstention, strong baselines, and partial-identification analysis.
 
-Sample sizes must be determined from preregistered primary endpoints, anticipated effect sizes, repeated-measures structure, desired calibration error, and external-validation requirements - not from an arbitrary universal number.
+See [Statistical Validation](docs/statistical-validation.md).
 
----
+## Clinical and ethical boundary
 
-## Primary validation principles
+Disorders of consciousness are treated as a critical validation domain, not a shortcut to a binary classifier. Behavioral and task-based neural measures both have false-negative pathways, so discordance itself can be informative. The project requires serial standardized assessment, confound review, multimodal evidence, repeat testing when appropriate, and explicit uncertainty.
 
-A candidate consciousness measure must pass all of the following before strong claims are made:
+See [Clinical Translation](docs/clinical-translation.md) and [Ethics](docs/ethics.md).
 
-- **construct validity:** does it track the target rather than arousal, attention, memory, movement, or report preparation?
-- **convergent validity:** does it agree with independent evidence when that evidence is reliable?
-- **discriminant validity:** can it separate consciousness from nearby but distinct processes?
-- **measurement invariance:** does the mapping remain interpretable across subjects, sites, states, and hardware?
-- **causal sensitivity:** does manipulating candidate mechanisms change the measure in predicted ways?
-- **negative controls:** can unconscious processing produce the same signature?
-- **positive controls:** can known conscious states occur without the signature?
-- **calibration:** do predicted probabilities or evidence strengths match observed frequencies in benchmark tasks?
-- **transportability:** does performance survive new hospitals/labs/populations?
-- **uncertainty honesty:** are negative findings treated as absence of evidence when sensitivity is limited?
+Nothing in this repository is intended to guide withdrawal of life support, replace specialist clinical evaluation, establish legal capacity, or function as a diagnostic medical device.
 
----
+## Machine-readable research objects
 
-## Clinical boundary
+The repository pairs prose commitments with machine-readable objects:
 
-The 2024 multicenter study of disorders of consciousness found covert command following with fMRI or EEG in 25% of participants who showed no observable response to commands at the bedside. This makes one principle non-negotiable:
+- [CEP schema](schemas/cep.schema.json) and [CEP example](examples/cep_example.json);
+- [Claim schema](schemas/claim.schema.json) and [Claim example](examples/claim_example.json);
+- [Claim Registry](docs/claim-registry.md);
+- [Assumption Registry](docs/assumption-registry.md);
+- [Failure Modes](docs/failure-modes.md).
 
-> **Failure of a single behavioral or brain-based test cannot be treated as proof of absent experience unless the test's sensitivity for that person and context is independently established.**
+Future stable claim records belong under [claims/](claims/README.md).
 
-The repository therefore treats clinical consciousness assessment as a **multimodal inference problem**.
+## Reproducible software scaffold
 
-Nothing in this repository is intended to guide withdrawal of life support or replace specialist clinical evaluation.
-
----
-
-## Perturbational complexity: what it means here
-
-PCI and related TMS-EEG measures are among the strongest current candidates for a report-independent index of the brain's capacity for complex integrated responses. The frequently cited empirical cutoff near 0.31 comes from specific benchmark/validation work.
-
-This project will **not** treat 0.31 as a universal law of nature. Thresholds must be tied to:
-
-- the PCI implementation;
-- preprocessing choices;
-- stimulation site and quality controls;
-- reference population;
-- clinical/experimental context;
-- external validation.
-
-A threshold is a measurement-model parameter, not an ontological definition of consciousness.
-
----
-
-## Why subjective report remains indispensable
-
-Reports are imperfect, but they are not scientifically disposable. For conscious **content**, first-person evidence provides the principal anchor from which third-person markers are learned and tested.
-
-The program therefore uses report strategically:
-
-- high-quality trial-level reports in communicative participants;
-- confidence and metacognitive judgments where appropriate;
-- experience-sampling during sleep and altered states;
-- structured similarity judgments to reconstruct phenomenal geometry;
-- no-report paradigms to test whether neural markers merely reflect reporting operations.
-
-The goal is not “objective measures instead of subjective data.” It is **well-calibrated relations between first-person and third-person evidence**.
-
----
-
-## Reproducible computational work
-
-The initial code contains two intentionally modest tools:
-
-1. `structural_alignment.py` - compares normalized relational geometries and provides permutation-based evidence for cross-domain structural correspondence.
-2. `evidence.py` - demonstrates transparent likelihood-ratio fusion under an explicitly declared conditional-independence assumption.
-
-These are research scaffolds, **not clinical classifiers**.
-
-Run:
+The Python package contains auditable research utilities for calibrated binary evidence, CEP records, and structural alignment. It is not a clinical classifier.
 
 ```bash
 python -m pip install -e ".[dev]"
-pytest -q
+make check
 ```
 
----
+Read the [Software Guide](docs/software-guide.md), [Reproducibility](docs/reproducibility.md), [Data Policy](data/README.md), and [Repository Policy](docs/repository-policy.md). Contributions should follow [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Research documents
+## Current implementation status
 
-- [Research questions](RESEARCH_QUESTIONS.md)
-- [Epistemic boundaries](docs/epistemic-boundaries.md)
-- [Formal measurement framework](docs/measurement-framework.md)
-- [Consciousness Evidence Profile specification](docs/measurement-instrument-spec.md)
-- [Phase 1 preregisterable protocol](docs/protocol-phase1.md)
-- [Preregistration template](docs/preregistration-template.md)
-- [Phenomenal structure program](docs/phenomenal-structure.md)
-- [Theory landscape](docs/theory-landscape.md)
-- [Falsification matrix](docs/falsification-matrix.md)
-- [Experimental program](docs/experimental-program.md)
-- [Statistical validation plan](docs/statistical-validation.md)
-- [Clinical translation](docs/clinical-translation.md)
+### Implemented now
+
+- five-target taxonomy;
+- formal latent-target measurement model;
+- explicit epistemic and ontological boundaries;
+- CEP specification and JSON schema;
+- M0-M7 claim ladder and machine-readable claim schema;
+- Assumption Registry and Failure Modes;
+- preregistration template and Phase 1 protocol;
+- cross-state experimental program;
+- statistical validation and partial-identification rules;
+- phenomenal-structure framework;
+- theory landscape and falsification matrix;
+- clinical, ethical, data, and edge-case boundaries;
+- software utilities, unit tests, and repository publication checks.
+
+### Not yet established
+
+The repository does **not** yet contain prospective human evidence validating a general consciousness measure, a clinically approved instrument, a universal threshold, a substrate-independent scalar, or a completed adversarial theory tournament. These are empirical milestones, not documentation gaps.
+
+## Complete documentation
+
+- [Documentation Map](docs/README.md)
+- [Start Here](docs/start-here.md)
+- [Research Questions](RESEARCH_QUESTIONS.md)
+- [Glossary](docs/glossary.md)
+- [Epistemic Boundaries](docs/epistemic-boundaries.md)
+- [Formal Measurement Framework](docs/measurement-framework.md)
+- [Consciousness Evidence Profile](docs/measurement-instrument-spec.md)
+- [Assumption Registry](docs/assumption-registry.md)
+- [Failure Modes](docs/failure-modes.md)
+- [Claim Registry](docs/claim-registry.md)
+- [Phase 1 Protocol](docs/protocol-phase1.md)
+- [Preregistration Template](docs/preregistration-template.md)
+- [Experimental Program](docs/experimental-program.md)
+- [Statistical Validation](docs/statistical-validation.md)
+- [Phenomenal Structure](docs/phenomenal-structure.md)
+- [Theory Landscape](docs/theory-landscape.md)
+- [Falsification Matrix](docs/falsification-matrix.md)
+- [Clinical Translation](docs/clinical-translation.md)
 - [Ethics](docs/ethics.md)
-- [Edge cases: infants, animals, organoids, and AI](docs/edge-cases.md)
-- [Claim registry](docs/claim-registry.md)
-- [Machine-readable CEP schema](schemas/cep.schema.json) and [worked example](examples/cep_example.json)
-- [Literature map](docs/literature.md)
+- [Edge Cases](docs/edge-cases.md)
+- [Literature Map](docs/literature.md)
+- [Software Guide](docs/software-guide.md)
 - [Reproducibility](docs/reproducibility.md)
+- [Data Policy](data/README.md)
+- [Repository Policy](docs/repository-policy.md)
+- [Schemas Guide](schemas/README.md)
+- [Examples Guide](examples/README.md)
+- [Claims Guide](claims/README.md)
 - [Roadmap](ROADMAP.md)
-- [Repository policy](docs/repository-policy.md)
-
----
-
-## What this project may eventually establish
-
-A mature version of this program could support claims such as:
-
-- a particular multimodal signature is a calibrated predictor of reportable experience across multiple altered states;
-- a perturbational response is necessary for a defined class of conscious states within tested conditions;
-- a candidate neural architecture is not sufficient because consciousness dissociates from it;
-- a relational geometry of experience is preserved by a neural/causal representation with bounded distortion;
-- one theory's unique predictions survive adversarial tests while competitors fail;
-- certain experiential claims remain non-identifiable from available third-person data.
-
-Those are strong scientific results even if the ultimate “why is there something it is like?” question remains open.
-
----
-
-## What this project will not claim without new evidence
-
-It will not claim that:
-
-- consciousness has been proven nonphysical;
-- consciousness has been reduced to a conventional physical state of matter;
-- any scalar metric equals consciousness;
-- high complexity alone proves consciousness;
-- a failed descriptor proves dualism or panpsychism;
-- a current AI system is conscious because it behaves intelligently;
-- quantum mechanics is required merely because consciousness is mysterious;
-- correlation closes the explanatory gap.
-
----
+- [Contributing](CONTRIBUTING.md)
 
 ## Scientific north star
 
-The aim is not to manufacture certainty where science does not yet have it.
+The aim is to make consciousness measurement progressively harder to fool: harder to fool with behavior, harder to fool with one biomarker, harder to fool with theory-confirming analysis, harder to fool with hidden assumptions, harder to fool with data leakage, and harder to fool with elegant mathematics that lacks discriminating empirical predictions.
 
-The aim is to make **consciousness measurement progressively harder to fool**: harder to fool with behavior, harder to fool with a single biomarker, harder to fool with theory-confirming analyses, harder to fool with hidden assumptions, and harder to fool with beautiful mathematics that lacks discriminating empirical predictions.
-
-If a universal consciousness meter is possible, this is the kind of validation ladder it will have to survive.
+If a broadly valid consciousness measure is possible, this program aims to define the evidence required to earn that claim. If available observations and assumptions cannot identify the target, the program should make that limitation scientifically visible rather than manufacture certainty.

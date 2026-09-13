@@ -7,3 +7,15 @@ dist/
 build/
 *.egg-info/
 .DS_Store
+
+# Participant or local research data must not be committed by default.
+data/raw/
+data/external/
+data/interim/
+data/derived/
+
+# Local credentials and environment files.
+.env
+.env.*
+*.pem
+*.key

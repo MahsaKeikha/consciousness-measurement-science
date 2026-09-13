@@ -1,25 +1,149 @@
 # Ethics of Consciousness Measurement
 
-## False negatives
+Consciousness measurement creates an unusual ethical asymmetry: the people most affected by a false inference may be the least able to contest it. Ethical design is therefore part of the measurement model, not an appendix added after validation.
 
-False negatives can deny communication attempts, pain management, rehabilitation opportunity, or moral consideration to a conscious individual.
+## 1. False negatives
 
-## False positives
+A false negative can deny recognition, communication attempts, pain treatment, rehabilitation opportunity, or moral consideration to a conscious individual.
 
-False positives can create false hope, inappropriate treatment burden, and misinterpretation of nonspecific physiology.
+Risk is especially high when:
 
-## Mental privacy
+- motor output is impaired;
+- language comprehension is uncertain;
+- arousal fluctuates;
+- recordings are technically difficult;
+- the model is transported beyond its validation domain.
 
-Covert measures can infer states/content without overt disclosure. Protocols require explicit governance around consent, data access, incidental findings, and attempted communication.
+Required safeguards:
 
-## Disorders of consciousness
+- explicit inconclusive state;
+- repeat assessment when fluctuation is plausible;
+- multimodal evidence;
+- reporting of false-negative pathways;
+- avoidance of forced binary labels when sensitivity is uncertain.
 
-Uncertainty must be communicated explicitly. A model's confidence score is not equivalent to certainty about a person's inner life.
+## 2. False positives
 
-## Animals, infants, and AI
+False positives can create false hope, inappropriate treatment burden, unnecessary intervention, misleading communication claims, and incorrect attribution of rich experience to nonspecific signals.
 
-Evidence standards should be conservative about denial of possible experience but equally conservative about claiming experience from superficial similarity.
+Required safeguards:
 
-## Publication ethics
+- specificity controls;
+- blinded validation;
+- independent confirmation for high-stakes claims;
+- clear distinction between covert processing, command following, and phenomenal experience.
 
-Negative and theory-challenging results should be published. Consciousness science is especially vulnerable to confirmation bias because theories are broad and measurement targets are partially latent.
+## 3. Asymmetric error costs
+
+The scientifically optimal threshold and the ethically cautious threshold need not be identical.
+
+For each high-stakes application, report separately:
+
+- false-positive rate;
+- false-negative rate;
+- abstention rate;
+- failure-to-acquire rate;
+- failure-to-interpret rate;
+- consequences of each error type.
+
+A single accuracy number is ethically inadequate.
+
+## 4. Mental privacy
+
+Covert measures can infer state, content, recognition, preference, or attempted communication without overt disclosure.
+
+Protocols require governance for:
+
+- consent or surrogate authorization;
+- what types of content may be decoded;
+- who can access inferred content;
+- whether incidental mental-state findings are returned;
+- whether attempted communication is clinically actionable;
+- retention and secondary use of neural and physiological data;
+- protection against coercive use.
+
+The more content-specific a method becomes, the stronger the privacy safeguards should be.
+
+## 5. Consent and assent
+
+Communicative participants should receive clear explanations of what is measured, what may be inferred, what remains uncertain, and how data will be used.
+
+For people unable to provide conventional consent:
+
+- follow applicable law and institutional review;
+- use legally authorized representatives where required;
+- seek assent or signs of dissent when meaningful;
+- minimize burdens that are not justified by scientific or clinical value.
+
+## 6. Disorders of consciousness
+
+Uncertainty must be communicated explicitly to families and clinicians. A model score is not equivalent to certainty about a person's inner life.
+
+The repository does not endorse using an unvalidated research model for:
+
+- withdrawal of life-sustaining treatment;
+- prognosis;
+- diagnosis;
+- pain-management decisions;
+- communication claims;
+- allocation of rehabilitation resources.
+
+Clinical use requires prospective validation, governance, regulatory review where applicable, and specialist interpretation.
+
+## 7. Infants and nonhuman animals
+
+Absence of human-style report is not evidence of absence of experience. At the same time, superficial behavioral similarity is not enough to establish human-like phenomenology.
+
+Ethically conservative practice means:
+
+- using species- and development-appropriate evidence;
+- separating uncertainty from denial;
+- avoiding invasive procedures that are not scientifically justified;
+- stating which aspects of experience the evidence can and cannot address.
+
+## 8. Organoids and engineered neural systems
+
+Oscillation, complexity, responsiveness, or network organization alone should not be treated as proof of experience.
+
+If future systems reach evidence levels that make sentience scientifically plausible, governance should be revisited before routine experimentation expands.
+
+## 9. Artificial systems
+
+Behavioral fluency, self-report, and emotional language can be generated by systems trained to produce those outputs. They are therefore not sufficient evidence by themselves.
+
+Scientific assessment should require theory-conditional internal, causal, architectural, or structural predictions and must address training-induced mimicry and deliberate spoofability.
+
+Ethical precaution can be considered separately from scientific proof.
+
+## 10. Communication of uncertainty
+
+Public-facing statements should distinguish:
+
+- observed signal;
+- validated predictive relation;
+- latent-target inference;
+- causal interpretation;
+- structural correspondence;
+- theory-specific result;
+- ontological claim.
+
+The repository's M0-M7 ladder exists partly to make this distinction operational.
+
+## 11. Publication ethics
+
+Consciousness science is vulnerable to confirmation bias because theories can be broad and targets are partially latent.
+
+The project therefore requires publication of:
+
+- null confirmatory outcomes;
+- theory-challenging results;
+- failed acquisition and uninterpretable rates;
+- preregistered deviations;
+- negative sensitivity analyses;
+- rival explanations that remain viable.
+
+## 12. Governance principle
+
+The central ethical rule is simple:
+
+> **Do not convert uncertainty about another being's experience into unjustified certainty merely because a decision system demands a binary answer.**
