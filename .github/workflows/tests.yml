@@ -16,6 +16,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -e ".[dev]"
-      - run: pytest -q
       - run: python scripts/verify_repository_policy.py
+      - run: python -m compileall -q src tests
+      - run: pytest -q
       - run: ruff check .
