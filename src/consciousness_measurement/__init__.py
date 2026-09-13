@@ -15,15 +15,15 @@ from .structural_alignment import (
 )
 
 __all__ = [
-    "EvidenceChannel",
     "ChannelEvidence",
     "ConsciousnessEvidenceProfile",
+    "EvidenceChannel",
     "InferenceState",
     "Target",
-    "fuse_independent_channels",
-    "posterior_from_lr",
     "distance_matrix",
+    "fuse_independent_channels",
     "matrix_alignment",
     "normalized_distortion",
     "permutation_alignment_test",
+    "posterior_from_lr",
 ]
