@@ -18,12 +18,13 @@ This directory is the reader-facing specification for the Consciousness Measurem
 - [Failure Modes](failure-modes.md): ways a consciousness-measurement claim can fail even when the analysis is technically correct.
 - [Claim Registry](claim-registry.md): M0-M7 claim language and machine-readable claim records.
 
-### 3. Experimental program
+### 3. Experimental program and statistical identification
 
 - [Phase 1 Protocol](protocol-phase1.md): first preregisterable cross-state benchmark.
 - [Preregistration Template](preregistration-template.md): required declarations before confirmatory analysis.
 - [Experimental Program](experimental-program.md): staged empirical program from healthy benchmarks to theory tournaments.
 - [Statistical Validation](statistical-validation.md): calibration, transport, partial identification, uncertainty, multiplicity, and abstention.
+- [Dependence-Robust Partial Identification](partial-identification.md): sharp marginal-only bounds for multimodal evidence when conditional dependence is unknown.
 
 ### 4. Phenomenal structure and theory comparison
 
