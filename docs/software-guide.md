@@ -19,6 +19,7 @@ make check
 src/consciousness_measurement/
   __init__.py
   evidence.py
+  partial_identification.py
   profile.py
   structural_alignment.py
 ```
@@ -66,6 +67,62 @@ print(combined_lr, posterior)
 ```
 
 Interpretation boundary: the returned posterior is only meaningful for the latent event whose calibration model produced those sensitivities and specificities. It is not automatically a probability of consciousness.
+
+## `partial_identification.py`
+
+### Purpose
+
+Provides a dependence-robust comparison to independence-based fusion. It asks what the channel marginals alone imply when conditional dependence among channels is not known.
+
+For observed-sign marginal probabilities \(p_1,\ldots,p_K\), the module uses the sharp Frechet-Hoeffding intersection bounds
+
+\[
+\max\left(0,\sum_i p_i-(K-1)\right)
+\le
+P\left(\bigcap_i A_i\right)
+\le
+\min_i p_i.
+\]
+
+The bounds are computed separately under the declared target and non-target conditions. They are then propagated to a likelihood-ratio interval and a posterior-probability interval.
+
+### Main objects
+
+- `ProbabilityInterval(lower, upper)` stores probability bounds;
+- `LikelihoodRatioInterval(lower, upper)` permits a finite lower bound and an infinite upper bound;
+- `DependenceRobustFusion(...)` stores target-pattern bounds, non-target-pattern bounds, LR bounds, and posterior bounds.
+
+### Main functions
+
+- `frechet_intersection_bounds(...)` computes sharp intersection bounds from marginals;
+- `conditional_pattern_probability_bounds(...)` converts observed channel signs and calibration values into target and non-target pattern-probability intervals;
+- `likelihood_ratio_bounds(...)` propagates those intervals to LR bounds;
+- `posterior_interval_from_lr_bounds(...)` maps LR bounds to posterior bounds for a declared prior;
+- `fuse_unknown_dependence(...)` performs the complete marginal-only calculation.
+
+### Example
+
+```python
+from consciousness_measurement import (
+    EvidenceChannel,
+    fuse_independent_channels,
+    fuse_unknown_dependence,
+)
+
+behavior = EvidenceChannel("behavior", sensitivity=0.80, specificity=0.90)
+task_eeg = EvidenceChannel("task_eeg", sensitivity=0.75, specificity=0.80)
+observations = [(behavior, True), (task_eeg, True)]
+
+_, independence_posterior = fuse_independent_channels(0.25, observations)
+robust = fuse_unknown_dependence(0.25, observations)
+
+print(independence_posterior)
+print(robust.posterior)
+```
+
+The independence posterior is one assumption-specific value. The robust interval contains every posterior compatible with the calibrated marginals when dependence is otherwise unrestricted. A wide or even vacuous interval is an identification result, not an error.
+
+See [Dependence-Robust Partial Identification](partial-identification.md) for the derivation and interpretation boundary.
 
 ## `profile.py`
 
@@ -204,6 +261,8 @@ The package does not currently:
 
 - classify clinical patients;
 - estimate a universal consciousness probability;
+- infer channel dependence from marginal sensitivity and specificity alone;
+- propagate sampling uncertainty in sensitivity and specificity through the partial-identification interval;
 - implement PCI;
 - decode dream content;
 - infer AI consciousness;
