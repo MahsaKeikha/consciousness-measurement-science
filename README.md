@@ -22,7 +22,7 @@ If this is your first visit, read the repository in this order:
 4. [Formal Measurement Framework](docs/measurement-framework.md) for the mathematical object being measured.
 5. [Consciousness Evidence Profile specification](docs/measurement-instrument-spec.md) for the proposed evidence architecture.
 6. [Phase 1 protocol](docs/protocol-phase1.md) and [Experimental Program](docs/experimental-program.md) for the empirical path.
-7. [Statistical Validation Plan](docs/statistical-validation.md) for calibration, generalization, partial identification, and uncertainty.
+7. [Statistical Validation Plan](docs/statistical-validation.md) and [Dependence-Robust Partial Identification](docs/partial-identification.md) for calibration, dependence sensitivity, identification regions, and uncertainty.
 8. [Phenomenal Structure Program](docs/phenomenal-structure.md) for the structural arm of the project.
 9. [Theory Landscape](docs/theory-landscape.md) and [Falsification Matrix](docs/falsification-matrix.md) for theory comparison.
 10. [Roadmap](ROADMAP.md) for staged deliverables and completion criteria.
@@ -275,7 +275,7 @@ A candidate measurement model is not accepted because it has a high in-sample ac
 - partial-identification analysis when the latent target is not point identified;
 - prospective preregistration of confirmatory endpoints.
 
-See [Statistical Validation Plan](docs/statistical-validation.md).
+See [Statistical Validation Plan](docs/statistical-validation.md) and [Dependence-Robust Partial Identification](docs/partial-identification.md).
 
 ---
 
@@ -293,9 +293,10 @@ Nothing in this repository is intended to guide withdrawal of life support, repl
 
 ## Reproducible computational scaffold
 
-The package currently contains three intentionally small, auditable components:
+The package currently contains four intentionally small, auditable components:
 
 - `evidence.py` implements likelihood-ratio updates under an explicit conditional-independence assumption;
+- `partial_identification.py` computes sharp marginal-only Frechet-Hoeffding bounds for joint evidence when conditional dependence is unknown;
 - `profile.py` implements target-specific CEP records with an explicit inconclusive state and conservative negative-evidence rules;
 - `structural_alignment.py` implements distance matrices, relational alignment, normalized distortion, and permutation testing.
 
@@ -355,6 +356,7 @@ The [Assumption Registry](docs/assumption-registry.md) and [Failure Modes](docs/
 - [Preregistration Template](docs/preregistration-template.md)
 - [Experimental Program](docs/experimental-program.md)
 - [Statistical Validation Plan](docs/statistical-validation.md)
+- [Dependence-Robust Partial Identification](docs/partial-identification.md)
 - [Clinical Translation](docs/clinical-translation.md)
 - [Ethics](docs/ethics.md)
 - [Edge Cases](docs/edge-cases.md)
@@ -397,9 +399,10 @@ The [Assumption Registry](docs/assumption-registry.md) and [Failure Modes](docs/
 - theory falsification matrix;
 - phenomenal-structure framework;
 - statistical validation rules;
+- dependence-robust partial-identification bounds for unknown channel dependence;
 - clinical translation and ethics boundaries;
 - edge-case standards for infants, animals, organoids, and AI;
-- computational scaffolds for evidence fusion, CEP records, and structural alignment;
+- computational scaffolds for independence-based fusion, dependence-robust fusion, CEP records, and structural alignment;
 - unit tests and repository-wide publication checks.
 
 ### Not yet established
