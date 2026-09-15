@@ -10,6 +10,17 @@ SVG_NS = "{http://www.w3.org/2000/svg}"
 FONT_SIZE = {"b": 17.0, "s": 13.5, "s2": 15.0}
 HORIZONTAL_PADDING = 16.0
 WIDTH_FACTOR = 0.58
+EXPECTED_NODES = {
+    "latent",
+    "report",
+    "behavior",
+    "neural",
+    "perturbation",
+    "physiology",
+    "context",
+    "cep",
+    "output",
+}
 
 
 def _number(element: ET.Element, name: str) -> float:
@@ -37,8 +48,9 @@ def _baselines(element: ET.Element) -> list[float]:
 
 def test_measurement_architecture_labels_stay_inside_parent_boxes() -> None:
     root = ET.parse(FIGURE).getroot()
-    view_box = [float(value) for value in root.attrib["viewBox"].split()]
-    _, _, view_width, view_height = view_box
+    _, _, view_width, view_height = [
+        float(value) for value in root.attrib["viewBox"].split()
+    ]
 
     boxes: dict[str, ET.Element] = {}
     for rect in root.iter(f"{SVG_NS}rect"):
@@ -52,17 +64,7 @@ def test_measurement_architecture_labels_stay_inside_parent_boxes() -> None:
             assert 0 <= x < x + width <= view_width
             assert 0 <= y < y + height <= view_height
 
-    assert boxes == {
-        "latent": boxes["latent"],
-        "report": boxes["report"],
-        "behavior": boxes["behavior"],
-        "neural": boxes["neural"],
-        "perturbation": boxes["perturbation"],
-        "physiology": boxes["physiology"],
-        "context": boxes["context"],
-        "cep": boxes["cep"],
-        "output": boxes["output"],
-    }
+    assert set(boxes) == EXPECTED_NODES
 
     checked = 0
     for text in root.iter(f"{SVG_NS}text"):
@@ -94,4 +96,4 @@ def test_measurement_architecture_labels_stay_inside_parent_boxes() -> None:
         for baseline in _baselines(text):
             assert box_y + 16.0 <= baseline <= box_y + box_height - 10.0
 
-    assert checked == 18
+    assert checked == 21
