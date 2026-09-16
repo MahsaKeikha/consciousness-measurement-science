@@ -4,6 +4,10 @@
 
 If the qualitative character of experience cannot be directly exported from one mind to another, relational structure may still be empirically accessible.
 
+![Phenomenal structural measurement pipeline](figures/structural_measurement_pipeline.svg)
+
+[Open the editable SVG source](figures/structural_measurement_pipeline.svg)
+
 Examples:
 
 - red is judged more similar to orange than to blue;
@@ -69,7 +73,6 @@ A strong structural hypothesis must survive:
 - cross-modal structure;
 - lesions/stimulation that selectively distort one part of phenomenal space;
 - held-out experience classes.
-
 
 ## Local-to-global phenomenal structure
 
