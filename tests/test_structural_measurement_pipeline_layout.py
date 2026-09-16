@@ -89,5 +89,5 @@ def test_pipeline_labels_stay_inside_parent_blocks() -> None:
 
 def test_phenomenal_structure_record_keeps_pipeline_visible() -> None:
     text = RECORD.read_text(encoding="utf-8")
-    assert "figures/structural_measurement_pipeline.svg?v=20260916c" in text
+    assert "![Phenomenal structural measurement pipeline](figures/structural_measurement_pipeline.svg)" in text
     assert "[Open the editable SVG source](figures/structural_measurement_pipeline.svg)" in text
