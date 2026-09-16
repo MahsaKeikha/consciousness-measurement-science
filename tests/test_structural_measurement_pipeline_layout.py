@@ -84,7 +84,7 @@ def test_pipeline_labels_stay_inside_parent_blocks() -> None:
         baseline = _number(text, "y")
         assert box_y + 20.0 <= baseline <= box_y + box_height - 12.0
 
-    assert checked == 22
+    assert checked == 23
 
 
 def test_phenomenal_structure_record_keeps_pipeline_visible() -> None:
