@@ -4,7 +4,7 @@
 
 If the qualitative character of experience cannot be directly exported from one mind to another, relational structure may still be empirically accessible.
 
-![Phenomenal structural measurement pipeline](figures/structural_measurement_pipeline.svg?v=20260916c)
+![Phenomenal structural measurement pipeline](figures/structural_measurement_pipeline.svg)
 
 [Open the editable SVG source](figures/structural_measurement_pipeline.svg)
 
