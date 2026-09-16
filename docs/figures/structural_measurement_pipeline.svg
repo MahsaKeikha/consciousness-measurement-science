@@ -11,9 +11,10 @@
   <text x="60" y="66" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="700" fill="#0f172a">A tractable route to the &quot;fabric&quot; question: test structure, not substance</text>
 
   <rect x="70" y="150" width="370" height="170" rx="20" fill="#ede9fe" stroke="#7c3aed" stroke-width="3" data-node="phenomenal-observations"/>
-  <text x="255" y="198" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#3b0764" data-parent="phenomenal-observations">Phenomenal observations</text>
-  <text x="255" y="238" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81" data-parent="phenomenal-observations">similarity, order, discrimination</text>
-  <text x="255" y="270" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81" data-parent="phenomenal-observations">structured first-person report</text>
+  <text x="255" y="193" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#3b0764" data-parent="phenomenal-observations">Phenomenal observations</text>
+  <text x="255" y="230" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81" data-parent="phenomenal-observations">similarity and order</text>
+  <text x="255" y="260" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81" data-parent="phenomenal-observations">discrimination</text>
+  <text x="255" y="290" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81" data-parent="phenomenal-observations">structured first-person report</text>
 
   <rect x="510" y="150" width="370" height="170" rx="20" fill="#dbeafe" stroke="#2563eb" stroke-width="3" data-node="phenomenal-structure"/>
   <text x="695" y="198" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#1e3a8a" data-parent="phenomenal-structure">Phenomenal structure</text>
