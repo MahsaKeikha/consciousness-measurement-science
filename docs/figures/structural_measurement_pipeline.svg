@@ -10,42 +10,43 @@
   <rect width="1500" height="820" fill="#ffffff"/>
   <text x="60" y="66" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="700" fill="#0f172a">A tractable route to the &quot;fabric&quot; question: test structure, not substance</text>
 
-  <rect x="70" y="150" width="370" height="170" rx="20" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
-  <text x="255" y="198" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#3b0764">Phenomenal observations</text>
-  <text x="255" y="238" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81">similarity, order, discrimination</text>
-  <text x="255" y="270" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81">structured first-person report</text>
+  <rect x="70" y="150" width="370" height="170" rx="20" fill="#ede9fe" stroke="#7c3aed" stroke-width="3" data-node="phenomenal-observations"/>
+  <text x="255" y="198" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#3b0764" data-parent="phenomenal-observations">Phenomenal observations</text>
+  <text x="255" y="238" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81" data-parent="phenomenal-observations">similarity, order, discrimination</text>
+  <text x="255" y="270" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#312e81" data-parent="phenomenal-observations">structured first-person report</text>
 
-  <rect x="510" y="150" width="370" height="170" rx="20" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
-  <text x="695" y="198" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#1e3a8a">Phenomenal structure</text>
-  <text x="695" y="238" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#1e40af">metric and topology</text>
-  <text x="695" y="270" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#1e40af">local and global relations</text>
+  <rect x="510" y="150" width="370" height="170" rx="20" fill="#dbeafe" stroke="#2563eb" stroke-width="3" data-node="phenomenal-structure"/>
+  <text x="695" y="198" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#1e3a8a" data-parent="phenomenal-structure">Phenomenal structure</text>
+  <text x="695" y="238" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#1e40af" data-parent="phenomenal-structure">metric and topology</text>
+  <text x="695" y="270" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#1e40af" data-parent="phenomenal-structure">local and global relations</text>
 
-  <rect x="70" y="445" width="370" height="180" rx="20" fill="#ccfbf1" stroke="#0f766e" stroke-width="3"/>
-  <text x="255" y="488" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#134e4a">Physical observations</text>
-  <text x="255" y="530" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="19" fill="#115e59">population activity</text>
-  <text x="255" y="561" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="19" fill="#115e59">connectivity</text>
-  <text x="255" y="592" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="19" fill="#115e59">perturbational response</text>
+  <rect x="70" y="445" width="370" height="180" rx="20" fill="#ccfbf1" stroke="#0f766e" stroke-width="3" data-node="physical-observations"/>
+  <text x="255" y="488" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#134e4a" data-parent="physical-observations">Physical observations</text>
+  <text x="255" y="530" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="19" fill="#115e59" data-parent="physical-observations">population activity</text>
+  <text x="255" y="561" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="19" fill="#115e59" data-parent="physical-observations">connectivity</text>
+  <text x="255" y="592" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="19" fill="#115e59" data-parent="physical-observations">perturbational response</text>
 
-  <rect x="510" y="445" width="370" height="180" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
-  <text x="695" y="493" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#14532d">Physical structure</text>
-  <text x="695" y="535" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#166534">representational geometry</text>
-  <text x="695" y="567" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#166534">causal geometry</text>
+  <rect x="510" y="445" width="370" height="180" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="3" data-node="physical-structure"/>
+  <text x="695" y="493" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#14532d" data-parent="physical-structure">Physical structure</text>
+  <text x="695" y="535" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#166534" data-parent="physical-structure">representational geometry</text>
+  <text x="695" y="567" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#166534" data-parent="physical-structure">causal geometry</text>
 
-  <rect x="990" y="235" width="440" height="285" rx="24" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
-  <text x="1210" y="286" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#78350f">Preregistered structure map f</text>
-  <text x="1210" y="332" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e">train on one subset</text>
-  <text x="1210" y="367" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e">predict held-out relations</text>
-  <text x="1210" y="402" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e">control stimulus geometry</text>
-  <text x="1210" y="435" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e">and semantic geometry</text>
-  <text x="1210" y="470" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e">perturb when causal claims are made</text>
+  <rect x="990" y="235" width="440" height="285" rx="24" fill="#fef3c7" stroke="#d97706" stroke-width="3" data-node="mapping"/>
+  <text x="1210" y="286" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#78350f" data-parent="mapping">Preregistered structure map f</text>
+  <text x="1210" y="332" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e" data-parent="mapping">train on one subset</text>
+  <text x="1210" y="367" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e" data-parent="mapping">predict held-out relations</text>
+  <text x="1210" y="402" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e" data-parent="mapping">control stimulus geometry</text>
+  <text x="1210" y="435" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e" data-parent="mapping">and semantic geometry</text>
+  <text x="1210" y="470" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#92400e" data-parent="mapping">perturb when causal claims are made</text>
 
   <path d="M440 235 L510 235" stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
   <path d="M440 535 L510 535" stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
   <path d="M880 235 L990 315" stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
   <path d="M880 535 L990 445" stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
 
-  <rect x="455" y="682" width="690" height="108" rx="20" fill="#ffe4e6" stroke="#e11d48" stroke-width="3"/>
-  <text x="800" y="726" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#881337">Outcome: support or reject the mapping family</text>
-  <text x="800" y="759" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#9f1239">This does not establish identity between physical structure and experience.</text>
+  <rect x="455" y="682" width="690" height="108" rx="20" fill="#ffe4e6" stroke="#e11d48" stroke-width="3" data-node="outcome"/>
+  <text x="800" y="720" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#881337" data-parent="outcome">Outcome: support or reject the mapping family</text>
+  <text x="800" y="750" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#9f1239" data-parent="outcome">This does not establish identity between</text>
+  <text x="800" y="775" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#9f1239" data-parent="outcome">physical structure and experience.</text>
   <path d="M1210 520 L1045 682" stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
 </svg>
