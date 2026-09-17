@@ -1,0 +1,24 @@
+{
+  "dependence": {
+    "absolute_error_at_full_shared_dependence": 0.15664991624790614,
+    "naive_posterior": 0.9966499162479061,
+    "posterior_at_full_shared_dependence": 0.84
+  },
+  "finite_sample": {
+    "minimum_observed_coverage": 0.9988,
+    "nominal_coverage": 0.95,
+    "width_n2500": 0.16889058989520173,
+    "width_n50": 0.6059482664100844
+  },
+  "seed": 20260917,
+  "status": "synthetic_and_analytic_validation_only",
+  "structural_alignment": {
+    "high_signal_mean_alignment": 0.7989255350588228,
+    "high_signal_rejection_rate": 1.0,
+    "null_rejection_rate": 0.0375
+  },
+  "transport": {
+    "maximum_absolute_bias_on_grid": 0.1333333333333333,
+    "zero_shift_bias": 0.0
+  }
+}
