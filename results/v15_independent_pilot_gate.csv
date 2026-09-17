@@ -1,0 +1,7 @@
+planned_confirmatory_n,release_rate,confirm_identified_rate,conditional_coverage_given_release_and_identification,released_runs,identified_confirmatory_runs
+600.0,0.0,0.0,nan,0.0,0.0
+800.0,0.08,0.08,1.0,128.0,128.0
+900.0,0.47625,0.47625,1.0,762.0,762.0
+1000.0,0.804375,0.804375,1.0,1287.0,1287.0
+1200.0,0.986875,0.986875,1.0,1579.0,1579.0
+1600.0,1.0,1.0,1.0,1600.0,1600.0
