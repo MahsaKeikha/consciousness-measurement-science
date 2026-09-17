@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">Pooled site data can leave population prevalence partially identified</title>
+<desc id="desc">Two sites use different calibration channels; the band is the sharp average-prevalence set from the pooled proxy rate alone.</desc>
+<style>
+.bg{fill:#fff}.panel{fill:#f8fafc;stroke:#cbd5e1;stroke-width:1}.axis{stroke:#334155;stroke-width:1.4}.grid{stroke:#e2e8f0;stroke-width:1}.title{font:700 24px Arial,Helvetica,sans-serif;fill:#0f172a}.subtitle{font:14px Arial,Helvetica,sans-serif;fill:#475569}.label{font:600 15px Arial,Helvetica,sans-serif;fill:#1e293b}.tick{font:13px Arial,Helvetica,sans-serif;fill:#475569}.lineA{fill:none;stroke:#0f5f78;stroke-width:3}.lineB{fill:none;stroke:#9a4e0d;stroke-width:3}.lineC{fill:none;stroke:#6b4fa3;stroke-width:3}.dotA{fill:#0f5f78}.dotB{fill:#9a4e0d}.band{fill:#dceef3;stroke:none}.ref{stroke:#64748b;stroke-width:1.5;stroke-dasharray:7 6}.note{font:13px Arial,Helvetica,sans-serif;fill:#334155}.box{fill:#fff;stroke:#cbd5e1;stroke-width:1}
+</style>
+<rect class="bg" width="1200" height="720"/>
+<text class="title" x="110" y="42">Pooled site data can leave population prevalence partially identified</text>
+<text class="subtitle" x="110" y="68">Two sites use different calibration channels; the band is the sharp average-prevalence set from the pooled proxy rate alone.</text>
+<rect class="panel" x="110" y="105" width="1035" height="510" rx="8"/>
+<line class="grid" x1="110" y1="615.0" x2="1145" y2="615.0"/>
+<text class="tick" x="96" y="619.0" text-anchor="end">0.0</text>
+<line class="grid" x1="110" y1="513.0" x2="1145" y2="513.0"/>
+<text class="tick" x="96" y="517.0" text-anchor="end">0.2</text>
+<line class="grid" x1="110" y1="411.0" x2="1145" y2="411.0"/>
+<text class="tick" x="96" y="415.0" text-anchor="end">0.4</text>
+<line class="grid" x1="110" y1="309.0" x2="1145" y2="309.0"/>
+<text class="tick" x="96" y="313.0" text-anchor="end">0.6</text>
+<line class="grid" x1="110" y1="207.0" x2="1145" y2="207.0"/>
+<text class="tick" x="96" y="211.0" text-anchor="end">0.8</text>
+<line class="grid" x1="110" y1="105.0" x2="1145" y2="105.0"/>
+<text class="tick" x="96" y="109.0" text-anchor="end">1.0</text>
+<line class="grid" x1="110.0" y1="105" x2="110.0" y2="615"/>
+<text class="tick" x="110.0" y="642" text-anchor="middle">0.25</text>
+<line class="grid" x1="239.4" y1="105" x2="239.4" y2="615"/>
+<text class="tick" x="239.4" y="642" text-anchor="middle">0.30</text>
+<line class="grid" x1="368.7" y1="105" x2="368.7" y2="615"/>
+<text class="tick" x="368.7" y="642" text-anchor="middle">0.35</text>
+<line class="grid" x1="498.1" y1="105" x2="498.1" y2="615"/>
+<text class="tick" x="498.1" y="642" text-anchor="middle">0.40</text>
+<line class="grid" x1="627.5" y1="105" x2="627.5" y2="615"/>
+<text class="tick" x="627.5" y="642" text-anchor="middle">0.45</text>
+<line class="grid" x1="756.9" y1="105" x2="756.9" y2="615"/>
+<text class="tick" x="756.9" y="642" text-anchor="middle">0.50</text>
+<line class="grid" x1="886.3" y1="105" x2="886.3" y2="615"/>
+<text class="tick" x="886.3" y="642" text-anchor="middle">0.55</text>
+<line class="grid" x1="1015.6" y1="105" x2="1015.6" y2="615"/>
+<text class="tick" x="1015.6" y="642" text-anchor="middle">0.60</text>
+<line class="grid" x1="1145.0" y1="105" x2="1145.0" y2="615"/>
+<text class="tick" x="1145.0" y="642" text-anchor="middle">0.65</text>
+<polygon class="band" points="110.0,551.2 239.4,519.4 368.7,487.5 498.1,455.6 627.5,423.8 756.9,391.9 886.3,360.0 1015.6,309.0 1145.0,258.0 1145.0,200.6 1015.6,232.5 886.3,264.4 756.9,296.2 627.5,328.1 498.1,360.0 368.7,411.0 239.4,462.0 110.0,513.0"/>
+<polyline class="lineA" points="110.0,551.2 239.4,519.4 368.7,487.5 498.1,455.6 627.5,423.8 756.9,391.9 886.3,360.0 1015.6,309.0 1145.0,258.0"/>
+<polyline class="lineB" points="110.0,513.0 239.4,462.0 368.7,411.0 498.1,360.0 627.5,328.1 756.9,296.2 886.3,264.4 1015.6,232.5 1145.0,200.6"/>
+<line class="axis" x1="110" y1="615" x2="1145" y2="615"/>
+<line class="axis" x1="110" y1="105" x2="110" y2="615"/>
+<text class="label" x="627.5" y="690" text-anchor="middle">pooled positive proxy rate</text>
+<text class="label" transform="translate(31 360.0) rotate(-90)" text-anchor="middle">population-average latent prevalence</text>
+</svg>

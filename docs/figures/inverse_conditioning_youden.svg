@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">Weak calibration makes latent inversion ill-conditioned</title>
+<desc id="desc">A fixed proxy-rate error is amplified by exactly 1/J, where J is the Youden information margin.</desc>
+<style>
+.bg{fill:#fff}.panel{fill:#f8fafc;stroke:#cbd5e1;stroke-width:1}.axis{stroke:#334155;stroke-width:1.4}.grid{stroke:#e2e8f0;stroke-width:1}.title{font:700 24px Arial,Helvetica,sans-serif;fill:#0f172a}.subtitle{font:14px Arial,Helvetica,sans-serif;fill:#475569}.label{font:600 15px Arial,Helvetica,sans-serif;fill:#1e293b}.tick{font:13px Arial,Helvetica,sans-serif;fill:#475569}.lineA{fill:none;stroke:#0f5f78;stroke-width:3}.lineB{fill:none;stroke:#9a4e0d;stroke-width:3}.lineC{fill:none;stroke:#6b4fa3;stroke-width:3}.dotA{fill:#0f5f78}.dotB{fill:#9a4e0d}.band{fill:#dceef3;stroke:none}.ref{stroke:#64748b;stroke-width:1.5;stroke-dasharray:7 6}.note{font:13px Arial,Helvetica,sans-serif;fill:#334155}.box{fill:#fff;stroke:#cbd5e1;stroke-width:1}
+</style>
+<rect class="bg" width="1200" height="720"/>
+<text class="title" x="110" y="42">Weak calibration makes latent inversion ill-conditioned</text>
+<text class="subtitle" x="110" y="68">A fixed proxy-rate error is amplified by exactly 1/J, where J is the Youden information margin.</text>
+<rect class="panel" x="110" y="105" width="1035" height="510" rx="8"/>
+<line class="grid" x1="110" y1="615.0" x2="1145" y2="615.0"/>
+<text class="tick" x="96" y="619.0" text-anchor="end">0</text>
+<line class="grid" x1="110" y1="513.0" x2="1145" y2="513.0"/>
+<text class="tick" x="96" y="517.0" text-anchor="end">4.2</text>
+<line class="grid" x1="110" y1="411.0" x2="1145" y2="411.0"/>
+<text class="tick" x="96" y="415.0" text-anchor="end">8.4</text>
+<line class="grid" x1="110" y1="309.0" x2="1145" y2="309.0"/>
+<text class="tick" x="96" y="313.0" text-anchor="end">12.6</text>
+<line class="grid" x1="110" y1="207.0" x2="1145" y2="207.0"/>
+<text class="tick" x="96" y="211.0" text-anchor="end">16.8</text>
+<line class="grid" x1="110" y1="105.0" x2="1145" y2="105.0"/>
+<text class="tick" x="96" y="109.0" text-anchor="end">21</text>
+<line class="grid" x1="110.0" y1="105" x2="110.0" y2="615"/>
+<text class="tick" x="110.0" y="642" text-anchor="middle">0.05</text>
+<line class="grid" x1="170.9" y1="105" x2="170.9" y2="615"/>
+<text class="tick" x="170.9" y="642" text-anchor="middle">0.1</text>
+<line class="grid" x1="292.6" y1="105" x2="292.6" y2="615"/>
+<text class="tick" x="292.6" y="642" text-anchor="middle">0.2</text>
+<line class="grid" x1="414.4" y1="105" x2="414.4" y2="615"/>
+<text class="tick" x="414.4" y="642" text-anchor="middle">0.3</text>
+<line class="grid" x1="657.9" y1="105" x2="657.9" y2="615"/>
+<text class="tick" x="657.9" y="642" text-anchor="middle">0.5</text>
+<line class="grid" x1="962.4" y1="105" x2="962.4" y2="615"/>
+<text class="tick" x="962.4" y="642" text-anchor="middle">0.75</text>
+<line class="grid" x1="1145.0" y1="105" x2="1145.0" y2="615"/>
+<text class="tick" x="1145.0" y="642" text-anchor="middle">0.9</text>
+<line class="axis" x1="110" y1="615" x2="1145" y2="615"/>
+<line class="axis" x1="110" y1="105" x2="110" y2="615"/>
+<text class="label" x="627.5" y="690" text-anchor="middle">Youden information margin J</text>
+<text class="label" transform="translate(31 360.0) rotate(-90)" text-anchor="middle">absolute proxy-to-latent error amplification</text>
+<polyline class="lineC" points="110.0,129.3 170.9,372.1 292.6,493.6 414.4,534.0 657.9,566.4 962.4,582.6 1145.0,588.0"/>
+<circle class="dotA" cx="110.0" cy="129.3" r="4.5"/>
+<circle class="dotA" cx="170.9" cy="372.1" r="4.5"/>
+<circle class="dotA" cx="292.6" cy="493.6" r="4.5"/>
+<circle class="dotA" cx="414.4" cy="534.0" r="4.5"/>
+<circle class="dotA" cx="657.9" cy="566.4" r="4.5"/>
+<circle class="dotA" cx="962.4" cy="582.6" r="4.5"/>
+<circle class="dotA" cx="1145.0" cy="588.0" r="4.5"/>
+<line class="lineC" x1="650" y1="91" x2="682" y2="91"/>
+<text class="tick" x="692" y="95">error amplification 1/J</text>
+</svg>
