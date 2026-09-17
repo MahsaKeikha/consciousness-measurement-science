@@ -9,11 +9,13 @@ RECORD = ROOT / "docs" / "phenomenal-structure.md"
 SVG_NS = "{http://www.w3.org/2000/svg}"
 EXPECTED_NODES = {
     "phenomenal-observations",
-    "phenomenal-structure",
     "physical-observations",
-    "physical-structure",
+    "phenomenal-geometry",
+    "neural-geometry",
     "mapping",
-    "outcome",
+    "support",
+    "reject",
+    "inconclusive",
 }
 HORIZONTAL_PADDING = 24.0
 WIDTH_FACTOR = 0.52
@@ -84,7 +86,17 @@ def test_pipeline_labels_stay_inside_parent_blocks() -> None:
         baseline = _number(text, "y")
         assert box_y + 20.0 <= baseline <= box_y + box_height - 12.0
 
-    assert checked == 23
+    assert checked == 24
+
+
+def test_pipeline_uses_four_explicit_scientific_layers() -> None:
+    text = FIGURE.read_text(encoding="utf-8")
+    for marker in ("LAYER 1", "LAYER 2", "LAYER 3", "LAYER 4"):
+        assert marker in text
+    assert "OBSERVATIONS" in text
+    assert "RELATIONAL" in text
+    assert "PREREGISTERED" in text
+    assert "EVALUATION" in text
 
 
 def test_phenomenal_structure_record_keeps_pipeline_visible() -> None:

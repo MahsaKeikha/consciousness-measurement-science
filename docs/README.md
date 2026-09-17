@@ -2,11 +2,21 @@
 
 This directory is the reader-facing specification for the Consciousness Measurement Science program. The documents are intentionally modular so that a reader can distinguish epistemology, measurement theory, experimental design, statistics, theory testing, clinical translation, ethics, and software implementation.
 
+## Visual and audit entry points
+
+- [Visual Research Guide](visual-research-guide.md): the complete nine-figure visual record of Research III, from target definition through validation and claim discipline.
+- [Figure Catalog](figure-catalog.md): canonical figure inventory, scientific role, and primary audit record for every visual.
+- [Evidence-to-Claim Audit](evidence-to-claim-audit.md): explicit chain from declared target and observable evidence to assumptions, identification status, validation, falsification, claim ceiling, and nonclaims.
+
+These three pages are the fastest route for a technically sophisticated reader who wants to understand the whole program before reading the detailed specifications.
+
 ## Recommended reading path
 
 ### 1. Orientation
 
+- [Visual Research Guide](visual-research-guide.md): visual map of the full measurement program.
 - [Start Here](start-here.md): plain-language explanation of the measurement problem and how the repository is organized.
+- [Research Questions](../RESEARCH_QUESTIONS.md): scientific questions the program is designed to answer.
 - [Glossary](glossary.md): definitions for targets, evidence channels, claim levels, and common methodological terms.
 - [Epistemic Boundaries](epistemic-boundaries.md): direct and indirect access, correlation versus causation, report, and theory neutrality.
 
@@ -17,6 +27,7 @@ This directory is the reader-facing specification for the Consciousness Measurem
 - [Assumption Registry](assumption-registry.md): assumptions that must be named before an inference is trusted.
 - [Failure Modes](failure-modes.md): ways a consciousness-measurement claim can fail even when the analysis is technically correct.
 - [Claim Registry](claim-registry.md): M0-M7 claim language and machine-readable claim records.
+- [Evidence-to-Claim Audit](evidence-to-claim-audit.md): cross-document audit path for promoting evidence into a claim.
 
 ### 3. Experimental program and statistical identification
 
@@ -44,6 +55,7 @@ This directory is the reader-facing specification for the Consciousness Measurem
 - [Software Guide](software-guide.md): package structure, intended use, and worked code examples.
 - [Reproducibility](reproducibility.md): environment, provenance, analysis freezing, seeds, data lineage, and release package.
 - [Repository Policy](repository-policy.md): publication, style, link, schema, figure, and claim-discipline rules.
+- [Figure Catalog](figure-catalog.md): required visual publication record.
 
 ## What is specification versus evidence?
 
