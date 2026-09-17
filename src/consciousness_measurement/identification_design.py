@@ -11,9 +11,9 @@ consciousness.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass
 from math import ceil, log
-from typing import Sequence
 
 from .latent_measurement import RateInterval, latent_prevalence_from_proxy_rate, youden_index
 from .measurement_robustness import missingness_proxy_rate_bounds
