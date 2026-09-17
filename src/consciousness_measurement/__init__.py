@@ -1,6 +1,16 @@
 """Research utilities for theory-neutral consciousness measurement science."""
 
 from .evidence import EvidenceChannel, fuse_independent_channels, posterior_from_lr
+from .identification_design import (
+    MultiSiteIdentifiedSet,
+    hoeffding_resolution_sample_size,
+    independent_gate_preserves_conditional_coverage,
+    interior_missingness_width,
+    missingness_resolution_interval_known_calibration,
+    multisite_average_prevalence_identified_interval,
+    pooled_average_is_point_identified,
+    pooled_average_prevalence_if_identified,
+)
 from .latent_measurement import (
     CalibrationBox,
     RateInterval,
@@ -56,6 +66,7 @@ __all__ = [
     "InferenceState",
     "LikelihoodRatioInterval",
     "LocalInversionSensitivity",
+    "MultiSiteIdentifiedSet",
     "ProbabilityInterval",
     "RateInterval",
     "Target",
@@ -68,6 +79,9 @@ __all__ = [
     "fuse_independent_channels",
     "fuse_unknown_dependence",
     "hoeffding_rate_interval",
+    "hoeffding_resolution_sample_size",
+    "independent_gate_preserves_conditional_coverage",
+    "interior_missingness_width",
     "inverse_slope_amplification",
     "joint_finite_sample_prevalence_outer_interval",
     "latent_effect_from_proxy_effect",
@@ -76,9 +90,13 @@ __all__ = [
     "local_inversion_sensitivities",
     "matrix_alignment",
     "missingness_proxy_rate_bounds",
+    "missingness_resolution_interval_known_calibration",
     "missingness_robust_prevalence_outer_interval",
+    "multisite_average_prevalence_identified_interval",
     "normalized_distortion",
     "permutation_alignment_test",
+    "pooled_average_is_point_identified",
+    "pooled_average_prevalence_if_identified",
     "pooled_two_site_proxy_rate",
     "posterior_from_lr",
     "posterior_interval_from_lr_bounds",

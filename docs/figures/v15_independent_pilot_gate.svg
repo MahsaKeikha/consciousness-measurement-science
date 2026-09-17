@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img">
+<title>Independent pilot gating preserves confirmatory validity</title>
+<desc>Pilot data decide whether to proceed; an independent confirmatory interval retains its coverage among released designs.</desc>
+<rect width="1200" height="720" fill="#fff"/>
+<text x="110" y="42" font-family="Arial" font-size="24" font-weight="700" fill="#0f172a">Independent pilot gating preserves confirmatory validity</text>
+<text x="110" y="68" font-family="Arial" font-size="14" fill="#475569">Pilot data decide whether to proceed; an independent confirmatory interval retains its coverage among released designs.</text>
+<rect x="110" y="105" width="1035" height="510" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+<line x1="110" y1="615.0" x2="1145" y2="615.0" stroke="#e2e8f0"/>
+<text x="96" y="619.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0</text>
+<line x1="110" y1="513.0" x2="1145" y2="513.0" stroke="#e2e8f0"/>
+<text x="96" y="517.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.204</text>
+<line x1="110" y1="411.0" x2="1145" y2="411.0" stroke="#e2e8f0"/>
+<text x="96" y="415.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.408</text>
+<line x1="110" y1="309.0" x2="1145" y2="309.0" stroke="#e2e8f0"/>
+<text x="96" y="313.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.612</text>
+<line x1="110" y1="207.0" x2="1145" y2="207.0" stroke="#e2e8f0"/>
+<text x="96" y="211.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.816</text>
+<line x1="110" y1="105.0" x2="1145" y2="105.0" stroke="#e2e8f0"/>
+<text x="96" y="109.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">1.02</text>
+<line x1="110.0" y1="105" x2="110.0" y2="615" stroke="#e2e8f0"/>
+<text x="110.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">600</text>
+<line x1="317.0" y1="105" x2="317.0" y2="615" stroke="#e2e8f0"/>
+<text x="317.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">800</text>
+<line x1="420.5" y1="105" x2="420.5" y2="615" stroke="#e2e8f0"/>
+<text x="420.5" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">900</text>
+<line x1="524.0" y1="105" x2="524.0" y2="615" stroke="#e2e8f0"/>
+<text x="524.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">1000</text>
+<line x1="731.0" y1="105" x2="731.0" y2="615" stroke="#e2e8f0"/>
+<text x="731.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">1200</text>
+<line x1="1145.0" y1="105" x2="1145.0" y2="615" stroke="#e2e8f0"/>
+<text x="1145.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">1600</text>
+<line x1="110" y1="615" x2="1145" y2="615" stroke="#334155" stroke-width="1.4"/>
+<line x1="110" y1="105" x2="110" y2="615" stroke="#334155" stroke-width="1.4"/>
+<text x="627.5" y="690" text-anchor="middle" font-family="Arial" font-size="15" font-weight="600" fill="#1e293b">planned confirmatory deployment sample size</text>
+<text transform="translate(31 360.0) rotate(-90)" text-anchor="middle" font-family="Arial" font-size="15" font-weight="600" fill="#1e293b">fraction</text>
+<polyline points="110.0,615.0 317.0,566.6 420.5,378.8 524.0,204.4 731.0,122.5 1145.0,115.0" fill="none" stroke="#0f5f78" stroke-width="3"/>
+<circle cx="110.0" cy="615.0" r="4.2" fill="#0f5f78"/>
+<circle cx="317.0" cy="566.6" r="4.2" fill="#0f5f78"/>
+<circle cx="420.5" cy="378.8" r="4.2" fill="#0f5f78"/>
+<circle cx="524.0" cy="204.4" r="4.2" fill="#0f5f78"/>
+<circle cx="731.0" cy="122.5" r="4.2" fill="#0f5f78"/>
+<circle cx="1145.0" cy="115.0" r="4.2" fill="#0f5f78"/>
+<line x1="650" y1="91" x2="682" y2="91" stroke="#0f5f78" stroke-width="3"/>
+<text x="692" y="95" font-family="Arial" font-size="13" fill="#475569">release rate</text>
+<polyline points="110.0,615.0 317.0,115.0 420.5,115.0 524.0,115.0 731.0,115.0 1145.0,115.0" fill="none" stroke="#9a4e0d" stroke-width="3"/>
+<circle cx="110.0" cy="615.0" r="4.2" fill="#9a4e0d"/>
+<circle cx="317.0" cy="115.0" r="4.2" fill="#9a4e0d"/>
+<circle cx="420.5" cy="115.0" r="4.2" fill="#9a4e0d"/>
+<circle cx="524.0" cy="115.0" r="4.2" fill="#9a4e0d"/>
+<circle cx="731.0" cy="115.0" r="4.2" fill="#9a4e0d"/>
+<circle cx="1145.0" cy="115.0" r="4.2" fill="#9a4e0d"/>
+<line x1="650" y1="113" x2="682" y2="113" stroke="#9a4e0d" stroke-width="3"/>
+<text x="692" y="117" font-family="Arial" font-size="13" fill="#475569">conditional coverage</text>
+</svg>

@@ -1,54 +1,44 @@
 # Research III Validation Atlas
 
-## From equations to failure tests to reproducible results
+## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **ten validation-result figures** generated from deterministic analytic and synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **fourteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
-Use this page in order. Each stage states the scientific question, the mathematical object, the failure condition, the executable source, and the canonical result artifact. The figures summarize computations; they do not replace the equations or the machine-readable result files.
+Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
-> **Boundary:** all results on this page validate the measurement framework under declared synthetic or analytic conditions. They are not human empirical evidence that consciousness has been measured.
+> **Boundary:** these results validate measurement machinery under declared analytic or synthetic conditions. They are not human empirical evidence that consciousness has been measured.
 
 ---
+
+# Identification and falsification layer V1-V5
 
 ## V1. Point identification through an imperfect channel
 
-**Question:** when does an observable binary channel identify the prevalence of a declared latent target?
+For latent prevalence \(\pi\), sensitivity \(\alpha\), specificity \(\beta\), proxy rate \(q\), and \(J=\alpha+\beta-1\),
 
 \[
-q=(1-\beta)+(\alpha+\beta-1)\pi.
+q=(1-\beta)+J\pi,
+\qquad
+\pi=\frac{q+\beta-1}{J},\quad J>0.
 \]
 
-For \(J=\alpha+\beta-1>0\),
-
-\[
-\pi=\frac{q+\beta-1}{J}.
-\]
-
-**Failure condition:** at \(J=0\), the observable rate is independent of the latent prevalence. V8 later quantifies how instability grows as \(J\) approaches zero.
+At \(J=0\), the observable rate contains no information about latent prevalence.
 
 Audit: [V1-V5 derivation](formal-validation-program.md), [`latent_measurement.py`](../src/consciousness_measurement/latent_measurement.py), [`test_latent_measurement.py`](../tests/test_latent_measurement.py).
 
----
-
 ## V2. Finite-sample partial identification
-
-**Question:** does the interval retain the target when the deployment rate is estimated from finite data and calibration is known only inside a declared box?
 
 ![Finite-sample identification width](figures/finite_sample_identification.svg)
 
-The interval contracts with sample size but does not collapse calibration uncertainty into a false point estimate.
+The identified interval contracts with deployment sample size while preserving calibration uncertainty.
 
 ![Finite-sample coverage](figures/finite_sample_coverage.svg)
 
-The fixed-seed simulation checks empirical coverage against the declared nominal guarantee.
+The fixed-seed simulation checks the declared coverage guarantee under the synthetic design.
 
 Audit: [`finite_sample_coverage.csv`](../results/finite_sample_coverage.csv), [`validation_summary.json`](../results/validation_summary.json), [`simulation_validation.py`](../src/consciousness_measurement/simulation_validation.py).
 
----
-
 ## V3. Measurement transport and calibration shift
-
-**Question:** what bias is introduced if sensitivity or specificity changes across conditions but the analyst reuses baseline calibration?
 
 Under invariant calibration,
 
@@ -56,7 +46,7 @@ Under invariant calibration,
 \Delta\pi=\frac{\Delta q}{J}.
 \]
 
-When calibration changes, the bias is
+When calibration changes, the exact stale-calibration bias is
 
 \[
 \operatorname{Bias}
@@ -66,35 +56,23 @@ When calibration changes, the bias is
 
 ![Calibration transport stress](figures/transport_bias_surface.svg)
 
-**Failure condition:** state, intervention, hardware, site, or population shift changes channel calibration.
+Failure occurs when a state, intervention, site, population, or acquisition change shifts the measurement channel.
 
 Audit: [`transport_stress.csv`](../results/transport_stress.csv), [`latent_measurement.py`](../src/consciousness_measurement/latent_measurement.py).
 
----
-
-## V4. Conditional-dependence stress test
-
-**Question:** what happens when multimodal likelihood ratios are multiplied as if channels were conditionally independent but the channels share dependence?
+## V4. Conditional-dependence stress
 
 ![Dependence stress](figures/dependence_stress.svg)
 
-The construction preserves the declared channel marginals while increasing shared dependence. The canonical all-positive example moves from the independence posterior near `0.997` toward an exact posterior of `0.84` under maximal shared dependence.
+The synthetic construction preserves declared channel marginals while increasing shared dependence. It exposes the confidence inflation caused by multiplying evidence as if conditionally independent.
 
-**Failure condition:** duplicated or correlated evidence is counted as independent information.
+Audit: [`dependence_stress.csv`](../results/dependence_stress.csv), [`partial_identification.py`](../src/consciousness_measurement/partial_identification.py).
 
-Audit: [`dependence_stress.csv`](../results/dependence_stress.csv), [`partial_identification.py`](../src/consciousness_measurement/partial_identification.py), [`simulation_validation.py`](../src/consciousness_measurement/simulation_validation.py).
-
----
-
-## V5. Structural-alignment null and power behavior
-
-**Question:** does the preregisterable relational-geometry permutation statistic control false positives under a null construction and gain power when a correspondence is planted?
+## V5. Structural-alignment null and power
 
 ![Structural alignment power](figures/structural_alignment_power.svg)
 
-The canonical simulation reports null rejection near the declared 0.05 level and increasing rejection under stronger planted alignment.
-
-**Failure condition:** apparent structural similarity can be reproduced under label permutation, leakage, or an overly flexible mapping.
+The permutation procedure is checked under a null construction and under increasing planted relational alignment.
 
 Audit: [`structural_alignment_power.csv`](../results/structural_alignment_power.csv), [`structural_alignment.py`](../src/consciousness_measurement/structural_alignment.py).
 
@@ -102,55 +80,31 @@ Audit: [`structural_alignment_power.csv`](../results/structural_alignment_power.
 
 # Robustness layer V6-V10
 
-V6-V10 move beyond the idealized assumption that calibration is known, deployment outcomes are complete, inversion is well-conditioned, sites are homogeneous, and every run must emit an estimate.
-
----
-
 ## V6. Finite calibration-sample uncertainty
 
-**Question:** how much uncertainty remains when sensitivity and specificity themselves come from finite reference samples?
-
-For three simultaneous Bernoulli estimates, allocating \(\delta/3\) to each Hoeffding event gives
-
-\[
-\epsilon(n,\delta/3)=\sqrt{\frac{\log(6/\delta)}{2n}}.
-\]
+For simultaneous proxy, sensitivity, and specificity estimation, the calibration reference sample contributes directly to the final uncertainty budget.
 
 ![Finite calibration sample uncertainty](figures/calibration_sample_uncertainty.svg)
 
-In the canonical run, mean outer-interval width decreases from about `0.960` at 50 calibration observations per class to about `0.281` at 2,500.
-
-**Engineering implication:** reference-sample size is part of the final uncertainty budget.
+In the canonical run, mean outer-interval width contracts from about `0.960` at 50 calibration observations per class to about `0.281` at 2,500.
 
 Audit: [`calibration_sample_uncertainty.csv`](../results/calibration_sample_uncertainty.csv), [`measurement_robustness.py`](../src/consciousness_measurement/measurement_robustness.py).
 
----
-
 ## V7. Arbitrary missing outcomes
 
-**Question:** what can be said when some deployment outcomes are missing and no missing-at-random assumption is imposed?
-
-For \(s_o\) observed positives among \(n_o\) observed outcomes from \(N\) intended measurements,
+With \(s_o\) observed positives among \(n_o\) observed outcomes from \(N\) intended measurements,
 
 \[
 q\in\left[\frac{s_o}{N},\frac{s_o+N-n_o}{N}\right].
 \]
 
-These proxy-rate bounds are sharp under unrestricted missing outcomes.
-
 ![Missingness identification loss](figures/missingness_identification_loss.svg)
 
-The canonical latent interval reaches width `0.400` at 30% unrestricted missingness.
-
-**Engineering implication:** missing observations widen the permitted claim; they are not encoded as negative evidence.
+The bounds are sharp without a missing-at-random assumption. Missing outcomes widen the permitted claim rather than being encoded as negative evidence.
 
 Audit: [`missingness_stress.csv`](../results/missingness_stress.csv), [`measurement_robustness.py`](../src/consciousness_measurement/measurement_robustness.py).
 
----
-
 ## V8. Inverse conditioning
-
-**Question:** how strongly do small measurement errors amplify when the channel has a weak information margin?
 
 \[
 \frac{\partial\pi}{\partial q}=\frac1J,
@@ -162,67 +116,151 @@ Audit: [`missingness_stress.csv`](../results/missingness_stress.csv), [`measurem
 
 ![Inverse conditioning by Youden margin](figures/inverse_conditioning_youden.svg)
 
-At \(J=0.05\), proxy-rate error is amplified 20-fold. At \(J=0.90\), the amplification is about 1.11-fold.
-
-**Engineering implication:** an algebraically invertible channel can still be scientifically unusable because the inverse is ill-conditioned.
+A weak positive information margin can make an algebraically invertible channel scientifically unstable.
 
 Audit: [`conditioning_stress.csv`](../results/conditioning_stress.csv), [`measurement_robustness.py`](../src/consciousness_measurement/measurement_robustness.py).
 
----
-
 ## V9. Heterogeneous-site non-identifiability
-
-**Question:** does one pooled observable rate identify the average latent prevalence when sites have different calibration channels?
-
-For two sites,
-
-\[
-\bar q
-=
-\frac{c_1+c_2}{2}
-+
-\frac{J_1\pi_1+J_2\pi_2}{2},
-\]
-
-which generally identifies a calibration-weighted combination rather than
-
-\[
-\bar\pi=\frac{\pi_1+\pi_2}{2}.
-\]
 
 ![Two-site partial identification](figures/two_site_partial_identification.svg)
 
-At pooled rate `0.45`, the canonical construction admits average latent prevalence from about `0.375` to `0.5625`.
-
-**Engineering implication:** site-specific calibration can determine which population quantity is mathematically identifiable.
+The canonical two-site construction shows that one pooled observable can correspond to distinct population-average latent prevalences when site information slopes differ.
 
 Audit: [`two_site_nonidentifiability.csv`](../results/two_site_nonidentifiability.csv), [`measurement_robustness.py`](../src/consciousness_measurement/measurement_robustness.py).
 
----
-
 ## V10. Resolution-based abstention
 
-**Question:** when should the pipeline refuse to emit a precise latent estimate?
-
-For interval \(I_n=[L_n,U_n]\), define
+For interval \(I_n=[L_n,U_n]\), release only when
 
 \[
-w_n=U_n-L_n,
-\]
-
-and release only when
-
-\[
-w_n\le\omega.
+U_n-L_n\le\omega.
 \]
 
 ![Resolution abstention frontier](figures/resolution_abstention_frontier.svg)
 
-With predeclared \(\omega=0.28\), the canonical simulation releases 0% of runs at `n=750`, about 44.4% at `n=1000`, and 100% at `n=1500`.
-
-**Engineering implication:** `inconclusive` is a valid scientific state. A pipeline should not manufacture precision merely because downstream software expects a number.
+The release rule makes `inconclusive` a valid state. Marginal interval coverage controls erroneous release probability, while coverage conditional on data-dependent release remains a separate question.
 
 Audit: [`resolution_abstention_frontier.csv`](../results/resolution_abstention_frontier.csv), [`robustness_simulations.py`](../src/consciousness_measurement/robustness_simulations.py).
+
+---
+
+# Identification and design layer V11-V15
+
+V11-V15 turn several robustness observations into exact design laws. The new layer asks what resolution is fundamentally available, what pooled multisite quantity is actually identified, how much data a target resolution requires, and how release can be separated from confirmatory inference.
+
+## V11. Exact missingness-resolution law
+
+If \(m\) of \(N\) intended outcomes are unrestricted missing values and calibration is point-known with \(J>0\), then before parameter-boundary clipping the sharp latent width is
+
+\[
+\boxed{
+W_{\mathrm{miss}}=\frac{m/N}{J}.
+}
+\]
+
+![Exact missingness-information law](figures/v11_missingness_information_law.svg)
+
+The figure makes the interaction explicit: the same missing fraction creates more latent uncertainty when the measurement channel is weak.
+
+Canonical check: at 10% missingness and \(J=0.75\), the exact interior width is `0.13333333333333333`.
+
+Audit: [V11-V15 derivation](formal-validation-program-v11-v15.md), [`v11_missingness_information_law.csv`](../results/v11_missingness_information_law.csv), [`identification_design.py`](../src/consciousness_measurement/identification_design.py).
+
+## V12. When pooled multisite data identify the population average
+
+For site weights \(w_i\), calibration slopes \(J_i\), and site prevalences \(\pi_i\),
+
+\[
+\bar q
+=
+\sum_i w_i(1-\beta_i)
++
+\sum_i w_iJ_i\pi_i.
+\]
+
+The target average is
+
+\[
+\bar\pi=\sum_iw_i\pi_i.
+\]
+
+V12 proves the necessary-and-sufficient condition
+
+\[
+\boxed{
+J_1=J_2=\cdots=J_K
+}
+\]
+
+for one pooled proxy rate to identify \(\bar\pi\) for every feasible site-prevalence vector.
+
+If the site slopes differ, the pooled rate identifies a different weighted combination and the population average is generally only partially identified.
+
+Audit: [V11-V15 derivation](formal-validation-program-v11-v15.md), [`test_identification_design.py`](../tests/test_identification_design.py).
+
+## V13. Sharp K-site partial identification
+
+When the V12 equality condition fails, the target interval is the solution of
+
+\[
+\min/\max\;\sum_iw_i\pi_i
+\]
+
+subject to
+
+\[
+\sum_iw_iJ_i\pi_i
+=
+\bar q-\sum_iw_i(1-\beta_i),
+\qquad
+0\le\pi_i\le1.
+\]
+
+The exact solution is a one-constraint fractional-knapsack problem: allocate prevalence first to the largest \(J_i\) for the lower endpoint and first to the smallest \(J_i\) for the upper endpoint.
+
+![Multisite information heterogeneity](figures/v12_v13_multisite_heterogeneity.svg)
+
+The canonical three-site grid has zero identified-set width at equal information slopes and width `0.3333333333333333` at the declared spread `0.30`.
+
+Audit: [`v12_v13_multisite_identification.csv`](../results/v12_v13_multisite_identification.csv), [`identification_design.py`](../src/consciousness_measurement/identification_design.py).
+
+## V14. Resolution-driven sample-size design
+
+For point-known calibration, a two-sided Hoeffding proxy interval yields the sufficient latent-width design law
+
+\[
+\boxed{
+ n
+\geq
+\frac{2\log(2/\delta)}{J^2\omega^2}.
+}
+\]
+
+![Resolution sample-size law](figures/v14_resolution_sample_size.svg)
+
+The cost is quadratic in inverse channel strength and inverse target width. Halving \(J\) multiplies the sufficient sample size by four. Halving the target width also multiplies it by four.
+
+Canonical check: \(J=0.75\), \(\omega=0.10\), and \(\delta=0.05\) require `1,312` deployment observations under this design bound.
+
+Audit: [`v14_resolution_sample_size.csv`](../results/v14_resolution_sample_size.csv), [`identification_design.py`](../src/consciousness_measurement/identification_design.py).
+
+## V15. Independent pilot-gated release
+
+V10 showed that a release decision based on the final interval can change the conditional coverage among released cases. V15 gives a simple release architecture that avoids that selection problem.
+
+Let \(G\) be the release event determined only from pilot data. Let \(C\) be the coverage event for an interval built only from independent confirmatory data. Then, whenever \(P(G)>0\),
+
+\[
+\boxed{
+P(C\mid G)=P(C).
+}
+\]
+
+![Independent pilot gate](figures/v15_independent_pilot_gate.svg)
+
+The fixed-seed experiment uses pilot calibration data only to decide whether to proceed and then constructs the final interval from independent deployment and calibration data. At planned confirmatory `n=900`, the canonical release rate is `0.47625`. The observed conditional coverage is `1.0` in that finite run. The theorem does not depend on that simulated value; it follows from independence.
+
+Audit: [`v15_independent_pilot_gate.csv`](../results/v15_independent_pilot_gate.csv), [`identification_design_summary.json`](../results/identification_design_summary.json), [`identification_design_simulations.py`](../src/consciousness_measurement/identification_design_simulations.py).
 
 ---
 
@@ -230,24 +268,15 @@ Audit: [`resolution_abstention_frontier.csv`](../results/resolution_abstention_f
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
 |---|---|---|---|---|
-| V1-V5 | `python scripts/run_validation_program.py` | `latent_measurement.py`, `simulation_validation.py` | `test_latent_measurement.py`, `test_simulation_validation.py` | V1-V5 CSV/JSON files in `results/` |
-| V6-V10 | `python scripts/run_robustness_validation.py` | `measurement_robustness.py`, `robustness_simulations.py` | `test_measurement_robustness.py`, `test_robustness_simulations.py` | V6-V10 CSV/JSON files in `results/` |
+| V1-V5 | `python scripts/run_validation_program.py` | `latent_measurement.py`, `simulation_validation.py` | V1-V5 tests | V1-V5 CSV/JSON files in `results/` |
+| V6-V10 | `python scripts/run_robustness_validation.py` | `measurement_robustness.py`, `robustness_simulations.py` | V6-V10 tests | V6-V10 CSV/JSON files in `results/` |
+| V11-V15 | `python scripts/run_identification_design_validation.py` | `identification_design.py`, `identification_design_simulations.py` | V11-V15 theorem and simulation tests | V11-V15 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5 and `20260918` for V6-V10.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks.
 
----
+# How to read the figures
 
-# How to read the result figures
+A figure supports only the narrow statement generated by its declared theorem or experiment. Before using a figure in a manuscript or presentation, verify the declared target, the assumptions, the code path, the machine-readable record, the failure condition, and the strongest claim the result can support.
 
-A result figure supports only the narrow mathematical or computational statement produced by its declared experiment. Before using one in a paper or presentation, verify:
-
-1. the declared target and measurement model;
-2. the assumptions used by the theorem or simulation;
-3. the exact code path that generated the result;
-4. the machine-readable input/output record;
-5. the failure condition being tested;
-6. the strongest claim the result can support;
-7. the explicit nonclaim.
-
-For Research III, a successful synthetic test validates an inference procedure under known conditions. It does not validate a consciousness biomarker in people or systems. That later empirical burden remains separate and visible.
+A successful analytic or synthetic validation does not validate a consciousness biomarker in people or systems. That empirical burden remains separate.
