@@ -37,9 +37,11 @@ REQUIRED_READER_FILES = {
     "docs/edge-cases.md",
     "docs/epistemic-boundaries.md",
     "docs/ethics.md",
+    "docs/evidence-to-claim-audit.md",
     "docs/experimental-program.md",
     "docs/failure-modes.md",
     "docs/falsification-matrix.md",
+    "docs/figure-catalog.md",
     "docs/glossary.md",
     "docs/literature.md",
     "docs/measurement-framework.md",
@@ -53,6 +55,7 @@ REQUIRED_READER_FILES = {
     "docs/start-here.md",
     "docs/statistical-validation.md",
     "docs/theory-landscape.md",
+    "docs/visual-research-guide.md",
     "examples/README.md",
     "examples/cep_example.json",
     "examples/claim_example.json",
@@ -67,7 +70,19 @@ REQUIRED_README_MARKERS = {
     "Not yet established",
     "Negative evidence rule",
     "Machine-readable research objects",
+    "Visual research record",
 }
+CANONICAL_FIGURES = (
+    "docs/figures/research_program_map.svg",
+    "docs/figures/target_evidence_matrix.svg",
+    "docs/figures/measurement_architecture.svg",
+    "docs/figures/cep_anatomy.svg",
+    "docs/figures/identification_uncertainty_pipeline.svg",
+    "docs/figures/structural_measurement_pipeline.svg",
+    "docs/figures/validation_program_map.svg",
+    "docs/figures/theory_falsification_map.svg",
+    "docs/figures/claim_ladder.svg",
+)
 
 
 def tracked_text_files() -> list[Path]:
@@ -161,11 +176,9 @@ def check_reader_contract() -> list[str]:
     for marker in sorted(REQUIRED_README_MARKERS):
         if marker not in readme:
             errors.append(f"README missing required reader marker: {marker}")
-    for figure in (
-        "docs/figures/measurement_architecture.svg",
-        "docs/figures/claim_ladder.svg",
-        "docs/figures/structural_measurement_pipeline.svg",
-    ):
+    for figure in CANONICAL_FIGURES:
+        if not (ROOT / figure).exists():
+            errors.append(f"missing canonical figure: {figure}")
         if figure not in readme:
             errors.append(f"README does not expose required figure: {figure}")
     return errors
