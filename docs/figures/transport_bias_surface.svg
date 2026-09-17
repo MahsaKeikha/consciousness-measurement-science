@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000.000" height="855.263" viewBox="0 0 760 650" role="img" aria-labelledby="title desc">
+<title id="title">Calibration transport stress test</title>
+<desc id="desc">Exact absolute bias in a latent contrast when sensitivity and specificity shift but baseline calibration is reused.</desc>
+<style>
+.bg{fill:#ffffff}.panel{fill:#f8fafc;stroke:#d7dee8;stroke-width:1}.axis{stroke:#334155;stroke-width:1.2}.grid{stroke:#dbe3ec;stroke-width:1}.txt{font-family:Arial,Helvetica,sans-serif;fill:#172033}.small{font-size:13px}.label{font-size:15px;font-weight:600}.title{font-size:21px;font-weight:700}.line1{fill:none;stroke:#0f5f78;stroke-width:3}.line2{fill:none;stroke:#9a4e0d;stroke-width:3}.line3{fill:none;stroke:#6b4fa3;stroke-width:3}.dot1{fill:#0f5f78}.dot2{fill:#9a4e0d}.dot3{fill:#6b4fa3}.ref{stroke:#6b7280;stroke-width:1.5;stroke-dasharray:6 5}.zero{stroke:#111827;stroke-width:1.4}.heattext{font-family:Arial,Helvetica,sans-serif;font-size:12px;fill:#172033;text-anchor:middle}.note{font-family:Arial,Helvetica,sans-serif;font-size:12px;fill:#475569}
+</style>
+<rect class="bg" width="100%" height="100%"/>
+<text class="txt title" x="70" y="45">Calibration transport stress test</text>
+<text class="note" x="70" y="68">Cell value = |bias| in corrected latent contrast; zero shift must return zero.</text>
+<text class="txt small" x="196.0" y="87" text-anchor="middle">-0.10</text>
+<text class="txt small" x="278.0" y="87" text-anchor="middle">-0.05</text>
+<text class="txt small" x="360.0" y="87" text-anchor="middle">+0.00</text>
+<text class="txt small" x="442.0" y="87" text-anchor="middle">+0.05</text>
+<text class="txt small" x="524.0" y="87" text-anchor="middle">+0.10</text>
+<text class="txt small" x="137" y="150.0" text-anchor="end">+0.10</text>
+<rect x="155" y="105" width="82" height="82" fill="rgb(169,130,117)" stroke="#ffffff"/>
+<text class="heattext" x="196.0" y="150.0">0.133</text>
+<rect x="237" y="105" width="82" height="82" fill="rgb(185,156,147)" stroke="#ffffff"/>
+<text class="heattext" x="278.0" y="150.0">0.103</text>
+<rect x="319" y="105" width="82" height="82" fill="rgb(202,183,177)" stroke="#ffffff"/>
+<text class="heattext" x="360.0" y="150.0">0.073</text>
+<rect x="401" y="105" width="82" height="82" fill="rgb(219,209,208)" stroke="#ffffff"/>
+<text class="heattext" x="442.0" y="150.0">0.043</text>
+<rect x="483" y="105" width="82" height="82" fill="rgb(233,230,232)" stroke="#ffffff"/>
+<text class="heattext" x="524.0" y="150.0">0.019</text>
+<text class="txt small" x="137" y="232.0" text-anchor="end">+0.05</text>
+<rect x="155" y="187" width="82" height="82" fill="rgb(189,162,154)" stroke="#ffffff"/>
+<text class="heattext" x="196.0" y="232.0">0.097</text>
+<rect x="237" y="187" width="82" height="82" fill="rgb(206,188,184)" stroke="#ffffff"/>
+<text class="heattext" x="278.0" y="232.0">0.067</text>
+<rect x="319" y="187" width="82" height="82" fill="rgb(223,215,214)" stroke="#ffffff"/>
+<text class="heattext" x="360.0" y="232.0">0.037</text>
+<rect x="401" y="187" width="82" height="82" fill="rgb(240,242,245)" stroke="#ffffff"/>
+<text class="heattext" x="442.0" y="232.0">0.007</text>
+<rect x="483" y="187" width="82" height="82" fill="rgb(234,232,234)" stroke="#ffffff"/>
+<text class="heattext" x="524.0" y="232.0">0.017</text>
+<text class="txt small" x="137" y="314.0" text-anchor="end">+0.00</text>
+<rect x="155" y="269" width="82" height="82" fill="rgb(210,194,191)" stroke="#ffffff"/>
+<text class="heattext" x="196.0" y="314.0">0.060</text>
+<rect x="237" y="269" width="82" height="82" fill="rgb(227,221,221)" stroke="#ffffff"/>
+<text class="heattext" x="278.0" y="314.0">0.030</text>
+<rect x="319" y="269" width="82" height="82" fill="rgb(244,248,252)" stroke="#ffffff"/>
+<text class="heattext" x="360.0" y="314.0">0.000</text>
+<rect x="401" y="269" width="82" height="82" fill="rgb(227,221,221)" stroke="#ffffff"/>
+<text class="heattext" x="442.0" y="314.0">0.030</text>
+<rect x="483" y="269" width="82" height="82" fill="rgb(213,200,197)" stroke="#ffffff"/>
+<text class="heattext" x="524.0" y="314.0">0.054</text>
+<text class="txt small" x="137" y="396.0" text-anchor="end">-0.05</text>
+<rect x="155" y="351" width="82" height="82" fill="rgb(230,227,228)" stroke="#ffffff"/>
+<text class="heattext" x="196.0" y="396.0">0.023</text>
+<rect x="237" y="351" width="82" height="82" fill="rgb(240,242,245)" stroke="#ffffff"/>
+<text class="heattext" x="278.0" y="396.0">0.007</text>
+<rect x="319" y="351" width="82" height="82" fill="rgb(223,215,214)" stroke="#ffffff"/>
+<text class="heattext" x="360.0" y="396.0">0.037</text>
+<rect x="401" y="351" width="82" height="82" fill="rgb(206,188,184)" stroke="#ffffff"/>
+<text class="heattext" x="442.0" y="396.0">0.067</text>
+<rect x="483" y="351" width="82" height="82" fill="rgb(193,167,160)" stroke="#ffffff"/>
+<text class="heattext" x="524.0" y="396.0">0.091</text>
+<text class="txt small" x="137" y="478.0" text-anchor="end">-0.10</text>
+<rect x="155" y="433" width="82" height="82" fill="rgb(236,236,238)" stroke="#ffffff"/>
+<text class="heattext" x="196.0" y="478.0">0.013</text>
+<rect x="237" y="433" width="82" height="82" fill="rgb(219,209,208)" stroke="#ffffff"/>
+<text class="heattext" x="278.0" y="478.0">0.043</text>
+<rect x="319" y="433" width="82" height="82" fill="rgb(202,183,177)" stroke="#ffffff"/>
+<text class="heattext" x="360.0" y="478.0">0.073</text>
+<rect x="401" y="433" width="82" height="82" fill="rgb(185,156,147)" stroke="#ffffff"/>
+<text class="heattext" x="442.0" y="478.0">0.103</text>
+<rect x="483" y="433" width="82" height="82" fill="rgb(172,135,123)" stroke="#ffffff"/>
+<text class="heattext" x="524.0" y="478.0">0.127</text>
+<text class="txt label" x="360.0" y="563" text-anchor="middle">specificity shift</text>
+<text class="txt label" transform="translate(36 310.0) rotate(-90)" text-anchor="middle">sensitivity shift</text>
+</svg>
