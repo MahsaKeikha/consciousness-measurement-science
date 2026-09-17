@@ -1,8 +1,8 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and synthetic validation outputs for Research III V1-V10.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V15.
 
-These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed inferential machinery behaves correctly under known mathematical and synthetic data-generating conditions.
+These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
 ## V1-V5 outputs
 
@@ -39,10 +39,28 @@ python scripts/run_robustness_validation.py
 
 Canonical V6-V10 seed: `20260918`.
 
+## V11-V15 outputs
+
+- `v11_missingness_information_law.csv`: exact interior latent-width law across missingness fractions and Youden information margins.
+- `v12_v13_multisite_identification.csv`: sharp population-average identified intervals as site information-margin heterogeneity increases.
+- `v14_resolution_sample_size.csv`: sufficient deployment sample sizes for declared latent-width targets under the Hoeffding design law.
+- `v15_independent_pilot_gate.csv`: release rate and confirmatory coverage diagnostics for the independent pilot-gated design.
+- `identification_design_summary.json`: compact machine-readable summary of the canonical V11-V15 record.
+
+The V15 conditional-coverage values are fixed-seed simulation diagnostics. The theorem-level conditional-coverage result follows from independence between the pilot release event and the confirmatory interval construction, not from the simulated coverage value.
+
+Reproduce with:
+
+```bash
+python scripts/run_identification_design_validation.py
+```
+
+Canonical V11-V15 seed: `20260919`.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V10](../VALIDATION.md) for the compact program map and [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence with equations, failure conditions, code links, tests, and figure-to-result provenance.
+Use [Research III Formal Validation V1-V15](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, and [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the new identification and design proofs.
 
 ## Verification rule
 
-Downstream prose should cite or compute from the CSV/JSON values rather than retyping rounded numbers from figure labels. The SVG figures are generated summaries of these deterministic records, not independent sources of truth.
+Downstream prose should cite or compute from the CSV and JSON values rather than retyping rounded numbers from figure labels. The SVG figures are generated summaries of these records, not independent sources of truth.
