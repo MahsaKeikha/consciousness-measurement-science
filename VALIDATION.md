@@ -28,7 +28,7 @@ These are **analytic and synthetic validation results**. They test the measureme
 | **V7** | What can be inferred when deployment outcomes are missing without MAR assumptions? | sharp worst-case proxy and latent identified sets | missingness sweep and figure |
 | **V8** | When is the inverse numerically unstable? | exact local derivatives and condition factor `1/J` | Youden-margin sweep and conditioning figure |
 | **V9** | Can pooled data identify average prevalence across differently calibrated sites? | sharp two-site identified set and constructive counterexample | site-mixture CSV and identification band |
-| **V10** | When should the system refuse to release a precise estimate? | predeclared interval-width release rule | abstention frontier and conditional coverage |
+| **V10** | When should the system refuse to release a precise estimate? | predeclared interval-width release rule with marginal erroneous-release control | abstention frontier plus empirical conditional-coverage diagnostic |
 
 ## Core equations
 
@@ -70,6 +70,8 @@ The committed fixed-seed experiments show, among other checks:
 - a Youden margin of `0.05` amplifies proxy-rate error by a factor of `20`;
 - the same pooled proxy rate `0.45` can correspond to average latent prevalences from about `0.375` to `0.5625` in the canonical two-site construction;
 - with maximum allowed interval width `0.28`, the canonical abstention experiment releases no estimates at deployment `n=750`, about 44.4% at `n=1000`, and all at `n=1500`.
+
+For V10, marginal interval coverage controls the probability of an erroneous release, but does not automatically imply the same nominal coverage conditional on release. The simulation therefore reports conditional coverage among released intervals as a diagnostic rather than treating it as a theorem-level consequence.
 
 The exact values are stored under [`results/`](results/). Do not copy rounded prose values into downstream analyses when the machine-readable values are available.
 
