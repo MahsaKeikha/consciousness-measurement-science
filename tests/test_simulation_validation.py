@@ -37,16 +37,16 @@ def test_positive_dependence_exposes_naive_overconfidence_for_example_channels()
 
 
 def test_coverage_experiment_is_reproducible_and_conservative() -> None:
-    kwargs = dict(
-        prevalence=0.40,
-        sensitivity=0.84,
-        specificity=0.91,
-        calibration_half_width=0.02,
-        sample_sizes=(100, 500),
-        repetitions=400,
-        delta=0.05,
-        seed=20260917,
-    )
+    kwargs = {
+        "prevalence": 0.40,
+        "sensitivity": 0.84,
+        "specificity": 0.91,
+        "calibration_half_width": 0.02,
+        "sample_sizes": (100, 500),
+        "repetitions": 400,
+        "delta": 0.05,
+        "seed": 20260917,
+    }
     a = finite_sample_coverage_experiment(**kwargs)
     b = finite_sample_coverage_experiment(**kwargs)
     assert a == b
