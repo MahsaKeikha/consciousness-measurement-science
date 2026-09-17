@@ -13,6 +13,6 @@
   },
   "v15": {
     "minimum_conditional_coverage": 1.0,
-    "release_rate_n900": 0.47625
+    "release_rate_n900": 0.4725
   }
 }
