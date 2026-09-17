@@ -18,6 +18,28 @@ from .latent_measurement import (
 from .measurement_robustness import joint_finite_sample_prevalence_outer_interval
 
 
+def _stable_binomial(
+    bit_generator: np.random.PCG64,
+    trials: int,
+    probability: float,
+) -> int:
+    """Version-stable Bernoulli count from raw PCG64 output.
+
+    NumPy distribution samplers may change algorithms between releases even when
+    their underlying bit generator is stable. The V15 publication record therefore
+    converts PCG64 raw bits to IEEE-754 uniform variates explicitly and counts
+    threshold crossings. This keeps the fixed-seed experiment byte-reproducible
+    across the supported Python/NumPy environments.
+    """
+    if trials < 0:
+        raise ValueError("trials must be nonnegative")
+    if not 0.0 <= probability <= 1.0:
+        raise ValueError("probability must lie in [0,1]")
+    raw = bit_generator.random_raw(trials)
+    uniforms = (raw >> np.uint64(11)).astype(np.float64) * (1.0 / (1 << 53))
+    return int(np.count_nonzero(uniforms < probability))
+
+
 def missingness_information_design_grid(
     *,
     missing_fractions: tuple[float, ...],
@@ -136,16 +158,26 @@ def independent_pilot_gate_experiment(
     The pilot data are used only to decide whether the planned confirmatory design
     appears capable of meeting the resolution target. All data entering the final
     confirmatory interval are generated independently after the gate decision.
+    The Bernoulli counts use an explicit raw-bit conversion so the canonical
+    fixed-seed publication record is stable across supported NumPy releases.
     """
-    rng = np.random.default_rng(seed)
+    bit_generator = np.random.PCG64(seed)
     q = proxy_rate_from_latent_prevalence(prevalence, sensitivity, specificity)
     released = 0
     confirm_identified = 0
     covered = 0
 
     for _ in range(repetitions):
-        pilot_se = int(rng.binomial(pilot_calibration_n_per_class, sensitivity))
-        pilot_sp = int(rng.binomial(pilot_calibration_n_per_class, specificity))
+        pilot_se = _stable_binomial(
+            bit_generator,
+            pilot_calibration_n_per_class,
+            sensitivity,
+        )
+        pilot_sp = _stable_binomial(
+            bit_generator,
+            pilot_calibration_n_per_class,
+            specificity,
+        )
         se_hat = pilot_se / pilot_calibration_n_per_class
         sp_hat = pilot_sp / pilot_calibration_n_per_class
         pilot_j = se_hat + sp_hat - 1.0
@@ -164,9 +196,17 @@ def independent_pilot_gate_experiment(
             continue
         released += 1
 
-        proxy_successes = int(rng.binomial(confirm_deployment_n, q))
-        confirm_se = int(rng.binomial(confirm_calibration_n_per_class, sensitivity))
-        confirm_sp = int(rng.binomial(confirm_calibration_n_per_class, specificity))
+        proxy_successes = _stable_binomial(bit_generator, confirm_deployment_n, q)
+        confirm_se = _stable_binomial(
+            bit_generator,
+            confirm_calibration_n_per_class,
+            sensitivity,
+        )
+        confirm_sp = _stable_binomial(
+            bit_generator,
+            confirm_calibration_n_per_class,
+            specificity,
+        )
         try:
             interval = joint_finite_sample_prevalence_outer_interval(
                 proxy_successes=proxy_successes,
