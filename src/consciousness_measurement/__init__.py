@@ -1,6 +1,29 @@
 """Research utilities for theory-neutral consciousness measurement science."""
 
 from .evidence import EvidenceChannel, fuse_independent_channels, posterior_from_lr
+from .latent_measurement import (
+    CalibrationBox,
+    RateInterval,
+    calibration_box_prevalence_outer_interval,
+    finite_sample_prevalence_outer_interval,
+    hoeffding_rate_interval,
+    latent_effect_from_proxy_effect,
+    latent_prevalence_from_proxy_rate,
+    proxy_rate_from_latent_prevalence,
+    transport_bias_from_calibration_shift,
+    youden_index,
+)
+from .measurement_robustness import (
+    LocalInversionSensitivity,
+    TwoSiteIdentifiedSet,
+    inverse_slope_amplification,
+    joint_finite_sample_prevalence_outer_interval,
+    local_inversion_sensitivities,
+    missingness_proxy_rate_bounds,
+    missingness_robust_prevalence_outer_interval,
+    pooled_two_site_proxy_rate,
+    two_site_average_prevalence_identified_interval,
+)
 from .partial_identification import (
     DependenceRobustFusion,
     LikelihoodRatioInterval,
@@ -25,23 +48,42 @@ from .structural_alignment import (
 )
 
 __all__ = [
+    "CalibrationBox",
     "ChannelEvidence",
     "ConsciousnessEvidenceProfile",
     "DependenceRobustFusion",
     "EvidenceChannel",
     "InferenceState",
     "LikelihoodRatioInterval",
+    "LocalInversionSensitivity",
     "ProbabilityInterval",
+    "RateInterval",
     "Target",
+    "TwoSiteIdentifiedSet",
+    "calibration_box_prevalence_outer_interval",
     "conditional_pattern_probability_bounds",
     "distance_matrix",
+    "finite_sample_prevalence_outer_interval",
     "frechet_intersection_bounds",
     "fuse_independent_channels",
     "fuse_unknown_dependence",
+    "hoeffding_rate_interval",
+    "inverse_slope_amplification",
+    "joint_finite_sample_prevalence_outer_interval",
+    "latent_effect_from_proxy_effect",
+    "latent_prevalence_from_proxy_rate",
     "likelihood_ratio_bounds",
+    "local_inversion_sensitivities",
     "matrix_alignment",
+    "missingness_proxy_rate_bounds",
+    "missingness_robust_prevalence_outer_interval",
     "normalized_distortion",
     "permutation_alignment_test",
+    "pooled_two_site_proxy_rate",
     "posterior_from_lr",
     "posterior_interval_from_lr_bounds",
+    "proxy_rate_from_latent_prevalence",
+    "transport_bias_from_calibration_shift",
+    "two_site_average_prevalence_identified_interval",
+    "youden_index",
 ]
