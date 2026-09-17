@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+<title id="title">Conditional dependence breaks naive multimodal fusion</title>
+<desc id="desc">Exact posterior under a shared-uniform dependence model compared with the conditional-independence posterior.</desc>
+<style>
+.bg{fill:#ffffff}.panel{fill:#f8fafc;stroke:#d7dee8;stroke-width:1}.axis{stroke:#334155;stroke-width:1.2}.grid{stroke:#dbe3ec;stroke-width:1}.txt{font-family:Arial,Helvetica,sans-serif;fill:#172033}.small{font-size:13px}.label{font-size:15px;font-weight:600}.title{font-size:21px;font-weight:700}.line1{fill:none;stroke:#0f5f78;stroke-width:3}.line2{fill:none;stroke:#9a4e0d;stroke-width:3}.line3{fill:none;stroke:#6b4fa3;stroke-width:3}.dot1{fill:#0f5f78}.dot2{fill:#9a4e0d}.dot3{fill:#6b4fa3}.ref{stroke:#6b7280;stroke-width:1.5;stroke-dasharray:6 5}.zero{stroke:#111827;stroke-width:1.4}.heattext{font-family:Arial,Helvetica,sans-serif;font-size:12px;fill:#172033;text-anchor:middle}.note{font-family:Arial,Helvetica,sans-serif;font-size:12px;fill:#475569}
+</style>
+<rect class="bg" width="100%" height="100%"/>
+<rect class="panel" x="90" y="85" width="770" height="390" rx="8"/>
+<line class="grid" x1="90" y1="475.0" x2="860" y2="475.0"/>
+<text class="txt small" x="78" y="479.0" text-anchor="end">0.80</text>
+<line class="grid" x1="90" y1="397.0" x2="860" y2="397.0"/>
+<text class="txt small" x="78" y="401.0" text-anchor="end">0.84</text>
+<line class="grid" x1="90" y1="319.0" x2="860" y2="319.0"/>
+<text class="txt small" x="78" y="323.0" text-anchor="end">0.88</text>
+<line class="grid" x1="90" y1="241.0" x2="860" y2="241.0"/>
+<text class="txt small" x="78" y="245.0" text-anchor="end">0.92</text>
+<line class="grid" x1="90" y1="163.0" x2="860" y2="163.0"/>
+<text class="txt small" x="78" y="167.0" text-anchor="end">0.96</text>
+<line class="grid" x1="90" y1="85.0" x2="860" y2="85.0"/>
+<text class="txt small" x="78" y="89.0" text-anchor="end">1.00</text>
+<line class="grid" x1="90.0" y1="85" x2="90.0" y2="475"/>
+<text class="txt small" x="90.0" y="500" text-anchor="middle">0</text>
+<line class="grid" x1="167.0" y1="85" x2="167.0" y2="475"/>
+<text class="txt small" x="167.0" y="500" text-anchor="middle">0.1</text>
+<line class="grid" x1="244.0" y1="85" x2="244.0" y2="475"/>
+<text class="txt small" x="244.0" y="500" text-anchor="middle">0.2</text>
+<line class="grid" x1="321.0" y1="85" x2="321.0" y2="475"/>
+<text class="txt small" x="321.0" y="500" text-anchor="middle">0.3</text>
+<line class="grid" x1="398.0" y1="85" x2="398.0" y2="475"/>
+<text class="txt small" x="398.0" y="500" text-anchor="middle">0.4</text>
+<line class="grid" x1="475.0" y1="85" x2="475.0" y2="475"/>
+<text class="txt small" x="475.0" y="500" text-anchor="middle">0.5</text>
+<line class="grid" x1="552.0" y1="85" x2="552.0" y2="475"/>
+<text class="txt small" x="552.0" y="500" text-anchor="middle">0.6</text>
+<line class="grid" x1="629.0" y1="85" x2="629.0" y2="475"/>
+<text class="txt small" x="629.0" y="500" text-anchor="middle">0.7</text>
+<line class="grid" x1="706.0" y1="85" x2="706.0" y2="475"/>
+<text class="txt small" x="706.0" y="500" text-anchor="middle">0.8</text>
+<line class="grid" x1="783.0" y1="85" x2="783.0" y2="475"/>
+<text class="txt small" x="783.0" y="500" text-anchor="middle">0.9</text>
+<line class="grid" x1="860.0" y1="85" x2="860.0" y2="475"/>
+<text class="txt small" x="860.0" y="500" text-anchor="middle">1</text>
+<line class="axis" x1="90" y1="475" x2="860" y2="475"/>
+<line class="axis" x1="90" y1="85" x2="90" y2="475"/>
+<text class="txt title" x="90" y="42">Conditional dependence breaks naive multimodal fusion</text>
+<text class="txt label" x="475.0" y="532" text-anchor="middle">dependence mixture rho</text>
+<text class="txt label" transform="translate(26 280.0) rotate(-90)" text-anchor="middle">posterior for declared latent target</text>
+<polyline class="line1" points="90.0,91.5 167.0,140.6 244.0,183.3 321.0,220.9 398.0,254.1 475.0,283.7 552.0,310.3 629.0,334.3 706.0,356.0 783.0,375.8 860.0,393.9"/>
+<circle class="dot1" cx="90.0" cy="91.5" r="4"/>
+<circle class="dot1" cx="167.0" cy="140.6" r="4"/>
+<circle class="dot1" cx="244.0" cy="183.3" r="4"/>
+<circle class="dot1" cx="321.0" cy="220.9" r="4"/>
+<circle class="dot1" cx="398.0" cy="254.1" r="4"/>
+<circle class="dot1" cx="475.0" cy="283.7" r="4"/>
+<circle class="dot1" cx="552.0" cy="310.3" r="4"/>
+<circle class="dot1" cx="629.0" cy="334.3" r="4"/>
+<circle class="dot1" cx="706.0" cy="356.0" r="4"/>
+<circle class="dot1" cx="783.0" cy="375.8" r="4"/>
+<circle class="dot1" cx="860.0" cy="393.9" r="4"/>
+<line class="line1" x1="102" y1="62" x2="130" y2="62"/>
+<text class="txt small" x="138" y="66">true posterior under dependence</text>
+<polyline class="line2" points="90.0,91.5 167.0,91.5 244.0,91.5 321.0,91.5 398.0,91.5 475.0,91.5 552.0,91.5 629.0,91.5 706.0,91.5 783.0,91.5 860.0,91.5"/>
+<circle class="dot2" cx="90.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="167.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="244.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="321.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="398.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="475.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="552.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="629.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="706.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="783.0" cy="91.5" r="4"/>
+<circle class="dot2" cx="860.0" cy="91.5" r="4"/>
+<line class="line2" x1="102" y1="82" x2="130" y2="82"/>
+<text class="txt small" x="138" y="86">naive independence posterior</text>
+</svg>
