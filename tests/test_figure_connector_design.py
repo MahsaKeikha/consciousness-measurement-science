@@ -26,15 +26,9 @@ def test_reader_facing_arrowheads_use_absolute_restrained_geometry() -> None:
             assert float(marker.attrib["markerHeight"]) <= 10.0
 
 
-def test_reader_facing_connectors_keep_arrowheads_visually_secondary() -> None:
+def test_reader_facing_connectors_do_not_restore_stroke_scaled_markers() -> None:
     for figure in FIGURES:
-        root = ET.parse(figure).getroot()
-        widths = []
-        for element in root.iter():
-            if "marker-end" not in element.attrib:
-                continue
-            stroke_width = element.attrib.get("stroke-width")
-            if stroke_width is not None:
-                widths.append(float(stroke_width))
-        assert widths, f"{figure.name} must expose connector stroke widths"
-        assert max(widths) <= 4.5
+        text = figure.read_text(encoding="utf-8")
+        assert 'markerUnits="strokeWidth"' not in text
+        assert 'markerUnits="userSpaceOnUse"' in text
+        assert "marker-end" in text
