@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img">
+<title>Unequal site information margins create partial identification</title>
+<desc>The population-average latent prevalence is point-identified at equal site slopes and becomes set-identified as slope heterogeneity grows.</desc>
+<rect width="1200" height="720" fill="#fff"/>
+<text x="110" y="42" font-family="Arial" font-size="24" font-weight="700" fill="#0f172a">Unequal site information margins create partial identification</text>
+<text x="110" y="68" font-family="Arial" font-size="14" fill="#475569">The population-average latent prevalence is point-identified at equal site slopes and becomes set-identified as slope heterogeneity grows.</text>
+<rect x="110" y="105" width="1035" height="510" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+<line x1="110" y1="615.0" x2="1145" y2="615.0" stroke="#e2e8f0"/>
+<text x="96" y="619.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0</text>
+<line x1="110" y1="513.0" x2="1145" y2="513.0" stroke="#e2e8f0"/>
+<text x="96" y="517.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.072</text>
+<line x1="110" y1="411.0" x2="1145" y2="411.0" stroke="#e2e8f0"/>
+<text x="96" y="415.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.144</text>
+<line x1="110" y1="309.0" x2="1145" y2="309.0" stroke="#e2e8f0"/>
+<text x="96" y="313.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.216</text>
+<line x1="110" y1="207.0" x2="1145" y2="207.0" stroke="#e2e8f0"/>
+<text x="96" y="211.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.288</text>
+<line x1="110" y1="105.0" x2="1145" y2="105.0" stroke="#e2e8f0"/>
+<text x="96" y="109.0" text-anchor="end" font-family="Arial" font-size="13" fill="#475569">0.36</text>
+<line x1="110.0" y1="105" x2="110.0" y2="615" stroke="#e2e8f0"/>
+<text x="110.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">0</text>
+<line x1="282.5" y1="105" x2="282.5" y2="615" stroke="#e2e8f0"/>
+<text x="282.5" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">0.05</text>
+<line x1="455.0" y1="105" x2="455.0" y2="615" stroke="#e2e8f0"/>
+<text x="455.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">0.1</text>
+<line x1="627.5" y1="105" x2="627.5" y2="615" stroke="#e2e8f0"/>
+<text x="627.5" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">0.15</text>
+<line x1="800.0" y1="105" x2="800.0" y2="615" stroke="#e2e8f0"/>
+<text x="800.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">0.2</text>
+<line x1="972.5" y1="105" x2="972.5" y2="615" stroke="#e2e8f0"/>
+<text x="972.5" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">0.25</text>
+<line x1="1145.0" y1="105" x2="1145.0" y2="615" stroke="#e2e8f0"/>
+<text x="1145.0" y="642" text-anchor="middle" font-family="Arial" font-size="13" fill="#475569">0.3</text>
+<line x1="110" y1="615" x2="1145" y2="615" stroke="#334155" stroke-width="1.4"/>
+<line x1="110" y1="105" x2="110" y2="615" stroke="#334155" stroke-width="1.4"/>
+<text x="627.5" y="690" text-anchor="middle" font-family="Arial" font-size="15" font-weight="600" fill="#1e293b">site Youden-margin spread</text>
+<text transform="translate(31 360.0) rotate(-90)" text-anchor="middle" font-family="Arial" font-size="15" font-weight="600" fill="#1e293b">sharp average-prevalence identified-set width</text>
+<polyline points="110.0,615.0 282.5,532.4 455.0,449.7 627.5,367.1 800.0,284.4 972.5,203.2 1145.0,142.8" fill="none" stroke="#0f5f78" stroke-width="3"/>
+<circle cx="110.0" cy="615.0" r="4.2" fill="#0f5f78"/>
+<circle cx="282.5" cy="532.4" r="4.2" fill="#0f5f78"/>
+<circle cx="455.0" cy="449.7" r="4.2" fill="#0f5f78"/>
+<circle cx="627.5" cy="367.1" r="4.2" fill="#0f5f78"/>
+<circle cx="800.0" cy="284.4" r="4.2" fill="#0f5f78"/>
+<circle cx="972.5" cy="203.2" r="4.2" fill="#0f5f78"/>
+<circle cx="1145.0" cy="142.8" r="4.2" fill="#0f5f78"/>
+<line x1="650" y1="91" x2="682" y2="91" stroke="#0f5f78" stroke-width="3"/>
+<text x="692" y="95" font-family="Arial" font-size="13" fill="#475569">sharp identified-set width</text>
+</svg>
