@@ -32,8 +32,11 @@ def write_csv(name: str, rows: list[dict[str, float]]) -> None:
 
 
 def svg_header(width: int, height: int, title: str, desc: str) -> list[str]:
+    scale = max(1000.0 / width, 600.0 / height, 1.0)
+    intrinsic_width = width * scale
+    intrinsic_height = height * scale
     return [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{intrinsic_width:.3f}" height="{intrinsic_height:.3f}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
         f"<title id=\"title\">{title}</title>",
         f"<desc id=\"desc\">{desc}</desc>",
         "<style>",
