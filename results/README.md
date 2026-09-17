@@ -26,8 +26,10 @@ Canonical V1-V5 seed: `20260917`.
 - `missingness_stress.csv`: sharp worst-case latent interval as unrestricted missing outcomes increase.
 - `conditioning_stress.csv`: exact inverse-error amplification as the Youden information margin changes.
 - `two_site_nonidentifiability.csv`: sharp average-prevalence identified set from pooled two-site proxy rates under heterogeneous calibration.
-- `resolution_abstention_frontier.csv`: fraction of runs meeting a predeclared maximum interval-width criterion.
+- `resolution_abstention_frontier.csv`: fraction of runs meeting a predeclared maximum interval-width criterion, together with empirical conditional coverage among released intervals.
 - `robustness_validation_summary.json`: compact machine-readable summary of the canonical V6-V10 run.
+
+For V10, the conditional-coverage column is a simulation diagnostic. Marginal interval coverage bounds the probability of an erroneous release, but does not by itself imply nominal conditional coverage after a data-dependent release rule.
 
 Reproduce with:
 

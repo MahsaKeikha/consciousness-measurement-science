@@ -339,11 +339,62 @@ R_n=
 
 When \(R_n=0\), the correct output is **abstain / insufficient resolution**, not an arbitrarily selected midpoint.
 
-## Proposition V10
+## Proposition V10: marginal control of erroneous releases
 
-If the underlying interval procedure has coverage at least \(1-\delta\), then every released interval retains that interval's coverage guarantee conditional on the declared procedure; abstention cannot create information that is not present.
+Suppose the interval procedure satisfies the marginal coverage guarantee
 
-The implementation reports both the release rate and conditional coverage among released intervals so that a stringent abstention rule cannot be mistaken for universal performance.
+\[
+P(\pi\in I_n)\ge 1-\delta.
+\]
+
+For any release rule \(R_n\in\{0,1\}\), including a data-dependent width rule, the probability of releasing an interval that misses the true target is bounded by
+
+\[
+\boxed{
+P(\pi\notin I_n,\ R_n=1)\le \delta.
+}
+\]
+
+If the release probability \(p_{\rm rel}=P(R_n=1)\) is positive, then
+
+\[
+P(\pi\notin I_n\mid R_n=1)
+\le
+\min\left(1,\frac{\delta}{p_{\rm rel}}\right).
+\]
+
+Equivalently,
+
+\[
+P(\pi\in I_n\mid R_n=1)
+\ge
+\max\left(0,1-\frac{\delta}{p_{\rm rel}}\right).
+\]
+
+Marginal coverage therefore controls the overall probability of an erroneous release, but it does **not** by itself imply nominal \((1-\delta)\) conditional coverage among released intervals.
+
+### Proof
+
+The erroneous-release event is a subset of the interval-miscoverage event:
+
+\[
+\{\pi\notin I_n,\ R_n=1\}
+\subseteq
+\{\pi\notin I_n\}.
+\]
+
+Therefore
+
+\[
+P(\pi\notin I_n,\ R_n=1)
+\le
+P(\pi\notin I_n)
+\le\delta.
+\]
+
+When \(p_{\rm rel}>0\), divide the first inequality by \(p_{\rm rel}\) to obtain the conditional bound. \(\square\)
+
+A nominal conditional-coverage guarantee among released intervals requires an additional argument, such as a selection-valid interval construction, a release decision based on independent data, or a direct proof of conditional validity for the chosen procedure. The implementation therefore reports both release rate and empirical conditional coverage among released intervals; the latter is a validation diagnostic, not a consequence of marginal coverage alone.
 
 ![Resolution abstention frontier](figures/resolution_abstention_frontier.svg)
 
@@ -359,7 +410,7 @@ the fixed-seed simulation releases approximately **0% at deployment \(n=750\)**,
 
 ### Interpretation
 
-A scientifically responsible measurement system should be allowed to say that the available data are too weak for the requested resolution. Abstention is therefore an engineering output, not a software exception.
+A scientifically responsible measurement system should be allowed to say that the available data are too weak for the requested resolution. Abstention is therefore an engineering output, not a software exception. The release rate and conditional coverage of released cases must be reported separately, because abstention can change the composition of the cases that remain.
 
 ---
 
