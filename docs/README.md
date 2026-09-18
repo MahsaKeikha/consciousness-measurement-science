@@ -34,6 +34,8 @@ These three pages are the fastest route for a technically sophisticated reader w
 - [Phase 1 Protocol](protocol-phase1.md): first preregisterable cross-state benchmark.
 - [Preregistration Template](preregistration-template.md): required declarations before confirmatory analysis.
 - [Experimental Program](experimental-program.md): staged empirical program from healthy benchmarks to theory tournaments.
+- [Electromagnetic Field Measurement Program](electromagnetic-field-program.md): physical and sensor-level EM observables, confounds, and organization tests.
+- [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md): EEG/MEG-like forward and inverse identifiability, regularization, multimodal complementarity, and model perturbation.
 - [Statistical Validation](statistical-validation.md): calibration, transport, partial identification, uncertainty, multiplicity, and abstention.
 - [Dependence-Robust Partial Identification](partial-identification.md): sharp marginal-only bounds for multimodal evidence when conditional dependence is unknown.
 
