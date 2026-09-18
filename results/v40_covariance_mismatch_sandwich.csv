@@ -1,0 +1,4 @@
+weight_model,exact_sandwich_variance,nominal_precision_variance,variance_ratio_exact_over_nominal
+oracle_precision,0.8779761904761904,0.8779761904761906,0.9999999999999998
+identity_weight,1.06496,0.8,1.3311999999999997
+diagonal_precision,1.0452329580324302,0.7858546168958743,1.3300589390962674
