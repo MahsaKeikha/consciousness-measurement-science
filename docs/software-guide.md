@@ -284,6 +284,10 @@ Implements V36-V40 generalized least-squares scalar-amplitude inference, exact F
 
 Implements V41-V45 arbitrary-dependence Bonferroni thresholds, Holm adjusted p-values, exact row-wise sign-flip maximum-statistic inference, exact post-selection coverage under independent null searches, and independent-holdout selected-coordinate Type I control.
 
+### `electromagnetic_replication.py`
+
+Implements V46-V50 inverse-variance common-effect pooling, known-variance Cochran Q, exact leave-one-site-out pooled-estimate identities, Bonferroni partial-conjunction replicability p-values, normalized site weights, Kish-style effective site count, and exact delete-one variance inflation.
+
 The corresponding simulation modules and runners create deterministic or fixed-seed validation records. These functions characterize measurement and inverse-problem behavior. They do not convert EEG, MEG, or reconstructed sources into a consciousness score.
 
 ## What the software does not do
