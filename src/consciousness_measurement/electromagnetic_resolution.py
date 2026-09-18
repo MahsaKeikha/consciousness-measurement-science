@@ -71,6 +71,19 @@ def resolution_identity_error(resolution: np.ndarray) -> float:
     )
 
 
+def rank_limited_identity_error_lower_bound(
+    *,
+    source_dimension: int,
+    operator_rank: int,
+) -> float:
+    """Minimum normalized Frobenius distance from identity at a declared rank."""
+    if source_dimension < 1:
+        raise ValueError("source_dimension must be positive")
+    if not 0 <= operator_rank <= source_dimension:
+        raise ValueError("operator_rank must lie between zero and source_dimension")
+    return float(np.sqrt((source_dimension - operator_rank) / source_dimension))
+
+
 def scalar_amplitude_fisher_information(
     topography: np.ndarray,
     noise_covariance: np.ndarray,
