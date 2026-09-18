@@ -19,7 +19,7 @@ For the fastest technical orientation, use these three entry points first:
 1. [Visual Research Guide](docs/visual-research-guide.md) for the complete nine-figure scientific record.
 2. [Evidence-to-Claim Audit](docs/evidence-to-claim-audit.md) for the exact path from observable evidence to an allowed scientific claim.
 3. [Figure Catalog](docs/figure-catalog.md) for the canonical figure inventory and primary audit source for every visual.
-4. [Formal Validation V1-V25](VALIDATION.md) for the executable analytic and synthetic validation record, including the electromagnetic V16-V20 arm.
+4. [Formal Validation V1-V25](VALIDATION.md) for the executable analytic and synthetic validation record, including sensor-level EM validation V16-V20 and electromagnetic source-identifiability validation V21-V25.
 
 Then continue with [Start Here](docs/start-here.md), [Research Questions](RESEARCH_QUESTIONS.md), [Formal Measurement Framework](docs/measurement-framework.md), and the full [Documentation Map](docs/README.md).
 
