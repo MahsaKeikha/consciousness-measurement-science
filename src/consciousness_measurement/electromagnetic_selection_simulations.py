@@ -11,8 +11,8 @@ from .electromagnetic_selection import (
     holm_adjusted_pvalues,
     holm_rejections,
     independent_holdout_selected_type1,
-    selected_max_abs_naive_null_coverage,
     selected_max_abs_naive_false_positive,
+    selected_max_abs_naive_null_coverage,
     sign_flip_max_statistic_distribution,
     sign_flip_max_statistic_pvalue,
 )
