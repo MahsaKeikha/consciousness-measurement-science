@@ -48,7 +48,7 @@ Primary goal: determine which candidate measurements preserve calibrated relatio
 
 ## Cross-phase electromagnetic measurement arm
 
-The [Electromagnetic Field Measurement Program](electromagnetic-field-program.md), [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md), [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md), and [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md) form a cross-phase acquisition, source-modeling, resolution, design, and falsification arm rather than a separate consciousness theory.
+The [Electromagnetic Field Measurement Program](electromagnetic-field-program.md), [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md), [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md), [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md), and [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md) form a cross-phase acquisition, source-modeling, resolution, design, inference, and falsification arm rather than a separate consciousness theory.
 
 For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 
@@ -63,7 +63,14 @@ For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 - covariance-aware pairwise source-topography distinguishability for source-separation claims;
 - Fisher-information design criteria when comparing sensor, modality, or montage choices;
 - the target information fraction removed by declared nuisance projection;
-- a predeclared forward-model uncertainty set and robust information lower bound when source-space sensitivity is central;\n- sensor-noise covariance, covariance-estimation partition, and whitening policy;\n- acquisition sampling rate, analog and digital anti-alias filters, and declared analysis bandwidth;
+- a predeclared forward-model uncertainty set and robust information lower bound when source-space sensitivity is central;
+- the estimator used for source-amplitude inference and its exact weighting convention;
+- whether sensor covariance is known, externally estimated, cross-fitted, regularized, or estimated from the same data;
+- the number of independent or effective samples used for covariance estimation;
+- uncertainty intervals with explicit calibration assumptions and held-out or simulation-based coverage checks;
+- the complete source, time, frequency, state, and pipeline search family used for multiplicity control;
+- dependence-aware maximum-statistic, permutation, random-field, or other justified search-wide error control when independent-test assumptions are not valid;
+- sandwich or otherwise robust uncertainty checks when covariance-model mismatch could affect source-space precision;\n- sensor-noise covariance, covariance-estimation partition, and whitening policy;\n- acquisition sampling rate, analog and digital anti-alias filters, and declared analysis bandwidth;
 - sensitivity to reference choice, head geometry, conductivity, sensor registration, source orientation, regularization, and inverse prior;
 - EEG-only, MEG-only, and combined operator comparisons when multimodal electromagnetic data are available;
 - amplitude-matched and spectral-power-matched controls when testing organization beyond power;
