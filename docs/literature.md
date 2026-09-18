@@ -85,6 +85,12 @@ Repository use: V41-V45 extend the electromagnetic program from multiplicity awa
 - Nichols TE, Holmes AP. *Nonparametric permutation tests for functional neuroimaging: a primer with examples*. Human Brain Mapping. 2002;15(1):1-25. doi:10.1002/hbm.1058. Maximum-statistic permutation inference provides family-wise error control while respecting dependence across a searched imaging field.
 - Brookes MJ et al. *Beamformer reconstruction of correlated sources using a modified source model*. NeuroImage. 2007;34(4):1454-1465. doi:10.1016/j.neuroimage.2006.11.012. Source reconstruction behavior depends materially on covariance and source-correlation assumptions.
 
+Repository use: V46-V50 add a cross-site replication-inference layer. V46 uses inverse-variance common-effect pooling under declared known standard errors. V47 checks the known-variance Cochran Q reference law under an independent Gaussian common effect. V48 exposes leave-one-site-out influence exactly rather than relying on a pooled estimate alone. V49 uses partial-conjunction testing to distinguish evidence somewhere from evidence in at least r sites. V50 uses normalized inverse-variance weights to expose when the nominal number of sites substantially overstates the effective evidential count. These are replication-design constraints, not real external replication results.
+
+- Cochran WG. *The Combination of Estimates from Different Experiments*. Biometrics. 1954;10(1):101-129. doi:10.2307/3001666.
+- Benjamini Y, Heller R. *Screening for Partial Conjunction Hypotheses*. Biometrics. 2008;64(4):1215-1222. doi:10.1111/j.1541-0420.2007.00984.x.
+- Kish L. *Survey Sampling*. New York: John Wiley & Sons; 1965. The effective-count construction used in V50 is the standard unequal-weight form \((\sum_i w_i)^2/\sum_i w_i^2\), applied here to site-level inverse-variance weights as a concentration diagnostic.
+
 ## Perturbational complexity
 
 - Casali AG et al. *A theoretically based index of consciousness independent of sensory processing and behavior*. Science Translational Medicine. 2013;5(198):198ra105.
