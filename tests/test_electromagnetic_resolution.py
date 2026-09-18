@@ -12,9 +12,9 @@ from consciousness_measurement.electromagnetic_resolution import (
     rank_limited_identity_error_lower_bound,
     resolution_identity_error,
     resolution_matrix,
+    sampled_cosine,
     scalar_amplitude_crlb,
     scalar_amplitude_fisher_information,
-    sampled_cosine,
     weighted_residual_energy,
 )
 
