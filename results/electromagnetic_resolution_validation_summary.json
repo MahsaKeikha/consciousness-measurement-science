@@ -1,0 +1,15 @@
+{
+  "claim_boundary": "resolution and information limits do not identify consciousness or remove electromagnetic inverse ambiguity",
+  "status": "analytic_and_synthetic_only",
+  "v26_correlated_noise_whitening": {
+    "absolute_identity_error": 2.7755575615628914e-17,
+    "weighted_residual_energy": 0.027382585751978907,
+    "whitened_residual_energy": 0.027382585751978935
+  },
+  "v29_temporal_aliasing": {
+    "alias_frequency_hz": 83.0,
+    "frequency_hz": 17.0,
+    "max_sample_difference": 1.3911094498553211e-13,
+    "sample_rate_hz": 100.0
+  }
+}
