@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **nineteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **twenty validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -734,6 +734,78 @@ Audit: [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-
 
 ---
 
+# Multiplicity and selection-safe inference layer V41-V45
+
+V41-V45 make search-wide error control and data reuse explicit.
+
+## V41. Arbitrary-dependence Bonferroni control
+
+For K null tests with per-test error at most alpha/K, the union bound gives
+
+\[
+P\left(\bigcup_{k=1}^K A_k\right)
+\le
+\sum_{k=1}^K P(A_k)
+\le
+\alpha.
+\]
+
+For two-sided Gaussian statistics,
+
+\[
+t_{\alpha,K}^{\mathrm{Bonf}}
+=
+\Phi^{-1}\left(1-\frac{\alpha}{2K}\right).
+\]
+
+The canonical union-bound FWER is 0.05 for K = 1, 10, 100, and 1000 up to floating-point roundoff.
+
+## V42. Holm step-down gain
+
+For raw p-values (0.001, 0.016, 0.017, 0.5), the Holm adjusted values are
+
+\[
+(0.004,\ 0.048,\ 0.048,\ 0.5).
+\]
+
+At alpha = 0.05, Holm rejects three hypotheses while single-step Bonferroni rejects one.
+
+## V43. Exact sign-flip maximum statistic
+
+The declared six-row, two-source construction has 2^6 = 64 sign configurations. Two orbit elements meet or exceed the observed max-absolute-mean statistic, giving
+
+\[
+p_{\mathrm{flip}}=\frac{2}{64}=0.03125.
+\]
+
+## V44. Exact post-selection coverage collapse
+
+Under independent null coordinates, selecting the largest absolute statistic and reusing its ordinary marginal interval gives
+
+\[
+\boxed{C_{\mathrm{selected}}=c^K.}
+\]
+
+At nominal marginal coverage c = 0.95, selected coverage is about 0.00592053 for K = 100.
+
+## V45. Independent confirmation restores Type I error
+
+If discovery selects an index and confirmation data are independent under the null,
+
+\[
+P\left(|Z_J^{\mathrm{conf}}|>z_{1-\alpha/2}\right)=\alpha.
+\]
+
+The fixed-seed K = 100 simulation gives same-data reuse false-positive rate 0.99382 and independent-holdout false-positive rate 0.04986.
+
+![Multiplicity and selection-safe electromagnetic inference V41-V45](figures/v41_v45_electromagnetic_selection_validation.svg)
+
+Audit: [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnetic-selection-safe-inference.md), [V41 results](../results/v41_bonferroni_arbitrary_dependence.csv), [V42 results](../results/v42_holm_step_down.csv), [V43 results](../results/v43_sign_flip_max_statistic.csv), [V44 results](../results/v44_post_selection_coverage.csv), [V45 results](../results/v45_independent_holdout.csv), and [summary JSON](../results/electromagnetic_selection_validation_summary.json).
+
+**Claim ceiling:** V41-V45 establish multiplicity-control, randomization, and selection-safe inference properties only. They do not establish that a statistically significant electromagnetic source is a consciousness source or that search-wide statistical validity solves target identification.
+
+---
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -746,9 +818,10 @@ Audit: [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-
 | V26-V30 | `python scripts/run_electromagnetic_resolution_validation.py` | `electromagnetic_resolution.py`, `electromagnetic_resolution_simulations.py` | covariance, resolution, Fisher-information, aliasing, and singular-amplification tests | V26-V30 CSV/JSON files in `results/` |
 | V31-V35 | `python scripts/run_electromagnetic_design_validation.py` | `electromagnetic_design.py`, `electromagnetic_design_simulations.py` | PSF/CTF, distinguishability, Fisher design, nuisance-loss, and robust-information tests | V31-V35 CSV/JSON files in `results/` |
 | V36-V40 | `python scripts/run_electromagnetic_finite_sample_validation.py` | `electromagnetic_finite_sample.py`, `electromagnetic_finite_sample_simulations.py` | GLS, covariance-bias, discrimination, FWER, and sandwich-variance tests | V36-V40 CSV/JSON files in `results/` |
+| V41-V45 | `python scripts/run_electromagnetic_selection_validation.py` | `electromagnetic_selection.py`, `electromagnetic_selection_simulations.py` | Bonferroni, Holm, sign-flip, selection-coverage, and holdout-confirmation tests | V41-V45 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, `20260919` for V11-V15 fixed-seed checks, and `20260918` for the V36 Monte Carlo calibration check. V16-V35 and V37-V40 are deterministic or analytic.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, `20260919` for V11-V15 fixed-seed checks, and `20260918` for the V36 Monte Carlo calibration check and V45 holdout simulation. V16-V35 and V37-V44 are deterministic or analytic.
 
 # How to read the figures
 

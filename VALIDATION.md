@@ -1,4 +1,4 @@
-# Research III Formal Validation V1-V40
+# Research III Formal Validation V1-V45
 
 This is the compact entry point to the executable mathematical research layer of Research III.
 
@@ -8,7 +8,7 @@ These are **analytic and synthetic validation results**. They test the measureme
 
 ## Reader path
 
-1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V40 sequence.
+1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V45 sequence.
 2. [Formal Validation V1-V5](docs/formal-validation-program.md) for identification, coverage, transport, dependence, and structural testing.
 3. [Formal Validation V6-V10](docs/formal-validation-program-v6-v10.md) for finite calibration uncertainty, missingness, conditioning, heterogeneous sites, and abstention.
 4. [Formal Validation V11-V15](docs/formal-validation-program-v11-v15.md) for exact resolution laws, multisite identification, design sample size, and independent release gating.
@@ -17,11 +17,12 @@ These are **analytic and synthetic validation results**. They test the measureme
 7. [Electromagnetic Resolution and Information V26-V30](docs/electromagnetic-resolution-program.md) for correlated-noise geometry, source resolution and leakage, Fisher information, temporal aliasing, and inverse noise amplification.
 8. [Electromagnetic Design and Spatial Specificity V31-V35](docs/electromagnetic-design-spatial-specificity.md) for point-spread and cross-talk functions, source distinguishability, Fisher-information sensor design, nuisance information loss, and robust model uncertainty.
 9. [Finite-Sample Electromagnetic Inference V36-V40](docs/electromagnetic-finite-sample-inference.md) for efficient amplitude inference, inverse-covariance bias, Gaussian source discrimination, multiple-search control, and covariance-mismatch calibration.
-10. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
-11. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py), [V26-V30 runner](scripts/run_electromagnetic_resolution_validation.py), [V31-V35 runner](scripts/run_electromagnetic_design_validation.py), and [V36-V40 runner](scripts/run_electromagnetic_finite_sample_validation.py) to regenerate the result record and figures.
-12. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
+10. [Multiplicity and Selection-Safe Electromagnetic Inference V41-V45](docs/electromagnetic-selection-safe-inference.md) for arbitrary-dependence FWER control, Holm step-down testing, exact sign-flip inference, post-selection coverage, and independent confirmation.
+11. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
+12. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py), [V26-V30 runner](scripts/run_electromagnetic_resolution_validation.py), [V31-V35 runner](scripts/run_electromagnetic_design_validation.py), [V36-V40 runner](scripts/run_electromagnetic_finite_sample_validation.py), and [V41-V45 runner](scripts/run_electromagnetic_selection_validation.py) to regenerate the result record and figures.
+13. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
 
-## Forty formal stages
+## Forty-five formal stages
 
 | Stage | Scientific question | Main mathematical object | Executable evidence |
 |---|---|---|---|
@@ -65,6 +66,11 @@ These are **analytic and synthetic validation results**. They test the measureme
 | **V38** | What source-classification error is unavoidable for two Gaussian sensor models? | Mahalanobis separation and equal-prior Bayes error | exact discrimination-error sweep |
 | **V39** | How should an independent multi-source search control family-wise false positives? | maximum absolute z statistic and exact FWER law | exact threshold sweep from 1 to 1000 comparisons |
 | **V40** | What happens when the covariance used for weighting is not the true covariance? | scalar sandwich variance | oracle, identity, and diagonal-weight calibration comparison |
+| **V41** | How can a multi-source search control family-wise error without assuming independent tests? | Bonferroni union bound and Gaussian threshold | exact threshold and FWER sweep |
+| **V42** | Can strong family-wise control gain power over single-step Bonferroni? | Holm sequentially rejective adjusted p-values | canonical four-hypothesis step-down comparison |
+| **V43** | Can a dependence-aware finite randomization test control the maximum source statistic? | exact row-wise sign-flip orbit | 64-element max-statistic enumeration |
+| **V44** | What happens when the largest null source is selected and its ordinary interval is reused? | exact post-selection coverage law `c^K` | search-size coverage-collapse sweep |
+| **V45** | Can independent confirmation restore selected-coordinate Type I error after discovery? | conditional independence of holdout statistic and selected index | fixed-seed discovery-versus-holdout simulation |
 
 ## Core measurement equations
 
@@ -308,6 +314,7 @@ python scripts/run_electromagnetic_inverse_validation.py
 python scripts/run_electromagnetic_resolution_validation.py
 python scripts/run_electromagnetic_design_validation.py
 python scripts/run_electromagnetic_finite_sample_validation.py
+python scripts/run_electromagnetic_selection_validation.py
 make check
 ```
 

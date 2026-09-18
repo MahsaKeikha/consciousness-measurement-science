@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V40.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V45.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -141,9 +141,26 @@ python scripts/run_electromagnetic_finite_sample_validation.py
 
 V36 uses fixed seed `20260918`; V37-V40 are analytic. These results validate estimator efficiency under known covariance, finite inverse-covariance bias, Gaussian source discrimination, an exact independent-search multiplicity baseline, and covariance-mismatch calibration. They do not establish a consciousness classifier, a universal source threshold, or direct measurement of qualia.
 
+## V41-V45 multiplicity and selection-safe inference outputs
+
+- `v41_bonferroni_arbitrary_dependence.csv`: two-sided Bonferroni thresholds, union-bound FWER, and independent exact FWER across search sizes.
+- `v42_holm_step_down.csv`: raw p-values, Holm adjusted p-values, and Holm-versus-Bonferroni rejection indicators.
+- `v43_sign_flip_max_statistic.csv`: exact sign-flip orbit size, observed maximum statistic, exceedance count, and randomization p-value.
+- `v44_post_selection_coverage.csv`: exact same-data selected-coordinate coverage and false-positive rate across search sizes.
+- `v45_independent_holdout.csv`: fixed-seed comparison of same-data reuse and independent confirmation.
+- `electromagnetic_selection_validation_summary.json`: complete machine-readable V41-V45 multiplicity and selection-safe inference record.
+
+Reproduce with:
+
+```bash
+python scripts/run_electromagnetic_selection_validation.py
+```
+
+V41-V44 are analytic or exact finite-orbit calculations. V45 uses fixed seed `20260918`. These results validate search-wide error control, exact randomization under sign symmetry, the failure of naive same-data post-selection intervals, and independent holdout confirmation. They do not establish that a statistically significant electromagnetic source is a consciousness source.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V35](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, and [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, and [Finite-Sample Electromagnetic Inference Program](../docs/electromagnetic-finite-sample-inference.md) for V36-V40.
+Use [Research III Formal Validation V1-V45](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, and [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, [Finite-Sample Electromagnetic Inference Program](../docs/electromagnetic-finite-sample-inference.md) for V36-V40, and [Multiplicity and Selection-Safe Electromagnetic Inference](../docs/electromagnetic-selection-safe-inference.md) for V41-V45.
 
 ## Verification rule
 

@@ -1,0 +1,41 @@
+{
+  "claim_boundary": "multiplicity and selection-safe inference do not identify consciousness or turn statistical significance into an experiential measurement",
+  "status": "analytic_and_synthetic_only",
+  "v41_arbitrary_dependence_bonferroni": [
+    {"comparisons": 1.0, "independent_exact_fwer": 0.050000000000000044, "target_fwer": 0.05, "two_sided_z_threshold": 1.9599639845400536, "union_bound_fwer": 0.05000000000000008},
+    {"comparisons": 10.0, "independent_exact_fwer": 0.04888986953422714, "target_fwer": 0.05, "two_sided_z_threshold": 2.8070337683438114, "union_bound_fwer": 0.04999999999999892},
+    {"comparisons": 100.0, "independent_exact_fwer": 0.04878246975766576, "target_fwer": 0.05, "two_sided_z_threshold": 3.4807564043462422, "union_bound_fwer": 0.049999999999994514},
+    {"comparisons": 1000.0, "independent_exact_fwer": 0.04877176457505983, "target_fwer": 0.05, "two_sided_z_threshold": 4.055626981121907, "union_bound_fwer": 0.05000000000010585}
+  ],
+  "v42_holm_step_down": [
+    {"bonferroni_reject": 1.0, "holm_adjusted_pvalue": 0.004, "holm_reject": 1.0, "hypothesis_index": 0.0, "raw_pvalue": 0.001},
+    {"bonferroni_reject": 0.0, "holm_adjusted_pvalue": 0.048, "holm_reject": 1.0, "hypothesis_index": 1.0, "raw_pvalue": 0.016},
+    {"bonferroni_reject": 0.0, "holm_adjusted_pvalue": 0.048, "holm_reject": 1.0, "hypothesis_index": 2.0, "raw_pvalue": 0.017},
+    {"bonferroni_reject": 0.0, "holm_adjusted_pvalue": 0.5, "holm_reject": 0.0, "hypothesis_index": 3.0, "raw_pvalue": 0.5}
+  ],
+  "v43_exact_sign_flip_max_statistic": {
+    "exact_randomization_pvalue": 0.03125,
+    "exceedances": 2.0,
+    "observed_max_abs_mean": 1.0083333333333333,
+    "orbit_size": 64.0,
+    "rows": 6.0,
+    "sources": 2.0
+  },
+  "v44_post_selection_coverage": [
+    {"comparisons": 1.0, "marginal_coverage": 0.95, "selected_false_positive": 0.050000000000000044, "selected_naive_coverage": 0.95},
+    {"comparisons": 10.0, "marginal_coverage": 0.95, "selected_false_positive": 0.4012630607616213, "selected_naive_coverage": 0.5987369392383787},
+    {"comparisons": 100.0, "marginal_coverage": 0.95, "selected_false_positive": 0.994079470779666, "selected_naive_coverage": 0.0059205292203339975},
+    {"comparisons": 1000.0, "marginal_coverage": 0.95, "selected_false_positive": 1.0, "selected_naive_coverage": 5.2918227477448005e-23}
+  ],
+  "v45_independent_holdout": {
+    "comparisons": 100.0,
+    "empirical_holdout_false_positive": 0.04986,
+    "empirical_reuse_false_positive": 0.99382,
+    "exact_holdout_type1": 0.05,
+    "exact_reuse_false_positive": 0.994079470779666,
+    "seed": 20260918.0,
+    "target_alpha": 0.05,
+    "trials": 50000.0,
+    "two_sided_z_threshold": 1.9599639845400536
+  }
+}

@@ -48,7 +48,7 @@ Primary goal: determine which candidate measurements preserve calibrated relatio
 
 ## Cross-phase electromagnetic measurement arm
 
-The [Electromagnetic Field Measurement Program](electromagnetic-field-program.md), [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md), [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md), [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md), and [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md) form a cross-phase acquisition, source-modeling, resolution, design, inference, and falsification arm rather than a separate consciousness theory.
+The [Electromagnetic Field Measurement Program](electromagnetic-field-program.md), [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md), [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md), [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md), [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md), and [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnetic-selection-safe-inference.md) form a cross-phase acquisition, source-modeling, resolution, design, inference, selection-control, and falsification arm rather than a separate consciousness theory.
 
 For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 
@@ -69,7 +69,11 @@ For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 - whether sensor covariance is known, externally estimated, cross-fitted, regularized, or estimated from the same data;
 - the number of independent or effective samples used for covariance estimation;
 - uncertainty intervals with explicit calibration assumptions and held-out or simulation-based coverage checks;
-- the complete source, time, frequency, state, and pipeline search family used for multiplicity control;
+- the complete source, time, frequency, state, preprocessing, model, and hyperparameter search family used for multiplicity control;
+- whether multiplicity control is Bonferroni, Holm, maximum-statistic, permutation-based, or another justified dependence-aware procedure;
+- whether source, time, frequency, ROI, preprocessing, or model selection reused the same data later used for uncertainty or significance;
+- whether confirmatory data are independent of discovery when a selected coordinate is carried forward;
+- whether every data-dependent preprocessing and source-reconstruction step is repeated inside a randomization loop when required for validity;
 - dependence-aware maximum-statistic, permutation, random-field, or other justified search-wide error control when independent-test assumptions are not valid;
 - sandwich or otherwise robust uncertainty checks when covariance-model mismatch could affect source-space precision;
 - sensor-noise covariance, covariance-estimation partition, and whitening policy;

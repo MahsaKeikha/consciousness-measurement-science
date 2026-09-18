@@ -77,6 +77,11 @@ Repository use: V31-V35 extend the same measurement-science literature into expl
 
 Repository use: V36-V40 add finite-sample statistical calibration to the electromagnetic program. V36 separates exact GLS uncertainty from Monte Carlo implementation error. V37 makes finite inverse-covariance bias explicit under a declared Wishart model. V38 converts covariance-aware source separation into exact equal-prior Gaussian Bayes error. V39 makes search multiplicity explicit and treats the independent-test formula as a baseline rather than a substitute for dependence-aware neuroimaging correction. V40 compares nominal uncertainty with the exact sandwich variance under covariance mismatch. These remain inference-calibration constraints, not consciousness metrics.
 
+Repository use: V41-V45 extend the electromagnetic program from multiplicity awareness to selection-safe inference. V41 uses the union bound to obtain arbitrary-dependence Bonferroni control. V42 uses Holm's sequentially rejective procedure. V43 uses a finite sign-flip maximum-statistic orbit under a declared symmetry null. V44 quantifies exact coverage collapse when the largest null coordinate is selected and ordinary marginal uncertainty is reused on the same data. V45 separates discovery from independent confirmation so selected-coordinate Type I error returns to the declared alpha level. These are statistical-validity constraints, not consciousness metrics.
+
+- Holm S. *A Simple Sequentially Rejective Multiple Test Procedure*. Scandinavian Journal of Statistics. 1979;6(2):65-70.
+- Kriegeskorte N, Simmons WK, Bellgowan PSF, Baker CI. *Circular analysis in systems neuroscience: the dangers of double dipping*. Nature Neuroscience. 2009;12(5):535-540. doi:10.1038/nn.2303.
+
 - Nichols TE, Holmes AP. *Nonparametric permutation tests for functional neuroimaging: a primer with examples*. Human Brain Mapping. 2002;15(1):1-25. doi:10.1002/hbm.1058. Maximum-statistic permutation inference provides family-wise error control while respecting dependence across a searched imaging field.
 - Brookes MJ et al. *Beamformer reconstruction of correlated sources using a modified source model*. NeuroImage. 2007;34(4):1454-1465. doi:10.1016/j.neuroimage.2006.11.012. Source reconstruction behavior depends materially on covariance and source-correlation assumptions.
 
