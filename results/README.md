@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V25.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V30.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -90,9 +90,26 @@ python scripts/run_electromagnetic_inverse_validation.py
 
 V21-V25 are deterministic and require no random seed. They validate reference invariance, source non-identifiability, inverse-prior sensitivity, multimodal null-space reduction, and forward-model perturbation behavior. They do not establish a unique neural source or a consciousness-specific electromagnetic source pattern.
 
+## V26-V30 electromagnetic resolution and information outputs
+
+- `v26_correlated_noise_whitening.csv`: covariance-weighted residual energy and the equivalent whitened residual norm.
+- `v27_resolution_leakage.csv`: regularization path for source-resolution trace, off-diagonal leakage, and normalized identity error.
+- `v28_fisher_information.csv`: scalar-amplitude Fisher information and Cramer-Rao lower bound as common sensor-noise correlation increases.
+- `v29_temporal_aliasing.csv`: exact sampled-cosine aliasing counterexample at 100 Hz sampling.
+- `v30_inverse_noise_amplification.csv`: smallest singular value, pseudoinverse norm, and realized worst-direction noise amplification.
+- `electromagnetic_resolution_validation_summary.json`: compact V26 whitening and V29 temporal-aliasing record.
+
+Reproduce with:
+
+```bash
+python scripts/run_electromagnetic_resolution_validation.py
+```
+
+V26-V30 are deterministic and require no random seed. They validate noise geometry, inverse resolution limits, information loss under correlated noise, temporal sampling non-identifiability, and singular-direction noise amplification. They do not establish a consciousness-specific information threshold or source-space consciousness measure.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V25](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, and [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25.
+Use [Research III Formal Validation V1-V30](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, and [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30.
 
 ## Verification rule
 
