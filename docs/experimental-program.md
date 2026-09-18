@@ -59,7 +59,8 @@ For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 - environmental reference channels and line-noise characterization;
 - ECG, EOG, respiration, motion, and other plausible physiological contaminants;
 - source-space analysis only when its forward and inverse assumptions are declared;
-- explicit lead-field rank, singular spectrum, conditioning, null-space, inverse resolution matrix, and source-leakage diagnostics when a source-space claim is central;\n- point-spread and cross-talk functions when a linear inverse is used and spatial-resolution claims are central;
+- explicit lead-field rank, singular spectrum, conditioning, null-space, inverse resolution matrix, and source-leakage diagnostics when a source-space claim is central;
+- point-spread and cross-talk functions when a linear inverse is used and spatial-resolution claims are central;
 - covariance-aware pairwise source-topography distinguishability for source-separation claims;
 - Fisher-information design criteria when comparing sensor, modality, or montage choices;
 - the target information fraction removed by declared nuisance projection;
@@ -70,7 +71,9 @@ For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 - uncertainty intervals with explicit calibration assumptions and held-out or simulation-based coverage checks;
 - the complete source, time, frequency, state, and pipeline search family used for multiplicity control;
 - dependence-aware maximum-statistic, permutation, random-field, or other justified search-wide error control when independent-test assumptions are not valid;
-- sandwich or otherwise robust uncertainty checks when covariance-model mismatch could affect source-space precision;\n- sensor-noise covariance, covariance-estimation partition, and whitening policy;\n- acquisition sampling rate, analog and digital anti-alias filters, and declared analysis bandwidth;
+- sandwich or otherwise robust uncertainty checks when covariance-model mismatch could affect source-space precision;
+- sensor-noise covariance, covariance-estimation partition, and whitening policy;
+- acquisition sampling rate, analog and digital anti-alias filters, and declared analysis bandwidth;
 - sensitivity to reference choice, head geometry, conductivity, sensor registration, source orientation, regularization, and inverse prior;
 - EEG-only, MEG-only, and combined operator comparisons when multimodal electromagnetic data are available;
 - amplitude-matched and spectral-power-matched controls when testing organization beyond power;
