@@ -1,0 +1,5 @@
+hypothesis_index,raw_pvalue,holm_adjusted_pvalue,holm_reject,bonferroni_reject
+0.0,0.001,0.004,1.0,1.0
+1.0,0.016,0.048,1.0,0.0
+2.0,0.017,0.048,1.0,0.0
+3.0,0.5,0.5,0.0,0.0
