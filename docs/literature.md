@@ -73,6 +73,8 @@ Repository use: V21-V25 formalize the measurement consequences of this literatur
 
 Repository use: V26-V30 formalize a third electromagnetic measurement layer after sensor observables and source identifiability. V26 makes covariance-weighted residual geometry explicit. V27 evaluates source resolution and cross-talk through the inverse resolution matrix. V28 quantifies how correlated sensor noise reduces Fisher information. V29 provides an exact temporal-aliasing counterexample. V30 makes singular-direction inverse noise amplification explicit through the pseudoinverse norm. These are measurement-resolution constraints, not consciousness metrics.
 
+Repository use: V31-V35 extend the same measurement-science literature into explicit spatial-specificity and design laws. V31 uses resolution-matrix columns as point-spread functions and rows as cross-talk functions. V32 evaluates source-topography separation in the declared noise covariance. V33 compares sensor designs through Fisher-information geometry rather than sensor count alone. V34 quantifies target information destroyed by nuisance projection. V35 adds a worst-case information bound under a declared forward-model uncertainty radius. These remain measurement-design constraints, not experiential metrics.
+
 ## Perturbational complexity
 
 - Casali AG et al. *A theoretically based index of consciousness independent of sensory processing and behavior*. Science Translational Medicine. 2013;5(198):198ra105.
