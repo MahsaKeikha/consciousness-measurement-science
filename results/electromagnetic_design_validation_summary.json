@@ -1,0 +1,82 @@
+{
+  "claim_boundary": "sensor design, resolution, nuisance rejection, and robust information do not identify consciousness or qualia",
+  "status": "analytic_and_synthetic_only",
+  "v31_point_spread_cross_talk": {
+    "cross_talk": [0.2, 0.7, 0.2, 0.0],
+    "cross_talk_leakage_norm": 0.28284271247461906,
+    "point_spread": [0.1, 0.7, 0.1, 0.0],
+    "point_spread_leakage_norm": 0.14142135623730953,
+    "source_index": 1.0
+  },
+  "v32_source_distinguishability": [
+    {
+      "comparison": "close",
+      "mahalanobis_distance_squared": 0.003229357798165141
+    },
+    {
+      "comparison": "distinct",
+      "mahalanobis_distance_squared": 2.3394495412844036
+    }
+  ],
+  "v33_sensor_design_information": [
+    {
+      "design": "redundant",
+      "determinant": 0.0024000000000000015,
+      "log_determinant": -6.0322865416282365,
+      "minimum_eigenvalue": 0.0008,
+      "trace": 3.0008
+    },
+    {
+      "design": "complementary",
+      "determinant": 1.9999999999999998,
+      "log_determinant": 0.6931471805599452,
+      "minimum_eigenvalue": 1.0,
+      "trace": 3.0
+    }
+  ],
+  "v34_nuisance_information_loss": [
+    {"angle_degrees": 0.0, "retained_information_fraction": 0.0, "sin_squared_angle": 0.0},
+    {"angle_degrees": 15.0, "retained_information_fraction": 0.06698729810778066, "sin_squared_angle": 0.06698729810778066},
+    {"angle_degrees": 30.0, "retained_information_fraction": 0.24999999999999994, "sin_squared_angle": 0.24999999999999994},
+    {"angle_degrees": 45.0, "retained_information_fraction": 0.4999999999999999, "sin_squared_angle": 0.4999999999999999},
+    {"angle_degrees": 60.0, "retained_information_fraction": 0.7499999999999999, "sin_squared_angle": 0.7499999999999999},
+    {"angle_degrees": 90.0, "retained_information_fraction": 1.0, "sin_squared_angle": 1.0}
+  ],
+  "v35_robust_model_information": [
+    {
+      "nominal_information": 1.29,
+      "realized_perturbation_norm": 0.0,
+      "realized_worst_case_information": 1.29,
+      "robust_information_lower_bound": 1.2899999999999998,
+      "uncertainty_radius": 0.0
+    },
+    {
+      "nominal_information": 1.29,
+      "realized_perturbation_norm": 0.20000000000000004,
+      "realized_worst_case_information": 0.8756873323359782,
+      "robust_information_lower_bound": 0.8756873323359781,
+      "uncertainty_radius": 0.2
+    },
+    {
+      "nominal_information": 1.29,
+      "realized_perturbation_norm": 0.5,
+      "realized_worst_case_information": 0.40421833083994524,
+      "robust_information_lower_bound": 0.4042183308399452,
+      "uncertainty_radius": 0.5
+    },
+    {
+      "nominal_information": 1.29,
+      "realized_perturbation_norm": 1.0,
+      "realized_worst_case_information": 0.01843666167989055,
+      "robust_information_lower_bound": 0.01843666167989053,
+      "uncertainty_radius": 1.0
+    },
+    {
+      "nominal_information": 1.29,
+      "realized_perturbation_norm": 1.1357816691600546,
+      "realized_worst_case_information": 0.0,
+      "robust_information_lower_bound": 0.0,
+      "uncertainty_radius": 1.2
+    }
+  ]
+}
