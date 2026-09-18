@@ -44,7 +44,7 @@ def _render_svg(
     discrimination_points = []
     max_d2 = max(row["mahalanobis_squared"] for row in v38)
     for row in v38:
-        x = 885 + row["mahalanobis_squared"] / max_d2 * 285
+        x = 465 + row["mahalanobis_squared"] / max_d2 * 240
         y = 805 - row["equal_prior_bayes_error"] / 0.5 * 235
         discrimination_points.append(f"{x:.2f},{y:.2f}")
 
@@ -52,7 +52,7 @@ def _render_svg(
     max_log = 3.0
     for row in v39:
         comparisons = row["comparisons"]
-        x = 1245 + (0.0 if comparisons <= 1.0 else __import__("math").log10(comparisons) / max_log * 255)
+        x = 1205 + (0.0 if comparisons <= 1.0 else __import__("math").log10(comparisons) / max_log * 285)
         y = 805 - (row["two_sided_z_threshold"] - 1.9) / (4.1 - 1.9) * 235
         fwer_points.append(f"{x:.2f},{y:.2f}")
 
@@ -102,10 +102,10 @@ def _render_svg(
   <text x="390" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">error = 0.5</text>
   <text x="120" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">d squared = 9</text>
   <text x="390" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">error = {_fmt(v38[-1]["equal_prior_bayes_error"])}</text>
-  <line x1="885" y1="805" x2="1170" y2="805" stroke="#8795a5" stroke-width="2"/>
-  <line x1="885" y1="570" x2="885" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="465" y1="805" x2="705" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="465" y1="570" x2="465" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(discrimination_points)}" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="1027" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">Mahalanobis distance squared</text>
+  <text x="585" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">Mahalanobis distance squared</text>
 
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V39 exact independent-search FWER control</text>
@@ -114,10 +114,10 @@ def _render_svg(
   <text x="1105" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(v39[0]["two_sided_z_threshold"])}</text>
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">1000 comparisons</text>
   <text x="1105" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(v39[-1]["two_sided_z_threshold"])}</text>
-  <line x1="1245" y1="805" x2="1500" y2="805" stroke="#8795a5" stroke-width="2"/>
-  <line x1="1245" y1="570" x2="1245" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="1205" y1="805" x2="1490" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="1205" y1="570" x2="1205" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(fwer_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="1372" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">log10 comparison count</text>
+  <text x="1348" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">log10 comparison count</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and fixed-seed synthetic inference validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
 </svg>
