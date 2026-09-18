@@ -19,7 +19,7 @@ For the fastest technical orientation, use these three entry points first:
 1. [Visual Research Guide](docs/visual-research-guide.md) for the complete nine-figure scientific record.
 2. [Evidence-to-Claim Audit](docs/evidence-to-claim-audit.md) for the exact path from observable evidence to an allowed scientific claim.
 3. [Figure Catalog](docs/figure-catalog.md) for the canonical figure inventory and primary audit source for every visual.
-4. [Formal Validation V1-V25](VALIDATION.md) for the executable analytic and synthetic validation record, including sensor-level EM validation V16-V20 and electromagnetic source-identifiability validation V21-V25.
+4. [Formal Validation V1-V30](VALIDATION.md) for the executable analytic and synthetic validation record, including sensor-level EM validation V16-V20, source-identifiability validation V21-V25, and electromagnetic resolution and information-limit validation V26-V30.
 
 Then continue with [Start Here](docs/start-here.md), [Research Questions](RESEARCH_QUESTIONS.md), [Formal Measurement Framework](docs/measurement-framework.md), and the full [Documentation Map](docs/README.md).
 
@@ -199,7 +199,7 @@ The program therefore emphasizes triangulation, causal intervention, cross-conte
 
 ## Electromagnetic measurement arm
 
-Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) for V16-V20 and an [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md) for V21-V25.
+Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) for V16-V20, an [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md) for V21-V25, and an [Electromagnetic Resolution and Information Program](docs/electromagnetic-resolution-program.md) for V26-V30.
 
 The measurement model is
 
@@ -219,7 +219,7 @@ The first electromagnetic feature profile is
 
 covering normalized spectral entropy, frequency-specific sensor-phase concentration, covariance effective rank, normalized singular-value entropy, and common-mode fraction.
 
-The strongest current conclusions are measurement-science conclusions:
+V26-V30 then quantify a further set of engineering limits: covariance-aware residual geometry, inverse resolution leakage, a rank-only lower bound on identity resolution error, Fisher-information loss under correlated noise, exact temporal aliasing, and worst-case pseudoinverse noise amplification. These are measurement limits, not consciousness measurements.\n\nThe strongest current conclusions are measurement-science conclusions:
 
 - V17 shows the normalized descriptors are invariant to trivial global gain in the declared deterministic construction;
 - V18 gives a constructive counterexample in which channel power is matched to numerical precision while spatial phase organization changes from fully aligned to phase balanced;
