@@ -400,12 +400,12 @@ A source-space consciousness claim should be weakened if it disappears under rea
 
 ## Literature anchors
 
-- He B, Sohrabpour A, Brown E, Liu Z. *Electrophysiological Source Imaging: A Noninvasive Window to Brain Dynamics*. Annual Review of Biomedical Engineering. 2018;20:171-196. doi:10.1146/annurev-bioeng-062117-120853.
-- Grech R et al. *Review on solving the inverse problem in EEG source analysis*. Reviews established EEG source-localization methods and the non-uniqueness of the inverse problem.
-- Michel CM, Murray MM, Lantz G, Gonzalez S, Spinelli L, Grave de Peralta R. *EEG source imaging*. Reviews forward modeling, inverse constraints, and source localization assumptions.
-- Baillet S, Mosher JC, Leahy RM. *Electromagnetic brain mapping*. Reviews the forward and inverse mathematical structure of EEG/MEG source imaging.
-- Gross J et al. and related source-connectivity literature emphasize that sensor-space connectivity is strongly affected by field spread and that source reconstruction reduces but does not eliminate interpretational problems.
-- EEG/MEG integration studies report complementary sensitivity and potential improvement in source localization when both modalities are combined.
+- Phillips AR, Vakilna YS, EPMoghaddam D, Banta A, Mosher JC, Aazhang B. *Inferring neural sources from electroencephalography: foundations and frontiers*. Journal of Neural Engineering. 2026;23(1):011002. doi:10.1088/1741-2552/ae3e16. Reviews current EEG forward and inverse modeling, source-estimation limitations, anatomical variability, high-density systems, and multimodal integration.
+- Luria G, Viani A, Pascarella A, Bornfleth H, Sommariva S, Sorrentino A. *The SESAMEEG package: a probabilistic tool for source localization and uncertainty quantification in M/EEG*. Frontiers in Human Neuroscience. 2024;18:1359753. doi:10.3389/fnhum.2024.1359753. Provides a probabilistic source-localization framework that keeps uncertainty in the reconstructed source explicit.
+- Gross J et al. *Good practice for conducting and reporting MEG research*. NeuroImage. 2013;65:349-363. doi:10.1016/j.neuroimage.2012.10.001. Describes the M/EEG inverse problem as fundamentally ill-posed, including limited sensor count, lead-field null spaces, and nonunique source configurations, and recommends explicit reporting of forward models, inverse methods, parameters, and regularization.
+- He B, Sohrabpour A, Brown E, Liu Z. *Electrophysiological Source Imaging: A Noninvasive Window to Brain Dynamics*. Annual Review of Biomedical Engineering. 2018;20:171-196. doi:10.1146/annurev-bioeng-062117-120853. Reviews the forward/inverse source-imaging pipeline and the physical relationship between noninvasive electromagnetic measurements and candidate neural generators.
+- Grech R et al. *Review on solving the inverse problem in EEG source analysis*. Journal of NeuroEngineering and Rehabilitation. 2008;5:25. doi:10.1186/1743-0003-5-25. Reviews parametric and distributed inverse methods and the role of added assumptions in obtaining source estimates.
+- Hu S et al. *Which Reference Should We Use for EEG and ERP practice?* Brain Topography. 2019. Reviews the EEG reference problem and the assumptions behind common rereferencing choices.
 
 The repository uses these references to motivate the measurement problem, not to claim that any one inverse method is uniquely correct.
 
