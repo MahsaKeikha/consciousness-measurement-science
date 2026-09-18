@@ -1,0 +1,3 @@
+dictionary,sensor_dimension,source_count,rank,mutual_coherence,welch_lower_bound
+regular_simplex,4.0,5.0,4.0,0.25,0.25
+coherent,4.0,5.0,4.0,0.9949371890224981,0.25
