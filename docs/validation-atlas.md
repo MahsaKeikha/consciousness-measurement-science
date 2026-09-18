@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **twenty validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **twenty-one validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
