@@ -4,7 +4,6 @@ import numpy as np
 
 from . import electromagnetic_replication as replication
 
-
 ESTIMATES = np.asarray([0.42, 0.55, 0.37, 0.48])
 STANDARD_ERRORS = np.asarray([0.12, 0.18, 0.10, 0.15])
 
