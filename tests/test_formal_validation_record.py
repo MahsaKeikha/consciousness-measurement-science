@@ -22,6 +22,9 @@ RUNNER_V21_V25 = (
 RUNNER_V26_V30 = (
     ROOT / "scripts" / "run_electromagnetic_resolution_validation.py"
 ).read_text(encoding="utf-8")
+RUNNER_V26_V30 = (
+    ROOT / "scripts" / "run_electromagnetic_resolution_validation.py"
+).read_text(encoding="utf-8")
 
 RESULT_FIGURES = (
     "finite_sample_identification.svg",
@@ -121,6 +124,7 @@ def test_result_figures_are_regenerated_by_the_declared_runners() -> None:
         assert figure in RUNNER_V11_V15
     assert RESULT_FIGURES[14] in RUNNER_V16_V20
     assert RESULT_FIGURES[15] in RUNNER_V21_V25
+    assert RESULT_FIGURES[16] in RUNNER_V26_V30
     assert RESULT_FIGURES[16] in RUNNER_V26_V30
 
 
