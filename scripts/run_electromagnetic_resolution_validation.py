@@ -102,7 +102,8 @@ def _svg(
   <polyline points="{points27}" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="400" y="810" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">increasing regularization</text>
   <text x="150" y="610" transform="rotate(-90 150 610)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">identity error</text>
-  <text x="120" y="860" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Off-diagonal resolution energy records source leakage and cross-talk.</text>
+  <text x="120" y="850" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Rank-only normalized error floor: {_fmt(v27[0]["rank_lower_bound"])}</text>
+  <text x="120" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Off-diagonal resolution energy records source leakage and cross-talk.</text>
 
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V28 Fisher information under common sensor noise</text>
@@ -146,7 +147,10 @@ def main() -> None:
                     "consciousness or remove electromagnetic inverse ambiguity"
                 ),
                 "v26_correlated_noise_whitening": v26,
+                "v27_resolution_leakage": v27,
+                "v28_fisher_information": v28,
                 "v29_temporal_aliasing": v29,
+                "v30_inverse_noise_amplification": v30,
             },
             indent=2,
             sort_keys=True,
