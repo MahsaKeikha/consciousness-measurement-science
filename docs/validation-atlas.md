@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **fourteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **fifteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -264,6 +264,76 @@ Audit: [`v15_independent_pilot_gate.csv`](../results/v15_independent_pilot_gate.
 
 ---
 
+# Electromagnetic measurement layer V16-V20
+
+V16-V20 add electromagnetic recordings as a candidate evidence channel without assuming that an electromagnetic observable is identical to consciousness. The layer asks which physical quantities can be measured cleanly, which organization descriptors are invariant to trivial gain, which information is lost by power-only summaries, and how shared contamination can create misleading apparent organization.
+
+The sensor model is
+
+\[
+\mathbf X(t)=\mathcal M[\mathcal F](t)+\boldsymbol\eta(t),
+\qquad
+\mathcal F(\mathbf r,t)=\{\mathbf E(\mathbf r,t),\mathbf B(\mathbf r,t)\},
+\]
+
+where \(\mathcal M\) contains the acquisition geometry, transfer functions, referencing, and filtering, and \(\boldsymbol\eta\) contains instrumental and environmental contamination.
+
+## V16. Physical field sanity checks
+
+The implementation includes the vacuum electromagnetic identities
+
+\[
+u=\frac12\left(\epsilon_0\lVert\mathbf E\rVert^2+\frac{\lVert\mathbf B\rVert^2}{\mu_0}\right),
+\qquad
+\mathbf S=\frac1{\mu_0}\mathbf E\times\mathbf B.
+\]
+
+These are unit and implementation checks, not direct models of propagation through biological tissue.
+
+## V17. Gain-invariant organization descriptors
+
+The first EM feature profile contains normalized spectral entropy, frequency-specific sensor-phase concentration, covariance effective rank, normalized singular-value entropy, and common-mode fraction. The deterministic gain sweep verifies that the normalized descriptors are unchanged when all channels are multiplied by 0.1, 1, or 10.
+
+Audit: [Electromagnetic Field Program](electromagnetic-field-program.md), [`v17_em_scale_invariance.csv`](../results/v17_em_scale_invariance.csv), [`electromagnetic_observables.py`](../src/consciousness_measurement/electromagnetic_observables.py).
+
+## V18. Matched-power non-identifiability
+
+Two eight-sensor 10 Hz fields are constructed with identical power in every channel. One is spatially phase aligned and one is phase balanced.
+
+The canonical construction has maximum relative channel-power difference below `3e-16`, while phase concentration changes from `1.0` to numerical zero.
+
+Therefore:
+
+\[
+\boxed{\text{channel power alone does not identify spatial field organization}}
+\]
+
+## V19. Shared-field confound
+
+A common 10 Hz contaminant is added to the phase-balanced array. Raw sensor-phase concentration rises from numerical zero to about `0.935` at the largest declared contaminant amplitude even though the underlying sensor-specific phase pattern was not changed. Exact common-mode removal returns the controlled synthetic construction to numerical zero.
+
+This is a confound demonstration, not a claim that common-average subtraction is a universal EEG or MEG correction.
+
+## V20. Frequency-specific organization
+
+The same multichannel signal is fully phase aligned at 10 Hz and phase balanced at 17 Hz:
+
+\[
+C_\phi(10\,\mathrm{Hz})=1,
+\qquad
+C_\phi(17\,\mathrm{Hz})\approx0.
+\]
+
+Field organization therefore must be declared in frequency, space, time, and acquisition context rather than compressed into one unqualified scalar.
+
+![Electromagnetic validation V16-V20](figures/v16_v20_electromagnetic_validation.svg)
+
+Audit: [Electromagnetic Field Program](electromagnetic-field-program.md), [`electromagnetic_validation_summary.json`](../results/electromagnetic_validation_summary.json), [`v19_common_mode_confound.csv`](../results/v19_common_mode_confound.csv), [`v20_frequency_specific_structure.csv`](../results/v20_frequency_specific_structure.csv), [`electromagnetic_simulations.py`](../src/consciousness_measurement/electromagnetic_simulations.py).
+
+**Claim ceiling:** V16-V20 currently support physical M0 and measurement-design claims only. They do not establish a consciousness-specific electromagnetic signature, direct measurement of qualia, or an electromagnetic ontology of consciousness.
+
+---
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -271,9 +341,10 @@ Audit: [`v15_independent_pilot_gate.csv`](../results/v15_independent_pilot_gate.
 | V1-V5 | `python scripts/run_validation_program.py` | `latent_measurement.py`, `simulation_validation.py` | V1-V5 tests | V1-V5 CSV/JSON files in `results/` |
 | V6-V10 | `python scripts/run_robustness_validation.py` | `measurement_robustness.py`, `robustness_simulations.py` | V6-V10 tests | V6-V10 CSV/JSON files in `results/` |
 | V11-V15 | `python scripts/run_identification_design_validation.py` | `identification_design.py`, `identification_design_simulations.py` | V11-V15 theorem and simulation tests | V11-V15 CSV/JSON files in `results/` |
+| V16-V20 | `python scripts/run_electromagnetic_validation.py` | `electromagnetic_observables.py`, `electromagnetic_simulations.py` | EM physical, invariance, non-identifiability, confound, and frequency tests | V16-V20 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V20 are deterministic and require no random seed.
 
 # How to read the figures
 
