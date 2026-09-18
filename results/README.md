@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V30.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V35.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -107,9 +107,26 @@ python scripts/run_electromagnetic_resolution_validation.py
 
 V26-V30 are deterministic and require no random seed. They validate noise geometry, inverse resolution limits, information loss under correlated noise, temporal sampling non-identifiability, and singular-direction noise amplification. They do not establish a consciousness-specific information threshold or source-space consciousness measure.
 
+## V31-V35 electromagnetic design and spatial-specificity outputs
+
+- `v31_point_spread_cross_talk.csv`: point-spread and cross-talk values for the canonical asymmetric resolution matrix.
+- `v32_source_distinguishability.csv`: covariance-aware squared Mahalanobis distances for close and distinct sensor topographies.
+- `v33_sensor_design_information.csv`: determinant, log determinant, minimum eigenvalue, and trace of redundant and complementary Fisher-information designs.
+- `v34_nuisance_information_loss.csv`: target information retained after one-dimensional nuisance projection across declared principal angles.
+- `v35_robust_model_information.csv`: nominal and worst-case information under bounded whitened topography uncertainty.
+- `electromagnetic_design_validation_summary.json`: complete machine-readable V31-V35 design and spatial-specificity record.
+
+Reproduce with:
+
+```bash
+python scripts/run_electromagnetic_design_validation.py
+```
+
+V31-V35 are deterministic and require no random seed. They validate linear spatial-specificity diagnostics, covariance-aware distinguishability, information-aware sensor design, exact nuisance-subspace information loss, and an exact robust information lower bound. They do not establish a consciousness-specific spatial metric, a consciousness-optimal sensor design, or direct measurement of qualia.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V30](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, and [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30.
+Use [Research III Formal Validation V1-V35](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, and [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35.
 
 ## Verification rule
 
