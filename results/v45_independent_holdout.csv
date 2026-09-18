@@ -1,0 +1,2 @@
+seed,trials,comparisons,target_alpha,two_sided_z_threshold,exact_holdout_type1,exact_reuse_false_positive,empirical_reuse_false_positive,empirical_holdout_false_positive
+20260918.0,50000.0,100.0,0.05,1.9599639845400536,0.05,0.994079470779666,0.99382,0.04986
