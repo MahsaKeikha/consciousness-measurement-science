@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V20.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V25.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -74,9 +74,25 @@ python scripts/run_electromagnetic_validation.py
 
 V16-V20 are deterministic and require no random seed. These records validate physical calculations, feature invariance, non-identifiability, and confound behavior. They do not validate an electromagnetic consciousness biomarker.
 
+## V21-V25 electromagnetic source-identifiability outputs
+
+- `v21_reference_invariance.csv`: common-reference sweep for pairwise EEG-like sensor differences.
+- `electromagnetic_inverse_validation_summary.json`: compact V22 lead-field rank-nullity and exact source non-identifiability record.
+- `v23_regularization_path.csv`: deterministic L2-regularization path showing inverse-solution dependence.
+- `v24_multimodal_nullity.csv`: single-modality versus stacked-operator rank and nullity.
+- `v25_forward_model_perturbation.csv`: deterministic forward-model mismatch and operator-norm bound record.
+
+Reproduce with:
+
+```bash
+python scripts/run_electromagnetic_inverse_validation.py
+```
+
+V21-V25 are deterministic and require no random seed. They validate reference invariance, source non-identifiability, inverse-prior sensitivity, multimodal null-space reduction, and forward-model perturbation behavior. They do not establish a unique neural source or a consciousness-specific electromagnetic source pattern.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V20](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, and [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20.
+Use [Research III Formal Validation V1-V25](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, and [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25.
 
 ## Verification rule
 
