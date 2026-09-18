@@ -100,9 +100,9 @@ def _render_svg(
   <line x1="160" y1="815" x2="520" y2="815" stroke="#8795a5" stroke-width="2"/>
   <line x1="160" y1="580" x2="160" y2="815" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(threshold_points)}" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="160" cy="799.33" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
-  <circle cx="280" cy="716.60" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
-  <circle cx="400" cy="650.97" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
+  <circle cx="160" cy="799.34" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
+  <circle cx="280" cy="716.39" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
+  <circle cx="400" cy="650.43" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
   <circle cx="520" cy="594.14" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
   <text x="340" y="855" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">comparisons: 1, 10, 100, 1000</text>
   <text x="120" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Target FWER = 0.05 for every union-bound threshold.</text>
