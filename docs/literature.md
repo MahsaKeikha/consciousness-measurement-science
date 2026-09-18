@@ -50,6 +50,16 @@ The 2024 multicenter study reported task-based fMRI or EEG evidence of cognitive
 
 Repository use: Research III separates two propositions that should not be conflated. First, neural electromagnetic activity is physically measurable with EEG and MEG and can be analyzed as an evidence channel. Second, the stronger proposition that an electromagnetic field or a particular field organization constitutes consciousness is a theory-level hypothesis requiring discriminating experiments. V16-V20 therefore validate physical calculations, organization descriptors, non-identifiability, and confound behavior without treating field strength, power, phase concentration, entropy, or complexity as a consciousness score.
 
+### EEG/MEG forward and inverse identifiability
+
+- Michel CM, Murray MM, Lantz G, Gonzalez S, Spinelli L, Grave de Peralta R. *EEG source imaging*. Clinical Neurophysiology. 2004;115(10):2195-2222. doi:10.1016/j.clinph.2004.06.001. Reviews EEG source localization as an inverse problem whose practical solution requires a priori constraints and careful handling of the procedures before and after source estimation.
+- Hallez H et al. *Review on solving the forward problem in EEG source analysis*. Journal of NeuroEngineering and Rehabilitation. 2007;4:46. doi:10.1186/1743-0003-4-46. Reviews the head-volume conductor and forward-model assumptions that map candidate neural current sources to scalp potentials.
+- Grech R et al. *Review on solving the inverse problem in EEG source analysis*. Journal of NeuroEngineering and Rehabilitation. 2008;5:25. doi:10.1186/1743-0003-5-25. Reviews parametric and nonparametric inverse methods, including minimum-norm, LORETA-family, beamforming, and subspace approaches, emphasizing that source inference requires additional assumptions beyond the scalp measurements.
+- He B, Sohrabpour A, Brown E, Liu Z. *Electrophysiological Source Imaging: A Noninvasive Window to Brain Dynamics*. Annual Review of Biomedical Engineering. 2018;20:171-196. doi:10.1146/annurev-bioeng-062117-120853. Frames EEG/MEG source imaging as estimation of underlying electrical sources from noninvasive electromagnetic measurements.
+- Source-connectivity reviews emphasize that field spread strongly limits direct sensor-level connectivity interpretation and that source reconstruction can reduce, but not completely eliminate, field-spread concerns.
+
+Repository use: V21-V25 formalize the measurement consequences of this literature. Pairwise EEG-like differences are invariant to common rereferencing, a nontrivial lead-field null space creates exact source non-identifiability, regularization selects among admissible source solutions, complementary EEG/MEG-like operators can reduce a shared null space, and forward-model perturbations propagate into sensor predictions through an operator-norm bound. These are measurement-science results and do not establish a unique neural source or a consciousness-specific electromagnetic source pattern.
+
 ## Perturbational complexity
 
 - Casali AG et al. *A theoretically based index of consciousness independent of sensory processing and behavior*. Science Translational Medicine. 2013;5(198):198ra105.
