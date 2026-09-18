@@ -230,10 +230,17 @@ V26-V30 then quantify a further set of engineering limits: covariance-aware resi
 - V23 makes inverse regularization dependence explicit;
 - V24 shows how complementary EEG/MEG-like operators can reduce source ambiguity without guaranteeing uniqueness;
 - V25 bounds forward-model perturbation error in sensor space.
+- V26 verifies covariance-weighted residual geometry through exact whitening;
+- V27 quantifies inverse source-resolution error and off-diagonal leakage;
+- V28 gives Fisher-information loss and CRLB growth under common correlated sensor noise;
+- V29 constructs exact temporal aliasing between distinct continuous frequencies after sampling;
+- V30 makes weakest-singular-direction inverse noise amplification explicit through the pseudoinverse norm.
 
 ![Electromagnetic validation V16-V20](docs/figures/v16_v20_electromagnetic_validation.svg)
 
 ![Electromagnetic forward and inverse validation V21-V25](docs/figures/v21_v25_electromagnetic_inverse_validation.svg)
+
+![Electromagnetic resolution and information validation V26-V30](docs/figures/v26_v30_electromagnetic_resolution_validation.svg)
 
 These results justify treating electromagnetic dynamics as a rich candidate evidence channel while keeping sensor measurements, reconstructed sources, and experiential targets scientifically distinct. They do **not** establish an electromagnetic consciousness detector, a universal threshold, or identity between an electromagnetic field and experience.
 
@@ -307,6 +314,8 @@ The package contains multiple intentionally small, auditable components:
 - `electromagnetic_simulations.py` implements deterministic V16-V20 gain, non-identifiability, confound, and frequency-specific stress tests;
 - `electromagnetic_inverse.py` implements reference-invariant sensor relations, lead-field rank/nullity, null-space alternatives, regularized inverse estimates, multimodal stacking, and forward-model perturbation bounds;
 - `electromagnetic_inverse_simulations.py` implements deterministic V21-V25 source-identifiability and forward/inverse stress tests.
+- `electromagnetic_resolution.py` implements covariance weighting, source-resolution diagnostics, Fisher information, sampling alias checks, and pseudoinverse noise-amplification bounds;
+- `electromagnetic_resolution_simulations.py` implements deterministic V26-V30 resolution and information-limit experiments.
 
 These are research scaffolds, not clinical classifiers.
 
@@ -366,7 +375,8 @@ Supporting guides: [Schemas Guide](schemas/README.md), [Examples Guide](examples
 - [Experimental Program](docs/experimental-program.md)
 - [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md)
 - [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md)
-- [Formal Validation V1-V25](VALIDATION.md)
+- [Electromagnetic Resolution and Information Program](docs/electromagnetic-resolution-program.md)
+- [Formal Validation V1-V30](VALIDATION.md)
 - [Validation Atlas](docs/validation-atlas.md)
 - [Statistical Validation Plan](docs/statistical-validation.md)
 - [Dependence-Robust Partial Identification](docs/partial-identification.md)
@@ -410,7 +420,7 @@ Supporting guides: [Schemas Guide](schemas/README.md), [Examples Guide](examples
 - clinical translation and ethics boundaries;
 - edge-case standards for infants, animals, organoids, and artificial systems;
 - computational scaffolds for evidence fusion, partial identification, CEP records, structural alignment, and electromagnetic observables;
-- executable formal validation through V25, including electromagnetic invariance, matched-power non-identifiability, common-mode confounding, frequency-specific structure, lead-field null-space non-identifiability, inverse regularization sensitivity, multimodal null-space reduction, and forward-model perturbation tests;
+- executable formal validation through V30, including electromagnetic invariance, matched-power non-identifiability, common-mode confounding, frequency-specific structure, lead-field null-space non-identifiability, inverse regularization sensitivity, multimodal null-space reduction, forward-model perturbation, covariance whitening, source-resolution leakage, correlated-noise Fisher information, temporal aliasing, and inverse noise-amplification tests;
 - nine canonical scientific visuals with a dedicated visual guide and figure catalog;
 - unit tests and repository-wide publication checks.
 
