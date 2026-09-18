@@ -120,7 +120,7 @@ def v29_temporal_aliasing() -> dict[str, float]:
 def v30_inverse_noise_amplification() -> list[dict[str, float]]:
     rows: list[dict[str, float]] = []
     for smallest_singular_value in (1.0, 0.3, 0.1, 0.03, 0.01):
-        lead_field = np.diag([1.0, 0.5, smallest_singular_value])
+        lead_field = np.diag([1.0, 1.0, smallest_singular_value])
         noise = np.asarray([0.0, 0.0, 1e-3])
         rows.append(
             {
