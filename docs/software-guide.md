@@ -22,6 +22,9 @@ src/consciousness_measurement/
   partial_identification.py
   profile.py
   structural_alignment.py
+  electromagnetic_observables.py
+  electromagnetic_inverse.py
+  electromagnetic_resolution.py
 ```
 
 ## `evidence.py`
@@ -254,6 +257,22 @@ print(matrix_alignment(phenomenal, neural))
 print(normalized_distortion(phenomenal, neural))
 print(permutation_alignment_test(phenomenal, neural, permutations=500, seed=7))
 ```
+
+## Electromagnetic measurement modules
+
+### `electromagnetic_observables.py`
+
+Implements V16-V20 physical EM sanity checks and normalized multichannel organization descriptors. The module deliberately distinguishes field observables from consciousness claims.
+
+### `electromagnetic_inverse.py`
+
+Implements V21-V25 reference-invariant sensor relations, lead-field rank/nullity, exact null-space source alternatives, Tikhonov inverse estimates, stacked-modality rank analysis, and forward-model perturbation bounds.
+
+### `electromagnetic_resolution.py`
+
+Implements V26-V30 covariance whitening, covariance-weighted residual energy, Tikhonov inverse and resolution matrices, source-leakage diagnostics, scalar-amplitude Fisher information and CRLB, exact sampled-cosine aliasing checks, and pseudoinverse noise-amplification diagnostics.
+
+The corresponding simulation modules and runners create deterministic validation records. These functions characterize measurement and inverse-problem behavior. They do not convert EEG, MEG, or reconstructed sources into a consciousness score.
 
 ## What the software does not do
 
