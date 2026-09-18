@@ -204,7 +204,7 @@ Research III now includes a dedicated [Electromagnetic Field Measurement Program
 The measurement model is
 
 \[
-\mathbf X(t)=\mathcal M[\mathcal F](t)+\boldsymbol\eta(t),
+\mathbf X(t)=\mathcal M(\mathcal F)(t)+\boldsymbol\eta(t),
 \qquad
 \mathcal F(\mathbf r,t)=\{\mathbf E(\mathbf r,t),\mathbf B(\mathbf r,t)\},
 \]
