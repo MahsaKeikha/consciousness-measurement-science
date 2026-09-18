@@ -25,7 +25,8 @@ def test_v27_inverse_resolution_retains_leakage_and_identity_error() -> None:
     assert len(rows) == 4
     for row in rows:
         assert 0.0 < row["off_diagonal_leakage_fraction"] < 1.0
-        assert row["identity_error"] > 0.7
+        assert row["identity_error"] >= row["rank_lower_bound"]
+        assert row["rank_lower_bound"] == pytest.approx(2.0**-0.5)
         assert row["resolution_trace"] < 3.0
     assert rows[-1]["identity_error"] > rows[0]["identity_error"]
 
