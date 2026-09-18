@@ -8,7 +8,6 @@ from .electromagnetic_inverse import (
     common_reference_invariance_error,
     forward_model_mismatch,
     forward_model_perturbation_bound,
-    nullspace_alternative,
     rank_nullity,
     stacked_rank_nullity,
     tikhonov_source_estimate,
@@ -51,15 +50,19 @@ def v22_lead_field_nonidentifiability() -> dict[str, float]:
         ]
     )
     source = np.asarray([1.0, 2.0, 3.0, 0.0, 0.0, 0.0])
-    alternative = nullspace_alternative(lead_field, source, scale=1.0)
+    direction = np.asarray([1.0, 0.0, 0.0, -1.0, 0.0, 0.0])
+    direction = direction / np.linalg.norm(direction)
+    alternative = source + direction
     geometry = rank_nullity(lead_field)
     return {
         "n_sensors": float(lead_field.shape[0]),
         "n_sources": float(lead_field.shape[1]),
         "rank": float(geometry.rank),
         "nullity": float(geometry.nullity),
-        "sensor_residual": alternative.sensor_residual,
-        "source_separation": alternative.source_separation,
+        "sensor_residual": float(
+            np.linalg.norm(lead_field @ alternative - lead_field @ source)
+        ),
+        "source_separation": float(np.linalg.norm(alternative - source)),
     }
 
 
