@@ -64,7 +64,14 @@ For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 - EEG-only, MEG-only, and combined operator comparisons when multimodal electromagnetic data are available;
 - amplitude-matched and spectral-power-matched controls when testing organization beyond power;
 - field-spread, volume-conduction, common-reference, and common-input sensitivity analyses;
-- participant-held-out and state-held-out validation.
+- participant-held-out and state-held-out validation;
+- sensor-noise covariance estimation and covariance-estimation stability;
+- whitening diagnostics or an explicitly justified alternative noise metric;
+- inverse resolution matrices, point-spread functions, cross-talk functions, or equivalent source-resolution diagnostics when source localization is central;
+- singular-value and condition-spectrum diagnostics for the declared forward operator;
+- acquisition sample rate, hardware anti-alias filtering, and the confirmatory analysis bandwidth relative to Nyquist;
+- source-space sensitivity to regularization, sensor deletion, and plausible covariance perturbations;
+- held-out sensor prediction or another sensor-space check when competing source models have similar in-sample residuals.
 
 The initial preregistered electromagnetic feature vector is
 
@@ -86,7 +93,7 @@ A future empirical EM result should be compared with at least:
 4. a model evaluated after field-spread or common-source controls;
 5. an out-of-sample model on held-out participants, states, sessions, sites, or hardware.
 
-A consciousness-related EM claim should be demoted if its apparent advantage disappears after any predeclared amplitude, reference, environmental, field-spread, source-inverse, forward-model, or transport control. A source-space claim should also be demoted if reasonable regularization or head-model perturbations produce materially different source conclusions without a corresponding change in sensor-space fit.
+A consciousness-related EM claim should be demoted if its apparent advantage disappears after any predeclared amplitude, reference, environmental, field-spread, source-inverse, forward-model, or transport control. A source-space claim should also be demoted if reasonable regularization or head-model perturbations produce materially different source conclusions without a corresponding change in sensor-space fit. It should also be demoted if the effect depends on poorly estimated noise covariance, substantial unresolved source leakage, an alias-prone acquisition band, or a weak singular direction whose inverse amplification dominates the source-space effect.
 
 
 ## Phase 2. Confound dissection
