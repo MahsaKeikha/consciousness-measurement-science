@@ -271,7 +271,7 @@ V16-V20 add electromagnetic recordings as a candidate evidence channel without a
 The sensor model is
 
 \[
-\mathbf X(t)=\mathcal M[\mathcal F](t)+\boldsymbol\eta(t),
+\mathbf X(t)=\mathcal M(\mathcal F)(t)+\boldsymbol\eta(t),
 \qquad
 \mathcal F(\mathbf r,t)=\{\mathbf E(\mathbf r,t),\mathbf B(\mathbf r,t)\},
 \]
