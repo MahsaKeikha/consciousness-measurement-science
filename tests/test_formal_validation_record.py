@@ -31,6 +31,9 @@ RUNNER_V36_V40 = (
 RUNNER_V41_V45 = (
     ROOT / "scripts" / "run_electromagnetic_selection_validation.py"
 ).read_text(encoding="utf-8")
+RUNNER_V46_V50 = (
+    ROOT / "scripts" / "run_electromagnetic_replication_validation.py"
+).read_text(encoding="utf-8")
 
 RESULT_FIGURES = (
     "finite_sample_identification.svg",
@@ -53,6 +56,7 @@ RESULT_FIGURES = (
     "v31_v35_electromagnetic_design_validation.svg",
     "v36_v40_electromagnetic_finite_sample_validation.svg",
     "v41_v45_electromagnetic_selection_validation.svg",
+    "v46_v50_electromagnetic_replication_validation.svg",
 )
 
 RESULT_FILES = (
@@ -105,18 +109,24 @@ RESULT_FILES = (
     "v44_post_selection_coverage.csv",
     "v45_independent_holdout.csv",
     "electromagnetic_selection_validation_summary.json",
+    "v46_common_effect_pooling.csv",
+    "v47_common_effect_heterogeneity.csv",
+    "v48_leave_one_site_out.csv",
+    "v49_partial_conjunction_replicability.csv",
+    "v50_site_weight_concentration.csv",
+    "electromagnetic_replication_validation_summary.json",
 )
 
 
-def test_validation_entry_point_covers_all_forty_five_stages() -> None:
-    assert "Research III Formal Validation V1-V45" in VALIDATION
+def test_validation_entry_point_covers_all_fifty_stages() -> None:
+    assert "Research III Formal Validation V1-V50" in VALIDATION
     assert "docs/validation-atlas.md" in VALIDATION
-    for stage in range(1, 46):
+    for stage in range(1, 51):
         assert f"**V{stage}**" in VALIDATION
 
 
 def test_validation_atlas_exposes_every_result_figure() -> None:
-    assert "twenty validation-result figures" in ATLAS
+    assert "twenty-one validation-result figures" in ATLAS
     for figure in RESULT_FIGURES:
         assert (ROOT / "docs" / "figures" / figure).is_file()
         assert f"figures/{figure}" in ATLAS
@@ -139,6 +149,7 @@ def test_all_validation_runners_are_reader_visible() -> None:
     assert "run_electromagnetic_design_validation.py" in VALIDATION
     assert "run_electromagnetic_finite_sample_validation.py" in VALIDATION
     assert "run_electromagnetic_selection_validation.py" in VALIDATION
+    assert "run_electromagnetic_replication_validation.py" in VALIDATION
     assert "20260917" in RESULTS_INDEX
     assert "20260918" in RESULTS_INDEX
     assert "20260919" in RESULTS_INDEX
@@ -158,6 +169,7 @@ def test_result_figures_are_regenerated_by_the_declared_runners() -> None:
     assert RESULT_FIGURES[17] in RUNNER_V31_V35
     assert RESULT_FIGURES[18] in RUNNER_V36_V40
     assert RESULT_FIGURES[19] in RUNNER_V41_V45
+    assert RESULT_FIGURES[20] in RUNNER_V46_V50
 
 
 def test_reader_surfaces_preserve_empirical_boundary() -> None:
