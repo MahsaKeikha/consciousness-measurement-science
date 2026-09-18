@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 from pathlib import Path
 from typing import Any
 
@@ -52,7 +53,7 @@ def _render_svg(
     max_log = 3.0
     for row in v39:
         comparisons = row["comparisons"]
-        x = 1205 + (0.0 if comparisons <= 1.0 else __import__("math").log10(comparisons) / max_log * 285)
+        x = 1205 + (0.0 if comparisons <= 1.0 else math.log10(comparisons) / max_log * 285)
         y = 805 - (row["two_sided_z_threshold"] - 1.9) / (4.1 - 1.9) * 235
         fwer_points.append(f"{x:.2f},{y:.2f}")
 
@@ -105,6 +106,11 @@ def _render_svg(
   <line x1="465" y1="805" x2="705" y2="805" stroke="#8795a5" stroke-width="2"/>
   <line x1="465" y1="570" x2="465" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(discrimination_points)}" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="465" cy="570" r="5" fill="#fff" stroke="#294f64" stroke-width="3"/>
+  <circle cx="471.67" cy="616.39" r="5" fill="#fff" stroke="#294f64" stroke-width="3"/>
+  <circle cx="491.67" cy="659.99" r="5" fill="#fff" stroke="#294f64" stroke-width="3"/>
+  <circle cx="571.67" cy="730.43" r="5" fill="#fff" stroke="#294f64" stroke-width="3"/>
+  <circle cx="705" cy="773.60" r="5" fill="#fff" stroke="#294f64" stroke-width="3"/>
   <text x="585" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">Mahalanobis distance squared</text>
 
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
@@ -117,6 +123,10 @@ def _render_svg(
   <line x1="1205" y1="805" x2="1490" y2="805" stroke="#8795a5" stroke-width="2"/>
   <line x1="1205" y1="570" x2="1205" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(fwer_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1205" cy="798.59" r="5" fill="#fff" stroke="#43634a" stroke-width="3"/>
+  <circle cx="1300" cy="708.90" r="5" fill="#fff" stroke="#43634a" stroke-width="3"/>
+  <circle cx="1395" cy="636.87" r="5" fill="#fff" stroke="#43634a" stroke-width="3"/>
+  <circle cx="1490" cy="575.38" r="5" fill="#fff" stroke="#43634a" stroke-width="3"/>
   <text x="1348" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">log10 comparison count</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and fixed-seed synthetic inference validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
