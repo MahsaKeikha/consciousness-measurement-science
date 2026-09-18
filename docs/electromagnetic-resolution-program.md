@@ -2,482 +2,639 @@
 
 ## Research III V26-V30
 
-V16-V20 established sensor-level electromagnetic measurement checks. V21-V25 then made the forward and inverse source-identifiability problem explicit.
+V21-V25 established that source reconstruction depends on forward geometry, null spaces, modality, regularization, reference handling, and model perturbation. V26-V30 add a second measurement-theory layer: correlated noise geometry, finite inverse resolution, information bounds, temporal sampling ambiguity, and worst-case inverse noise amplification.
 
-V26-V30 ask the next engineering question:
+The central model remains
 
-> Even when the measurement and source model are declared, how much resolution and information are actually available, and how can acquisition noise, sampling, and weak singular directions limit the claim?
+\[
+\mathbf y = \mathbf L\mathbf j + \boldsymbol\eta,
+\]
 
-The program remains theory-neutral. None of these stages treats an electromagnetic statistic, source estimate, or information bound as consciousness itself.
+where \(\mathbf y\) is a sensor measurement, \(\mathbf L\) is the forward or lead-field operator, \(\mathbf j\) is a candidate source vector, and \(\boldsymbol\eta\) represents noise or mismatch.
+
+These stages ask a narrower question than a consciousness theory:
+
+> Given a declared electromagnetic measurement model, what information is recoverable in principle, what information is lost, and which numerical effects can create false confidence?
+
+The results are analytic or deterministic synthetic measurement results. They are not human empirical evidence that consciousness has been measured.
 
 ---
 
-## V26. Correlated-noise whitening
+## V26. Correlated sensor noise and whitening
 
-Let the sensor model be
-
-[
-mathbf y=mathbf Lmathbf j+oldsymboleta,
-qquad
-oldsymboletasim(0,oldsymbolSigma).
-]
+When sensor noise has covariance \(\mathbf C\), ordinary Euclidean residual energy does not represent the likelihood geometry unless \(\mathbf C\) is proportional to the identity.
 
 For residual
 
-[
-mathbf r=mathbf y-mathbf Lmathbf j,
-]
+\[
+\mathbf r = \mathbf y - \mathbf L\mathbf j,
+\]
 
 the covariance-weighted residual energy is
 
-[
-Q
+\[
+Q(\mathbf r)
 =
-mathbf r^	opoldsymbolSigma^{-1}mathbf r.
-]
+\mathbf r^\top \mathbf C^{-1}\mathbf r.
+\]
 
-If
+Let
 
-[
-mathbf W=oldsymbolSigma^{-1/2},
-]
+\[
+\mathbf W = \mathbf C^{-1/2}
+\]
 
-then
+be the symmetric inverse square root. Since
 
-[
-oxed{
-Q
+\[
+\mathbf W^\top\mathbf W = \mathbf C^{-1},
+\]
+
+we obtain the exact identity
+
+\[
+\boxed{
+\mathbf r^\top\mathbf C^{-1}\mathbf r
 =
-lVertmathbf Wmathbf rVert_2^2
-}
-]
-
-because
-
-[
-mathbf W^	opmathbf W
-=
-oldsymbolSigma^{-1}.
-]
+\|\mathbf C^{-1/2}\mathbf r\|_2^2
+}.
+\]
 
 ### Canonical result
 
-The deterministic construction gives
+The deterministic V26 construction gives
 
-[
-Q=0.027382585751978907
-]
+\[
+Q = 0.027382585751978907
+\]
 
 and
 
-[
-lVertmathbf Wmathbf rVert_2^2
+\[
+\|\mathbf C^{-1/2}\mathbf r\|_2^2
 =
 0.027382585751978935,
-]
+\]
 
-with absolute identity error
+with an absolute difference of approximately
 
-[
-2.78	imes10^{-17}.
-]
+\[
+2.78\times10^{-17}.
+\]
 
-### Interpretation
+The difference is floating-point roundoff.
 
-Residuals should be judged in the noise geometry actually present at the sensors. Treating strongly correlated noise as independent can distort both fit statistics and inverse weighting.
+### Measurement consequence
 
-Whitening is not evidence for consciousness. It is a measurement correction.
+Noise covariance is part of the measurement model. Correlated sensor noise can change the effective geometry of fit, detection, and source estimation even when raw channel amplitudes are unchanged.
+
+Whitening does not create information. It expresses the same covariance-weighted geometry in Euclidean coordinates.
 
 ---
 
-## V27. Resolution matrix and source leakage
+## V27. Resolution matrix, source leakage, and a rank barrier
 
-For the L2-regularized inverse
+For a linear inverse operator \(\mathbf G\),
 
-[
-mathbf W_lambda
+\[
+\widehat{\mathbf j}=\mathbf G\mathbf y.
+\]
+
+Under noiseless data \(\mathbf y=\mathbf L\mathbf j\),
+
+\[
+\widehat{\mathbf j}
 =
-(mathbf L^	opmathbf L+lambdamathbf I)^{-1}mathbf L^	op,
-]
+\mathbf G\mathbf L\mathbf j.
+\]
 
-the source-resolution matrix is
+Define the inverse resolution matrix
 
-[
-oxed{
-mathbf R_lambda
-=
-mathbf W_lambdamathbf L
-=
-(mathbf L^	opmathbf L+lambdamathbf I)^{-1}
-mathbf L^	opmathbf L.
-}
-]
-
-If the true source is (mathbf j), the noise-free reconstruction is
-
-[
-widehat{mathbf j}
-=
-mathbf R_lambdamathbf j.
-]
-
-Perfect source resolution would require
-
-[
-mathbf R_lambda=mathbf I.
-]
-
-In an underdetermined or regularized inverse this generally fails.
-
-Define the normalized identity error
-
-[
-E_R
-=
-rac{
-lVertmathbf R_lambda-mathbf IVert_F
-}{
-sqrt{p}
-}
-]
-
-for (p) source coordinates, and off-diagonal leakage fraction
-
-[
-Lambda_{mathrm{off}}
-=
-rac{
-lVert
-mathbf R_lambda-operatorname{diag}(mathbf R_lambda)
-Vert_F^2
-}{
-lVertmathbf R_lambdaVert_F^2
+\[
+\boxed{
+\mathbf R = \mathbf G\mathbf L
 }.
-]
-
-### Canonical result
-
-Across
-
-[
-lambdain{10^{-4},10^{-2},10^{-1},1},
-]
-
-the declared six-source, three-sensor construction has
-
-[
-E_R approx 0.707	ext{ to }0.809
-]
-
-and
-
-[
-Lambda_{mathrm{off}}approx0.485	ext{ to }0.501.
-]
-
-### Result
-
-A visually sharp inverse map should not be assumed to have perfect source resolution. The resolution matrix, point-spread behavior, and cross-talk belong in the interpretation.
-
----
-
-## V28. Fisher information under correlated sensor noise
-
-Consider a scalar source amplitude (a) with known sensor topography (oldsymbolell):
-
-[
-mathbf y
-=
-aoldsymbolell+oldsymboleta,
-qquad
-oldsymboletasimmathcal N(0,oldsymbolSigma).
-]
-
-The Fisher information for (a) is
-
-[
-oxed{
-mathcal I(a)
-=
-oldsymbolell^	op
-oldsymbolSigma^{-1}
-oldsymbolell.
-}
-]
-
-The Cramer-Rao lower bound is
-
-[
-oxed{
-operatorname{Var}(widehat a)
-ge
-rac{1}{mathcal I(a)}.
-}
-]
-
-For (m) sensors with common topography
-
-[
-oldsymbolell=mathbf 1
-]
-
-and equicorrelated covariance
-
-[
-oldsymbolSigma
-=
-(1-ho)mathbf I+homathbf 1mathbf 1^	op,
-]
-
-the inverse gives the closed-form law
-
-[
-oxed{
-mathcal I(a)
-=
-rac{m}{1+(m-1)ho}
-}
-]
-
-and therefore
-
-[
-oxed{
-operatorname{CRLB}(a)
-=
-rac{1+(m-1)ho}{m}.
-}
-]
-
-For the canonical (m=4) construction,
-
-[
-mathcal I(a)
-=
-rac{4}{1+3ho}.
-]
-
-### Canonical result
-
-As common-noise correlation rises from (0) to (0.9),
-
-[
-mathcal I(a): 4.0ightarrow1.081081...
-]
-
-while
-
-[
-operatorname{CRLB}:0.25ightarrow0.925.
-]
-
-### Result
-
-More sensors do not automatically mean proportionally more information when their noise is strongly shared.
-
----
-
-## V29. Exact temporal aliasing counterexample
-
-Sample a cosine at rate (f_s):
-
-[
-x_f[n]
-=
-cosleft(
-2pirac{f}{f_s}n
-ight).
-]
-
-Now consider frequency
-
-[
-f'=f_s-f.
-]
+\]
 
 Then
 
-[
-x_{f'}[n]
+\[
+\widehat{\mathbf j}=\mathbf R\mathbf j.
+\]
+
+Ideal identity resolution would require
+
+\[
+\mathbf R=\mathbf I.
+\]
+
+For the Tikhonov inverse used in the canonical validation,
+
+\[
+\mathbf G_\lambda
 =
-cosleft(
-2pi n
--
-2pirac{f}{f_s}n
-ight)
+(\mathbf L^\top\mathbf L+\lambda\mathbf I)^{-1}\mathbf L^\top,
+\]
+
+so
+
+\[
+\mathbf R_\lambda
 =
-x_f[n].
-]
+(\mathbf L^\top\mathbf L+\lambda\mathbf I)^{-1}
+\mathbf L^\top\mathbf L.
+\]
+
+The repository records two direct diagnostics:
+
+\[
+E_I
+=
+\frac{\|\mathbf R-\mathbf I\|_F}{\sqrt n}
+\]
+
+and
+
+\[
+F_{\mathrm{off}}
+=
+\frac{
+\|\mathbf R-\operatorname{diag}(\mathbf R)\|_F^2
+}{
+\|\mathbf R\|_F^2
+}.
+\]
+
+The second quantity records off-diagonal resolution energy, a direct form of source leakage or cross-talk in this construction.
+
+### Proposition V27-A. Underdetermined linear inverses cannot have identity resolution
+
+If \(\mathbf L\in\mathbb R^{m\times n}\) with \(m<n\), then for every linear inverse operator \(\mathbf G\),
+
+\[
+\operatorname{rank}(\mathbf R)
+=
+\operatorname{rank}(\mathbf G\mathbf L)
+\le
+\operatorname{rank}(\mathbf L)
+\le m<n.
+\]
+
+But
+
+\[
+\operatorname{rank}(\mathbf I_n)=n.
+\]
 
 Therefore
 
-[
-oxed{
-f
-quad	ext{and}quad
-f_s-f
-	ext{ produce identical sampled cosine sequences.}
+\[
+\boxed{
+\mathbf R\neq\mathbf I_n
+}.
+\]
+
+This conclusion does not depend on which linear inverse method is chosen.
+
+### Proposition V27-B. Rank-only lower bound on normalized identity error
+
+Let \(r=\operatorname{rank}(\mathbf R)\). The best rank-\(r\) approximation to \(\mathbf I_n\) in Frobenius norm leaves \(n-r\) unit singular values unresolved. Therefore
+
+\[
+\|\mathbf R-\mathbf I_n\|_F
+\ge
+\sqrt{n-r},
+\]
+
+and hence
+
+\[
+\boxed{
+E_I
+\ge
+\sqrt{\frac{n-r}{n}}
+}.
+\]
+
+For the canonical V27 system,
+
+\[
+n=6,
+\qquad
+r\le3,
+\]
+
+which gives
+
+\[
+E_I
+\ge
+\sqrt{\frac{3}{6}}
+=
+\frac{1}{\sqrt2}
+\approx
+0.7071067812.
+\]
+
+The smallest-regularization V27 result is
+
+\[
+E_I
+=
+0.7071067916,
+\]
+
+which lies extremely close to this rank-only lower bound.
+
+### Canonical regularization path
+
+Across \(\lambda\in\{10^{-4},10^{-2},10^{-1},1\}\), the identity error rises from approximately 0.707107 to 0.809089, while the off-diagonal leakage fraction remains near 0.49 to 0.50.
+
+The scientific point is not that one regularization value is universally correct. The point is that a low sensor residual does not imply identity source resolution, and rank alone can impose a nonzero error floor before noise or modeling error is considered.
+
+---
+
+## V28. Fisher information and the Cramer-Rao lower bound
+
+Consider a scalar source amplitude \(a\) with known sensor topography \(\boldsymbol\ell\),
+
+\[
+\mathbf y
+\sim
+\mathcal N(
+a\boldsymbol\ell,
+\mathbf C
+).
+\]
+
+The log likelihood, up to constants independent of \(a\), is
+
+\[
+\log p(\mathbf y\mid a)
+=
+-\frac12
+(\mathbf y-a\boldsymbol\ell)^\top
+\mathbf C^{-1}
+(\mathbf y-a\boldsymbol\ell).
+\]
+
+Differentiating with respect to \(a\),
+
+\[
+\frac{\partial}{\partial a}
+\log p(\mathbf y\mid a)
+=
+\boldsymbol\ell^\top
+\mathbf C^{-1}
+(\mathbf y-a\boldsymbol\ell).
+\]
+
+The scalar Fisher information is therefore
+
+\[
+\boxed{
+\mathcal I(a)
+=
+\boldsymbol\ell^\top
+\mathbf C^{-1}
+\boldsymbol\ell
+}.
+\]
+
+For any unbiased estimator satisfying the usual regularity conditions,
+
+\[
+\boxed{
+\operatorname{Var}(\widehat a)
+\ge
+\frac{1}{\mathcal I(a)}
+}.
+\]
+
+### Closed form for the canonical common-noise model
+
+For \(p\) sensors, let
+
+\[
+\boldsymbol\ell=\mathbf 1
+\]
+
+and
+
+\[
+\mathbf C
+=
+(1-\rho)\mathbf I
++
+\rho\mathbf 1\mathbf 1^\top.
+\]
+
+The common direction \(\mathbf 1\) is an eigenvector of \(\mathbf C\) with eigenvalue
+
+\[
+1+(p-1)\rho.
+\]
+
+Hence
+
+\[
+\boxed{
+\mathcal I
+=
+\frac{p}{1+(p-1)\rho}
 }
-]
+\]
+
+and
+
+\[
+\boxed{
+\operatorname{CRLB}
+=
+\frac{1+(p-1)\rho}{p}
+}.
+\]
+
+For \(p=4\), the canonical sweep gives:
+
+| Common-noise correlation \(\rho\) | Fisher information | CRLB variance |
+|---:|---:|---:|
+| 0.0 | 4.000000 | 0.250000 |
+| 0.3 | 2.105263 | 0.475000 |
+| 0.6 | 1.428571 | 0.700000 |
+| 0.9 | 1.081081 | 0.925000 |
+
+As correlated noise increases along the measured topography, information about the common amplitude decreases and the best possible unbiased variance bound rises.
+
+This is a fundamental information statement for the declared Gaussian model, not an algorithm comparison.
+
+---
+
+## V29. Temporal aliasing as exact non-identifiability after sampling
+
+Let a real cosine be sampled at rate \(f_s\):
+
+\[
+x_f[n]
+=
+\cos\left(
+2\pi f\frac{n}{f_s}
+\right).
+\]
+
+Now consider the distinct continuous frequency
+
+\[
+f'=f_s-f.
+\]
+
+At integer sample index \(n\),
+
+\[
+\begin{aligned}
+x_{f'}[n]
+&=
+\cos\left(
+2\pi(f_s-f)\frac{n}{f_s}
+\right)\\
+&=
+\cos\left(
+2\pi n
+-
+2\pi f\frac{n}{f_s}
+\right)\\
+&=
+\cos\left(
+2\pi f\frac{n}{f_s}
+\right)\\
+&=
+x_f[n].
+\end{aligned}
+\]
+
+Therefore
+
+\[
+\boxed{
+x_f[n]=x_{f_s-f}[n]
+}
+\]
+
+for every integer sample index.
 
 ### Canonical result
 
 With
 
-[
-f_s=100	ext{ Hz},
-qquad
-f=17	ext{ Hz},
-qquad
-f'=83	ext{ Hz},
-]
+\[
+f_s=100\text{ Hz},
+\qquad
+f=17\text{ Hz},
+\qquad
+f'=83\text{ Hz},
+\]
 
-the maximum numerical sample difference over 200 samples is
+the maximum difference across 200 samples is approximately
 
-[
-1.39	imes10^{-13}.
-]
+\[
+1.39\times10^{-13},
+\]
 
-### Result
+again consistent with floating-point roundoff.
 
-Continuous-time spectral structure is not identifiable from sampled data without an adequate anti-aliasing and sampling design.
+### Measurement consequence
 
-This matters for electromagnetic consciousness studies because apparent frequency-specific structure is only meaningful inside a declared acquisition bandwidth and filtering pipeline.
+A digital record cannot by itself distinguish all continuous-time signals that map to the same sample sequence. Anti-alias filtering, acquisition bandwidth, and sampling assumptions are therefore part of the measurement claim, not implementation details.
 
 ---
 
-## V30. Singular-direction inverse noise amplification
+## V30. Worst-case inverse noise amplification
 
-Let sensor noise perturb the measurement:
+Let the sensor perturbation be \(\boldsymbol\eta\). For a pseudoinverse reconstruction,
 
-[
-mathbf y'
+\[
+\Delta\widehat{\mathbf j}
 =
-mathbf y+oldsymboleta.
-]
+\mathbf L^+\boldsymbol\eta.
+\]
 
-For the Moore-Penrose inverse,
+The induced operator norm gives
 
-[
-deltawidehat{mathbf j}
+\[
+\boxed{
+\|\Delta\widehat{\mathbf j}\|_2
+\le
+\|\mathbf L^+\|_2
+\|\boldsymbol\eta\|_2
+}.
+\]
+
+If the nonzero singular values of \(\mathbf L\) are
+
+\[
+\sigma_1\ge\cdots\ge\sigma_r>0,
+\]
+
+then
+
+\[
+\boxed{
+\|\mathbf L^+\|_2
 =
-mathbf L^+oldsymboleta.
-]
+\frac{1}{\sigma_r}
+}.
+\]
 
-Therefore
+For full-rank square operators this is
 
-[
-oxed{
-lVert
-deltawidehat{mathbf j}
-Vert_2
-le
-lVertmathbf L^+Vert_2
-lVertoldsymboletaVert_2.
+\[
+\frac{1}{\sigma_{\min}(\mathbf L)}.
+\]
+
+### Worst-case equality
+
+Let \(\mathbf u_r\) be the left singular vector associated with \(\sigma_r\). Choosing
+
+\[
+\boldsymbol\eta
+=
+c\mathbf u_r
+\]
+
+gives
+
+\[
+\mathbf L^+\boldsymbol\eta
+=
+\frac{c}{\sigma_r}\mathbf v_r,
+\]
+
+so
+
+\[
+\frac{
+\|\mathbf L^+\boldsymbol\eta\|_2
+}{
+\|\boldsymbol\eta\|_2
 }
-]
-
-If the smallest nonzero singular value of (mathbf L) is (sigma_{min}), then
-
-[
-oxed{
-lVertmathbf L^+Vert_2
 =
-rac{1}{sigma_{min}}.
-}
-]
+\frac{1}{\sigma_r}
+=
+\|\mathbf L^+\|_2.
+\]
 
-Noise aligned with the weakest left-singular direction reaches this bound.
+Thus the spectral bound is attainable.
 
 ### Canonical result
 
-For diagonal operators with
+The deterministic V30 diagonal construction aligns noise with the weakest singular direction.
 
-[
-sigma_{min}
-in
-{1,0.3,0.1,0.03,0.01},
-]
+| Smallest singular value | \(\|\mathbf L^+\|_2\) | Realized amplification |
+|---:|---:|---:|
+| 1.00 | 1.0000 | 1.0000 |
+| 0.30 | 3.3333 | 3.3333 |
+| 0.10 | 10.0000 | 10.0000 |
+| 0.03 | 33.3333 | 33.3333 |
+| 0.01 | 100.0000 | 100.0000 |
 
-the exact worst-direction amplification is
+The construction reaches the worst-case bound in every row.
 
-[
-1,;
-3.333...,;
-10,;
-33.333...,;
-100.
-]
+### Measurement consequence
 
-### Result
-
-A source-space effect can be numerically unstable even when the sensor perturbation is small. Condition and singular-spectrum reporting should therefore accompany source-space consciousness claims.
+Small singular values create directions in which small sensor perturbations can produce large source-space errors. A numerically precise source image can therefore be physically fragile if the inverse problem is poorly conditioned.
 
 ---
 
-## Scientific interpretation
+## Combined interpretation
 
-V26-V30 establish five narrow measurement-engineering results:
+V26-V30 establish a connected measurement chain:
 
-1. covariance whitening and weighted residual geometry are equivalent under the declared positive-definite covariance;
-2. an underdetermined regularized inverse retains substantial resolution error and source leakage;
-3. common correlated sensor noise reduces Fisher information for a common source topography;
-4. inadequate temporal sampling creates exact spectral non-identifiability;
-5. weak singular directions amplify sensor noise by the pseudoinverse norm.
+\[
+\text{noise covariance}
+\rightarrow
+\text{effective sensor geometry}
+\rightarrow
+\text{inverse resolution}
+\rightarrow
+\text{information limit}
+\rightarrow
+\text{sampling ambiguity}
+\rightarrow
+\text{noise amplification}.
+\]
 
-Together with V16-V25, this creates a three-layer electromagnetic audit:
+The chain matters because every later interpretation inherits the limitations of the earlier measurement layers.
 
-[
-oxed{
-	ext{sensor observables}
-ightarrow
-	ext{source identifiability}
-ightarrow
-	ext{resolution and information limits}.
-}
-]
+For a consciousness-related electromagnetic study, at least four distinctions must remain explicit:
+
+\[
+\text{physical field or voltage}
+\neq
+\text{sampled digital record}
+\neq
+\text{reconstructed source}
+\neq
+\text{experiential target}.
+\]
+
+No result in V26-V30 collapses those distinctions.
+
+---
+
+## What V26-V30 establish
+
+Inside the declared analytic and deterministic synthetic constructions:
+
+1. covariance whitening exactly preserves Mahalanobis residual energy;
+2. an underdetermined linear inverse has an unavoidable nonzero resolution error floor;
+3. off-diagonal resolution energy makes source leakage visible;
+4. correlated sensor noise can lower Fisher information for a target amplitude;
+5. distinct continuous frequencies can become exactly indistinguishable after sampling;
+6. inverse noise amplification is controlled by the pseudoinverse norm and can attain the singular-value bound.
 
 ## What V26-V30 do not establish
 
 They do not establish:
 
-- that high Fisher information means greater consciousness;
-- that a well-resolved source is a conscious source;
-- that whitening creates a consciousness-specific signal;
-- that source leakage can be eliminated completely by one inverse method;
-- that a frequency peak is meaningful without acquisition-bandwidth validation;
-- that a stable inverse reconstruction is ontologically identical to experience.
+- that EEG, MEG, OPM-MEG, or another electromagnetic modality directly measures consciousness;
+- that a reconstructed source is uniquely true;
+- that a low residual establishes physiological correctness;
+- that source leakage has been eliminated because one inverse method produces a focal map;
+- that a Cramer-Rao bound is achieved by a practical estimator;
+- that a synthetic covariance model represents every biological noise process;
+- that an electromagnetic organization variable is identical to qualia or phenomenal content;
+- that analytic or synthetic validation substitutes for preregistered human experiments.
 
 ---
 
-## Empirical controls added by V26-V30
+## Prospective empirical controls
 
-A mature EM study should additionally report:
+A future empirical electromagnetic study that relies on source-space structure should report, as applicable:
 
-- sensor-noise covariance estimation procedure;
-- whitening or covariance weighting;
-- covariance-estimation stability;
-- inverse resolution matrix or equivalent point-spread/cross-talk diagnostics;
-- singular-value or condition-spectrum diagnostics;
-- anti-alias filters and acquisition sample rate;
-- analysis bandwidth relative to Nyquist;
-- source-space sensitivity to regularization;
-- information or uncertainty changes under sensor deletion;
-- held-out sensor prediction when source-space models are compared.
+- sensor noise covariance and how it was estimated;
+- whether whitening was applied and from which data partition;
+- forward operator rank and singular spectrum;
+- inverse operator and regularization rule;
+- resolution matrix diagnostics;
+- point-spread and cross-talk functions when a linear inverse is used;
+- sensor-space and source-space results side by side;
+- sampling rate, hardware filters, digital filters, and anti-alias assumptions;
+- sensitivity to plausible covariance, head-model, registration, conductivity, and source-orientation perturbations;
+- source stability under alternative justified inverse priors;
+- held-out participant, session, state, site, and hardware validation where feasible.
 
-A consciousness-related source claim should be weakened if it depends on poorly estimated covariance, severe source leakage, alias-prone acquisition, or a weak singular direction that produces large inverse amplification.
+A consciousness-related interpretation should be weakened when its apparent effect disappears under a predeclared measurement, resolution, sampling, or conditioning control.
 
 ---
 
 ## Literature anchors
 
-- Grech R et al. *Review on solving the inverse problem in EEG source analysis*. Journal of NeuroEngineering and Rehabilitation. 2008;5:25. doi:10.1186/1743-0003-5-25. Reviews inverse methods, noise effects, regularization, and spatial-noise prewhitening.
-- Hauk O, Stenroos M, Treder MS. *Towards an objective evaluation of EEG/MEG source estimation methods - The linear approach*. NeuroImage. 2022;255:119177. doi:10.1016/j.neuroimage.2022.119177. Develops resolution-matrix, point-spread, and cross-talk evaluation for linear M/EEG source methods.
-- Jas M et al. *A reproducible MEG/EEG group study with the MNE software: recommendations, quality assessments, and good practices*. Frontiers in Neuroscience. 2018;12:530. Discusses noise-covariance estimation, whitening, and their effect on source localization.
-- Gross J et al. *Good practice for conducting and reporting MEG research*. NeuroImage. 2013;65:349-363. doi:10.1016/j.neuroimage.2012.10.001. Motivates explicit acquisition, filtering, inverse-model, and uncertainty reporting.
-- Standard sampled-signal theory gives the Nyquist criterion: analysis frequencies require an acquisition and anti-aliasing design that prevents higher-frequency content from folding into the measured band.
+- Hauk O, Stenroos M, Treder MS. *Towards an objective evaluation of EEG/MEG source estimation methods - The linear approach*. NeuroImage. 2022;255:119177. doi:10.1016/j.neuroimage.2022.119177. Develops resolution-matrix analysis with point-spread and cross-talk functions for linear EEG/MEG source estimation.
+- Gross J et al. *Good practice for conducting and reporting MEG research*. NeuroImage. 2013;65:349-363. doi:10.1016/j.neuroimage.2012.10.001. Recommends explicit treatment and reporting of forward models, inverse methods, noise, and spatial-resolution limitations.
+- Radich BM, Buckley KM. *EEG dipole localization bounds and MAP algorithms for head models with parameter uncertainties*. IEEE Transactions on Biomedical Engineering. 1995;42(3):233-241. doi:10.1109/10.364509. Derives Cramer-Rao localization bounds under measurement noise and head-model uncertainty.
+- Grech R et al. *Review on solving the inverse problem in EEG source analysis*. Journal of NeuroEngineering and Rehabilitation. 2008;5:25. doi:10.1186/1743-0003-5-25. Reviews EEG inverse methods and the role of model assumptions, noise, and head-model error.
 
-The literature motivates the measurement questions. The V26-V30 equations and deterministic constructions are the repository's own validation record.
+These references support the measurement framework. They do not imply that the present synthetic validations are human evidence about consciousness.
 
 ---
 
@@ -499,7 +656,7 @@ Runner:
 python scripts/run_electromagnetic_resolution_validation.py
 ```
 
-Canonical records:
+Machine-readable outputs:
 
 - `results/v26_correlated_noise_whitening.csv`
 - `results/v27_resolution_leakage.csv`
@@ -510,6 +667,6 @@ Canonical records:
 
 Canonical figure:
 
-![V26-V30 electromagnetic resolution and information validation](figures/v26_v30_electromagnetic_resolution_validation.svg)
+![Electromagnetic resolution and information limits V26-V30](figures/v26_v30_electromagnetic_resolution_validation.svg)
 
-The V26-V30 record is deterministic analytic or synthetic validation. It is not human empirical consciousness evidence.
+All current V26-V30 results are analytic or deterministic synthetic measurement results. They are not human empirical data and they are not human empirical evidence that consciousness has been measured.
