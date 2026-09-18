@@ -6,9 +6,9 @@ import numpy as np
 def _vector(values: np.ndarray | list[float], *, name: str) -> np.ndarray:
     vector = np.asarray(values, dtype=float)
     if vector.ndim != 1 or vector.size == 0:
-        raise ValueError(f"\${name} must be a nonempty one-dimensional vector")
+        raise ValueError(f"{name} must be a nonempty one-dimensional vector")
     if not np.all(np.isfinite(vector)):
-        raise ValueError(f"\${name} must contain only finite values")
+        raise ValueError(f"{name} must contain only finite values")
     return vector
 
 
