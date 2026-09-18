@@ -16,149 +16,149 @@ These are analytic and fixed-seed synthetic inference results. They are not huma
 
 Consider the Gaussian linear measurement model
 
-[
+\[
 mathbf y
 =
-aoldsymbolell
+a\boldsymbol\ell
 +
-oldsymboleta,
+\boldsymbol\eta,
 qquad
-oldsymboleta
+\boldsymbol\eta
 sim
 mathcal N(mathbf 0,mathbf C),
-]
+\]
 
 where
 
-- (a) is a scalar source amplitude;
-- (oldsymbolell) is a declared sensor topography;
-- (mathbf C) is a positive-definite sensor covariance.
+- \(a\) is a scalar source amplitude;
+- \(\boldsymbol\ell\) is a declared sensor topography;
+- \(\mathbf C\) is a positive-definite sensor covariance.
 
 The generalized least-squares estimator is
 
-[
-oxed{
+\[
+\boxed{
 widehat a
 =
-rac{
-oldsymbolell^	op
+\frac{
+\boldsymbol\ell^\top
 mathbf C^{-1}
 mathbf y
 }{
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf C^{-1}
-oldsymbolell
+\boldsymbol\ell
 }
 }.
-]
+\]
 
 ### Proposition V36-A. Unbiasedness
 
 Substitute the data model:
 
-[
+\[
 widehat a
 =
-rac{
-oldsymbolell^	op
+\frac{
+\boldsymbol\ell^\top
 mathbf C^{-1}
-(aoldsymbolell+oldsymboleta)
+(a\boldsymbol\ell+\boldsymbol\eta)
 }{
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf C^{-1}
-oldsymbolell
+\boldsymbol\ell
 }.
-]
+\]
 
 Therefore
 
-[
+\[
 widehat a
 =
 a
 +
-rac{
-oldsymbolell^	op
+\frac{
+\boldsymbol\ell^\top
 mathbf C^{-1}
-oldsymboleta
+\boldsymbol\eta
 }{
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf C^{-1}
-oldsymbolell
+\boldsymbol\ell
 }.
-]
+\]
 
 Since
 
-[
-mathbb E[oldsymboleta]
+\[
+mathbb E[\boldsymbol\eta]
 =
 mathbf 0,
-]
+\]
 
 it follows that
 
-[
-oxed{
+\[
+\boxed{
 mathbb E[widehat a]=a
 }.
-]
+\]
 
 ### Proposition V36-B. Exact variance
 
 The random part is linear in the Gaussian noise. Its variance is
 
-[
+\[
 operatorname{Var}(widehat a)
 =
-rac{
-oldsymbolell^	op
+\frac{
+\boldsymbol\ell^\top
 mathbf C^{-1}
 mathbf C
 mathbf C^{-1}
-oldsymbolell
+\boldsymbol\ell
 }{
 (
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf C^{-1}
-oldsymbolell
+\boldsymbol\ell
 )^2
 }.
-]
+\]
 
 Hence
 
-[
-oxed{
+\[
+\boxed{
 operatorname{Var}(widehat a)
 =
-rac{1}{
-oldsymbolell^	op
+\frac{1}{
+\boldsymbol\ell^\top
 mathbf C^{-1}
-oldsymbolell
+\boldsymbol\ell
 }
 }.
-]
+\]
 
 The scalar-amplitude Fisher information is
 
-[
-oxed{
+\[
+\boxed{
 I(a)
 =
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf C^{-1}
-oldsymbolell
+\boldsymbol\ell
 }.
-]
+\]
 
 Therefore
 
-[
+\[
 operatorname{Var}(widehat a)
 =
-rac{1}{I(a)}.
-]
+\frac{1}{I(a)}.
+\]
 
 The estimator attains the Cramer-Rao lower bound under the declared known-covariance Gaussian model.
 
@@ -166,61 +166,61 @@ The estimator attains the Cramer-Rao lower bound under the declared known-covari
 
 The deterministic topography and covariance are
 
-[
-oldsymbolell
+\[
+\boldsymbol\ell
 =
-(1, 0.5, -0.2)^	op
-]
+(1, 0.5, -0.2)^\top
+\]
 
 and
 
-[
+\[
 mathbf C
 =
-egin{pmatrix}
-1 & 0.3 & 0.1\
-0.3 & 0.8 & 0.2\
+\begin{pmatrix}
+1 & 0.3 & 0.1\\
+0.3 & 0.8 & 0.2\\
 0.1 & 0.2 & 0.6
 end{pmatrix}.
-]
+\]
 
 The exact information is
 
-[
+\[
 I(a)
 =
 1.2766666667
-]
+\]
 
 and the exact estimator variance is
 
-[
-oxed{
+\[
+\boxed{
 operatorname{Var}(widehat a)
 =
 0.7832898172
 }.
-]
+\]
 
-A fixed-seed simulation with true amplitude (a=1.2), seed (20260918), and 40,000 Gaussian trials gives
+A fixed-seed simulation with true amplitude \(a=1.2\), seed (20260918), and 40,000 Gaussian trials gives
 
-[
+\[
 overline{widehat a}
 =
 1.2090215517,
-]
+\]
 
-[
+\[
 s_{widehat a}^2
 =
 0.7844758366,
-]
+\]
 
 and empirical coverage of the known-variance 95 percent Gaussian interval
 
-[
+\[
 0.947775.
-]
+\]
 
 The simulation checks the finite Monte Carlo implementation against the exact analytic law. It does not replace the analytic proof.
 
@@ -230,80 +230,80 @@ The simulation checks the finite Monte Carlo implementation against the exact an
 
 Suppose an independent noise sample produces
 
-[
+\[
 mathbf W
 sim
 operatorname{Wishart}_p(mathbf C,
 u)
-]
+\]
 
-with dimension (p) and degrees of freedom (
+with dimension \(p\) and degrees of freedom (
 u), and define the sample covariance
 
-[
+\[
 mathbf S
 =
-rac{mathbf W}{
+\frac{mathbf W}{
 u}.
-]
+\]
 
 For
 
-[
+\[
 
 u>p+1,
-]
+\]
 
 the inverse-Wishart expectation gives
 
-[
+\[
 mathbb E[mathbf W^{-1}]
 =
-rac{
+\frac{
 mathbf C^{-1}
 }{
 
 u-p-1
 }.
-]
+\]
 
 Because
 
-[
+\[
 mathbf S^{-1}
 =
 
 umathbf W^{-1},
-]
+\]
 
 we obtain
 
-[
-oxed{
+\[
+\boxed{
 mathbb E[mathbf S^{-1}]
 =
-rac{
+\frac{
 u}{
 
 u-p-1
 }
 mathbf C^{-1}
 }.
-]
+\]
 
 Define the inverse-covariance bias factor
 
-[
-oxed{
+\[
+\boxed{
 b_{mathrm{inv}}
 =
-rac{
+\frac{
 u}{
 
 u-p-1
 }.
 }
-]
+\]
 
 This factor is greater than one and approaches one as the noise sample grows.
 
@@ -311,23 +311,23 @@ This factor is greater than one and approaches one as the noise sample grows.
 
 For
 
-[
+\[
 p=4,
-]
+\]
 
 the exact factors are
 
-[
-egin{array}{c|c}
+\[
+\begin{array}{c|c}
 
-u & b_{mathrm{inv}}\
-hline
-6 & 6\
-10 & 2\
-20 & 4/3\
+u & b_{mathrm{inv}}\\
+\hline
+6 & 6\\
+10 & 2\\
+20 & 4/3\\
 50 & 10/9
-end{array}
-]
+\end{array}
+\]
 
 The implication is precise:
 
@@ -341,73 +341,73 @@ This is a statistical measurement issue. It does not imply that any specific emp
 
 Consider two source hypotheses with equal priors and common covariance:
 
-[
+\[
 H_1:
 mathbf y
 sim
 mathcal N(
-oldsymbolmu_1,
+\boldsymbol\mu_1,
 mathbf C
 ),
-]
+\]
 
-[
+\[
 H_2:
 mathbf y
 sim
 mathcal N(
-oldsymbolmu_2,
+\boldsymbol\mu_2,
 mathbf C
 ).
-]
+\]
 
 Define the squared Mahalanobis separation
 
-[
+\[
 d^2
 =
 (
-oldsymbolmu_1-oldsymbolmu_2
-)^	op
+\boldsymbol\mu_1-\boldsymbol\mu_2
+)^\top
 mathbf C^{-1}
 (
-oldsymbolmu_1-oldsymbolmu_2
+\boldsymbol\mu_1-\boldsymbol\mu_2
 ).
-]
+\]
 
 Under equal priors and equal covariance, the optimal linear discriminant reduces the problem to one Gaussian coordinate whose means are separated by (d) standard deviations.
 
 The Bayes error is therefore
 
-[
-oxed{
+\[
+\boxed{
 P_{mathrm{error}}
 =
-Phileft(-rac{d}{2}ight)
+Phileft(-\frac{d}{2}\right)
 =
-rac{1}{2}
+\frac{1}{2}
 operatorname{erfc}
 left(
-rac{d}{
+\frac{d}{
 2sqrt 2
 }
-ight)
+\right)
 }.
-]
+\]
 
 ### Canonical V38 sweep
 
 For
 
-[
+\[
 d^2
 =
 0, 0.25, 1, 4, 9,
-]
+\]
 
 the exact equal-prior Bayes errors are approximately
 
-[
+\[
 0.5,
 quad
 0.4012936743,
@@ -417,7 +417,7 @@ quad
 0.1586552539,
 quad
 0.0668072013.
-]
+\]
 
 The law converts covariance-aware topographic separation into an explicit best-case classification error under the declared Gaussian assumptions.
 
@@ -429,102 +429,102 @@ It does not state that a low source-discrimination error is evidence of consciou
 
 Let
 
-[
-Z_1,ldots,Z_K
-]
+\[
+Z_1,\ldots,Z_K
+\]
 
 be independent standard-normal null statistics.
 
-For a two-sided threshold (t),
+For a two-sided threshold \(t\),
 
-[
-P(|Z_k|le t)
+\[
+P(|Z_k|\le t)
 =
-2Phi(t)-1.
-]
+2\Phi(t)-1.
+\]
 
-The probability that all (K) null statistics remain inside the threshold is
+The probability that all \(K\) null statistics remain inside the threshold is
 
-[
-Pleft(
-max_k |Z_k|
-le t
-ight)
+\[
+P\left(
+\max_k |Z_k|
+\le t
+\right)
 =
-[
-2Phi(t)-1
-]^K.
-]
+\left[
+2\Phi(t)-1
+\right]^K.
+\]
 
 Therefore the family-wise false-positive probability is
 
-[
-oxed{
-operatorname{FWER}(t,K)
+\[
+\boxed{
+\operatorname{FWER}(t,K)
 =
 1-
-[
-2Phi(t)-1
-]^K
+\left[
+2\Phi(t)-1
+\right]^K
 }.
-]
+\]
 
-To enforce target family-wise error (alpha), solve
+To enforce target family-wise error \(\alpha\), solve
 
-[
+\[
 1-
-[
-2Phi(t)-1
-]^K
+\left[
+2\Phi(t)-1
+\right]^K
 =
-alpha.
-]
+\alpha.
+\]
 
 This gives
 
-[
-2Phi(t)-1
+\[
+2\Phi(t)-1
 =
-(1-alpha)^{1/K}
-]
+(1-\alpha)^{1/K}
+\]
 
 and therefore
 
-[
-oxed{
-t_{alpha,K}
+\[
+\boxed{
+t_{\alpha,K}
 =
-Phi^{-1}
-left(
-rac{
-1+(1-alpha)^{1/K}
+\Phi^{-1}
+\left(
+\frac{
+1+(1-\alpha)^{1/K}
 }{
 2
 }
-ight).
+\right).
 }
-]
+\]
 
 ### Canonical V39 thresholds
 
 At
 
-[
-alpha=0.05,
-]
+\[
+\alpha=0.05,
+\]
 
 the exact independent-test thresholds are approximately
 
-[
-egin{array}{c|c}
-K & t_{0.05,K}\
+\[
+\begin{array}{c|c}
+K & t_{0.05,K}\\
 hline
-1 & 1.959963985\
-10 & 2.799625219\
-100 & 3.473978869\
+1 & 1.959963985\\
+10 & 2.799625219\\
+100 & 3.473978869\\
 1000 & 4.049660550
 end{array}
-]
+\]
 
 Substitution into the exact FWER formula returns (0.05) to floating-point precision.
 
@@ -542,98 +542,98 @@ For dependent searches, an empirical maximum-statistic, random-field, permutatio
 
 Consider a weighted scalar-amplitude estimator
 
-[
+\[
 widehat a_{mathbf W}
 =
-rac{
-oldsymbolell^	op
+\frac{
+\boldsymbol\ell^\top
 mathbf W
 mathbf y
 }{
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf W
-oldsymbolell
+\boldsymbol\ell
 },
-]
+\]
 
 where
 
-[
+\[
 mathbf W
-]
+\]
 
 is a symmetric weighting matrix.
 
 The true measurement covariance is
 
-[
+\[
 mathbf C.
-]
+\]
 
 The random part of the estimator is
 
-[
-rac{
-oldsymbolell^	op
+\[
+\frac{
+\boldsymbol\ell^\top
 mathbf W
-oldsymboleta
+\boldsymbol\eta
 }{
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf W
-oldsymbolell
+\boldsymbol\ell
 }.
-]
+\]
 
 Therefore the exact variance is
 
-[
-oxed{
+\[
+\boxed{
 operatorname{Var}_{mathrm{true}}
 (
 widehat a_{mathbf W}
 )
 =
-rac{
-oldsymbolell^	op
+\frac{
+\boldsymbol\ell^\top
 mathbf W
 mathbf C
 mathbf W
-oldsymbolell
+\boldsymbol\ell
 }{
 (
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf W
-oldsymbolell
+\boldsymbol\ell
 )^2
 }.
 }
-]
+\]
 
 This is the scalar sandwich variance.
 
 If the weighting matrix is treated as though it were the exact precision matrix, the reported nominal variance would be
 
-[
-oxed{
+\[
+\boxed{
 operatorname{Var}_{mathrm{nom}}
 =
-rac{
+\frac{
 1
 }{
-oldsymbolell^	op
+\boldsymbol\ell^\top
 mathbf W
-oldsymbolell
+\boldsymbol\ell
 }.
 }
-]
+\]
 
 These are equal when
 
-[
+\[
 mathbf W
 =
 mathbf C^{-1}.
-]
+\]
 
 They need not be equal when the covariance model is wrong.
 
@@ -641,34 +641,34 @@ They need not be equal when the covariance model is wrong.
 
 For the declared topography and true covariance, three weighting rules give:
 
-[
-egin{array}{c|c|c|c}
-	ext{weight model}
+\[
+\begin{array}{c|c|c|c}
+\text{weight model}
 &
-	ext{exact variance}
+\text{exact variance}
 &
-	ext{nominal variance}
+\text{nominal variance}
 &
-	ext{exact/nominal}
-\
+\text{exact/nominal}
+\\
 hline
-	ext{oracle precision}
+\text{oracle precision}
 &
 0.8779761905
 &
 0.8779761905
 &
 1
-\
-	ext{identity weight}
+\\
+\text{identity weight}
 &
 1.06496
 &
 0.8
 &
 1.3312
-\
-	ext{diagonal precision}
+\\
+\text{diagonal precision}
 &
 1.0452329580
 &
@@ -676,7 +676,7 @@ hline
 &
 1.3300589391
 end{array}
-]
+\]
 
 The oracle weighting is calibrated exactly.
 
@@ -695,56 +695,56 @@ A source estimate can be numerically stable yet still have a miscalibrated stand
 
 V36-V40 create a finite-sample inference chain:
 
-[
-	ext{efficient estimator}
-ightarrow
-	ext{finite covariance estimation}
-ightarrow
-	ext{source discrimination}
-ightarrow
-	ext{multiple-search control}
-ightarrow
-	ext{covariance-mismatch calibration}.
-]
+\[
+\text{efficient estimator}
+\rightarrow
+\text{finite covariance estimation}
+\rightarrow
+\text{source discrimination}
+\rightarrow
+\text{multiple-search control}
+\rightarrow
+\text{covariance-mismatch calibration}.
+\]
 
 The chain makes several distinctions explicit:
 
-[
-	ext{point estimate}
+\[
+\text{point estimate}
 
 eq
-	ext{calibrated uncertainty},
-]
+\text{calibrated uncertainty},
+\]
 
-[
-	ext{unbiased sample covariance}
-
-eq
-	ext{unbiased inverse covariance},
-]
-
-[
-	ext{source separation}
+\[
+\text{unbiased sample covariance}
 
 eq
-	ext{zero classification error},
-]
+\text{unbiased inverse covariance},
+\]
 
-[
-	ext{single-test significance}
+\[
+\text{source separation}
 
 eq
-	ext{search-wide significance},
-]
+\text{zero classification error},
+\]
+
+\[
+\text{single-test significance}
+
+eq
+\text{search-wide significance},
+\]
 
 and
 
-[
-	ext{nominal precision}
+\[
+\text{nominal precision}
 
 eq
-	ext{true estimator precision}.
-]
+\text{true estimator precision}.
+\]
 
 None of these quantities is a consciousness metric by itself.
 
@@ -763,14 +763,14 @@ u-p-1)) when the declared Wishart assumptions hold;
 5. equal-prior common-covariance Gaussian source discrimination has exact Bayes error (Phi(-d/2));
 6. independent two-sided multi-source search has exact FWER (1-[2Phi(t)-1]^K);
 7. the exact independent-search threshold for target FWER (alpha) is
-   [
+\[
    Phi^{-1}
    left(
-   rac{
+   \frac{
    1+(1-alpha)^{1/K}
    }{2}
-   ight);
-   ]
+   \right);
+\]
 8. covariance-model mismatch has an exact sandwich variance that can differ materially from nominal inverse-noise uncertainty.
 
 ## What V36-V40 do not establish
