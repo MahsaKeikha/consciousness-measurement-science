@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V35.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V40.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -124,9 +124,26 @@ python scripts/run_electromagnetic_design_validation.py
 
 V31-V35 are deterministic and require no random seed. They validate linear spatial-specificity diagnostics, covariance-aware distinguishability, information-aware sensor design, exact nuisance-subspace information loss, and an exact robust information lower bound. They do not establish a consciousness-specific spatial metric, a consciousness-optimal sensor design, or direct measurement of qualia.
 
+## V36-V40 finite-sample electromagnetic inference outputs
+
+- `v36_gls_amplitude_efficiency.csv`: exact GLS information/variance and fixed-seed 40,000-trial mean, variance, and 95 percent coverage check.
+- `v37_inverse_covariance_bias.csv`: exact Wishart inverse-covariance bias factor across declared noise degrees of freedom.
+- `v38_gaussian_source_discrimination.csv`: exact equal-prior Bayes classification error across Mahalanobis separations.
+- `v39_independent_search_fwer.csv`: exact two-sided z thresholds controlling independent-search FWER at 0.05.
+- `v40_covariance_mismatch_sandwich.csv`: exact sandwich variance, nominal variance, and calibration ratio under oracle and misspecified weighting.
+- `electromagnetic_finite_sample_validation_summary.json`: complete machine-readable V36-V40 inference record.
+
+Reproduce with:
+
+```bash
+python scripts/run_electromagnetic_finite_sample_validation.py
+```
+
+V36 uses fixed seed `20260918`; V37-V40 are analytic. These results validate estimator efficiency under known covariance, finite inverse-covariance bias, Gaussian source discrimination, an exact independent-search multiplicity baseline, and covariance-mismatch calibration. They do not establish a consciousness classifier, a universal source threshold, or direct measurement of qualia.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V35](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, and [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35.
+Use [Research III Formal Validation V1-V35](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, and [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, and [Finite-Sample Electromagnetic Inference Program](../docs/electromagnetic-finite-sample-inference.md) for V36-V40.
 
 ## Verification rule
 
