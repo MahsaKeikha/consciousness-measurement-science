@@ -1,0 +1,91 @@
+{
+  "claim_boundary": "cross-site replication inference and site-stability calculations do not constitute external replication in real cohorts or identify consciousness",
+  "status": "analytic_and_synthetic_only",
+  "v46_common_effect_pooling": {
+    "pooled_estimate": 0.426860025220681,
+    "pooled_standard_error": 0.06391987418055915,
+    "pooled_variance": 0.004085750315258513,
+    "site_count": 4.0
+  },
+  "v47_common_effect_heterogeneity": {
+    "degrees_of_freedom": 3.0,
+    "observed_q": 0.9200868712344125,
+    "seed": 20260918.0,
+    "simulated_mean_q": 3.0115441661730187,
+    "simulated_variance_q": 6.037871716780914,
+    "simulations": 50000.0,
+    "theoretical_mean_q": 3.0,
+    "theoretical_variance_q": 6.0
+  },
+  "v48_leave_one_site_out_influence": [
+    {
+      "identity_shift": 0.0027174395680514612,
+      "leave_one_out_estimate": 0.42957746478873243,
+      "leave_one_out_shift": 0.0027174395680514274,
+      "site_estimate": 0.42,
+      "site_index": 0.0
+    },
+    {
+      "identity_shift": -0.017769116129771872,
+      "leave_one_out_estimate": 0.40909090909090917,
+      "leave_one_out_shift": -0.017769116129771834,
+      "site_estimate": 0.55,
+      "site_index": 1.0
+    },
+    {
+      "identity_shift": 0.039280699726014175,
+      "leave_one_out_estimate": 0.46614072494669523,
+      "leave_one_out_shift": 0.03928069972601422,
+      "site_estimate": 0.37,
+      "site_index": 2.0
+    },
+    {
+      "identity_shift": -0.011790687778462148,
+      "leave_one_out_estimate": 0.41506933744221886,
+      "leave_one_out_shift": -0.01179068777846215,
+      "site_estimate": 0.48,
+      "site_index": 3.0
+    }
+  ],
+  "v49_partial_conjunction_replicability": [
+    {
+      "ordered_p_value": 0.001,
+      "partial_conjunction_p_value": 0.005,
+      "required_nonnulls": 1.0
+    },
+    {
+      "ordered_p_value": 0.012,
+      "partial_conjunction_p_value": 0.048,
+      "required_nonnulls": 2.0
+    },
+    {
+      "ordered_p_value": 0.04,
+      "partial_conjunction_p_value": 0.12,
+      "required_nonnulls": 3.0
+    },
+    {
+      "ordered_p_value": 0.21,
+      "partial_conjunction_p_value": 0.42,
+      "required_nonnulls": 4.0
+    },
+    {
+      "ordered_p_value": 0.45,
+      "partial_conjunction_p_value": 0.45,
+      "required_nonnulls": 5.0
+    }
+  ],
+  "v50_site_weight_concentration": [
+    {
+      "design": "balanced",
+      "effective_site_count": 4.0,
+      "maximum_delete_variance_inflation": 1.3333333333333333,
+      "maximum_normalized_weight": 0.25
+    },
+    {
+      "design": "dominant_site",
+      "effective_site_count": 1.3938223938223941,
+      "maximum_delete_variance_inflation": 6.333333333333331,
+      "maximum_normalized_weight": 0.8421052631578947
+    }
+  ]
+}

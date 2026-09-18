@@ -1,0 +1,2 @@
+observed_q,degrees_of_freedom,simulated_mean_q,theoretical_mean_q,simulated_variance_q,theoretical_variance_q,seed,simulations
+0.9200868712344125,3.0,3.0115441661730187,3.0,6.037871716780914,6.0,20260918.0,50000.0

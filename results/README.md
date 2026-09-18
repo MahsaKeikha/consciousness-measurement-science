@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V45.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V50.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -158,9 +158,26 @@ python scripts/run_electromagnetic_selection_validation.py
 
 V41-V44 are analytic or exact finite-orbit calculations. V45 uses fixed seed `20260918`. These results validate search-wide error control, exact randomization under sign symmetry, the failure of naive same-data post-selection intervals, and independent holdout confirmation. They do not establish that a statistically significant electromagnetic source is a consciousness source.
 
+## V46-V50 cross-site replication inference and stability outputs
+
+- `v46_common_effect_pooling.csv`: inverse-variance common-effect estimate, exact known-variance standard error, variance, and nominal site count.
+- `v47_common_effect_heterogeneity.csv`: observed known-variance Cochran Q together with fixed-seed simulated and theoretical chi-square moments.
+- `v48_leave_one_site_out.csv`: site estimate, delete-one pooled estimate, direct shift, and exact identity shift for every synthetic site.
+- `v49_partial_conjunction_replicability.csv`: ordered site-level p-value and Bonferroni partial-conjunction p-value for each required non-null count.
+- `v50_site_weight_concentration.csv`: effective site count, maximum normalized inverse-variance weight, and maximum delete-one variance inflation for balanced and dominant-site designs.
+- `electromagnetic_replication_validation_summary.json`: complete machine-readable V46-V50 replication-inference record.
+
+Reproduce with:
+
+```bash
+python scripts/run_electromagnetic_replication_validation.py
+```
+
+V46, V48, V49, and V50 are analytic or deterministic. V47 uses fixed seed `20260918` with 50,000 Gaussian common-effect draws. These outputs validate the declared replication-inference calculations. They are not external replication data and do not establish that an electromagnetic association is specific to consciousness.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V45](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, and [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, [Finite-Sample Electromagnetic Inference Program](../docs/electromagnetic-finite-sample-inference.md) for V36-V40, and [Multiplicity and Selection-Safe Electromagnetic Inference](../docs/electromagnetic-selection-safe-inference.md) for V41-V45.
+Use [Research III Formal Validation V1-V50](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, [Finite-Sample Electromagnetic Inference Program](../docs/electromagnetic-finite-sample-inference.md) for V36-V40, [Multiplicity and Selection-Safe Electromagnetic Inference](../docs/electromagnetic-selection-safe-inference.md) for V41-V45, and [Cross-Site Replication Inference and Stability](../docs/electromagnetic-replication-inference.md) for V46-V50.
 
 ## Verification rule
 

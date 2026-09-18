@@ -39,7 +39,9 @@ These three pages are the fastest route for a technically sophisticated reader w
 - [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md): covariance-aware residual geometry, inverse resolution leakage, Fisher information, temporal aliasing, and singular-direction noise amplification.
 - [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md): point-spread and cross-talk functions, covariance-aware source distinguishability, Fisher-information sensor design, nuisance-subspace information loss, and robust model uncertainty.
 - [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md): efficient scalar-amplitude inference, inverse-covariance bias, Gaussian source discrimination, multiple-search control, and covariance-mismatch calibration.
-- [Formal Validation V1-V45](../VALIDATION.md): compact executable map of all forty-five analytic and synthetic validation stages.
+- [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnetic-selection-safe-inference.md): arbitrary-dependence multiplicity control, exact randomization, post-selection failure, and independent confirmation.
+- [Cross-Site Replication Inference and Stability](electromagnetic-replication-inference.md): common-effect pooling, heterogeneity calibration, leave-one-site-out influence, partial-conjunction replicability, and site-weight concentration.
+- [Formal Validation V1-V50](../VALIDATION.md): compact executable map of all fifty analytic and synthetic validation stages.
 - [Validation Atlas](validation-atlas.md): equation-to-code-to-result visual audit record for all validation layers.
 - [Statistical Validation](statistical-validation.md): calibration, transport, partial identification, uncertainty, multiplicity, and abstention.
 - [Dependence-Robust Partial Identification](partial-identification.md): sharp marginal-only bounds for multimodal evidence when conditional dependence is unknown.

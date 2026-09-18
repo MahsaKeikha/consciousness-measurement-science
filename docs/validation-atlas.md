@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **twenty validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **twenty-one validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -806,6 +806,108 @@ Audit: [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnet
 
 ---
 
+# Cross-site replication inference and stability layer V46-V50
+
+V46-V50 ask whether a declared site-level result is stable across synthetic study units rather than being carried by one high-weight site. This layer is about replication inference, not real-world replication.
+
+## V46. Inverse-variance common-effect pooling
+
+For site estimates \(\widehat\theta_i\) with known standard errors \(s_i\),
+
+\[
+w_i=s_i^{-2},
+\qquad
+\widehat\theta_{\mathrm{FE}}
+=
+\frac{\sum_i w_i\widehat\theta_i}{\sum_i w_i},
+\qquad
+\operatorname{SE}(\widehat\theta_{\mathrm{FE}})
+=
+\frac{1}{\sqrt{\sum_i w_i}}.
+\]
+
+The canonical four-site construction gives pooled estimate 0.4268600252 and standard error 0.0639198742.
+
+## V47. Known-variance heterogeneity
+
+Under the independent Gaussian common-effect model,
+
+\[
+Q
+=
+\sum_i
+w_i
+(\widehat\theta_i-\widehat\theta_{\mathrm{FE}})^2
+\sim
+\chi^2_{K-1}.
+\]
+
+The observed canonical value is 0.9200868712. In 50,000 fixed-seed common-effect draws, the simulated mean Q is 3.0115441662 versus theoretical 3, and the simulated variance is 6.0378717168 versus theoretical 6.
+
+## V48. Exact leave-one-site-out influence
+
+Deleting site \(i\) changes the pooled estimate by
+
+\[
+\boxed{
+\widehat\theta_{(-i)}
+-
+\widehat\theta_{\mathrm{FE}}
+=
+\frac{
+w_i(\widehat\theta_{\mathrm{FE}}-\widehat\theta_i)
+}{
+W-w_i
+}.
+}
+\]
+
+The canonical shifts are approximately +0.00272, -0.01777, +0.03928, and -0.01179. Direct deletion and the exact identity agree to floating-point precision.
+
+## V49. Partial-conjunction replicability
+
+For ordered valid site-level p-values \(p_{(1)}\le\cdots\le p_{(K)}\), the Bonferroni partial-conjunction construction is
+
+\[
+\boxed{
+p_{\mathrm{PC}}^{(r)}
+=
+\min\left[1,(K-r+1)p_{(r)}\right].
+}
+\]
+
+For the canonical five-site sequence, the p-values for requiring at least one through five non-null sites are 0.005, 0.048, 0.12, 0.42, and 0.45.
+
+## V50. Site-weight concentration
+
+With normalized inverse-variance weights \(a_i=w_i/W\),
+
+\[
+\boxed{
+K_{\mathrm{eff}}
+=
+\frac{1}{\sum_i a_i^2}
+}
+\]
+
+and deleting site \(i\) inflates the common-effect variance by
+
+\[
+\boxed{
+\frac{1}{1-a_i}.
+}
+\]
+
+Four equal-weight sites give \(K_{\mathrm{eff}}=4\). In the dominant-site construction, one site carries \(16/19\) of the weight, the effective site count falls to about 1.3938, and deleting the dominant site inflates variance by \(19/3\).
+
+![Cross-site replication inference and stability V46-V50](figures/v46_v50_electromagnetic_replication_validation.svg)
+
+Audit: [Cross-Site Replication Inference and Stability](electromagnetic-replication-inference.md), [V46 results](../results/v46_common_effect_pooling.csv), [V47 results](../results/v47_common_effect_heterogeneity.csv), [V48 results](../results/v48_leave_one_site_out.csv), [V49 results](../results/v49_partial_conjunction_replicability.csv), [V50 results](../results/v50_site_weight_concentration.csv), and [summary JSON](../results/electromagnetic_replication_validation_summary.json).
+
+**Claim ceiling:** V46-V50 establish properties of declared pooling, heterogeneity, influence, partial-conjunction, and weight-concentration calculations. They do not establish external replication in real sites, a consciousness-specific electromagnetic marker, or direct measurement of experience.
+
+---
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -819,9 +921,10 @@ Audit: [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnet
 | V31-V35 | `python scripts/run_electromagnetic_design_validation.py` | `electromagnetic_design.py`, `electromagnetic_design_simulations.py` | PSF/CTF, distinguishability, Fisher design, nuisance-loss, and robust-information tests | V31-V35 CSV/JSON files in `results/` |
 | V36-V40 | `python scripts/run_electromagnetic_finite_sample_validation.py` | `electromagnetic_finite_sample.py`, `electromagnetic_finite_sample_simulations.py` | GLS, covariance-bias, discrimination, FWER, and sandwich-variance tests | V36-V40 CSV/JSON files in `results/` |
 | V41-V45 | `python scripts/run_electromagnetic_selection_validation.py` | `electromagnetic_selection.py`, `electromagnetic_selection_simulations.py` | Bonferroni, Holm, sign-flip, selection-coverage, and holdout-confirmation tests | V41-V45 CSV/JSON files in `results/` |
+| V46-V50 | `python scripts/run_electromagnetic_replication_validation.py` | `electromagnetic_replication.py`, `electromagnetic_replication_simulations.py` | common-effect, Q calibration, delete-one, partial-conjunction, and site-weight tests | V46-V50 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, `20260919` for V11-V15 fixed-seed checks, and `20260918` for the V36 Monte Carlo calibration check and V45 holdout simulation. V16-V35 and V37-V44 are deterministic or analytic.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, `20260919` for V11-V15 fixed-seed checks, and `20260918` for the V36 Monte Carlo calibration check, V45 holdout simulation, and V47 common-effect Q calibration. V16-V35, V37-V44, V46, and V48-V50 are deterministic or analytic.
 
 # How to read the figures
 
