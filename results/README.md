@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V35.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V40.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -124,9 +124,26 @@ python scripts/run_electromagnetic_design_validation.py
 
 V31-V35 are deterministic and require no random seed. They validate linear spatial-specificity diagnostics, covariance-aware distinguishability, information-aware sensor design, exact nuisance-subspace information loss, and an exact robust information lower bound. They do not establish a consciousness-specific spatial metric, a consciousness-optimal sensor design, or direct measurement of qualia.
 
+## V36-V40 electromagnetic sparse identifiability and nuisance-aware information outputs
+
+- `v36_coherence_welch.csv`: mutual coherence, rank, source count, and Welch lower bound for the regular-simplex and coherent comparison dictionaries.
+- `v37_sparse_uniqueness.csv`: classical strict coherence-based sparsity threshold and largest guaranteed positive integer sparsity.
+- `v38_restricted_conditioning.csv`: coherence-based Gram eigenvalue bounds and exhaustive support spectra for k=2 and k=3.
+- `v39_nuisance_adjusted_information.csv`: nominal and nuisance-adjusted scalar target Fisher information for orthogonal, partially aligned, and target-containing nuisance spaces.
+- `v40_sequential_sensor_information.csv`: exact determinant-lemma and direct log-determinant gains for candidate additional measurements.
+- `electromagnetic_sparse_validation_summary.json`: complete machine-readable V36-V40 sparse identifiability and nuisance-aware information record.
+
+Reproduce with:
+
+```bash
+python scripts/run_electromagnetic_sparse_validation.py
+```
+
+V36-V40 are deterministic and require no random seed. They validate coherence diagnostics, a model-conditional sparse uniqueness certificate, restricted support conditioning, nuisance-adjusted Fisher information, and exact sequential sensor information gain. They do not establish biological sparsity, uniquely true neural sources, or a consciousness-specific information quantity.
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V35](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, and [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35.
+Use [Research III Formal Validation V1-V40](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, and [Electromagnetic Sparse Identifiability and Nuisance-Aware Information](../docs/electromagnetic-sparse-identifiability.md) for V36-V40.
 
 ## Verification rule
 
