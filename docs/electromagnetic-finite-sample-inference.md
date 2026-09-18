@@ -321,12 +321,12 @@ the exact factors are
 \begin{array}{c|c}
 
 u & b_{mathrm{inv}}\\
-hline
+\hline
 6 & 6\\
 10 & 2\\
 20 & 4/3\\
 50 & 10/9
-end{array}
+\end{array}
 \]
 
 The implication is precise:
@@ -503,14 +503,14 @@ t_{\alpha,K}
 }
 \right).
 }
-
+\]
 
 ### Canonical V39 thresholds
 
 At
 
 \[
-alpha=0.05,
+\alpha=0.05,
 \]
 
 the exact independent-test thresholds are approximately
