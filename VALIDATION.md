@@ -1,4 +1,4 @@
-# Research III Formal Validation V1-V30
+# Research III Formal Validation V1-V35
 
 This is the compact entry point to the executable mathematical research layer of Research III.
 
@@ -8,18 +8,19 @@ These are **analytic and synthetic validation results**. They test the measureme
 
 ## Reader path
 
-1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V30 sequence.
+1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V35 sequence.
 2. [Formal Validation V1-V5](docs/formal-validation-program.md) for identification, coverage, transport, dependence, and structural testing.
 3. [Formal Validation V6-V10](docs/formal-validation-program-v6-v10.md) for finite calibration uncertainty, missingness, conditioning, heterogeneous sites, and abstention.
 4. [Formal Validation V11-V15](docs/formal-validation-program-v11-v15.md) for exact resolution laws, multisite identification, design sample size, and independent release gating.
 5. [Electromagnetic Field Program V16-V20](docs/electromagnetic-field-program.md) for physical EM observables, organization descriptors, non-identifiability, and confound stress tests.
 6. [Electromagnetic Source Identifiability V21-V25](docs/electromagnetic-source-identifiability.md) for reference invariance, lead-field null spaces, inverse regularization, multimodal complementarity, and forward-model perturbation.
 7. [Electromagnetic Resolution and Information V26-V30](docs/electromagnetic-resolution-program.md) for correlated-noise geometry, source resolution and leakage, Fisher information, temporal aliasing, and inverse noise amplification.
-8. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
-9. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py), and [V26-V30 runner](scripts/run_electromagnetic_resolution_validation.py) to regenerate the result record and figures.
-10. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
+8. [Electromagnetic Design and Spatial Specificity V31-V35](docs/electromagnetic-design-spatial-specificity.md) for point-spread and cross-talk functions, source distinguishability, Fisher-information sensor design, nuisance information loss, and robust model uncertainty.
+9. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
+10. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py), [V26-V30 runner](scripts/run_electromagnetic_resolution_validation.py), and [V31-V35 runner](scripts/run_electromagnetic_design_validation.py) to regenerate the result record and figures.
+11. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
 
-## Thirty formal stages
+## Thirty-five formal stages
 
 | Stage | Scientific question | Main mathematical object | Executable evidence |
 |---|---|---|---|
@@ -53,6 +54,11 @@ These are **analytic and synthetic validation results**. They test the measureme
 | **V28** | How does shared sensor noise change information about a source amplitude? | Fisher information and Cramer-Rao lower bound under correlated noise | deterministic equicorrelation sweep |
 | **V29** | Can distinct continuous frequencies become identical after sampling? | exact discrete-time aliasing identity | deterministic 17 Hz versus 83 Hz counterexample at 100 Hz sampling |
 | **V30** | How strongly can a weak singular direction amplify sensor noise? | pseudoinverse operator norm `1/sigma_min` | deterministic singular-value amplification sweep |
+| **V31** | How should spatial specificity be described for a linear source estimate? | resolution-matrix point-spread and cross-talk functions | deterministic asymmetric PSF/CTF construction |
+| **V32** | How distinguishable are two candidate source topographies under correlated noise? | squared Mahalanobis distance in whitened sensor geometry | deterministic close-versus-distinct topography comparison |
+| **V33** | Can equal sensor counts carry radically different parameter information? | Fisher information matrix with D- and E-optimal criteria | redundant-versus-complementary sensor design counterexample |
+| **V34** | How much target information is destroyed by nuisance projection? | orthogonal-complement projector and principal angle | exact one-target one-nuisance sin-squared information law |
+| **V35** | How much information survives bounded forward-model uncertainty? | worst-case whitened information over an L2 uncertainty ball | exact robust lower bound with attaining perturbation |
 
 ## Core measurement equations
 
@@ -294,11 +300,12 @@ python scripts/run_identification_design_validation.py
 python scripts/run_electromagnetic_validation.py
 python scripts/run_electromagnetic_inverse_validation.py
 python scripts/run_electromagnetic_resolution_validation.py
+python scripts/run_electromagnetic_design_validation.py
 make check
 ```
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V30 are deterministic and require no random seed.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V35 are deterministic and require no random seed.
 
 ## Scientific boundary
 
-Passing V1-V30 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.
+Passing V1-V35 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.

@@ -272,6 +272,10 @@ Implements V21-V25 reference-invariant sensor relations, lead-field rank/nullity
 
 Implements V26-V30 covariance whitening, covariance-weighted residual energy, Tikhonov inverse and resolution matrices, source-leakage diagnostics, scalar-amplitude Fisher information and CRLB, exact sampled-cosine aliasing checks, and pseudoinverse noise-amplification diagnostics.
 
+### `electromagnetic_design.py`
+
+Implements V31-V35 point-spread and cross-talk extraction from linear resolution matrices, covariance-aware topography distinguishability, Fisher-information sensor-design criteria, nuisance-subspace projection and retained-information fractions, and the exact robust information lower bound under bounded whitened model uncertainty.
+
 The corresponding simulation modules and runners create deterministic validation records. These functions characterize measurement and inverse-problem behavior. They do not convert EEG, MEG, or reconstructed sources into a consciousness score.
 
 ## What the software does not do

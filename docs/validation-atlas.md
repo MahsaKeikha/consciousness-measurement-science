@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **seventeen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **eighteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -540,6 +540,80 @@ Audit: [Electromagnetic Resolution and Information Program](electromagnetic-reso
 
 ---
 
+# Electromagnetic design and spatial-specificity layer V31-V35
+
+V31-V35 move from resolution diagnosis to explicit measurement design.
+
+## V31. Point-spread and cross-talk functions
+
+For linear resolution matrix \(\mathbf R=\mathbf G\mathbf L\),
+
+\[
+\operatorname{PSF}_k=\mathbf R_{:,k},
+\qquad
+\operatorname{CTF}_i^\top=\mathbf R_{i,:}.
+\]
+
+The canonical asymmetric construction gives off-target leakage norms about `0.1414` for the point-spread function and `0.2828` for the cross-talk function.
+
+## V32. Noise-aware source distinguishability
+
+For topographies \(\boldsymbol\ell_1,\boldsymbol\ell_2\) and covariance \(\mathbf C\),
+
+\[
+d_C^2
+=
+(\boldsymbol\ell_1-\boldsymbol\ell_2)^\top
+\mathbf C^{-1}
+(\boldsymbol\ell_1-\boldsymbol\ell_2).
+\]
+
+The canonical close pair has squared distance about `0.00323`, while the distinct pair has squared distance about `2.33945`.
+
+## V33. Fisher-information sensor design
+
+For local sensitivity matrix \(\mathbf A\),
+
+\[
+\mathbf F=\mathbf A^\top\mathbf C^{-1}\mathbf A.
+\]
+
+The three-sensor redundant design has minimum eigenvalue `0.0008`; the three-sensor complementary design has minimum eigenvalue `1.0`. Equal sensor count does not imply equal information geometry.
+
+## V34. Exact nuisance-information law
+
+For a whitened target direction and a one-dimensional nuisance direction separated by angle \(\theta\),
+
+\[
+\boxed{
+\rho_{\mathrm{ret}}=\sin^2\theta.
+}
+\]
+
+Aligned nuisance removal deletes the target direction; orthogonal nuisance removal preserves it.
+
+## V35. Exact robust information bound
+
+For nominal whitened topography \(\mathbf w\) and uncertainty radius \(\epsilon\),
+
+\[
+\boxed{
+I_{\mathrm{rob}}(\epsilon)
+=
+[\max(\|\mathbf w\|_2-\epsilon,0)]^2.
+}
+\]
+
+The anti-aligned perturbation construction attains the bound.
+
+![Electromagnetic design and spatial-specificity validation V31-V35](figures/v31_v35_electromagnetic_design_validation.svg)
+
+Audit: [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md), [`v31_point_spread_cross_talk.csv`](../results/v31_point_spread_cross_talk.csv), [`v32_source_distinguishability.csv`](../results/v32_source_distinguishability.csv), [`v33_sensor_design_information.csv`](../results/v33_sensor_design_information.csv), [`v34_nuisance_information_loss.csv`](../results/v34_nuisance_information_loss.csv), [`v35_robust_model_information.csv`](../results/v35_robust_model_information.csv), [`electromagnetic_design_validation_summary.json`](../results/electromagnetic_design_validation_summary.json).
+
+**Claim ceiling:** V31-V35 establish measurement-design, spatial-specificity, nuisance-loss, and robust-information properties only. They do not establish an experiential spatial metric, a consciousness-optimal sensor array, or direct measurement of qualia.
+
+---
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -550,9 +624,10 @@ Audit: [Electromagnetic Resolution and Information Program](electromagnetic-reso
 | V16-V20 | `python scripts/run_electromagnetic_validation.py` | `electromagnetic_observables.py`, `electromagnetic_simulations.py` | EM physical, invariance, non-identifiability, confound, and frequency tests | V16-V20 CSV/JSON files in `results/` |
 | V21-V25 | `python scripts/run_electromagnetic_inverse_validation.py` | `electromagnetic_inverse.py`, `electromagnetic_inverse_simulations.py` | reference, null-space, regularization, multimodal, and forward-model tests | V21-V25 CSV/JSON files in `results/` |
 | V26-V30 | `python scripts/run_electromagnetic_resolution_validation.py` | `electromagnetic_resolution.py`, `electromagnetic_resolution_simulations.py` | covariance, resolution, Fisher-information, aliasing, and singular-amplification tests | V26-V30 CSV/JSON files in `results/` |
+| V31-V35 | `python scripts/run_electromagnetic_design_validation.py` | `electromagnetic_design.py`, `electromagnetic_design_simulations.py` | PSF/CTF, distinguishability, Fisher design, nuisance-loss, and robust-information tests | V31-V35 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V30 are deterministic and require no random seed.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V35 are deterministic and require no random seed.
 
 # How to read the figures
 

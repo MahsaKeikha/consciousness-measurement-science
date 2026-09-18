@@ -19,7 +19,7 @@ For the fastest technical orientation, use these three entry points first:
 1. [Visual Research Guide](docs/visual-research-guide.md) for the complete nine-figure scientific record.
 2. [Evidence-to-Claim Audit](docs/evidence-to-claim-audit.md) for the exact path from observable evidence to an allowed scientific claim.
 3. [Figure Catalog](docs/figure-catalog.md) for the canonical figure inventory and primary audit source for every visual.
-4. [Formal Validation V1-V30](VALIDATION.md) for the executable analytic and synthetic validation record, including sensor-level EM validation V16-V20, source-identifiability validation V21-V25, and electromagnetic resolution and information-limit validation V26-V30.
+4. [Formal Validation V1-V35](VALIDATION.md) for the executable analytic and synthetic validation record, including sensor-level EM validation V16-V20, source-identifiability validation V21-V25, electromagnetic resolution and information-limit validation V26-V30, and electromagnetic design and spatial-specificity validation V31-V35.
 
 Then continue with [Start Here](docs/start-here.md), [Research Questions](RESEARCH_QUESTIONS.md), [Formal Measurement Framework](docs/measurement-framework.md), and the full [Documentation Map](docs/README.md).
 
@@ -199,7 +199,7 @@ The program therefore emphasizes triangulation, causal intervention, cross-conte
 
 ## Electromagnetic measurement arm
 
-Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) for V16-V20, an [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md) for V21-V25, and an [Electromagnetic Resolution and Information Program](docs/electromagnetic-resolution-program.md) for V26-V30.
+Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) for V16-V20, an [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md) for V21-V25, an [Electromagnetic Resolution and Information Program](docs/electromagnetic-resolution-program.md) for V26-V30, and an [Electromagnetic Design and Spatial Specificity Program](docs/electromagnetic-design-spatial-specificity.md) for V31-V35.
 
 The measurement model is
 
@@ -219,7 +219,7 @@ The first electromagnetic feature profile is
 
 covering normalized spectral entropy, frequency-specific sensor-phase concentration, covariance effective rank, normalized singular-value entropy, and common-mode fraction.
 
-V26-V30 then quantify a further set of engineering limits: covariance-aware residual geometry, inverse resolution leakage, a rank-only lower bound on identity resolution error, Fisher-information loss under correlated noise, exact temporal aliasing, and worst-case pseudoinverse noise amplification. These are measurement limits, not consciousness measurements.\n\nThe strongest current conclusions are measurement-science conclusions:
+V26-V30 then quantify covariance-aware residual geometry, inverse resolution leakage, a rank-only lower bound on identity resolution error, Fisher-information loss under correlated noise, exact temporal aliasing, and worst-case pseudoinverse noise amplification. V31-V35 continue into spatial specificity and measurement design through point-spread and cross-talk functions, covariance-aware source distinguishability, Fisher-information sensor design, exact nuisance-subspace information loss, and a robust information bound under bounded model uncertainty. These are measurement limits and design laws, not consciousness measurements.\n\nThe strongest current conclusions are measurement-science conclusions:
 
 - V17 shows the normalized descriptors are invariant to trivial global gain in the declared deterministic construction;
 - V18 gives a constructive counterexample in which channel power is matched to numerical precision while spatial phase organization changes from fully aligned to phase balanced;
@@ -234,13 +234,20 @@ V26-V30 then quantify a further set of engineering limits: covariance-aware resi
 - V27 quantifies inverse source-resolution error and off-diagonal leakage;
 - V28 gives Fisher-information loss and CRLB growth under common correlated sensor noise;
 - V29 constructs exact temporal aliasing between distinct continuous frequencies after sampling;
-- V30 makes weakest-singular-direction inverse noise amplification explicit through the pseudoinverse norm.
+- V30 makes weakest-singular-direction inverse noise amplification explicit through the pseudoinverse norm;
+- V31 separates point-spread from cross-talk behavior through the resolution matrix;
+- V32 makes source-topography distinguishability covariance-aware;
+- V33 shows that equal sensor count can hide radically different weakest-direction information;
+- V34 proves the exact one-target one-nuisance retained-information law \(\sin^2\theta\);
+- V35 proves and attains the exact robust information lower bound under bounded whitened model uncertainty.
 
 ![Electromagnetic validation V16-V20](docs/figures/v16_v20_electromagnetic_validation.svg)
 
 ![Electromagnetic forward and inverse validation V21-V25](docs/figures/v21_v25_electromagnetic_inverse_validation.svg)
 
 ![Electromagnetic resolution and information validation V26-V30](docs/figures/v26_v30_electromagnetic_resolution_validation.svg)
+
+![Electromagnetic design and spatial-specificity validation V31-V35](docs/figures/v31_v35_electromagnetic_design_validation.svg)
 
 These results justify treating electromagnetic dynamics as a rich candidate evidence channel while keeping sensor measurements, reconstructed sources, and experiential targets scientifically distinct. They do **not** establish an electromagnetic consciousness detector, a universal threshold, or identity between an electromagnetic field and experience.
 
@@ -376,7 +383,7 @@ Supporting guides: [Schemas Guide](schemas/README.md), [Examples Guide](examples
 - [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md)
 - [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md)
 - [Electromagnetic Resolution and Information Program](docs/electromagnetic-resolution-program.md)
-- [Formal Validation V1-V30](VALIDATION.md)
+- [Formal Validation V1-V35](VALIDATION.md)
 - [Validation Atlas](docs/validation-atlas.md)
 - [Statistical Validation Plan](docs/statistical-validation.md)
 - [Dependence-Robust Partial Identification](docs/partial-identification.md)
