@@ -1,0 +1,91 @@
+{
+  "claim_boundary": "coherence and sparsity guarantees are sufficient model-conditional results; they do not establish biological sparsity, uniquely true neural sources, or direct measurement of consciousness or qualia",
+  "status": "analytic_and_synthetic_only",
+  "v36_coherence_and_welch_bound": [
+    {
+      "dictionary": "regular_simplex",
+      "mutual_coherence": 0.25,
+      "rank": 4.0,
+      "sensor_dimension": 4.0,
+      "source_count": 5.0,
+      "welch_lower_bound": 0.25
+    },
+    {
+      "dictionary": "coherent",
+      "mutual_coherence": 0.9949371890224981,
+      "rank": 4.0,
+      "sensor_dimension": 4.0,
+      "source_count": 5.0,
+      "welch_lower_bound": 0.25
+    }
+  ],
+  "v37_sparse_uniqueness_guarantee": [
+    {
+      "dictionary": "regular_simplex",
+      "largest_guaranteed_integer_sparsity": 2.0,
+      "mutual_coherence": 0.25,
+      "strict_sparsity_threshold": 2.5
+    },
+    {
+      "dictionary": "coherent",
+      "largest_guaranteed_integer_sparsity": 1.0,
+      "mutual_coherence": 0.9949371890224981,
+      "strict_sparsity_threshold": 1.0025442867315455
+    }
+  ],
+  "v38_restricted_gram_conditioning": [
+    {
+      "gershgorin_lower_bound": 0.75,
+      "gershgorin_upper_bound": 1.25,
+      "mutual_coherence": 0.25,
+      "observed_maximum_eigenvalue": 1.25,
+      "observed_minimum_eigenvalue": 0.7499999999999999,
+      "sparsity": 2.0
+    },
+    {
+      "gershgorin_lower_bound": 0.5,
+      "gershgorin_upper_bound": 1.5,
+      "mutual_coherence": 0.25,
+      "observed_maximum_eigenvalue": 1.25,
+      "observed_minimum_eigenvalue": 0.4999999999999996,
+      "sparsity": 3.0
+    }
+  ],
+  "v39_nuisance_adjusted_fisher_information": [
+    {
+      "nominal_target_information": 1.0,
+      "nuisance_adjusted_information": 1.0,
+      "nuisance_case": "orthogonal"
+    },
+    {
+      "nominal_target_information": 1.0,
+      "nuisance_adjusted_information": 0.2499999999999999,
+      "nuisance_case": "partial_30deg"
+    },
+    {
+      "nominal_target_information": 1.0,
+      "nuisance_adjusted_information": 0.0,
+      "nuisance_case": "contains_target"
+    }
+  ],
+  "v40_sequential_sensor_information_gain": [
+    {
+      "candidate": "strong_direction",
+      "determinant_lemma_gain": 0.09531017980432487,
+      "direct_logdet_gain": 0.09531017980432477,
+      "updated_determinant": 11.000000000000002
+    },
+    {
+      "candidate": "weak_direction",
+      "determinant_lemma_gain": 0.6931471805599453,
+      "direct_logdet_gain": 0.6931471805599454,
+      "updated_determinant": 20.000000000000007
+    },
+    {
+      "candidate": "mixed_direction",
+      "determinant_lemma_gain": 0.4382549309311552,
+      "direct_logdet_gain": 0.438254930931155,
+      "updated_determinant": 15.499999999999998
+    }
+  ]
+}
