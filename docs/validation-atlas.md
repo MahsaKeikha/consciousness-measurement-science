@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **sixteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **seventeen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -437,6 +437,109 @@ Audit: [Electromagnetic Source Identifiability Program](electromagnetic-source-i
 
 ---
 
+# Electromagnetic resolution and information layer V26-V30
+
+V26-V30 ask how much trustworthy information remains after the acquisition noise model, inverse resolution, sampling rate, and singular spectrum are made explicit.
+
+## V26. Correlated-noise whitening identity
+
+For residual \(\mathbf r\) and positive-definite sensor covariance \(\boldsymbol\Sigma\),
+
+\[
+\boxed{
+\mathbf r^\top\boldsymbol\Sigma^{-1}\mathbf r
+=
+\|\boldsymbol\Sigma^{-1/2}\mathbf r\|_2^2.
+}
+\]
+
+The canonical construction matches the two energies to absolute error below `3e-17`.
+
+## V27. Inverse resolution and source leakage
+
+For Tikhonov regularization,
+
+\[
+\mathbf R_\lambda
+=
+(\mathbf L^\top\mathbf L+\lambda\mathbf I)^{-1}
+\mathbf L^\top\mathbf L.
+\]
+
+Perfect resolution would require \(\mathbf R_\lambda=\mathbf I\). In the declared three-sensor, six-source construction, normalized identity error stays between about `0.707` and `0.809`, while off-diagonal leakage remains near `0.49-0.50`.
+
+## V28. Fisher information under common sensor noise
+
+For scalar amplitude \(a\), topography \(\boldsymbol\ell\), and covariance \(\boldsymbol\Sigma\),
+
+\[
+\mathcal I(a)
+=
+\boldsymbol\ell^\top\boldsymbol\Sigma^{-1}\boldsymbol\ell,
+\qquad
+\operatorname{CRLB}(a)=\mathcal I(a)^{-1}.
+\]
+
+For \(m\) equal sensor topographies with equicorrelated noise \(\rho\),
+
+\[
+\boxed{
+\mathcal I(a)
+=
+\frac{m}{1+(m-1)\rho}.
+}
+\]
+
+The canonical four-sensor record decreases from `4.0` at \(\rho=0\) to about `1.081` at \(\rho=0.9\).
+
+## V29. Exact temporal aliasing
+
+For sampled cosine
+
+\[
+x_f[n]=\cos\left(2\pi\frac{f}{f_s}n\right),
+\]
+
+the frequency \(f_s-f\) produces the same sample sequence:
+
+\[
+\boxed{x_{f_s-f}[n]=x_f[n].}
+\]
+
+At \(f_s=100\) Hz, the canonical 17 Hz and 83 Hz sequences differ only by numerical error below `1.4e-13`.
+
+## V30. Singular-direction noise amplification
+
+For pseudoinverse reconstruction,
+
+\[
+\delta\widehat{\mathbf j}
+=
+\mathbf L^+\boldsymbol\eta,
+\qquad
+\|\delta\widehat{\mathbf j}\|_2
+\le
+\|\mathbf L^+\|_2\|\boldsymbol\eta\|_2.
+\]
+
+With smallest nonzero singular value \(\sigma_{\min}\),
+
+\[
+\boxed{
+\|\mathbf L^+\|_2=\frac1{\sigma_{\min}}.
+}
+\]
+
+The canonical weakest-direction construction reaches `100x` noise amplification at \(\sigma_{\min}=0.01\).
+
+![Electromagnetic resolution and information validation V26-V30](figures/v26_v30_electromagnetic_resolution_validation.svg)
+
+Audit: [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md), [`v26_correlated_noise_whitening.csv`](../results/v26_correlated_noise_whitening.csv), [`v27_resolution_leakage.csv`](../results/v27_resolution_leakage.csv), [`v28_fisher_information.csv`](../results/v28_fisher_information.csv), [`v29_temporal_aliasing.csv`](../results/v29_temporal_aliasing.csv), [`v30_inverse_noise_amplification.csv`](../results/v30_inverse_noise_amplification.csv), [`electromagnetic_resolution_validation_summary.json`](../results/electromagnetic_resolution_validation_summary.json).
+
+**Claim ceiling:** V26-V30 establish measurement-resolution and information-limit properties only. They do not establish a consciousness-specific information threshold, a uniquely correct source reconstruction, or direct measurement of qualia.
+
+---
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -446,9 +549,10 @@ Audit: [Electromagnetic Source Identifiability Program](electromagnetic-source-i
 | V11-V15 | `python scripts/run_identification_design_validation.py` | `identification_design.py`, `identification_design_simulations.py` | V11-V15 theorem and simulation tests | V11-V15 CSV/JSON files in `results/` |
 | V16-V20 | `python scripts/run_electromagnetic_validation.py` | `electromagnetic_observables.py`, `electromagnetic_simulations.py` | EM physical, invariance, non-identifiability, confound, and frequency tests | V16-V20 CSV/JSON files in `results/` |
 | V21-V25 | `python scripts/run_electromagnetic_inverse_validation.py` | `electromagnetic_inverse.py`, `electromagnetic_inverse_simulations.py` | reference, null-space, regularization, multimodal, and forward-model tests | V21-V25 CSV/JSON files in `results/` |
+| V26-V30 | `python scripts/run_electromagnetic_resolution_validation.py` | `electromagnetic_resolution.py`, `electromagnetic_resolution_simulations.py` | covariance, resolution, Fisher-information, aliasing, and singular-amplification tests | V26-V30 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V25 are deterministic and require no random seed.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V30 are deterministic and require no random seed.
 
 # How to read the figures
 
