@@ -75,6 +75,11 @@ Repository use: V26-V30 formalize a third electromagnetic measurement layer afte
 
 Repository use: V31-V35 extend the same measurement-science literature into explicit spatial-specificity and design laws. V31 uses resolution-matrix columns as point-spread functions and rows as cross-talk functions. V32 evaluates source-topography separation in the declared noise covariance. V33 compares sensor designs through Fisher-information geometry rather than sensor count alone. V34 quantifies target information destroyed by nuisance projection. V35 adds a worst-case information bound under a declared forward-model uncertainty radius. These remain measurement-design constraints, not experiential metrics.
 
+Repository use: V36-V40 add finite-sample statistical calibration to the electromagnetic program. V36 separates exact GLS uncertainty from Monte Carlo implementation error. V37 makes finite inverse-covariance bias explicit under a declared Wishart model. V38 converts covariance-aware source separation into exact equal-prior Gaussian Bayes error. V39 makes search multiplicity explicit and treats the independent-test formula as a baseline rather than a substitute for dependence-aware neuroimaging correction. V40 compares nominal uncertainty with the exact sandwich variance under covariance mismatch. These remain inference-calibration constraints, not consciousness metrics.
+
+- Nichols TE, Holmes AP. *Nonparametric permutation tests for functional neuroimaging: a primer with examples*. Human Brain Mapping. 2002;15(1):1-25. doi:10.1002/hbm.1058. Maximum-statistic permutation inference provides family-wise error control while respecting dependence across a searched imaging field.
+- Brookes MJ et al. *Beamformer reconstruction of correlated sources using a modified source model*. NeuroImage. 2007;34(4):1454-1465. doi:10.1016/j.neuroimage.2006.11.012. Source reconstruction behavior depends materially on covariance and source-correlation assumptions.
+
 ## Perturbational complexity
 
 - Casali AG et al. *A theoretically based index of consciousness independent of sensory processing and behavior*. Science Translational Medicine. 2013;5(198):198ra105.
