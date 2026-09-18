@@ -40,6 +40,16 @@ Repository use: supports serial standardized behavioral assessment, multimodal t
 
 The 2024 multicenter study reported task-based fMRI or EEG evidence of cognitive motor dissociation in 60 of 241 participants without observable command following and task-based responses in 43 of 112 participants with observable command following. The repository treats this as evidence that both behavioral and task-based neural channels have important sensitivity limitations.
 
+## Electromagnetic observables and field-theory hypotheses
+
+- He B, Sohrabpour A, Brown E, Liu Z. *Electrophysiological Source Imaging: A Noninvasive Window to Brain Dynamics*. Annual Review of Biomedical Engineering. 2018;20:171-196. doi:10.1146/annurev-bioeng-062117-120853. EEG and MEG are noninvasive electromagnetic measurements linked to large-scale neural population dynamics; source imaging addresses the forward/inverse mapping between measured fields and neural current sources.
+- Yang Y, Luo S, Wang W, Gao X, Yao X, Wu T. *From bench to bedside: Overview of magnetoencephalography in basic principle, signal processing, source localization and clinical applications*. NeuroImage: Clinical. 2024;42:103608. doi:10.1016/j.nicl.2024.103608. Reviews MEG measurement of magnetic fields arising from neuronal activity and the acquisition, signal-processing, and source-localization pipeline.
+- Bastos AM, Schoffelen JM. *A Tutorial Review of Functional Connectivity Analysis Methods and Their Interpretational Pitfalls*. Frontiers in Systems Neuroscience. 2016;9:175. doi:10.3389/fnsys.2015.00175. Details common-reference, signal-to-noise, volume-conduction or field-spread, common-input, and sample-size confounds in phase and connectivity analyses.
+- Jones MW, Hunt T. *Electromagnetic-field theories of qualia: can they improve upon standard neuroscience?* Frontiers in Psychology. 2023;14:1015967. doi:10.3389/fpsyg.2023.1015967. Reviews multiple electromagnetic-field theories of consciousness and their open explanatory and empirical problems.
+- Hunt T, Jones M, McFadden J, Delorme A, Hales CG, Ericson M, Schooler J. *Editorial: Electromagnetic field theories of consciousness: opportunities and obstacles*. Frontiers in Human Neuroscience. Published March 1, 2024;17:1342634. doi:10.3389/fnhum.2023.1342634. Presents electromagnetic-field theories as an active research program and explicitly notes that central field-as-consciousness proposals remain hypotheses to be tested.
+
+Repository use: Research III separates two propositions that should not be conflated. First, neural electromagnetic activity is physically measurable with EEG and MEG and can be analyzed as an evidence channel. Second, the stronger proposition that an electromagnetic field or a particular field organization constitutes consciousness is a theory-level hypothesis requiring discriminating experiments. V16-V20 therefore validate physical calculations, organization descriptors, non-identifiability, and confound behavior without treating field strength, power, phase concentration, entropy, or complexity as a consciousness score.
+
 ## Perturbational complexity
 
 - Casali AG et al. *A theoretically based index of consciousness independent of sensory processing and behavior*. Science Translational Medicine. 2013;5(198):198ra105.
