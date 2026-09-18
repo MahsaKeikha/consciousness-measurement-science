@@ -97,7 +97,7 @@ V21-V25 are deterministic and require no random seed. They validate reference in
 - `v28_fisher_information.csv`: scalar-amplitude Fisher information and Cramer-Rao lower bound as common sensor-noise correlation increases.
 - `v29_temporal_aliasing.csv`: exact sampled-cosine aliasing counterexample at 100 Hz sampling.
 - `v30_inverse_noise_amplification.csv`: smallest singular value, pseudoinverse norm, and realized worst-direction noise amplification.
-- `electromagnetic_resolution_validation_summary.json`: compact V26 whitening and V29 temporal-aliasing record.
+- `electromagnetic_resolution_validation_summary.json`: complete machine-readable V26-V30 record, including the V27 rank floor, V28 information curve, and V30 singular-direction amplification.
 
 Reproduce with:
 
