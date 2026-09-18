@@ -45,6 +45,47 @@ Acquire as feasible:
 
 Primary goal: determine which candidate measurements preserve calibrated relationships with declared targets across dissociations.
 
+
+## Cross-phase electromagnetic measurement arm
+
+The [Electromagnetic Field Measurement Program](electromagnetic-field-program.md) is a cross-phase acquisition and falsification arm rather than a separate consciousness theory.
+
+For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
+
+- the physical observable and sensor units;
+- sensor geometry, reference or montage, shielding, filters, and hardware transfer functions;
+- frequency bands or frequencies of interest before confirmatory analysis;
+- the spatial scale at which phase, covariance, rank, entropy, or perturbational features are computed;
+- environmental reference channels and line-noise characterization;
+- ECG, EOG, respiration, motion, and other plausible physiological contaminants;
+- source-space analysis only when its forward and inverse assumptions are declared;
+- amplitude-matched and spectral-power-matched controls when testing organization beyond power;
+- field-spread, volume-conduction, common-reference, and common-input sensitivity analyses;
+- participant-held-out and state-held-out validation.
+
+The initial preregistered electromagnetic feature vector is
+
+\[
+\Phi_{EM}
+=
+(H_f,C_\phi,r_{\mathrm{eff}},H_{SV},\rho_{CM}),
+\]
+
+containing normalized spectral entropy, frequency-specific sensor-phase concentration, covariance effective rank, normalized singular-value entropy, and common-mode fraction.
+
+This vector is a measurement representation, not a consciousness score. Its scientific value must be established separately for each declared target.
+
+A future empirical EM result should be compared with at least:
+
+1. a spectral-power-only baseline;
+2. a strong non-EM or conventional neural baseline where available;
+3. nuisance-only models built from environmental and physiological reference channels;
+4. a model evaluated after field-spread or common-source controls;
+5. an out-of-sample model on held-out participants, states, sessions, sites, or hardware.
+
+A consciousness-related EM claim should be demoted if its apparent advantage disappears after any predeclared amplitude, reference, environmental, field-spread, or transport control.
+
+
 ## Phase 2. Confound dissection
 
 Manipulate or measure independently:

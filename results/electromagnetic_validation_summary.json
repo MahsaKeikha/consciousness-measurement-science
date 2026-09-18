@@ -1,0 +1,17 @@
+{
+  "claim_boundary": "electromagnetic observables are candidate evidence channels, not direct measures of consciousness",
+  "status": "analytic_and_synthetic_only",
+  "v16_field_identity": {
+    "energy_density_j_m3": 3.5810039259938693e-06,
+    "poynting_x_w_m2": 0.0,
+    "poynting_y_w_m2": 0.0,
+    "poynting_z_w_m2": 4.774648290157658
+  },
+  "v18_power_nonidentifiability": {
+    "balanced_effective_rank": 2.0,
+    "balanced_phase_concentration": 1.9561428915093754e-15,
+    "coherent_effective_rank": 1.0,
+    "coherent_phase_concentration": 1.0,
+    "max_relative_channel_power_difference": 2.842170943040401e-16
+  }
+}

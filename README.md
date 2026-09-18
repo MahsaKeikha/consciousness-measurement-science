@@ -19,6 +19,7 @@ For the fastest technical orientation, use these three entry points first:
 1. [Visual Research Guide](docs/visual-research-guide.md) for the complete nine-figure scientific record.
 2. [Evidence-to-Claim Audit](docs/evidence-to-claim-audit.md) for the exact path from observable evidence to an allowed scientific claim.
 3. [Figure Catalog](docs/figure-catalog.md) for the canonical figure inventory and primary audit source for every visual.
+4. [Formal Validation V1-V20](VALIDATION.md) for the executable analytic and synthetic validation record, including the electromagnetic V16-V20 arm.
 
 Then continue with [Start Here](docs/start-here.md), [Research Questions](RESEARCH_QUESTIONS.md), [Formal Measurement Framework](docs/measurement-framework.md), and the full [Documentation Map](docs/README.md).
 
@@ -187,11 +188,47 @@ Current consciousness science contains many useful measurements, but each occupi
 | Intentional behavior | command following, discrimination, communication | absence of experience when motor output fails |
 | Task EEG/fMRI | covert command following and content-related activity | universal absence of consciousness when negative |
 | Resting EEG/MEG/fMRI | state-dependent complexity, connectivity, spectra, network organization | a direct reading of subjective feel |
+| Electromagnetic organization features | frequency-specific field organization, entropy, rank, phase structure, perturbational dynamics after acquisition controls | consciousness itself, qualia, or a universal field threshold |
 | TMS-EEG / PCI family | perturbational capacity for differentiated, integrated cortical responses | a universal metaphysical cutoff |
 | Autonomic and ocular signals | covert evidence when overt report is unavailable | a unique consciousness-specific signature across all settings |
 | Lesion, stimulation, pharmacology | causal constraints on candidate mechanisms | a complete explanation of why experience exists |
 
 The program therefore emphasizes triangulation, causal intervention, cross-context validation, explicit uncertainty, and theory comparison.
+
+---
+
+## Electromagnetic measurement arm
+
+Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) and executable V16-V20 validation layer.
+
+The measurement model is
+
+\[
+\mathbf X(t)=\mathcal M(\mathcal F)(t)+\boldsymbol\eta(t),
+\qquad
+\mathcal F(\mathbf r,t)=\{\mathbf E(\mathbf r,t),\mathbf B(\mathbf r,t)\},
+\]
+
+so a sensor array records a geometry-, hardware-, reference-, and noise-dependent projection of an underlying field rather than an unqualified field essence.
+
+The first electromagnetic feature profile is
+
+\[
+\Phi_{EM}=(H_f,C_\phi,r_{\mathrm{eff}},H_{SV},\rho_{CM}),
+\]
+
+covering normalized spectral entropy, frequency-specific sensor-phase concentration, covariance effective rank, normalized singular-value entropy, and common-mode fraction.
+
+The strongest current conclusions are measurement-science conclusions:
+
+- V17 shows the normalized descriptors are invariant to trivial global gain in the declared deterministic construction;
+- V18 gives a constructive counterexample in which channel power is matched to numerical precision while spatial phase organization changes from fully aligned to phase balanced;
+- V19 shows that a shared contaminant can create strong apparent sensor-wide phase organization;
+- V20 shows that organization can be fully aligned at one frequency and phase balanced at another in the same multichannel signal.
+
+![Electromagnetic validation V16-V20](docs/figures/v16_v20_electromagnetic_validation.svg)
+
+These results justify treating electromagnetic dynamics as a rich candidate evidence channel. They do **not** establish an electromagnetic consciousness detector, a universal threshold, or identity between an electromagnetic field and experience.
 
 ---
 
@@ -253,12 +290,14 @@ Nothing in this repository is intended to guide withdrawal of life support, repl
 
 ## Reproducible computational scaffold
 
-The package contains four intentionally small, auditable components:
+The package contains multiple intentionally small, auditable components:
 
 - `evidence.py` implements likelihood-ratio updates under an explicit conditional-independence assumption;
 - `partial_identification.py` computes sharp marginal-only Frechet-Hoeffding bounds when conditional dependence is unknown;
 - `profile.py` implements target-specific CEP records with an explicit inconclusive state and conservative negative-evidence rules;
-- `structural_alignment.py` implements distance matrices, relational alignment, normalized distortion, and permutation testing.
+- `structural_alignment.py` implements distance matrices, relational alignment, normalized distortion, and permutation testing;
+- `electromagnetic_observables.py` implements physical EM sanity checks and normalized multichannel field-organization descriptors;
+- `electromagnetic_simulations.py` implements deterministic V16-V20 gain, non-identifiability, confound, and frequency-specific stress tests.
 
 These are research scaffolds, not clinical classifiers.
 
@@ -316,6 +355,9 @@ Supporting guides: [Schemas Guide](schemas/README.md), [Examples Guide](examples
 - [Phase 1 Protocol](docs/protocol-phase1.md)
 - [Preregistration Template](docs/preregistration-template.md)
 - [Experimental Program](docs/experimental-program.md)
+- [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md)
+- [Formal Validation V1-V20](VALIDATION.md)
+- [Validation Atlas](docs/validation-atlas.md)
 - [Statistical Validation Plan](docs/statistical-validation.md)
 - [Dependence-Robust Partial Identification](docs/partial-identification.md)
 - [Clinical Translation](docs/clinical-translation.md)
@@ -357,13 +399,14 @@ Supporting guides: [Schemas Guide](schemas/README.md), [Examples Guide](examples
 - statistical validation rules and dependence-robust partial-identification bounds;
 - clinical translation and ethics boundaries;
 - edge-case standards for infants, animals, organoids, and artificial systems;
-- computational scaffolds for evidence fusion, partial identification, CEP records, and structural alignment;
+- computational scaffolds for evidence fusion, partial identification, CEP records, structural alignment, and electromagnetic observables;
+- executable formal validation through V20, including deterministic electromagnetic invariance, matched-power non-identifiability, common-mode confound, and frequency-specific structure tests;
 - nine canonical scientific visuals with a dedicated visual guide and figure catalog;
 - unit tests and repository-wide publication checks.
 
 ### Not yet established
 
-The repository does **not** yet contain prospective human data that validate a general consciousness measure, a clinically approved instrument, a universal threshold, a demonstrated substrate-independent scalar, direct third-person access to qualia, or a completed adversarial theory tournament.
+The repository does **not** yet contain prospective human data that validate a general consciousness measure, a clinically approved instrument, a universal threshold, a demonstrated substrate-independent scalar, direct third-person access to qualia, a validated universal electromagnetic consciousness signature, or a completed adversarial theory tournament.
 
 Those are empirical milestones, not documentation gaps. The [Roadmap](ROADMAP.md) states the evidence required before they can be claimed.
 
@@ -389,6 +432,7 @@ It will not claim that:
 - consciousness has been proven nonphysical;
 - consciousness has been reduced to a conventional state of matter;
 - any current scalar metric equals consciousness;
+- electromagnetic field strength, power, coherence, entropy, rank, or phase concentration by itself equals or proves consciousness;
 - high complexity alone proves consciousness;
 - a failed descriptor proves dualism, idealism, or panpsychism;
 - a current AI system is conscious because it behaves intelligently;
