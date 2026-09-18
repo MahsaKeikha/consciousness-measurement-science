@@ -6,10 +6,89 @@
     "weighted_residual_energy": 0.027382585751978907,
     "whitened_residual_energy": 0.027382585751978935
   },
+  "v27_resolution_leakage": [
+    {
+      "identity_error": 0.7071067916381327,
+      "off_diagonal_leakage_fraction": 0.48516359305135365,
+      "rank_lower_bound": 0.7071067811865476,
+      "regularization": 0.0001,
+      "resolution_trace": 2.9995656039760683
+    },
+    {
+      "identity_error": 0.7072064686385682,
+      "off_diagonal_leakage_fraction": 0.48507421605158463,
+      "rank_lower_bound": 0.7071067811865476,
+      "regularization": 0.01,
+      "resolution_trace": 2.957417868601668
+    },
+    {
+      "identity_error": 0.7139153955704209,
+      "off_diagonal_leakage_fraction": 0.4854883252313185,
+      "rank_lower_bound": 0.7071067811865476,
+      "regularization": 0.1,
+      "resolution_trace": 2.6371655696710685
+    },
+    {
+      "identity_error": 0.8090889190263342,
+      "off_diagonal_leakage_fraction": 0.5009580623515244,
+      "rank_lower_bound": 0.7071067811865476,
+      "regularization": 1.0,
+      "resolution_trace": 1.4025992437452859
+    }
+  ],
+  "v28_fisher_information": [
+    {
+      "common_noise_correlation": 0.0,
+      "crlb_variance": 0.25,
+      "fisher_information": 4.0
+    },
+    {
+      "common_noise_correlation": 0.3,
+      "crlb_variance": 0.47500000000000003,
+      "fisher_information": 2.1052631578947367
+    },
+    {
+      "common_noise_correlation": 0.6,
+      "crlb_variance": 0.7000000000000001,
+      "fisher_information": 1.4285714285714284
+    },
+    {
+      "common_noise_correlation": 0.9,
+      "crlb_variance": 0.9249999999999999,
+      "fisher_information": 1.0810810810810811
+    }
+  ],
   "v29_temporal_aliasing": {
     "alias_frequency_hz": 83.0,
     "frequency_hz": 17.0,
     "max_sample_difference": 1.3911094498553211e-13,
     "sample_rate_hz": 100.0
-  }
+  },
+  "v30_inverse_noise_amplification": [
+    {
+      "pseudoinverse_norm": 1.0,
+      "realized_noise_amplification": 1.0,
+      "smallest_singular_value": 1.0
+    },
+    {
+      "pseudoinverse_norm": 3.3333333333333335,
+      "realized_noise_amplification": 3.3333333333333335,
+      "smallest_singular_value": 0.3
+    },
+    {
+      "pseudoinverse_norm": 10.0,
+      "realized_noise_amplification": 10.0,
+      "smallest_singular_value": 0.1
+    },
+    {
+      "pseudoinverse_norm": 33.333333333333336,
+      "realized_noise_amplification": 33.333333333333336,
+      "smallest_singular_value": 0.03
+    },
+    {
+      "pseudoinverse_norm": 100.0,
+      "realized_noise_amplification": 100.0,
+      "smallest_singular_value": 0.01
+    }
+  ]
 }
