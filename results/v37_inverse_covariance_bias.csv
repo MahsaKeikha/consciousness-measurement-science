@@ -1,0 +1,5 @@
+dimension,degrees_of_freedom,inverse_covariance_bias_factor
+4.0,6.0,6.0
+4.0,10.0,2.0
+4.0,20.0,1.3333333333333333
+4.0,50.0,1.1111111111111112
