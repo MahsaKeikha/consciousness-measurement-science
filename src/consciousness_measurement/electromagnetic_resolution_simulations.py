@@ -10,6 +10,7 @@ from .electromagnetic_resolution import (
     off_diagonal_leakage_fraction,
     pseudoinverse_noise_amplification,
     pseudoinverse_operator_norm,
+    rank_limited_identity_error_lower_bound,
     resolution_identity_error,
     resolution_matrix,
     scalar_amplitude_crlb,
@@ -60,6 +61,11 @@ def v27_resolution_leakage_path() -> list[dict[str, float]]:
         ]
     )
     rows: list[dict[str, float]] = []
+    operator_rank = int(np.linalg.matrix_rank(lead_field))
+    rank_lower_bound = rank_limited_identity_error_lower_bound(
+        source_dimension=lead_field.shape[1],
+        operator_rank=operator_rank,
+    )
     for regularization in (1e-4, 1e-2, 1e-1, 1.0):
         resolution = resolution_matrix(
             lead_field,
@@ -73,6 +79,7 @@ def v27_resolution_leakage_path() -> list[dict[str, float]]:
                     resolution
                 ),
                 "identity_error": resolution_identity_error(resolution),
+                "rank_lower_bound": rank_lower_bound,
             }
         )
     return rows
