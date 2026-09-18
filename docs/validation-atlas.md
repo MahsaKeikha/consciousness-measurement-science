@@ -466,7 +466,7 @@ For Tikhonov regularization,
 \mathbf L^\top\mathbf L.
 \]
 
-Perfect resolution would require \(\mathbf R_\lambda=\mathbf I\). In the declared three-sensor, six-source construction, normalized identity error stays between about `0.707` and `0.809`, while off-diagonal leakage remains near `0.49-0.50`.
+Perfect resolution would require \(\mathbf R_\lambda=\mathbf I\). Because the declared operator has three sensors and six source dimensions, rank alone implies the normalized Frobenius lower bound \(\|\mathbf R-\mathbf I\|_F/\sqrt{6}\ge 1/\sqrt{2}\approx0.707106781\). The canonical identity error stays between about `0.707107` and `0.809089`, while off-diagonal leakage remains near `0.49-0.50`.
 
 ## V28. Fisher information under common sensor noise
 
