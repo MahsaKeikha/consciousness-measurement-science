@@ -34,7 +34,7 @@ The first three layers use declared fixed seeds where sampling is stochastic. V1
 
 For the electromagnetic layers, reproducibility also means preserving the declared sensor units, reference convention, noise covariance, forward operator, inverse regularization, acquisition sample rate, anti-aliasing assumptions, and singular-spectrum or resolution diagnostics whenever they affect interpretation.
 
-## 4. Minimum provenance record
+## 3. Minimum provenance record
 
 Every empirical analysis should record:
 
@@ -57,7 +57,7 @@ Every empirical analysis should record:
 - package lock or environment export;
 - all confirmatory outcomes and deviations.
 
-## 3. Discovery versus confirmation
+## 4. Discovery versus confirmation
 
 Exploratory work can be flexible, but confirmatory analysis must be frozen before access to the confirmatory outcomes.
 
