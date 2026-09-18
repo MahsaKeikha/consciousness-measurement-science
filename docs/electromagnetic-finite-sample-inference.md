@@ -430,7 +430,7 @@ It does not state that a low source-discrimination error is evidence of consciou
 Let
 
 \[
-Z_1,ldots,Z_K
+Z_1,\ldots,Z_K
 \]
 
 be independent standard-normal null statistics.
@@ -438,34 +438,34 @@ be independent standard-normal null statistics.
 For a two-sided threshold \(t\),
 
 \[
-P(|Z_k|le t)
+P(|Z_k|\le t)
 =
-2Phi(t)-1.
+2\Phi(t)-1.
 \]
 
 The probability that all \(K\) null statistics remain inside the threshold is
 
 \[
-Pleft(
-max_k |Z_k|
-le t
+P\left(
+\max_k |Z_k|
+\le t
 \right)
 =
-\[
-2Phi(t)-1
-]^K.
+\left[
+2\Phi(t)-1
+\right]^K.
 \]
 
 Therefore the family-wise false-positive probability is
 
 \[
 \boxed{
-operatorname{FWER}(t,K)
+\operatorname{FWER}(t,K)
 =
 1-
-\[
-2Phi(t)-1
-]^K
+\left[
+2\Phi(t)-1
+\right]^K
 }.
 \]
 
@@ -473,37 +473,37 @@ To enforce target family-wise error \(\alpha\), solve
 
 \[
 1-
-\[
-2Phi(t)-1
-]^K
+\left[
+2\Phi(t)-1
+\right]^K
 =
-alpha.
+\alpha.
 \]
 
 This gives
 
 \[
-2Phi(t)-1
+2\Phi(t)-1
 =
-(1-alpha)^{1/K}
+(1-\alpha)^{1/K}
 \]
 
 and therefore
 
 \[
 \boxed{
-t_{alpha,K}
+t_{\alpha,K}
 =
-Phi^{-1}
-left(
+\Phi^{-1}
+\left(
 \frac{
-1+(1-alpha)^{1/K}
+1+(1-\alpha)^{1/K}
 }{
 2
 }
 \right).
 }
-\]
+
 
 ### Canonical V39 thresholds
 
