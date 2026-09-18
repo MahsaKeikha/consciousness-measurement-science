@@ -23,7 +23,7 @@ Let the underlying electromagnetic state over space and time be
 A sensor array does not observe the full field directly. It observes a hardware- and geometry-dependent projection
 
 \[
-\mathbf X(t)=\mathcal M[\mathcal F](t)+\boldsymbol\eta(t),
+\mathbf X(t)=\mathcal M(\mathcal F)(t)+\boldsymbol\eta(t),
 \]
 
 where \(\mathcal M\) contains sensor transfer functions, source-to-sensor geometry, referencing, filtering, shielding, and other acquisition effects, and \(\boldsymbol\eta\) collects environmental and instrumental contamination.
