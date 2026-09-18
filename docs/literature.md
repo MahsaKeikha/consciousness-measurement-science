@@ -63,6 +63,16 @@ Repository use: Research III separates two propositions that should not be confl
 
 Repository use: V21-V25 formalize the measurement consequences of this literature. Pairwise EEG-like differences are invariant to common rereferencing, a nontrivial lead-field null space creates exact source non-identifiability, regularization selects among admissible source solutions, complementary EEG/MEG-like operators can reduce a shared null space, and forward-model perturbations propagate into sensor predictions through an operator-norm bound. These are measurement-science results and do not establish a unique neural source or a consciousness-specific electromagnetic source pattern.
 
+### Electromagnetic resolution, covariance, and sampling limits
+
+- Hauk O, Stenroos M, Treder MS. *Towards an objective evaluation of EEG/MEG source estimation methods - The linear approach*. NeuroImage. 2022;255:119177. doi:10.1016/j.neuroimage.2022.119177. Develops resolution-matrix, point-spread, and cross-talk functions as principled tools for evaluating linear M/EEG inverse solutions.
+- Jas M et al. *A reproducible MEG/EEG group study with the MNE software: recommendations, quality assessments, and good practices*. Frontiers in Neuroscience. 2018;12:530. Emphasizes noise-covariance estimation, whitening, quality assessment, and reproducible source-analysis practice.
+- Grech R et al. *Review on solving the inverse problem in EEG source analysis*. Journal of NeuroEngineering and Rehabilitation. 2008;5:25. doi:10.1186/1743-0003-5-25. Reviews noise effects, regularization, source-resolution limitations, and spatial-noise prewhitening in EEG inverse analysis.
+- Gross J et al. *Good practice for conducting and reporting MEG research*. NeuroImage. 2013;65:349-363. doi:10.1016/j.neuroimage.2012.10.001. Recommends explicit reporting of acquisition bandwidth, filtering, forward models, inverse choices, and parameters that affect source interpretation.
+- Standard sampled-signal theory gives the Nyquist condition and aliasing identity: continuous spectral components above the uniquely represented band can fold into lower sampled frequencies unless acquisition and anti-alias filtering prevent it.
+
+Repository use: V26-V30 formalize a third electromagnetic measurement layer after sensor observables and source identifiability. V26 makes covariance-weighted residual geometry explicit. V27 evaluates source resolution and cross-talk through the inverse resolution matrix. V28 quantifies how correlated sensor noise reduces Fisher information. V29 provides an exact temporal-aliasing counterexample. V30 makes singular-direction inverse noise amplification explicit through the pseudoinverse norm. These are measurement-resolution constraints, not consciousness metrics.
+
 ## Perturbational complexity
 
 - Casali AG et al. *A theoretically based index of consciousness independent of sensory processing and behavior*. Science Translational Medicine. 2013;5(198):198ra105.

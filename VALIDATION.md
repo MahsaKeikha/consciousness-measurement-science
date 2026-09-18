@@ -1,4 +1,4 @@
-# Research III Formal Validation V1-V25
+# Research III Formal Validation V1-V30
 
 This is the compact entry point to the executable mathematical research layer of Research III.
 
@@ -8,17 +8,18 @@ These are **analytic and synthetic validation results**. They test the measureme
 
 ## Reader path
 
-1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V25 sequence.
+1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V30 sequence.
 2. [Formal Validation V1-V5](docs/formal-validation-program.md) for identification, coverage, transport, dependence, and structural testing.
 3. [Formal Validation V6-V10](docs/formal-validation-program-v6-v10.md) for finite calibration uncertainty, missingness, conditioning, heterogeneous sites, and abstention.
 4. [Formal Validation V11-V15](docs/formal-validation-program-v11-v15.md) for exact resolution laws, multisite identification, design sample size, and independent release gating.
 5. [Electromagnetic Field Program V16-V20](docs/electromagnetic-field-program.md) for physical EM observables, organization descriptors, non-identifiability, and confound stress tests.
 6. [Electromagnetic Source Identifiability V21-V25](docs/electromagnetic-source-identifiability.md) for reference invariance, lead-field null spaces, inverse regularization, multimodal complementarity, and forward-model perturbation.
-7. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
-8. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), and [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py) to regenerate the result record and figures.
-9. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
+7. [Electromagnetic Resolution and Information V26-V30](docs/electromagnetic-resolution-program.md) for correlated-noise geometry, source resolution and leakage, Fisher information, temporal aliasing, and inverse noise amplification.
+8. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
+9. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py), and [V26-V30 runner](scripts/run_electromagnetic_resolution_validation.py) to regenerate the result record and figures.
+10. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
 
-## Twenty-five formal stages
+## Thirty formal stages
 
 | Stage | Scientific question | Main mathematical object | Executable evidence |
 |---|---|---|---|
@@ -47,6 +48,11 @@ These are **analytic and synthetic validation results**. They test the measureme
 | **V23** | How strongly does inverse regularization select the reconstructed source? | Tikhonov inverse and singular-direction filter factors | deterministic regularization path |
 | **V24** | Can complementary EEG/MEG operators reduce source ambiguity? | null-space intersection of stacked forward operators | deterministic single- versus multimodal rank/nullity record |
 | **V25** | How does forward-model error propagate to sensor predictions? | operator-norm perturbation inequality | deterministic forward-model perturbation grid |
+| **V26** | How should residuals be measured under correlated sensor noise? | covariance-weighted quadratic form and whitening identity | deterministic covariance-whitening check |
+| **V27** | How much source leakage remains after a regularized inverse? | inverse resolution matrix, identity error, and off-diagonal leakage | deterministic regularization sweep |
+| **V28** | How does shared sensor noise change information about a source amplitude? | Fisher information and Cramer-Rao lower bound under correlated noise | deterministic equicorrelation sweep |
+| **V29** | Can distinct continuous frequencies become identical after sampling? | exact discrete-time aliasing identity | deterministic 17 Hz versus 83 Hz counterexample at 100 Hz sampling |
+| **V30** | How strongly can a weak singular direction amplify sensor noise? | pseudoinverse operator norm `1/sigma_min` | deterministic singular-value amplification sweep |
 
 ## Core measurement equations
 
@@ -193,6 +199,59 @@ so multimodal measurement can reduce, but need not eliminate, source ambiguity. 
 
 These are source-identifiability and model-sensitivity results. They do not turn a reconstructed source into a direct measurement of consciousness.
 
+V26-V30 add acquisition and resolution limits. With sensor-noise covariance \(\boldsymbol\Sigma\) and residual \(\mathbf r\),
+
+\[
+\boxed{
+\mathbf r^\top\boldsymbol\Sigma^{-1}\mathbf r
+=
+\|\boldsymbol\Sigma^{-1/2}\mathbf r\|_2^2
+}
+\]
+
+is the covariance-weighted residual identity. For a Tikhonov inverse, the source-resolution matrix is
+
+\[
+\boxed{
+\mathbf R_\lambda
+=
+(\mathbf L^\top\mathbf L+\lambda\mathbf I)^{-1}
+\mathbf L^\top\mathbf L.
+}
+\]
+
+For scalar source amplitude \(a\) with topography \(\boldsymbol\ell\),
+
+\[
+\boxed{
+\mathcal I(a)=\boldsymbol\ell^\top\boldsymbol\Sigma^{-1}\boldsymbol\ell,
+\qquad
+\operatorname{Var}(\widehat a)\ge \mathcal I(a)^{-1}.
+}
+\]
+
+For \(m\) identical sensor topographies with equicorrelated noise \(\rho\),
+
+\[
+\boxed{
+\mathcal I(a)=\frac{m}{1+(m-1)\rho}.
+}
+\]
+
+Sampling also imposes exact identifiability limits: for a cosine sampled at rate \(f_s\), frequencies \(f\) and \(f_s-f\) generate the same sample sequence. Finally,
+
+\[
+\boxed{
+\|\mathbf L^+\boldsymbol\eta\|_2
+\le
+\|\mathbf L^+\|_2\|\boldsymbol\eta\|_2,
+\qquad
+\|\mathbf L^+\|_2=\frac{1}{\sigma_{\min}}
+}
+\]
+
+for the smallest nonzero singular value \(\sigma_{\min}\). These are resolution and information limits, not consciousness scores.
+
 ## Canonical result record
 
 The committed deterministic and fixed-seed experiments show, among other checks:
@@ -214,7 +273,12 @@ The committed deterministic and fixed-seed experiments show, among other checks:
 - V22 has lead-field rank `3`, nullity `3`, source separation `1`, and exactly zero sensor residual for two distinct source vectors;
 - V23 changes the selected source estimate as regularization increases: estimate norm falls from about `1.547` to `0.577` while sensor residual rises from about `1.43e-5` to `0.521`;
 - V24 reduces canonical source nullity from `3` for each single modality to `1` for the stacked complementary operator, without reaching uniqueness;
-- V25 satisfies the forward-model operator-norm error bound at every tested perturbation scale, with the nonzero canonical mismatch/bound ratio about `0.479`.
+- V25 satisfies the forward-model operator-norm error bound at every tested perturbation scale, with the nonzero canonical mismatch/bound ratio about `0.479`;
+- V26 matches covariance-weighted and whitened residual energies to absolute error below `3e-17`;
+- V27 retains normalized resolution identity error from about `0.707` to `0.809` and off-diagonal source leakage near `0.49-0.50` in the declared underdetermined inverse;
+- V28 reduces scalar-amplitude Fisher information from `4.0` to about `1.081` as common sensor-noise correlation rises from `0` to `0.9`, with the CRLB increasing from `0.25` to `0.925`;
+- V29 makes 17 Hz and 83 Hz sampled cosine sequences identical at 100 Hz sampling to numerical error below `1.4e-13`;
+- V30 gives exact worst-direction pseudoinverse noise amplification `1/sigma_min`, reaching `100x` at `sigma_min=0.01`.
 
 The V15 simulation value is a finite fixed-seed check, not the theorem itself. The theorem-level coverage statement follows from independence of the pilot release event and the confirmatory interval construction.
 
@@ -229,11 +293,12 @@ python scripts/run_robustness_validation.py
 python scripts/run_identification_design_validation.py
 python scripts/run_electromagnetic_validation.py
 python scripts/run_electromagnetic_inverse_validation.py
+python scripts/run_electromagnetic_resolution_validation.py
 make check
 ```
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V25 are deterministic and require no random seed.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V30 are deterministic and require no random seed.
 
 ## Scientific boundary
 
-Passing V1-V25 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.
+Passing V1-V30 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.

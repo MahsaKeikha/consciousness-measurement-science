@@ -36,6 +36,9 @@ These three pages are the fastest route for a technically sophisticated reader w
 - [Experimental Program](experimental-program.md): staged empirical program from healthy benchmarks to theory tournaments.
 - [Electromagnetic Field Measurement Program](electromagnetic-field-program.md): physical and sensor-level EM observables, confounds, and organization tests.
 - [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md): EEG/MEG-like forward and inverse identifiability, regularization, multimodal complementarity, and model perturbation.
+- [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md): covariance-aware residual geometry, inverse resolution leakage, Fisher information, temporal aliasing, and singular-direction noise amplification.
+- [Formal Validation V1-V30](../VALIDATION.md): compact executable map of all thirty analytic and synthetic validation stages.
+- [Validation Atlas](validation-atlas.md): equation-to-code-to-result visual audit record for all validation layers.
 - [Statistical Validation](statistical-validation.md): calibration, transport, partial identification, uncertainty, multiplicity, and abstention.
 - [Dependence-Robust Partial Identification](partial-identification.md): sharp marginal-only bounds for multimodal evidence when conditional dependence is unknown.
 
