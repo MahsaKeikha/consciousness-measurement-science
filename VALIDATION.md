@@ -1,4 +1,4 @@
-# Research III Formal Validation V1-V45
+# Research III Formal Validation V1-V50
 
 This is the compact entry point to the executable mathematical research layer of Research III.
 
@@ -8,7 +8,7 @@ These are **analytic and synthetic validation results**. They test the measureme
 
 ## Reader path
 
-1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V45 sequence.
+1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V50 sequence.
 2. [Formal Validation V1-V5](docs/formal-validation-program.md) for identification, coverage, transport, dependence, and structural testing.
 3. [Formal Validation V6-V10](docs/formal-validation-program-v6-v10.md) for finite calibration uncertainty, missingness, conditioning, heterogeneous sites, and abstention.
 4. [Formal Validation V11-V15](docs/formal-validation-program-v11-v15.md) for exact resolution laws, multisite identification, design sample size, and independent release gating.
@@ -18,11 +18,12 @@ These are **analytic and synthetic validation results**. They test the measureme
 8. [Electromagnetic Design and Spatial Specificity V31-V35](docs/electromagnetic-design-spatial-specificity.md) for point-spread and cross-talk functions, source distinguishability, Fisher-information sensor design, nuisance information loss, and robust model uncertainty.
 9. [Finite-Sample Electromagnetic Inference V36-V40](docs/electromagnetic-finite-sample-inference.md) for efficient amplitude inference, inverse-covariance bias, Gaussian source discrimination, multiple-search control, and covariance-mismatch calibration.
 10. [Multiplicity and Selection-Safe Electromagnetic Inference V41-V45](docs/electromagnetic-selection-safe-inference.md) for arbitrary-dependence FWER control, Holm step-down testing, exact sign-flip inference, post-selection coverage, and independent confirmation.
-11. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
-12. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py), [V26-V30 runner](scripts/run_electromagnetic_resolution_validation.py), [V31-V35 runner](scripts/run_electromagnetic_design_validation.py), [V36-V40 runner](scripts/run_electromagnetic_finite_sample_validation.py), and [V41-V45 runner](scripts/run_electromagnetic_selection_validation.py) to regenerate the result record and figures.
-13. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
+11. [Cross-Site Replication Inference and Stability V46-V50](docs/electromagnetic-replication-inference.md) for common-effect pooling, heterogeneity, leave-one-site-out influence, partial-conjunction replicability, and site-weight concentration.
+12. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
+13. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py), [V26-V30 runner](scripts/run_electromagnetic_resolution_validation.py), [V31-V35 runner](scripts/run_electromagnetic_design_validation.py), [V36-V40 runner](scripts/run_electromagnetic_finite_sample_validation.py), [V41-V45 runner](scripts/run_electromagnetic_selection_validation.py), and [V46-V50 runner](scripts/run_electromagnetic_replication_validation.py) to regenerate the result record and figures.
+14. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
 
-## Forty-five formal stages
+## Fifty formal stages
 
 | Stage | Scientific question | Main mathematical object | Executable evidence |
 |---|---|---|---|
@@ -71,6 +72,11 @@ These are **analytic and synthetic validation results**. They test the measureme
 | **V43** | Can a dependence-aware finite randomization test control the maximum source statistic? | exact row-wise sign-flip orbit | 64-element max-statistic enumeration |
 | **V44** | What happens when the largest null source is selected and its ordinary interval is reused? | exact post-selection coverage law `c^K` | search-size coverage-collapse sweep |
 | **V45** | Can independent confirmation restore selected-coordinate Type I error after discovery? | conditional independence of holdout statistic and selected index | fixed-seed discovery-versus-holdout simulation |
+| **V46** | How should declared site estimates be pooled under a known-variance common-effect model? | inverse-variance weighted estimator and exact standard error | deterministic four-site common-effect calculation |
+| **V47** | Does the heterogeneity statistic obey its declared common-effect reference law? | known-variance Cochran Q and chi-square moments | 50,000-draw fixed-seed common-effect simulation |
+| **V48** | How much does each site move the pooled estimate when deleted? | exact leave-one-site-out shift identity | direct-versus-identity comparison for every site |
+| **V49** | Is a signal supported in at least r sites rather than only somewhere? | Bonferroni partial-conjunction p-value | ordered five-site p-value sequence |
+| **V50** | How much independent evidential weight do nominal sites really contribute? | normalized inverse-variance weights, effective site count, delete-one variance inflation | balanced-versus-dominant-site design comparison |
 
 ## Core measurement equations
 
@@ -297,6 +303,16 @@ The committed deterministic and fixed-seed experiments show, among other checks:
 - V28 reduces scalar-amplitude Fisher information from `4.0` to about `1.081` as common sensor-noise correlation rises from `0` to `0.9`, with the CRLB increasing from `0.25` to `0.925`;
 - V29 makes 17 Hz and 83 Hz sampled cosine sequences identical at 100 Hz sampling to numerical error below `1.4e-13`;
 - V30 gives exact worst-direction pseudoinverse noise amplification `1/sigma_min`, reaching `100x` at `sigma_min=0.01`.
+- V41 holds Bonferroni family-wise error at or below 0.05 by the union bound for the declared search sizes without requiring independent tests;
+- V42 rejects three hypotheses in the canonical Holm example versus one under single-step Bonferroni at alpha 0.05;
+- V43 gives exact sign-flip maximum-statistic p-value 0.03125 over the complete 64-element orbit;
+- V44 reduces naive selected-coordinate coverage to about 0.005921 after a 100-coordinate independent null search with nominal marginal coverage 0.95;
+- V45 gives fixed-seed independent-holdout false-positive rate 0.04986 versus 0.99382 under same-data reuse;
+- V46 gives pooled common-effect estimate 0.4268600252 with known-variance standard error 0.0639198742 for the declared four-site construction;
+- V47 gives observed Q 0.9200868712 and fixed-seed simulated Q moments 3.0115441662 and 6.0378717168 against theoretical mean 3 and variance 6;
+- V48 gives maximum absolute leave-one-site-out pooled-estimate shift about 0.03928 and verifies the exact delete-one identity;
+- V49 gives partial-conjunction p-values 0.005, 0.048, 0.12, 0.42, and 0.45 for requiring one through five non-null sites;
+- V50 reduces four nominal sites to effective site count about 1.3938 when one site carries 16/19 of the inverse-variance weight, with maximum delete-one variance inflation 19/3.
 
 The V15 simulation value is a finite fixed-seed check, not the theorem itself. The theorem-level coverage statement follows from independence of the pilot release event and the confirmatory interval construction.
 
@@ -315,11 +331,12 @@ python scripts/run_electromagnetic_resolution_validation.py
 python scripts/run_electromagnetic_design_validation.py
 python scripts/run_electromagnetic_finite_sample_validation.py
 python scripts/run_electromagnetic_selection_validation.py
+python scripts/run_electromagnetic_replication_validation.py
 make check
 ```
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V35 are deterministic. V36 uses fixed seed `20260918`; V37-V40 are analytic.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V35 are deterministic. V36 and V45 use fixed seed `20260918`; V37-V44 are analytic or exact finite-orbit calculations. V46, V48, V49, and V50 are deterministic or analytic; V47 uses fixed seed `20260918` for 50,000 common-effect simulations.
 
 ## Scientific boundary
 
-Passing V1-V35 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.
+Passing V1-V50 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.
