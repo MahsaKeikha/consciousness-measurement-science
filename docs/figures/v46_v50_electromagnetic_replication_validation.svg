@@ -45,7 +45,7 @@
   <line x1="540" y1="795" x2="540" y2="837.45" stroke="#315c7d" stroke-width="4"/>
   <circle cx="540" cy="837.45" r="7" fill="#ffffff" stroke="#315c7d" stroke-width="3"/>
   <text x="540" y="845" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">S4</text>
-  <text x="118" y="651" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">+0.04</text>
+  <text x="118" y="630" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">+0.04</text>
   <text x="118" y="800" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">0</text>
   <text x="118" y="870" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">-0.02</text>
   <text x="120" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">The exact delete-one identity matches every displayed shift.</text>
