@@ -104,7 +104,7 @@ def _svg(
   <text x="1075" y="543" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max mismatch / bound ratio</text>
   <text x="1470" y="543" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(max_bound_ratio)}</text>
   <text x="1075" y="600" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">For every tested perturbation:</text>
-  <text x="1075" y="645" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#43634a">||delta L j|| <= ||delta L|| ||j||</text>
+  <text x="1075" y="645" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#43634a">||delta L j|| &lt;= ||delta L|| ||j||</text>
   <text x="1075" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Geometry or conductivity error therefore enters</text>
   <text x="1075" y="731" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">the sensor prediction through a bounded operator perturbation.</text>
   <text x="1075" y="795" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A small residual does not prove the forward model is uniquely correct.</text>
