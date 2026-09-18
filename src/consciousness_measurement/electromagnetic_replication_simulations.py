@@ -2,16 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from .electromagnetic_replication import (
-    bonferroni_partial_conjunction_pvalue,
-    cochran_q_known_variance,
-    common_effect_estimate,
-    delete_site_variance_inflation,
-    effective_site_count,
-    leave_one_site_out_estimates,
-    leave_one_site_out_shift_identity,
-    normalized_site_weights,
-)
+from . import electromagnetic_replication as replication
 
 
 ESTIMATES = np.asarray([0.42, 0.55, 0.37, 0.48])
@@ -19,7 +10,7 @@ STANDARD_ERRORS = np.asarray([0.12, 0.18, 0.10, 0.15])
 
 
 def v46_common_effect_pooling() -> dict[str, float]:
-    pooled, pooled_se = common_effect_estimate(ESTIMATES, STANDARD_ERRORS)
+    pooled, pooled_se = replication.common_effect_estimate(ESTIMATES, STANDARD_ERRORS)
     return {
         "pooled_estimate": pooled,
         "pooled_standard_error": pooled_se,
@@ -33,8 +24,8 @@ def v47_common_effect_heterogeneity(
     seed: int = 20260918,
     simulations: int = 50000,
 ) -> dict[str, float]:
-    pooled, _ = common_effect_estimate(ESTIMATES, STANDARD_ERRORS)
-    observed_q = cochran_q_known_variance(ESTIMATES, STANDARD_ERRORS)
+    pooled, _ = replication.common_effect_estimate(ESTIMATES, STANDARD_ERRORS)
+    observed_q = replication.cochran_q_known_variance(ESTIMATES, STANDARD_ERRORS)
 
     rng = np.random.default_rng(seed)
     samples = rng.normal(
@@ -63,9 +54,9 @@ def v47_common_effect_heterogeneity(
 
 
 def v48_leave_one_site_out_influence() -> list[dict[str, float]]:
-    pooled, _ = common_effect_estimate(ESTIMATES, STANDARD_ERRORS)
-    delete_estimates = leave_one_site_out_estimates(ESTIMATES, STANDARD_ERRORS)
-    identity_shifts = leave_one_site_out_shift_identity(ESTIMATES, STANDARD_ERRORS)
+    pooled, _ = replication.common_effect_estimate(ESTIMATES, STANDARD_ERRORS)
+    delete_estimates = replication.leave_one_site_out_estimates(ESTIMATES, STANDARD_ERRORS)
+    identity_shifts = replication.leave_one_site_out_shift_identity(ESTIMATES, STANDARD_ERRORS)
     return [
         {
             "site_index": float(index),
@@ -85,7 +76,7 @@ def v49_partial_conjunction_replicability() -> list[dict[str, float]]:
         {
             "required_nonnulls": float(required),
             "ordered_p_value": float(ordered[required - 1]),
-            "partial_conjunction_p_value": bonferroni_partial_conjunction_pvalue(
+            "partial_conjunction_p_value": replication.bonferroni_partial_conjunction_pvalue(
                 p_values,
                 required,
             ),
@@ -101,12 +92,12 @@ def v50_site_weight_concentration() -> list[dict[str, float | str]]:
     }
     rows: list[dict[str, float | str]] = []
     for name, standard_errors in designs.items():
-        weights = normalized_site_weights(standard_errors)
-        inflations = delete_site_variance_inflation(standard_errors)
+        weights = replication.normalized_site_weights(standard_errors)
+        inflations = replication.delete_site_variance_inflation(standard_errors)
         rows.append(
             {
                 "design": name,
-                "effective_site_count": effective_site_count(standard_errors),
+                "effective_site_count": replication.effective_site_count(standard_errors),
                 "maximum_normalized_weight": float(np.max(weights)),
                 "maximum_delete_variance_inflation": float(np.max(inflations)),
             }
