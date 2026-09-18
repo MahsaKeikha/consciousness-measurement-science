@@ -1,0 +1,112 @@
+{
+  "claim_boundary": "finite-sample electromagnetic inference and multiplicity control do not identify consciousness or qualia",
+  "status": "analytic_and_seeded_synthetic_only",
+  "v36_gls_amplitude_efficiency": {
+    "crlb_variance": 0.7832898172323759,
+    "empirical_coverage_95": 0.947775,
+    "empirical_mean": 1.2090215516650704,
+    "empirical_variance": 0.7844758366076893,
+    "exact_variance": 0.7832898172323759,
+    "first_scalar_estimate": 2.7892496230610897,
+    "fisher_information": 1.2766666666666668,
+    "interval_half_width_95": 1.7346398985285674,
+    "seed": 20260918.0,
+    "trials": 40000.0,
+    "true_amplitude": 1.2
+  },
+  "v37_inverse_covariance_bias": [
+    {
+      "degrees_of_freedom": 6.0,
+      "dimension": 4.0,
+      "inverse_covariance_bias_factor": 6.0
+    },
+    {
+      "degrees_of_freedom": 10.0,
+      "dimension": 4.0,
+      "inverse_covariance_bias_factor": 2.0
+    },
+    {
+      "degrees_of_freedom": 20.0,
+      "dimension": 4.0,
+      "inverse_covariance_bias_factor": 1.3333333333333333
+    },
+    {
+      "degrees_of_freedom": 50.0,
+      "dimension": 4.0,
+      "inverse_covariance_bias_factor": 1.1111111111111112
+    }
+  ],
+  "v38_gaussian_source_discrimination": [
+    {
+      "equal_prior_bayes_error": 0.5,
+      "mahalanobis_distance": 0.0,
+      "mahalanobis_squared": 0.0
+    },
+    {
+      "equal_prior_bayes_error": 0.4012936743170763,
+      "mahalanobis_distance": 0.5,
+      "mahalanobis_squared": 0.25
+    },
+    {
+      "equal_prior_bayes_error": 0.3085375387259869,
+      "mahalanobis_distance": 1.0,
+      "mahalanobis_squared": 1.0
+    },
+    {
+      "equal_prior_bayes_error": 0.15865525393145707,
+      "mahalanobis_distance": 2.0,
+      "mahalanobis_squared": 4.0
+    },
+    {
+      "equal_prior_bayes_error": 0.06680720126885809,
+      "mahalanobis_distance": 3.0,
+      "mahalanobis_squared": 9.0
+    }
+  ],
+  "v39_independent_search_fwer": [
+    {
+      "comparisons": 1.0,
+      "realized_fwer": 0.050000000000000044,
+      "target_fwer": 0.05,
+      "two_sided_z_threshold": 1.9599639845400536
+    },
+    {
+      "comparisons": 10.0,
+      "realized_fwer": 0.05000000000000149,
+      "target_fwer": 0.05,
+      "two_sided_z_threshold": 2.7996252193010864
+    },
+    {
+      "comparisons": 100.0,
+      "realized_fwer": 0.05000000000000171,
+      "target_fwer": 0.05,
+      "two_sided_z_threshold": 3.473978869154039
+    },
+    {
+      "comparisons": 1000.0,
+      "realized_fwer": 0.050000000000053224,
+      "target_fwer": 0.05,
+      "two_sided_z_threshold": 4.0496605495541695
+    }
+  ],
+  "v40_covariance_mismatch_sandwich": [
+    {
+      "exact_sandwich_variance": 0.8779761904761904,
+      "nominal_precision_variance": 0.8779761904761906,
+      "variance_ratio_exact_over_nominal": 0.9999999999999998,
+      "weight_model": "oracle_precision"
+    },
+    {
+      "exact_sandwich_variance": 1.06496,
+      "nominal_precision_variance": 0.8,
+      "variance_ratio_exact_over_nominal": 1.3311999999999997,
+      "weight_model": "identity_weight"
+    },
+    {
+      "exact_sandwich_variance": 1.0452329580324302,
+      "nominal_precision_variance": 0.7858546168958743,
+      "variance_ratio_exact_over_nominal": 1.3300589390962674,
+      "weight_model": "diagonal_precision"
+    }
+  ]
+}

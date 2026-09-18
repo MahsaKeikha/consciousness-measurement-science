@@ -1,0 +1,2 @@
+seed,trials,true_amplitude,fisher_information,exact_variance,crlb_variance,interval_half_width_95,empirical_mean,empirical_variance,empirical_coverage_95,first_scalar_estimate
+20260918.0,40000.0,1.2,1.2766666666666668,0.7832898172323759,0.7832898172323759,1.7346398985285674,1.2090215516650704,0.7844758366076893,0.947775,2.7892496230610897

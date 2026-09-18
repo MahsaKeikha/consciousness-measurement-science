@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **eighteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **nineteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -614,6 +614,126 @@ Audit: [Electromagnetic Design and Spatial Specificity Program](electromagnetic-
 
 ---
 
+# Finite-sample electromagnetic inference layer V36-V40
+
+V36-V40 add estimator calibration, covariance-estimation effects, source discrimination, multiplicity, and covariance-model mismatch.
+
+## V36. Efficient scalar-amplitude inference
+
+For
+\[
+\mathbf y=a\boldsymbol\ell+\boldsymbol\eta,
+\qquad
+\boldsymbol\eta\sim\mathcal N(\mathbf 0,\mathbf C),
+\]
+the generalized least-squares estimator is
+\[
+\widehat a
+=
+\frac{\boldsymbol\ell^\top\mathbf C^{-1}\mathbf y}
+{\boldsymbol\ell^\top\mathbf C^{-1}\boldsymbol\ell},
+\]
+with exact variance
+\[
+\boxed{
+\operatorname{Var}(\widehat a)
+=
+\frac{1}
+{\boldsymbol\ell^\top\mathbf C^{-1}\boldsymbol\ell}.
+}
+\]
+
+The canonical 40,000-trial fixed-seed simulation gives empirical variance `0.784476` against exact `0.783290`, with 95 percent interval coverage `0.947775`.
+
+## V37. Inverse-covariance bias
+
+If
+\[
+\mathbf W\sim\operatorname{Wishart}_p(\mathbf C,\nu),
+\qquad
+\mathbf S=\mathbf W/\nu,
+\]
+then for \(\nu>p+1\),
+\[
+\boxed{
+\mathbb E[\mathbf S^{-1}]
+=
+\frac{\nu}{\nu-p-1}\mathbf C^{-1}.
+}
+\]
+
+For \(p=4\), the multiplier falls from `6.0` at \(\nu=6\) to about `1.1111` at \(\nu=50\).
+
+## V38. Gaussian source discrimination
+
+For two equal-prior Gaussian sensor models with common covariance and Mahalanobis distance \(d\),
+\[
+\boxed{
+P_{\mathrm{error}}
+=
+\Phi(-d/2).
+}
+\]
+
+The canonical error falls from `0.5` at \(d=0\) to about `0.0668` at \(d=3\).
+
+## V39. Independent-search FWER
+
+For \(K\) independent two-sided standard-normal tests,
+\[
+\boxed{
+\operatorname{FWER}(t,K)
+=
+1-[2\Phi(t)-1]^K.
+}
+\]
+
+The exact threshold controlling FWER at \(\alpha\) is
+\[
+\boxed{
+t_{\alpha,K}
+=
+\Phi^{-1}
+\left(
+\frac{1+(1-\alpha)^{1/K}}{2}
+\right).
+}
+\]
+
+At \(\alpha=0.05\), the threshold rises from about `1.96` for one comparison to about `4.05` for 1000 independent comparisons.
+
+## V40. Covariance-mismatch calibration
+
+For weighted estimator
+\[
+\widehat a_{\mathbf W}
+=
+\frac{\boldsymbol\ell^\top\mathbf W\mathbf y}
+{\boldsymbol\ell^\top\mathbf W\boldsymbol\ell},
+\]
+the exact variance under true covariance \(\mathbf C\) is
+\[
+\boxed{
+\operatorname{Var}(\widehat a_{\mathbf W})
+=
+\frac{
+\boldsymbol\ell^\top\mathbf W\mathbf C\mathbf W\boldsymbol\ell
+}{
+(\boldsymbol\ell^\top\mathbf W\boldsymbol\ell)^2
+}.
+}
+\]
+
+The canonical oracle weighting is calibrated, while identity and diagonal weighting understate uncertainty by about 33 percent.
+
+![Finite-sample electromagnetic inference validation V36-V40](figures/v36_v40_electromagnetic_finite_sample_validation.svg)
+
+Audit: [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md), [`v36_gls_amplitude_efficiency.csv`](../results/v36_gls_amplitude_efficiency.csv), [`v37_inverse_covariance_bias.csv`](../results/v37_inverse_covariance_bias.csv), [`v38_gaussian_source_discrimination.csv`](../results/v38_gaussian_source_discrimination.csv), [`v39_independent_search_fwer.csv`](../results/v39_independent_search_fwer.csv), [`v40_covariance_mismatch_sandwich.csv`](../results/v40_covariance_mismatch_sandwich.csv), [`electromagnetic_finite_sample_validation_summary.json`](../results/electromagnetic_finite_sample_validation_summary.json).
+
+**Claim ceiling:** V36-V40 establish finite-sample inference, multiplicity, and covariance-calibration properties only. They do not establish a consciousness classifier, a universal source threshold, or direct measurement of qualia.
+
+---
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -625,9 +745,10 @@ Audit: [Electromagnetic Design and Spatial Specificity Program](electromagnetic-
 | V21-V25 | `python scripts/run_electromagnetic_inverse_validation.py` | `electromagnetic_inverse.py`, `electromagnetic_inverse_simulations.py` | reference, null-space, regularization, multimodal, and forward-model tests | V21-V25 CSV/JSON files in `results/` |
 | V26-V30 | `python scripts/run_electromagnetic_resolution_validation.py` | `electromagnetic_resolution.py`, `electromagnetic_resolution_simulations.py` | covariance, resolution, Fisher-information, aliasing, and singular-amplification tests | V26-V30 CSV/JSON files in `results/` |
 | V31-V35 | `python scripts/run_electromagnetic_design_validation.py` | `electromagnetic_design.py`, `electromagnetic_design_simulations.py` | PSF/CTF, distinguishability, Fisher design, nuisance-loss, and robust-information tests | V31-V35 CSV/JSON files in `results/` |
+| V36-V40 | `python scripts/run_electromagnetic_finite_sample_validation.py` | `electromagnetic_finite_sample.py`, `electromagnetic_finite_sample_simulations.py` | GLS, covariance-bias, discrimination, FWER, and sandwich-variance tests | V36-V40 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V35 are deterministic and require no random seed.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, `20260919` for V11-V15 fixed-seed checks, and `20260918` for the V36 Monte Carlo calibration check. V16-V35 and V37-V40 are deterministic or analytic.
 
 # How to read the figures
 
