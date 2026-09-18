@@ -1,0 +1,6 @@
+required_nonnulls,ordered_p_value,partial_conjunction_p_value
+1.0,0.001,0.005
+2.0,0.012,0.048
+3.0,0.04,0.12
+4.0,0.21,0.42
+5.0,0.45,0.45
