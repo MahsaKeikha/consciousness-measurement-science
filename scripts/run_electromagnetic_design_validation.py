@@ -48,7 +48,7 @@ def _render_svg(
 
     nuisance_points = []
     for row in v34:
-        x = 865 + float(row["angle_degrees"]) / 90.0 * 300
+        x = 465 + float(row["angle_degrees"]) / 90.0 * 240
         y = 805 - float(row["retained_information_fraction"]) * 235
         nuisance_points.append(f"{x:.2f},{y:.2f}")
 
@@ -56,7 +56,7 @@ def _render_svg(
     max_radius = max(float(row["uncertainty_radius"]) for row in v35)
     nominal = float(v35[0]["nominal_information"])
     for row in v35:
-        x = 1250 + float(row["uncertainty_radius"]) / max_radius * 255
+        x = 1205 + float(row["uncertainty_radius"]) / max_radius * 285
         y = 805 - float(row["robust_information_lower_bound"]) / nominal * 235
         robust_points.append(f"{x:.2f},{y:.2f}")
 
@@ -95,11 +95,10 @@ def _render_svg(
   <rect x="85" y="440" width="680" height="455" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
   <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V34 nuisance-subspace information loss</text>
   <text x="120" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">For one target and one nuisance direction, retained information equals sin squared of their angle.</text>
-  <line x1="865" y1="805" x2="1165" y2="805" stroke="#8795a5" stroke-width="2"/>
-  <line x1="865" y1="570" x2="865" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="465" y1="805" x2="705" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="465" y1="570" x2="465" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(nuisance_points)}" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="1015" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">target-nuisance angle: 0 to 90 degrees</text>
-  <text x="805" y="690" transform="rotate(-90 805 690)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">retained information fraction</text>
+  <text x="585" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">target-nuisance angle: 0 to 90 degrees</text>
   <text x="120" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Aligned nuisance</text>
   <text x="390" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">0 retained</text>
   <text x="120" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Orthogonal nuisance</text>
@@ -108,11 +107,10 @@ def _render_svg(
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V35 robust information under model uncertainty</text>
   <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Worst-case Fisher information falls as an allowed whitened topography error grows.</text>
-  <line x1="1250" y1="805" x2="1505" y2="805" stroke="#8795a5" stroke-width="2"/>
-  <line x1="1250" y1="570" x2="1250" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="1205" y1="805" x2="1490" y2="805" stroke="#8795a5" stroke-width="2"/>
+  <line x1="1205" y1="570" x2="1205" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(robust_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="1377" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">whitened uncertainty radius</text>
-  <text x="1190" y="690" transform="rotate(-90 1190 690)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">robust information lower bound</text>
+  <text x="1348" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">whitened uncertainty radius</text>
   <text x="830" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Nominal information</text>
   <text x="1105" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(nominal)}</text>
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Radius 1.2 lower bound</text>
