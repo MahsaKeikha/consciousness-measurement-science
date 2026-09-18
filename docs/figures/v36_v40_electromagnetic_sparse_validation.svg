@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#ffffff"/>
+  <text x="80" y="68" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V36-V40: sparse identifiability and nuisance-aware information</text>
+  <text x="80" y="108" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#526273">Coherence limits, sparse uniqueness guarantees, restricted conditioning, nuisance-adjusted Fisher information, and sequential sensor value.</text>
+
+  <rect x="80" y="155" width="455" height="330" rx="20" fill="#f6f8fa" stroke="#cbd5df" stroke-width="2"/>
+  <text x="115" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#274e6b">V36-V37 coherence and sparse uniqueness</text>
+  <text x="115" y="252" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">Regular-simplex coherence</text>
+  <text x="495" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#274e6b">0.25</text>
+  <text x="115" y="296" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">Welch lower bound</text>
+  <text x="495" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#274e6b">0.25</text>
+  <text x="115" y="340" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">Simplex strict k threshold</text>
+  <text x="495" y="340" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#274e6b">2.5</text>
+  <text x="115" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">Coherent strict k threshold</text>
+  <text x="495" y="384" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#274e6b">1.002544287</text>
+  <text x="115" y="438" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#667687">The coherence bound is sufficient, not necessary, and depends on the declared sparse linear model.</text>
+
+  <rect x="570" y="155" width="455" height="330" rx="20" fill="#f8f8f5" stroke="#d1d6c8" stroke-width="2"/>
+  <text x="605" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#4f6640">V38 restricted Gram conditioning</text>
+  <text x="605" y="252" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">k = 2 lower bound / observed</text>
+  <text x="985" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#4f6640">0.75 / 0.75</text>
+  <text x="605" y="298" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">k = 2 upper bound / observed</text>
+  <text x="985" y="298" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#4f6640">1.25 / 1.25</text>
+  <text x="605" y="344" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">k = 3 lower bound / observed</text>
+  <text x="985" y="344" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#4f6640">0.5 / 0.5</text>
+  <text x="605" y="390" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">k = 3 upper bound / observed</text>
+  <text x="985" y="390" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#4f6640">1.5 / 1.25</text>
+  <text x="605" y="438" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#667687">Restricted support conditioning is bounded by coherence but is not summarized by coherence alone.</text>
+
+  <rect x="1060" y="155" width="460" height="330" rx="20" fill="#faf7f8" stroke="#dacdd2" stroke-width="2"/>
+  <text x="1095" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#725064">Design interpretation</text>
+  <text x="1095" y="252" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">Low coherence</text>
+  <text x="1095" y="282" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#667687">reduces worst pairwise source-column similarity</text>
+  <text x="1095" y="330" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">Nuisance adjustment</text>
+  <text x="1095" y="360" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#667687">removes information explainable by nuisance parameters</text>
+  <text x="1095" y="408" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#425466">Sequential logdet gain</text>
+  <text x="1095" y="438" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#667687">prioritizes measurements that fill weak information directions</text>
+
+  <rect x="80" y="530" width="710" height="375" rx="20" fill="#fbfcfd" stroke="#d5dde5" stroke-width="2"/>
+  <text x="115" y="580" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#31566f">V39 nuisance-adjusted Fisher information</text>
+  <text x="115" y="610" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#667687">Efficient target information after the nuisance block is removed by its Fisher Schur complement.</text>
+  <text x="110" y="640" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#435466">Orthogonal nuisance</text>
+  <rect x="110" y="650" width="410" height="24" rx="7" fill="#edf1f5"/>
+  <rect x="110" y="650" width="410" height="24" rx="7" fill="#486b84"/>
+  <text x="548" y="669" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#21364a">1</text>
+  <text x="110" y="722" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#435466">30 degree target-nuisance angle</text>
+  <rect x="110" y="732" width="410" height="24" rx="7" fill="#edf1f5"/>
+  <rect x="110" y="732" width="102.5" height="24" rx="7" fill="#486b84"/>
+  <text x="548" y="751" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#21364a">0.25</text>
+  <text x="110" y="804" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#435466">Nuisance contains target</text>
+  <rect x="110" y="814" width="410" height="24" rx="7" fill="#edf1f5"/>
+  <rect x="110" y="814" width="0" height="24" rx="7" fill="#486b84"/>
+  <text x="548" y="833" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#21364a">0</text>
+
+  <rect x="830" y="530" width="690" height="375" rx="20" fill="#f9fbf8" stroke="#d3ddd0" stroke-width="2"/>
+  <text x="865" y="580" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#49664d">V40 sequential sensor information gain</text>
+  <text x="865" y="610" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#667687">Exact log determinant gain from the matrix determinant lemma, normalized visually to the best candidate.</text>
+  <text x="920" y="640" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#435466">Already-strong direction</text>
+  <rect x="920" y="650" width="410" height="24" rx="7" fill="#edf1f5"/>
+  <rect x="920" y="650" width="56.4" height="24" rx="7" fill="#486b84"/>
+  <text x="1348" y="669" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#21364a">0.09531018</text>
+  <text x="920" y="722" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#435466">Mixed direction</text>
+  <rect x="920" y="732" width="410" height="24" rx="7" fill="#edf1f5"/>
+  <rect x="920" y="732" width="259.2" height="24" rx="7" fill="#486b84"/>
+  <text x="1348" y="751" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#21364a">0.438254931</text>
+  <text x="920" y="804" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#435466">Weak-information direction</text>
+  <rect x="920" y="814" width="410" height="24" rx="7" fill="#edf1f5"/>
+  <rect x="920" y="814" width="410" height="24" rx="7" fill="#486b84"/>
+  <text x="1348" y="833" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#21364a">0.693147181</text>
+
+  <text x="80" y="960" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#687785">Deterministic analytic and synthetic measurement-design validation. Sparse guarantees do not establish biological sparsity, unique neural truth, or direct measurement of consciousness or qualia.</text>
+</svg>
