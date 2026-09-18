@@ -276,7 +276,11 @@ Implements V26-V30 covariance whitening, covariance-weighted residual energy, Ti
 
 Implements V31-V35 point-spread and cross-talk extraction from linear resolution matrices, covariance-aware topography distinguishability, Fisher-information sensor-design criteria, nuisance-subspace projection and retained-information fractions, and the exact robust information lower bound under bounded whitened model uncertainty.
 
-The corresponding simulation modules and runners create deterministic validation records. These functions characterize measurement and inverse-problem behavior. They do not convert EEG, MEG, or reconstructed sources into a consciousness score.
+### `electromagnetic_finite_sample.py`
+
+Implements V36-V40 generalized least-squares scalar-amplitude inference, exact Fisher-information variance, known-variance Gaussian intervals, finite inverse-covariance Wishart bias, equal-covariance Gaussian Bayes error, exact independent-search FWER thresholds, and sandwich variance under covariance-model mismatch.
+
+The corresponding simulation modules and runners create deterministic or fixed-seed validation records. These functions characterize measurement and inverse-problem behavior. They do not convert EEG, MEG, or reconstructed sources into a consciousness score.
 
 ## What the software does not do
 
