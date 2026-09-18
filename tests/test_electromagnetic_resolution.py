@@ -9,6 +9,7 @@ from consciousness_measurement.electromagnetic_resolution import (
     off_diagonal_leakage_fraction,
     pseudoinverse_noise_amplification,
     pseudoinverse_operator_norm,
+    rank_limited_identity_error_lower_bound,
     resolution_identity_error,
     resolution_matrix,
     scalar_amplitude_crlb,
@@ -64,6 +65,14 @@ def test_underdetermined_resolution_matrix_cannot_be_identity() -> None:
     assert resolution.shape == (4, 4)
     assert resolution_identity_error(resolution) > 0.7
     assert off_diagonal_leakage_fraction(resolution) > 0.4
+
+
+def test_rank_limited_resolution_error_has_closed_form_lower_bound() -> None:
+    bound = rank_limited_identity_error_lower_bound(
+        source_dimension=6,
+        operator_rank=3,
+    )
+    assert bound == pytest.approx(np.sqrt(0.5))
 
 
 def test_scalar_fisher_information_and_crlb_are_reciprocal() -> None:
