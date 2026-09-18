@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#ffffff"/>
+  <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V21-V25: electromagnetic forward and inverse limits</text>
+  <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Reference invariance, source non-identifiability, regularization dependence, multimodal complementarity, and forward-model error.</text>
+
+  <rect x="85" y="155" width="460" height="250" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
+  <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V21 reference invariance</text>
+  <text x="120" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max pairwise-difference error</text>
+  <text x="500" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">1.376677e-14</text>
+  <text x="120" y="304" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Common rereferencing changes absolute voltages</text>
+  <text x="120" y="332" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">but preserves pairwise sensor differences.</text>
+  <text x="120" y="372" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">This does not make source localization reference-free.</text>
+
+  <rect x="570" y="155" width="460" height="250" rx="20" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
+  <text x="605" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#3b5b32">V22 source non-identifiability</text>
+  <text x="605" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Lead-field rank / nullity</text>
+  <text x="985" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">3 / 3</text>
+  <text x="605" y="296" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Sensor residual</text>
+  <text x="985" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">0</text>
+  <text x="605" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Source separation</text>
+  <text x="985" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">1</text>
+  <text x="605" y="377" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Distinct sources can produce the same ideal sensor data.</text>
+
+  <rect x="1055" y="155" width="460" height="250" rx="20" fill="#faf6f8" stroke="#d8c8d0" stroke-width="2"/>
+  <text x="1090" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#6a3f57">V24 multimodal complementarity</text>
+  <text x="1090" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">EEG nullity</text>
+  <text x="1470" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">3</text>
+  <text x="1090" y="298" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">MEG nullity</text>
+  <text x="1470" y="298" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">3</text>
+  <text x="1090" y="344" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Combined nullity</text>
+  <text x="1470" y="344" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">1</text>
+  <text x="1090" y="377" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Complementary modalities can reduce ambiguity without guaranteeing uniqueness.</text>
+
+  <rect x="85" y="440" width="930" height="450" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
+  <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V23 regularization sensitivity</text>
+  <text x="120" y="523" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Measurement residual rises as the L2 prior is strengthened.</text>
+  <line x1="220" y1="780" x2="740" y2="780" stroke="#8795a5" stroke-width="2"/>
+  <line x1="220" y1="550" x2="220" y2="780" stroke="#8795a5" stroke-width="2"/>
+  <polyline points="220,779.99 350,779.38 480,759.32 610,708.69 740,550.00" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="480" y="825" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">increasing regularization</text>
+  <text x="150" y="665" transform="rotate(-90 150 665)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">sensor residual</text>
+  <text x="780" y="610" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">Weak lambda preserves fit</text>
+  <text x="780" y="648" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">Strong lambda shrinks source norm</text>
+  <text x="780" y="700" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">The reconstructed source depends on the inverse prior.</text>
+
+  <rect x="1040" y="440" width="475" height="450" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
+  <text x="1075" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V25 forward-model perturbation</text>
+  <text x="1075" y="543" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max mismatch / bound ratio</text>
+  <text x="1470" y="543" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">0.479255689</text>
+  <text x="1075" y="600" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">For every tested perturbation:</text>
+  <text x="1075" y="645" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#43634a">||delta L j|| &lt;= ||delta L|| ||j||</text>
+  <text x="1075" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Geometry or conductivity error therefore enters</text>
+  <text x="1075" y="731" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">the sensor prediction through a bounded operator perturbation.</text>
+  <text x="1075" y="795" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A small residual does not prove the forward model is uniquely correct.</text>
+
+  <text x="85" y="950" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Deterministic synthetic measurement validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
+</svg>

@@ -19,7 +19,7 @@ For the fastest technical orientation, use these three entry points first:
 1. [Visual Research Guide](docs/visual-research-guide.md) for the complete nine-figure scientific record.
 2. [Evidence-to-Claim Audit](docs/evidence-to-claim-audit.md) for the exact path from observable evidence to an allowed scientific claim.
 3. [Figure Catalog](docs/figure-catalog.md) for the canonical figure inventory and primary audit source for every visual.
-4. [Formal Validation V1-V20](VALIDATION.md) for the executable analytic and synthetic validation record, including the electromagnetic V16-V20 arm.
+4. [Formal Validation V1-V25](VALIDATION.md) for the executable analytic and synthetic validation record, including sensor-level EM validation V16-V20 and electromagnetic source-identifiability validation V21-V25.
 
 Then continue with [Start Here](docs/start-here.md), [Research Questions](RESEARCH_QUESTIONS.md), [Formal Measurement Framework](docs/measurement-framework.md), and the full [Documentation Map](docs/README.md).
 
@@ -199,7 +199,7 @@ The program therefore emphasizes triangulation, causal intervention, cross-conte
 
 ## Electromagnetic measurement arm
 
-Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) and executable V16-V20 validation layer.
+Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) for V16-V20 and an [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md) for V21-V25.
 
 The measurement model is
 
@@ -224,11 +224,18 @@ The strongest current conclusions are measurement-science conclusions:
 - V17 shows the normalized descriptors are invariant to trivial global gain in the declared deterministic construction;
 - V18 gives a constructive counterexample in which channel power is matched to numerical precision while spatial phase organization changes from fully aligned to phase balanced;
 - V19 shows that a shared contaminant can create strong apparent sensor-wide phase organization;
-- V20 shows that organization can be fully aligned at one frequency and phase balanced at another in the same multichannel signal.
+- V20 shows that organization can be fully aligned at one frequency and phase balanced at another in the same multichannel signal;
+- V21 verifies common-reference invariance of pairwise EEG-like differences;
+- V22 constructs distinct source vectors with exactly the same ideal sensor measurement through a lead-field null space;
+- V23 makes inverse regularization dependence explicit;
+- V24 shows how complementary EEG/MEG-like operators can reduce source ambiguity without guaranteeing uniqueness;
+- V25 bounds forward-model perturbation error in sensor space.
 
 ![Electromagnetic validation V16-V20](docs/figures/v16_v20_electromagnetic_validation.svg)
 
-These results justify treating electromagnetic dynamics as a rich candidate evidence channel. They do **not** establish an electromagnetic consciousness detector, a universal threshold, or identity between an electromagnetic field and experience.
+![Electromagnetic forward and inverse validation V21-V25](docs/figures/v21_v25_electromagnetic_inverse_validation.svg)
+
+These results justify treating electromagnetic dynamics as a rich candidate evidence channel while keeping sensor measurements, reconstructed sources, and experiential targets scientifically distinct. They do **not** establish an electromagnetic consciousness detector, a universal threshold, or identity between an electromagnetic field and experience.
 
 ---
 
@@ -297,7 +304,9 @@ The package contains multiple intentionally small, auditable components:
 - `profile.py` implements target-specific CEP records with an explicit inconclusive state and conservative negative-evidence rules;
 - `structural_alignment.py` implements distance matrices, relational alignment, normalized distortion, and permutation testing;
 - `electromagnetic_observables.py` implements physical EM sanity checks and normalized multichannel field-organization descriptors;
-- `electromagnetic_simulations.py` implements deterministic V16-V20 gain, non-identifiability, confound, and frequency-specific stress tests.
+- `electromagnetic_simulations.py` implements deterministic V16-V20 gain, non-identifiability, confound, and frequency-specific stress tests;
+- `electromagnetic_inverse.py` implements reference-invariant sensor relations, lead-field rank/nullity, null-space alternatives, regularized inverse estimates, multimodal stacking, and forward-model perturbation bounds;
+- `electromagnetic_inverse_simulations.py` implements deterministic V21-V25 source-identifiability and forward/inverse stress tests.
 
 These are research scaffolds, not clinical classifiers.
 
@@ -356,7 +365,8 @@ Supporting guides: [Schemas Guide](schemas/README.md), [Examples Guide](examples
 - [Preregistration Template](docs/preregistration-template.md)
 - [Experimental Program](docs/experimental-program.md)
 - [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md)
-- [Formal Validation V1-V20](VALIDATION.md)
+- [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md)
+- [Formal Validation V1-V25](VALIDATION.md)
 - [Validation Atlas](docs/validation-atlas.md)
 - [Statistical Validation Plan](docs/statistical-validation.md)
 - [Dependence-Robust Partial Identification](docs/partial-identification.md)
@@ -400,7 +410,7 @@ Supporting guides: [Schemas Guide](schemas/README.md), [Examples Guide](examples
 - clinical translation and ethics boundaries;
 - edge-case standards for infants, animals, organoids, and artificial systems;
 - computational scaffolds for evidence fusion, partial identification, CEP records, structural alignment, and electromagnetic observables;
-- executable formal validation through V20, including deterministic electromagnetic invariance, matched-power non-identifiability, common-mode confound, and frequency-specific structure tests;
+- executable formal validation through V25, including electromagnetic invariance, matched-power non-identifiability, common-mode confounding, frequency-specific structure, lead-field null-space non-identifiability, inverse regularization sensitivity, multimodal null-space reduction, and forward-model perturbation tests;
 - nine canonical scientific visuals with a dedicated visual guide and figure catalog;
 - unit tests and repository-wide publication checks.
 
@@ -432,7 +442,7 @@ It will not claim that:
 - consciousness has been proven nonphysical;
 - consciousness has been reduced to a conventional state of matter;
 - any current scalar metric equals consciousness;
-- electromagnetic field strength, power, coherence, entropy, rank, or phase concentration by itself equals or proves consciousness;
+- electromagnetic field strength, power, coherence, entropy, rank, phase concentration, or a particular source reconstruction by itself equals or proves consciousness;
 - high complexity alone proves consciousness;
 - a failed descriptor proves dualism, idealism, or panpsychism;
 - a current AI system is conscious because it behaves intelligently;

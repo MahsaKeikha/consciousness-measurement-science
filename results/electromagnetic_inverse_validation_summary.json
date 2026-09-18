@@ -1,0 +1,12 @@
+{
+  "claim_boundary": "forward and inverse electromagnetic validation does not identify consciousness or uniquely identify neural sources",
+  "status": "analytic_and_synthetic_only",
+  "v22_lead_field_nonidentifiability": {
+    "n_sensors": 3.0,
+    "n_sources": 6.0,
+    "nullity": 3.0,
+    "rank": 3.0,
+    "sensor_residual": 0.0,
+    "source_separation": 0.9999999999999999
+  }
+}

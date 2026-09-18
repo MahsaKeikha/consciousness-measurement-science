@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **fifteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **sixteen validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -334,6 +334,109 @@ Audit: [Electromagnetic Field Program](electromagnetic-field-program.md), [`elec
 
 ---
 
+# Electromagnetic source-identifiability layer V21-V25
+
+V21-V25 move from sensor-level electromagnetic descriptors to the forward and inverse problem. The source model is
+
+\[
+\mathbf y=\mathbf L\mathbf j+\boldsymbol\eta,
+\]
+
+where \(\mathbf L\) is a lead-field operator and \(\mathbf j\) is an underlying source vector. The scientific question is what the sensor measurement can identify about \(\mathbf j\) before any experiential interpretation is attempted.
+
+## V21. Common-reference invariance
+
+If the same reference waveform \(r(t)\) is added to every EEG-like channel,
+
+\[
+x'_k(t)=x_k(t)+r(t),
+\]
+
+then every pairwise difference is unchanged:
+
+\[
+x'_i(t)-x'_j(t)=x_i(t)-x_j(t).
+\]
+
+The canonical reference-amplitude sweep preserves pairwise differences to below `1.4e-14`.
+
+## V22. Exact lead-field non-identifiability
+
+If \(\mathbf v\in\ker(\mathbf L)\), then
+
+\[
+\mathbf L(\mathbf j+\mathbf v)=\mathbf L\mathbf j.
+\]
+
+The canonical 3-sensor, 6-source operator has rank `3` and nullity `3`. Two source vectors separated by Euclidean distance `1` produce exactly zero sensor residual.
+
+Therefore:
+
+\[
+\boxed{\text{perfect sensor fit does not imply a unique source}}
+\]
+
+## V23. Regularization sensitivity
+
+The L2-regularized inverse is
+
+\[
+\widehat{\mathbf j}_{\lambda}
+=
+(\mathbf L^\top\mathbf L+\lambda\mathbf I)^{-1}
+\mathbf L^\top\mathbf y.
+\]
+
+As \(\lambda\) increases in the canonical path, the selected source norm decreases from about `1.547` to `0.577`, while the sensor residual increases from about `1.43e-5` to `0.521`.
+
+The reconstructed source therefore depends on the inverse prior, not only on the sensor data.
+
+## V24. EEG/MEG-like complementarity
+
+For stacked complementary forward operators,
+
+\[
+\ker
+\begin{bmatrix}
+\mathbf L_E\\
+\mathbf L_M
+\end{bmatrix}
+=
+\ker(\mathbf L_E)\cap\ker(\mathbf L_M).
+\]
+
+The canonical single-modality nullities are both `3`; the stacked operator reduces nullity to `1`.
+
+Complementary modalities can reduce ambiguity without guaranteeing uniqueness.
+
+## V25. Forward-model perturbation
+
+If the assumed forward operator is perturbed by \(\Delta\mathbf L\), then
+
+\[
+\Delta\mathbf y=\Delta\mathbf L\mathbf j,
+\]
+
+with
+
+\[
+\boxed{
+\|\Delta\mathbf y\|_2
+\le
+\|\Delta\mathbf L\|_2\|\mathbf j\|_2.
+}
+\]
+
+Every deterministic V25 perturbation satisfies the bound. The nonzero canonical mismatch-to-bound ratio is approximately `0.479`.
+
+![Electromagnetic forward and inverse validation V21-V25](figures/v21_v25_electromagnetic_inverse_validation.svg)
+
+Audit: [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md), [`v21_reference_invariance.csv`](../results/v21_reference_invariance.csv), [`electromagnetic_inverse_validation_summary.json`](../results/electromagnetic_inverse_validation_summary.json), [`v23_regularization_path.csv`](../results/v23_regularization_path.csv), [`v24_multimodal_nullity.csv`](../results/v24_multimodal_nullity.csv), [`v25_forward_model_perturbation.csv`](../results/v25_forward_model_perturbation.csv), [`electromagnetic_inverse.py`](../src/consciousness_measurement/electromagnetic_inverse.py).
+
+**Claim ceiling:** V21-V25 establish source-identifiability and forward/inverse measurement properties only. They do not establish that one reconstructed source is uniquely true, that an electromagnetic source pattern is consciousness, or that source localization provides direct access to qualia.
+
+---
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -342,9 +445,10 @@ Audit: [Electromagnetic Field Program](electromagnetic-field-program.md), [`elec
 | V6-V10 | `python scripts/run_robustness_validation.py` | `measurement_robustness.py`, `robustness_simulations.py` | V6-V10 tests | V6-V10 CSV/JSON files in `results/` |
 | V11-V15 | `python scripts/run_identification_design_validation.py` | `identification_design.py`, `identification_design_simulations.py` | V11-V15 theorem and simulation tests | V11-V15 CSV/JSON files in `results/` |
 | V16-V20 | `python scripts/run_electromagnetic_validation.py` | `electromagnetic_observables.py`, `electromagnetic_simulations.py` | EM physical, invariance, non-identifiability, confound, and frequency tests | V16-V20 CSV/JSON files in `results/` |
+| V21-V25 | `python scripts/run_electromagnetic_inverse_validation.py` | `electromagnetic_inverse.py`, `electromagnetic_inverse_simulations.py` | reference, null-space, regularization, multimodal, and forward-model tests | V21-V25 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V20 are deterministic and require no random seed.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V25 are deterministic and require no random seed.
 
 # How to read the figures
 

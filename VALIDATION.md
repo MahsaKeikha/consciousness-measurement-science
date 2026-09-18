@@ -1,4 +1,4 @@
-# Research III Formal Validation V1-V20
+# Research III Formal Validation V1-V25
 
 This is the compact entry point to the executable mathematical research layer of Research III.
 
@@ -8,16 +8,17 @@ These are **analytic and synthetic validation results**. They test the measureme
 
 ## Reader path
 
-1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V20 sequence.
+1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V25 sequence.
 2. [Formal Validation V1-V5](docs/formal-validation-program.md) for identification, coverage, transport, dependence, and structural testing.
 3. [Formal Validation V6-V10](docs/formal-validation-program-v6-v10.md) for finite calibration uncertainty, missingness, conditioning, heterogeneous sites, and abstention.
 4. [Formal Validation V11-V15](docs/formal-validation-program-v11-v15.md) for exact resolution laws, multisite identification, design sample size, and independent release gating.
 5. [Electromagnetic Field Program V16-V20](docs/electromagnetic-field-program.md) for physical EM observables, organization descriptors, non-identifiability, and confound stress tests.
-6. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
-7. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), and [V16-V20 runner](scripts/run_electromagnetic_validation.py) to regenerate the result record and figures.
-8. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
+6. [Electromagnetic Source Identifiability V21-V25](docs/electromagnetic-source-identifiability.md) for reference invariance, lead-field null spaces, inverse regularization, multimodal complementarity, and forward-model perturbation.
+7. [Machine-readable results](results/README.md) for the canonical CSV and JSON records.
+8. [V1-V5 runner](scripts/run_validation_program.py), [V6-V10 runner](scripts/run_robustness_validation.py), [V11-V15 runner](scripts/run_identification_design_validation.py), [V16-V20 runner](scripts/run_electromagnetic_validation.py), and [V21-V25 runner](scripts/run_electromagnetic_inverse_validation.py) to regenerate the result record and figures.
+9. [Source package](src/consciousness_measurement) and [tests](tests) for the executable implementation and regression checks.
 
-## Twenty formal stages
+## Twenty-five formal stages
 
 | Stage | Scientific question | Main mathematical object | Executable evidence |
 |---|---|---|---|
@@ -41,6 +42,11 @@ These are **analytic and synthetic validation results**. They test the measureme
 | **V18** | Can field power identify spatial phase organization? | matched-power constructive counterexample | exact channel-power match with distinct phase structure |
 | **V19** | Can shared contamination mimic global EM organization? | common-mode confound construction | deterministic nuisance-amplitude stress test |
 | **V20** | Can one scalar summarize field organization across frequencies? | frequency-specific phase-organization construction | two-frequency synthetic counterexample |
+| **V21** | Which EEG relations survive a change of common reference? | pairwise-difference invariance under common additive rereferencing | deterministic reference-amplitude sweep |
+| **V22** | Can ideal sensor data uniquely identify an underlying source distribution? | lead-field rank-nullity and exact right-null-space construction | distinct sources with zero sensor residual |
+| **V23** | How strongly does inverse regularization select the reconstructed source? | Tikhonov inverse and singular-direction filter factors | deterministic regularization path |
+| **V24** | Can complementary EEG/MEG operators reduce source ambiguity? | null-space intersection of stacked forward operators | deterministic single- versus multimodal rank/nullity record |
+| **V25** | How does forward-model error propagate to sensor predictions? | operator-norm perturbation inequality | deterministic forward-model perturbation grid |
 
 ## Core measurement equations
 
@@ -138,6 +144,55 @@ For multichannel measurements \(X_k(t)\), the EM program then studies normalized
 
 These quantities are candidate electromagnetic observables, not consciousness scores.
 
+For source-space electromagnetic inference, V21-V25 use the linear forward model
+
+\[
+\mathbf y=\mathbf L\mathbf j+\boldsymbol\eta.
+\]
+
+If \(\mathbf v\in\ker(\mathbf L)\), then
+
+\[
+\boxed{
+\mathbf L(\mathbf j+\mathbf v)=\mathbf L\mathbf j,
+}
+\]
+
+so a perfect sensor fit need not uniquely identify the underlying source. V23 makes one common regularized inverse explicit:
+
+\[
+\boxed{
+\widehat{\mathbf j}_{\lambda}
+=
+(\mathbf L^\top\mathbf L+\lambda\mathbf I)^{-1}
+\mathbf L^\top\mathbf y.
+}
+\]
+
+For complementary operators \(\mathbf L_E\) and \(\mathbf L_M\),
+
+\[
+\ker
+\begin{bmatrix}
+\mathbf L_E\\
+\mathbf L_M
+\end{bmatrix}
+=
+\ker(\mathbf L_E)\cap\ker(\mathbf L_M),
+\]
+
+so multimodal measurement can reduce, but need not eliminate, source ambiguity. Forward-model perturbations obey
+
+\[
+\boxed{
+\|\Delta\mathbf L\,\mathbf j\|_2
+\le
+\|\Delta\mathbf L\|_2\|\mathbf j\|_2.
+}
+\]
+
+These are source-identifiability and model-sensitivity results. They do not turn a reconstructed source into a direct measurement of consciousness.
+
 ## Canonical result record
 
 The committed deterministic and fixed-seed experiments show, among other checks:
@@ -154,7 +209,12 @@ The committed deterministic and fixed-seed experiments show, among other checks:
 - under the declared V15 fixed-seed pilot gate, planned confirmatory `n=900` proceeds in `47.625%` of runs, and every identified confirmatory interval in that canonical run covers the true latent prevalence;
 - V18 matches channel power to relative error below `3e-16` while phase concentration changes from `1.0` to numerical zero;
 - V19 raises raw phase concentration to about `0.935` using only a shared contaminant of amplitude `2.0`, while the controlled common-mode removal construction returns it to numerical zero;
-- V20 gives phase concentration `1.0` at 10 Hz and numerical zero at 17 Hz in the same multichannel signal, demonstrating frequency-specific organization.
+- V20 gives phase concentration `1.0` at 10 Hz and numerical zero at 17 Hz in the same multichannel signal, demonstrating frequency-specific organization;
+- V21 preserves pairwise sensor differences to below `1.4e-14` across a 100-fold common-reference amplitude sweep;
+- V22 has lead-field rank `3`, nullity `3`, source separation `1`, and exactly zero sensor residual for two distinct source vectors;
+- V23 changes the selected source estimate as regularization increases: estimate norm falls from about `1.547` to `0.577` while sensor residual rises from about `1.43e-5` to `0.521`;
+- V24 reduces canonical source nullity from `3` for each single modality to `1` for the stacked complementary operator, without reaching uniqueness;
+- V25 satisfies the forward-model operator-norm error bound at every tested perturbation scale, with the nonzero canonical mismatch/bound ratio about `0.479`.
 
 The V15 simulation value is a finite fixed-seed check, not the theorem itself. The theorem-level coverage statement follows from independence of the pilot release event and the confirmatory interval construction.
 
@@ -168,11 +228,12 @@ python scripts/run_validation_program.py
 python scripts/run_robustness_validation.py
 python scripts/run_identification_design_validation.py
 python scripts/run_electromagnetic_validation.py
+python scripts/run_electromagnetic_inverse_validation.py
 make check
 ```
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V20 are deterministic and require no random seed.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` for V11-V15 fixed-seed checks. V16-V25 are deterministic and require no random seed.
 
 ## Scientific boundary
 
-Passing V1-V20 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.
+Passing V1-V25 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.
