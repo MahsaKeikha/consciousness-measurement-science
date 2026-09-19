@@ -93,8 +93,8 @@ def _render_svg(
   <text x="1470" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">{_fmt(float(redundant["minimum_eigenvalue"]))}</text>
   <text x="1090" y="296" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Complementary minimum eigenvalue</text>
   <text x="1470" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">{_fmt(float(complementary["minimum_eigenvalue"]))}</text>
-  <text x="1090" y="350" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Three sensors can carry very different information</text>
-  <text x="1090" y="376" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">depending on directional complementarity.</text>
+  <text x="1090" y="350" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Equal sensor count does not imply equal information.</text>
+  <text x="1090" y="376" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Directional complementarity changes conditioning.</text>
   <rect x="500" y="171" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
   <text x="513" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#173b63">A</text>
   <rect x="985" y="171" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
