@@ -10,8 +10,6 @@ TARGETS = {
     "v16_v20_electromagnetic_validation.svg": (1400.0, 850.0),
     "v21_v25_electromagnetic_inverse_validation.svg": (1400.0, 900.0),
     "v26_v30_electromagnetic_resolution_validation.svg": (1400.0, 900.0),
-    "v36_v40_electromagnetic_finite_sample_validation.svg": (1600.0, 1000.0),
-    "v51_v55_transportability_validation.svg": (1600.0, 1000.0),
 }
 
 
