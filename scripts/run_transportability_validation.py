@@ -89,8 +89,9 @@ def _render_svg(
   <text x="85" y="70" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V51-V55: transportability across sensor systems and states</text>
   <text x="85" y="110" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Coordinate invariance, lossy projection, topography mismatch, covariate-shift reweighting, and sharp transport budgets.</text>
   <text x="85" y="137" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>
-  <text x="250" y="130" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">Does the measurement relation survive coordinate changes,</text>
-  <text x="250" y="146" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">lossy sensors, hardware mismatch, and distribution shift?</text>
+  <text x="250" y="122" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">Does the measurement relation survive</text>
+  <text x="250" y="136" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">coordinate changes, lossy sensors,</text>
+  <text x="250" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">hardware mismatch, and distribution shift?</text>
 
   <rect x="85" y="150" width="690" height="270" rx="18" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="198" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V51 invertible sensor-coordinate invariance</text>
