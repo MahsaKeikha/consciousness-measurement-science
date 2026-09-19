@@ -135,7 +135,8 @@ def _render_svg(
   <text x="840" y="836" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">Cauchy-Schwarz bound = {_fmt(float(v53_last["cauchy_schwarz_bias_bound"]))}</text>
   <text x="840" y="865" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">Hardware or forward-model changes can bias the amplitude estimate.</text>
 
-  <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and deterministic transportability validation only. No human dataset, no empirical cross-device replication, and no direct measurement of consciousness or qualia.</text>
+  <text x="85" y="944" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a7684">Analytic and deterministic transportability validation only. No human dataset or empirical cross-device replication.</text>
+  <text x="85" y="966" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a7684">No direct measurement of consciousness or qualia.</text>
 </svg>
 """
 
