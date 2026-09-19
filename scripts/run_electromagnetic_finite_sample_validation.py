@@ -129,7 +129,8 @@ def _render_svg(
   <circle cx="1490" cy="575.38" r="5" fill="#fff" stroke="#43634a" stroke-width="3"/>
   <text x="1348" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">log10 comparison count</text>
 
-  <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and fixed-seed synthetic inference validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
+  <text x="85" y="944" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a7684">Analytic and fixed-seed synthetic inference validation. No human empirical data.</text>
+  <text x="85" y="966" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a7684">No direct measurement of consciousness or qualia.</text>
 </svg>
 """
 
