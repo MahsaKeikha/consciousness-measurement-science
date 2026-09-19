@@ -62,15 +62,22 @@ def _svg(
         ),
         svg_text(
             60,
-            120,
-            "Noise geometry, inverse leakage, information loss, aliasing, and unstable inverse directions.",
+            118,
+            "Noise geometry, inverse leakage, information loss, aliasing,",
             size=15,
             fill="#657286",
         ),
-        svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
+        svg_text(
+            60,
+            140,
+            "and unstable inverse directions.",
+            size=15,
+            fill="#657286",
+        ),
+        svg_line(60, 160, 1340, 160, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
-            172,
+            184,
             400,
             150,
             kicker="V26",
@@ -81,7 +88,7 @@ def _svg(
         ),
         metric_card(
             500,
-            172,
+            184,
             400,
             150,
             kicker="V29",
@@ -92,7 +99,7 @@ def _svg(
         ),
         metric_card(
             940,
-            172,
+            184,
             400,
             150,
             kicker="V30",
@@ -103,7 +110,7 @@ def _svg(
         ),
     ]
 
-    plot_y = 365
+    plot_y = 377
     panel_height = 430
 
     # V27: resolution leakage
@@ -336,8 +343,15 @@ def _svg(
             svg_line(60, 840, 1340, 840, stroke="#d6dde7"),
             svg_text(
                 60,
-                868,
-                "Deterministic synthetic validation. These results quantify measurement limits; they do not identify consciousness or qualia.",
+                860,
+                "Deterministic synthetic validation. These results quantify measurement limits.",
+                size=12,
+                fill="#697587",
+            ),
+            svg_text(
+                60,
+                878,
+                "They do not identify consciousness or qualia.",
                 size=12,
                 fill="#697587",
             ),
