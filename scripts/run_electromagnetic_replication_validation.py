@@ -108,7 +108,8 @@ def _render_svg(
 
   <rect x="795" y="440" width="720" height="455" rx="18" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V49 partial-conjunction replicability</text>
-  <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Bonferroni partial-conjunction p-values for requiring at least r nonnull sites.</text>
+  <text x="830" y="518" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">Bonferroni partial-conjunction p-values for requiring at least r</text>
+  <text x="830" y="540" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">nonnull sites.</text>
   <line x1="865" y1="810" x2="1285" y2="810" stroke="#8795a5" stroke-width="2"/>
   <line x1="865" y1="605" x2="865" y2="810" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(pc_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -121,7 +122,8 @@ def _render_svg(
   <text x="1320" y="625" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">r=5: p=0.45</text>
   <text x="1320" y="668" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">r=4: p=0.42</text>
   <text x="1320" y="711" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">r=3: p=0.12</text>
-  <text x="830" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">The construction is a replicability-inference check, not evidence from real sites.</text>
+  <text x="830" y="866" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">This is a replicability-inference check, not evidence from</text>
+  <text x="830" y="887" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">real sites.</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and fixed-seed synthetic replication inference only. No real multisite data and no direct measurement of consciousness or qualia.</text>
 </svg>

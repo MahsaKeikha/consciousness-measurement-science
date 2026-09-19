@@ -109,7 +109,8 @@ def _render_svg(
 
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V44 naive post-selection coverage collapse</text>
-  <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Select the largest absolute null statistic, then reuse its ordinary marginal interval.</text>
+  <text x="830" y="518" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">Select the largest absolute null statistic, then reuse its ordinary</text>
+  <text x="830" y="540" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">marginal interval.</text>
   <line x1="875" y1="815" x2="1235" y2="815" stroke="#8795a5" stroke-width="2"/>
   <line x1="875" y1="580" x2="875" y2="815" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(coverage_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>

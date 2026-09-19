@@ -76,3 +76,36 @@ def test_transportability_panel_copy_is_wrapped_inside_cards() -> None:
         "Exact reweighting can recover a target expectation under covariate shift, but "
         "concentrated weights reduce effective information and expose unstable transport."
     ) not in text
+
+
+def test_late_stage_panel_copy_is_wrapped_inside_cards() -> None:
+    design = (FIGURES / "v31_v35_electromagnetic_design_validation.svg").read_text(
+        encoding="utf-8"
+    )
+    selection = (FIGURES / "v41_v45_electromagnetic_selection_validation.svg").read_text(
+        encoding="utf-8"
+    )
+    replication = (FIGURES / "v46_v50_electromagnetic_replication_validation.svg").read_text(
+        encoding="utf-8"
+    )
+
+    assert "retained information equals" in design
+    assert "sin squared of their angle." in design
+    assert "topography error grows." in design
+    assert (
+        "For one target and one nuisance direction, retained information equals sin squared of their angle."
+    ) not in design
+
+    assert "then reuse its ordinary" in selection
+    assert "marginal interval." in selection
+    assert (
+        "Select the largest absolute null statistic, then reuse its ordinary marginal interval."
+    ) not in selection
+
+    assert "requiring at least r" in replication
+    assert "nonnull sites." in replication
+    assert "not evidence from" in replication
+    assert "real sites." in replication
+    assert (
+        "Bonferroni partial-conjunction p-values for requiring at least r nonnull sites."
+    ) not in replication
