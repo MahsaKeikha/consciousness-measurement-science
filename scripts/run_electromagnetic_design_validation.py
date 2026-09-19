@@ -118,7 +118,8 @@ def _render_svg(
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Radius 1.2 lower bound</text>
   <text x="1105" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(float(v35[-1]["robust_information_lower_bound"]))}</text>
 
-  <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Deterministic analytic and synthetic measurement-design validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
+  <text x="85" y="944" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a7684">Deterministic analytic and synthetic measurement-design validation. No human empirical data.</text>
+  <text x="85" y="966" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a7684">No direct measurement of consciousness or qualia.</text>
 </svg>
 """
 
