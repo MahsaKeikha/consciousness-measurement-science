@@ -32,7 +32,8 @@
 
   <rect x="85" y="440" width="680" height="455" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
   <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V34 nuisance-subspace information loss</text>
-  <text x="120" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">For one target and one nuisance direction, retained information equals sin squared of their angle.</text>
+  <text x="120" y="518" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">For one target and one nuisance direction, retained information equals</text>
+  <text x="120" y="540" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">sin squared of their angle.</text>
   <text x="120" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Aligned nuisance</text>
   <text x="390" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">0 retained</text>
   <text x="120" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Orthogonal nuisance</text>
