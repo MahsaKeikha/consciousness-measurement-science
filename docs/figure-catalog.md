@@ -1,9 +1,10 @@
 # Figure Catalog
 
-Research III currently exposes nine canonical scientific visuals. The catalog records what each figure is for, what scientific boundary it preserves, and where the supporting specification lives.
+Research III currently exposes nine canonical foundational scientific visuals plus a V16-V55 evidence-architecture orientation schematic and the code-generated validation-result figures. The catalog records what each figure is for, what scientific boundary it preserves, and where the supporting specification lives.
 
 | Figure | Scientific role | Primary audit record |
 |---|---|---|
+| [V16-V55 evidence architecture](figures/research_iii_evidence_architecture.svg) | Orientation map linking electromagnetic measurement, identifiability, inference, replication, transport, failure gates, and claim ceiling | [Formal Validation V1-V55](../VALIDATION.md) |
 | [Research program map](figures/research_program_map.svg) | Whole-program flow from declared targets through evidence, assumptions, identification, validation, and claims | [Measurement Framework](measurement-framework.md) |
 | [Target-evidence matrix](figures/target_evidence_matrix.svg) | Target-specific role of report, behavior, neural, perturbational, and physiological evidence | [Measurement Instrument Specification](measurement-instrument-spec.md) |
 | [Measurement architecture](figures/measurement_architecture.svg) | Observable evidence to declared experiential target with explicit uncertainty and assumptions | [Measurement Framework](measurement-framework.md) |
@@ -27,6 +28,7 @@ A Research III visual is not evidence by itself. Every figure must satisfy four 
 
 ### Program architecture
 
+- `research_iii_evidence_architecture.svg` (orientation schematic; not counted as an additional empirical result)
 - `research_program_map.svg`
 - `measurement_architecture.svg`
 - `cep_anatomy.svg`

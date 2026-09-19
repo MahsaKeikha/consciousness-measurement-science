@@ -67,6 +67,10 @@ def _svg(
             size=15,
             fill="#657286",
         ),
+        '<rect x="930" y="28" width="410" height="82" rx="12" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1"/>',
+        '<text x="950" y="50" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>',
+        '<text x="950" y="72" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Where do acquisition and inverse geometry destroy</text>',
+        '<text x="950" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">resolution, information, or numerical stability?</text>',
         svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
@@ -101,6 +105,12 @@ def _svg(
             note=f'at smallest singular value {_fmt(v30[-1]["smallest_singular_value"])}',
             accent="#7a425c",
         ),
+        '<rect x="424" y="186" width="24" height="20" rx="10" fill="#eef4f8" stroke="#c8d7e2"/>',
+        '<text x="436" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#315b78">A</text>',
+        '<rect x="864" y="186" width="24" height="20" rx="10" fill="#f1f5ee" stroke="#cfdbc7"/>',
+        '<text x="876" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#51683f">B</text>',
+        '<rect x="1304" y="186" width="24" height="20" rx="10" fill="#f8f0f4" stroke="#e1cfd8"/>',
+        '<text x="1316" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#7a425c">C</text>',
     ]
 
     plot_y = 365
@@ -139,6 +149,14 @@ def _svg(
     )
     ax_left, ax_right = x0 + 78, x0 + panel_width - 28
     ax_top, ax_bottom = plot_y + 96, plot_y + 335
+    parts.extend(
+        [
+            '<rect x="628" y="381" width="28" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>',
+            '<text x="642" y="396" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#244c64">D</text>',
+            svg_text(ax_left, ax_top - 12, "inverse identity error", size=11, weight=700, fill="#526276"),
+            svg_text(ax_right, ax_top - 12, "dashed line = irreducible rank floor", size=11, fill="#748195", anchor="end"),
+        ]
+    )
     y_min, y_max = 0.70, 0.82
     for value in (0.70, 0.74, 0.78, 0.82):
         y = ax_bottom - (value - y_min) / (y_max - y_min) * (ax_bottom - ax_top)
@@ -219,13 +237,23 @@ def _svg(
                 fill="#4f5e72",
                 anchor="middle",
             ),
+            svg_rect(
+                x0 + 18,
+                plot_y + 395,
+                panel_width - 36,
+                24,
+                fill="#eef4f7",
+                stroke="#d7e3e9",
+                stroke_width=1.0,
+                radius=8,
+            ),
             svg_text(
                 x0 + 26,
                 plot_y + 414,
-                "Result: leakage persists and worsens under stronger regularization.",
+                "Finding: leakage persists and worsens under stronger regularization.",
                 size=12,
-                weight=600,
-                fill="#4f5e72",
+                weight=700,
+                fill="#365064",
             ),
         ]
     )
@@ -263,6 +291,14 @@ def _svg(
     )
     ax_left, ax_right = x0 + 78, x0 + panel_width - 28
     ax_top, ax_bottom = plot_y + 96, plot_y + 335
+    parts.extend(
+        [
+            '<rect x="1298" y="381" width="28" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>',
+            '<text x="1312" y="396" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#415f46">E</text>',
+            svg_text(ax_left, ax_top - 12, "Fisher information", size=11, weight=700, fill="#526276"),
+            svg_text(ax_right, ax_top - 12, "higher common noise -> less target information", size=11, fill="#748195", anchor="end"),
+        ]
+    )
     y_min, y_max = 0.8, 4.2
     for value in (1.0, 2.0, 3.0, 4.0):
         y = ax_bottom - (value - y_min) / (y_max - y_min) * (ax_bottom - ax_top)
@@ -325,13 +361,23 @@ def _svg(
                 fill="#4f5e72",
                 anchor="middle",
             ),
+            svg_rect(
+                x0 + 18,
+                plot_y + 395,
+                panel_width - 36,
+                24,
+                fill="#f0f5ef",
+                stroke="#d7e3d5",
+                stroke_width=1.0,
+                radius=8,
+            ),
             svg_text(
                 x0 + 26,
                 plot_y + 414,
-                f'CRLB variance: {_fmt(v28[0]["crlb_variance"])} to {_fmt(v28[-1]["crlb_variance"])}',
+                f'Finding: CRLB variance rises from {_fmt(v28[0]["crlb_variance"])} to {_fmt(v28[-1]["crlb_variance"])}',
                 size=12,
-                weight=600,
-                fill="#4f5e72",
+                weight=700,
+                fill="#3f5d45",
             ),
             svg_line(60, 840, 1340, 840, stroke="#d6dde7"),
             svg_text(

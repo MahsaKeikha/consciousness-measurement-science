@@ -2,6 +2,10 @@
   <rect width="1600" height="1000" fill="#ffffff"/>
   <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V36-V40: finite-sample electromagnetic inference</text>
   <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Efficient amplitude inference, inverse-covariance bias, Gaussian discrimination, multiplicity control, and covariance-mismatch calibration.</text>
+  <rect x="1085" y="28" width="430" height="88" rx="14" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1.2"/>
+  <text x="1110" y="50" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>
+  <text x="1110" y="72" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Do nominal electromagnetic inferences remain calibrated</text>
+  <text x="1110" y="92" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">with finite samples, model mismatch, and multiple searches?</text>
 
   <rect x="85" y="155" width="455" height="245" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V36 GLS efficiency and coverage</text>
@@ -32,6 +36,12 @@
   <text x="1090" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Diagonal-weight ratio</text>
   <text x="1470" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">1.330058939</text>
   <text x="1090" y="375" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Misspecified noise weighting can understate uncertainty by about 33% here.</text>
+  <rect x="500" y="171" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
+  <text x="513" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#173b63">A</text>
+  <rect x="985" y="171" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
+  <text x="998" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3b5b32">B</text>
+  <rect x="1475" y="171" width="26" height="22" rx="11" fill="#f8f0f4" stroke="#e1cfd8"/>
+  <text x="1488" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6a3f57">C</text>
 
   <rect x="85" y="440" width="680" height="455" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
   <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V38 Gaussian source discrimination</text>
@@ -52,7 +62,15 @@
 
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V39 exact independent-search FWER control</text>
-  <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">The two-sided z threshold rises as the number of searched locations rises.</text>
+  <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">The two-sided z threshold must rise as the number of searched locations rises.</text>
+  <rect x="725" y="456" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
+  <text x="738" y="471" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#294f64">D</text>
+  <text x="480" y="558" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#526276">equal-prior Bayes error</text>
+  <text x="705" y="558" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#294f64">P(error) = Phi(-d/2)</text>
+  <rect x="1475" y="456" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
+  <text x="1488" y="471" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#43634a">E</text>
+  <text x="1220" y="558" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#526276">two-sided z threshold</text>
+  <text x="1490" y="558" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#43634a">FWER = 1 - [2 Phi(t) - 1]^K</text>
   <text x="830" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">1 comparison</text>
   <text x="1125" y="610" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#43634a">1.959963985</text>
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">1000 comparisons</text>
@@ -65,6 +83,10 @@
   <circle cx="1400" cy="636.87" r="5" fill="#fff" stroke="#43634a" stroke-width="3"/>
   <circle cx="1490" cy="575.38" r="5" fill="#fff" stroke="#43634a" stroke-width="3"/>
   <text x="1355" y="850" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">log10 comparison count</text>
+  <rect x="110" y="861" width="625" height="24" rx="8" fill="#eef4f7" stroke="#d7e3e9"/>
+  <text x="124" y="878" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#365064">Finding: source error falls only as covariance-aware separation increases.</text>
+  <rect x="820" y="861" width="665" height="24" rx="8" fill="#f0f5ef" stroke="#d7e3d5"/>
+  <text x="834" y="878" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3f5d45">Finding: multiplicity requires a stricter threshold as the search space expands.</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and fixed-seed synthetic inference validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
 </svg>

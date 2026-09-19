@@ -131,3 +131,68 @@ def test_inverse_and_resolution_footer_copy_stays_below_axis_labels() -> None:
     assert 'x="86" y="779"' in resolution
     assert 'x="756" y="779"' in resolution
     assert 'y="752"' not in resolution
+
+
+def test_research_iii_validation_figures_expose_scientific_guidance() -> None:
+    guided = {
+        "v16_v20_electromagnetic_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "phase concentration",
+            "Finding: nuisance removal",
+        ),
+        "v21_v25_electromagnetic_inverse_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "sensor mismatch / analytical bound",
+            "pass condition: observed mismatch remains below bound",
+        ),
+        "v26_v30_electromagnetic_resolution_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "Fisher information",
+            "dashed line = irreducible rank floor",
+        ),
+        "v31_v35_electromagnetic_design_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "rho_ret = sin^2(theta)",
+            "I_rob(eps) = [max(||w|| - eps, 0)]^2",
+        ),
+        "v36_v40_electromagnetic_finite_sample_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "P(error) = Phi(-d/2)",
+            "FWER = 1 - [2 Phi(t) - 1]^K",
+        ),
+        "v41_v45_electromagnetic_selection_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "t(alpha,K) = Phi^-1(1 - alpha/(2K))",
+            "C_selected = c^K",
+        ),
+        "v46_v50_electromagnetic_replication_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "delta_i = mu_hat(-i) - mu_hat",
+            "larger r = stronger replicability requirement",
+        ),
+        "v51_v55_transportability_validation.svg": (
+            "SCIENTIFIC QUESTION",
+            "Information monotonicity: I(PY) &lt;= I(Y)",
+            "Pass condition: |relative bias| &lt;= covariance-weighted Cauchy-Schwarz bound",
+        ),
+    }
+
+    for name, markers in guided.items():
+        text = (FIGURES / name).read_text(encoding="utf-8")
+        for marker in markers:
+            assert marker in text, f"{name} is missing publication guidance: {marker}"
+
+
+def test_research_iii_evidence_architecture_exposes_failure_gates_and_claim_ceiling() -> None:
+    path = FIGURES / "research_iii_evidence_architecture.svg"
+    root = ET.parse(path).getroot()
+    text = path.read_text(encoding="utf-8")
+
+    assert root.attrib["width"] == "1600"
+    assert root.attrib["height"] == "1000"
+    assert root.attrib["viewBox"] == "0 0 1600 1000"
+    assert text.count("FAILURE GATE") == 8
+    assert "CLAIM CEILING" in text
+    assert "No direct consciousness claim yet" in text
+    assert "HOW TO READ THE RESULT FIGURES" in text
+    assert 'markerUnits="userSpaceOnUse"' in text

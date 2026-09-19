@@ -6,6 +6,14 @@ The program is intentionally theory-neutral and measurement-first. It asks what 
 
 **Current status:** foundational specification and computational scaffold. The figures below organize the scientific program. They do not constitute prospective human validation, clinical validation, or direct third-person measurement of qualia.
 
+## V16-V55 evidence architecture
+
+![Research III evidence architecture](figures/research_iii_evidence_architecture.svg)
+
+This orientation schematic connects the electromagnetic and transportability validation layers into one reviewer-facing logic path. Each stage exposes its scientific question, the failure gate it is meant to catch, and the claim ceiling that remains after the stage passes. The schematic is a navigation and reasoning aid, not an additional empirical result.
+
+Related records: [Formal Validation V1-V55](../VALIDATION.md), [Validation Atlas](validation-atlas.md), [Evidence-to-Claim Audit](evidence-to-claim-audit.md).
+
 ## 1. Whole-program map
 
 ![Research III program map](figures/research_program_map.svg)
