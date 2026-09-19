@@ -229,3 +229,25 @@ def test_publication_question_panels_use_contained_line_lengths() -> None:
         assert max(len(line) for line in question_lines) <= 46, (
             f"{name} has question text too long for its panel: {question_lines}"
         )
+
+
+def test_evidence_architecture_stage_cards_keep_text_inside_narrow_columns() -> None:
+    path = FIGURES / "research_iii_evidence_architecture.svg"
+    root = ET.parse(path).getroot()
+    stage_x = {"105", "287", "469", "651", "833", "1015", "1197", "1379"}
+
+    stage_lines: list[str] = []
+    for node in root.iter():
+        if not node.tag.endswith("text"):
+            continue
+        if node.attrib.get("x") not in stage_x:
+            continue
+        y = float(node.attrib.get("y", "0"))
+        if 250 <= y <= 470:
+            stage_lines.append("".join(node.itertext()).strip())
+
+    assert len(stage_lines) >= 64
+    assert max(len(line) for line in stage_lines) <= 24, stage_lines
+    assert "Field organization" not in stage_lines
+    assert "Resolution limits" not in stage_lines
+    assert "Selection safety" not in stage_lines
