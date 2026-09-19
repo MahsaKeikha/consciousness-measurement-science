@@ -97,7 +97,8 @@ def _render_svg(
   <text x="735" y="300" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#173b63">{_fmt(float(v51["transformed_gls_estimate"]))}</text>
   <text x="120" y="350" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Fisher information difference</text>
   <text x="735" y="350" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#173b63">{_fmt(float(v51["absolute_information_difference"]))}</text>
-  <text x="120" y="392" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">An invertible change of sensor coordinates preserves the full Gaussian likelihood information when the complete model is transformed consistently.</text>
+  <text x="120" y="382" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">An invertible sensor-coordinate change preserves the Gaussian likelihood</text>
+  <text x="120" y="404" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">when the data and complete model are transformed consistently.</text>
 
   <rect x="805" y="150" width="710" height="270" rx="18" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
   <text x="840" y="198" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#3b5b32">V54-V55 transport under distribution shift</text>
@@ -107,7 +108,8 @@ def _render_svg(
   <text x="1475" y="300" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#3b5b32">{_fmt(float(v54_last["effective_sample_fraction"]))}</text>
   <text x="840" y="350" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Total-variation transport budget</text>
   <text x="1475" y="350" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#3b5b32">{_fmt(float(v55_last["sharp_tv_bound"]))}</text>
-  <text x="840" y="392" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Exact reweighting can recover a target expectation under covariate shift, but concentrated weights reduce effective information and expose unstable transport.</text>
+  <text x="840" y="382" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">Exact reweighting can recover a target expectation under covariate shift.</text>
+  <text x="840" y="404" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">Concentrated weights reduce effective information and expose unstable transport.</text>
 
   <rect x="85" y="455" width="690" height="440" rx="18" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
   <text x="120" y="503" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V52 information retained after linear sensor projection</text>
@@ -118,7 +120,8 @@ def _render_svg(
   <text x="391" y="755" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#46586c">drop S3</text>
   <text x="551" y="755" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#46586c">one mixture</text>
   <text x="120" y="835" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">Full information: {_fmt(float(v52_rows["all_sensors"]["retained_information"]))}</text>
-  <text x="120" y="870" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A rank-reducing acquisition or preprocessing map cannot increase Fisher information for the declared scalar target.</text>
+  <text x="120" y="858" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">A rank-reducing acquisition or preprocessing map cannot increase Fisher information</text>
+  <text x="120" y="880" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">for the declared scalar target.</text>
 
   <rect x="805" y="455" width="710" height="440" rx="18" fill="#faf6f8" stroke="#d8c8d0" stroke-width="2"/>
   <text x="840" y="503" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#6a3f57">V53 cross-hardware topography mismatch</text>
@@ -128,8 +131,9 @@ def _render_svg(
   <polyline points="{" ".join(bound_points)}" fill="none" stroke="#aa879a" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="1375" y="615" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a3f57">bound</text>
   <text x="1375" y="730" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a3f57">bias</text>
-  <text x="840" y="815" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">At whitened mismatch 0.40: bias = {_fmt(float(v53_last["absolute_relative_bias"]))}, bound = {_fmt(float(v53_last["cauchy_schwarz_bias_bound"]))}</text>
-  <text x="840" y="850" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A hardware or forward-model change can bias an amplitude estimate even when the analysis equation is unchanged.</text>
+  <text x="840" y="812" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">At mismatch 0.40: bias = {_fmt(float(v53_last["absolute_relative_bias"]))}</text>
+  <text x="840" y="836" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">Cauchy-Schwarz bound = {_fmt(float(v53_last["cauchy_schwarz_bias_bound"]))}</text>
+  <text x="840" y="865" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">Hardware or forward-model changes can bias the amplitude estimate.</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and deterministic transportability validation only. No human dataset, no empirical cross-device replication, and no direct measurement of consciousness or qualia.</text>
 </svg>
