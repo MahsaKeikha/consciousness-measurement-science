@@ -2,7 +2,8 @@
 <rect x="0" y="0" width="1400" height="850" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
 <text x="60" y="56" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3156a3">Research III V16-V20</text>
 <text x="60" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#172236">Electromagnetic observables and confound tests</text>
-<text x="60" y="120" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Field quantities are treated as measurable evidence channels and stress-tested before interpretation.</text>
+<text x="60" y="118" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Field quantities are measurable evidence channels.</text>
+<text x="60" y="140" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">They are stress-tested for confounds before any interpretation.</text>
 <line x1="60" y1="155" x2="1340" y2="155" stroke="#d6dde7" stroke-width="1.2"/>
 <rect x="60" y="172" width="295" height="142" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
 <text x="82" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315b78">V16</text>
@@ -26,7 +27,8 @@
 <text x="1027" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">organization depends on frequency</text>
 <rect x="60" y="350" width="1280" height="410" rx="12" fill="#fbfcfe" stroke="#d6dde7" stroke-width="1.2"/>
 <text x="86" y="388" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#244c64">V19  Common-mode confound stress test</text>
-<text x="86" y="414" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">A shared contaminant can create apparent phase organization at the sensor level</text>
+<text x="86" y="412" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">A shared contaminant can create apparent phase organization</text>
+<text x="86" y="432" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">at the sensor level.</text>
 <line x1="146" y1="670" x2="1288" y2="670" stroke="#e3e8ef" stroke-width="1"/>
 <text x="134" y="675" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0</text>
 <line x1="146" y1="615" x2="1288" y2="615" stroke="#e3e8ef" stroke-width="1"/>
@@ -61,7 +63,9 @@
 <text x="942" y="397" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#4f5e72">raw sensor phase concentration</text>
 <line x1="1140" y1="392" x2="1166" y2="392" stroke="#1f6078" stroke-width="3"/>
 <text x="1177" y="397" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#4f5e72">after removal</text>
-<text x="86" y="728" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">Result: nuisance removal collapses the apparent organization to numerical zero.</text>
+<text x="86" y="720" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">Result: nuisance removal collapses the apparent organization</text>
+<text x="86" y="739" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">to numerical zero.</text>
 <line x1="60" y1="805" x2="1340" y2="805" stroke="#d6dde7" stroke-width="1"/>
-<text x="60" y="833" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">Synthetic validation only. Electromagnetic structure is a candidate evidence channel, not a direct measure of consciousness.</text>
+<text x="60" y="825" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">Synthetic validation only. Electromagnetic structure is a candidate evidence channel.</text>
+<text x="60" y="843" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">It is not a direct measure of consciousness.</text>
 </svg>
