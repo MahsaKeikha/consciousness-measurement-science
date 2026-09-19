@@ -173,7 +173,7 @@ def test_research_iii_validation_figures_expose_scientific_guidance() -> None:
         "v51_v55_transportability_validation.svg": (
             "SCIENTIFIC QUESTION",
             "Information monotonicity: I(PY) &lt;= I(Y)",
-            "Pass condition: |relative bias| &lt;= covariance-weighted Cauchy-Schwarz bound",
+            "Pass: |relative bias| &lt;= covariance-weighted bound",
         ),
     }
 
