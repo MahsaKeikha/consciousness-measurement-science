@@ -78,7 +78,7 @@ def _render_svg(
   <text x="500" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v36["empirical_variance"])}</text>
   <text x="120" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Empirical 95% coverage</text>
   <text x="500" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v36["empirical_coverage_95"])}</text>
-  <text x="120" y="375" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Fixed seed: {int(v36["seed"])}; {int(v36["trials"])} Gaussian trials.</text>
+  <text x="120" y="375" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Fixed seed {int(v36["seed"])} with {int(v36["trials"]):,} Gaussian trials.</text>
 
   <rect x="570" y="155" width="455" height="245" rx="20" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
   <text x="605" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#3b5b32">V37 inverse covariance bias</text>
