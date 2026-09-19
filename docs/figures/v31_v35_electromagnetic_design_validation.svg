@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
   <rect width="1600" height="1000" fill="#ffffff"/>
   <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V31-V35: electromagnetic design and spatial specificity</text>
-  <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Point-spread and cross-talk, source distinguishability, information-aware sensor design, nuisance projection, and robust model uncertainty.</text>
+  <text x="85" y="108" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#46586c">Point-spread and cross-talk, source distinguishability, information-aware sensor design,</text>
+  <text x="85" y="132" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#46586c">nuisance projection, and robust model uncertainty.</text>
 
   <rect x="85" y="155" width="455" height="245" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V31 PSF and CTF</text>
