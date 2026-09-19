@@ -88,6 +88,8 @@ def _render_svg(
   <rect width="1600" height="1000" fill="#ffffff"/>
   <text x="85" y="70" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V51-V55: transportability across sensor systems and states</text>
   <text x="85" y="110" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Coordinate invariance, lossy projection, topography mismatch, covariate-shift reweighting, and sharp transport budgets.</text>
+  <text x="85" y="137" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>
+  <text x="250" y="137" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Does the measurement relation survive coordinate changes, lossy sensors, hardware mismatch, and distribution shift?</text>
 
   <rect x="85" y="150" width="690" height="270" rx="18" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="198" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V51 invertible sensor-coordinate invariance</text>
@@ -110,6 +112,10 @@ def _render_svg(
   <text x="1475" y="350" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#3b5b32">{_fmt(float(v55_last["sharp_tv_bound"]))}</text>
   <text x="840" y="382" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">Exact reweighting can recover a target expectation under covariate shift.</text>
   <text x="840" y="404" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">Concentrated weights reduce effective information and expose unstable transport.</text>
+  <rect x="735" y="166" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
+  <text x="748" y="181" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#173b63">A</text>
+  <rect x="1475" y="166" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
+  <text x="1488" y="181" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3b5b32">B</text>
 
   <rect x="85" y="455" width="690" height="440" rx="18" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
   <text x="120" y="503" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V52 information retained after linear sensor projection</text>
@@ -126,6 +132,12 @@ def _render_svg(
   <rect x="805" y="455" width="710" height="440" rx="18" fill="#faf6f8" stroke="#d8c8d0" stroke-width="2"/>
   <text x="840" y="503" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#6a3f57">V53 cross-hardware topography mismatch</text>
   <text x="840" y="538" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Absolute amplitude bias and the covariance-weighted Cauchy-Schwarz bound.</text>
+  <rect x="735" y="471" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
+  <text x="748" y="486" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#294f64">C</text>
+  <text x="120" y="800" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#294f64">Information monotonicity: I(PY) &lt;= I(Y)</text>
+  <rect x="1475" y="471" width="26" height="22" rx="11" fill="#f8f0f4" stroke="#e1cfd8"/>
+  <text x="1488" y="486" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6a3f57">D</text>
+  <text x="840" y="568" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#6a3f57">Pass condition: |relative bias| &lt;= covariance-weighted Cauchy-Schwarz bound</text>
   <line x1="875" y1="765" x2="1355" y2="765" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(mismatch_points)}" fill="none" stroke="#6a3f57" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <polyline points="{" ".join(bound_points)}" fill="none" stroke="#aa879a" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" stroke-linejoin="round"/>
