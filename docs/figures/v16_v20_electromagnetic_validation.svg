@@ -1,33 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#ffffff"/>
-  <text x="90" y="82" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V16-V20: electromagnetic observables</text>
-  <text x="90" y="124" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#44556a">Physical field quantities + organization descriptors + confound stress tests. Not a consciousness detector.</text>
-  <rect x="90" y="180" width="690" height="250" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
-  <text x="125" y="225" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#173b63">V18 matched-power non-identifiability</text>
-  <text x="125" y="265" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">Max relative channel-power difference</text>
-  <text x="710" y="265" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">0</text>
-  <text x="125" y="310" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">Coherent phase concentration</text>
-  <text x="710" y="310" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">1</text>
-  <text x="125" y="355" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">Phase-balanced concentration</text>
-  <text x="710" y="355" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">0</text>
-  <text x="125" y="398" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Same power does not identify spatial phase organization.</text>
-  <rect x="820" y="180" width="690" height="250" rx="20" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
-  <text x="855" y="225" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#3b5b32">V20 frequency-specific structure</text>
-  <text x="855" y="282" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">10 Hz phase concentration</text>
-  <text x="1440" y="282" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">1</text>
-  <text x="855" y="330" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">17 Hz phase concentration</text>
-  <text x="1440" y="330" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">0</text>
-  <text x="855" y="388" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Organization must be declared in frequency and space, not collapsed into one scalar.</text>
-  <rect x="90" y="470" width="1420" height="430" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
-  <text x="125" y="515" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#6a3f57">V19 common-mode confound stress test</text>
-  <line x1="260" y1="780" x2="1140" y2="780" stroke="#8593a3" stroke-width="2"/>
-  <line x1="260" y1="420" x2="260" y2="780" stroke="#8593a3" stroke-width="2"/>
-  <polyline points="260,780.00 480,734.64 700,687.39 920,549.36 1140,443.46" fill="none" stroke="#6a3f57" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <polyline points="260,780.00 480,780.00 700,780.00 920,780.00 1140,780.00" fill="none" stroke="#2d5f73" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="1180" y="580" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#6a3f57">raw sensor phase concentration</text>
-  <text x="1180" y="620" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#2d5f73">after common-mode removal</text>
-  <text x="700" y="835" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#44556a">shared contaminant amplitude</text>
-  <text x="150" y="620" transform="rotate(-90 150 620)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#44556a">phase concentration</text>
-  <text x="125" y="875" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">A shared field or reference artifact can mimic global organization. Sensor-level synchrony therefore requires explicit nuisance modeling and source/field-spread controls.</text>
-  <text x="90" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Synthetic validation record. No human empirical data and no direct measurement of qualia.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+<rect x="0" y="0" width="1400" height="850" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+<text x="60" y="56" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3156a3">Research III V16-V20</text>
+<text x="60" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#172236">Electromagnetic observables and confound tests</text>
+<text x="60" y="120" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Field quantities are treated as measurable evidence channels and stress-tested before interpretation.</text>
+<line x1="60" y1="145" x2="1340" y2="145" stroke="#d6dde7" stroke-width="1.2"/>
+<rect x="60" y="172" width="295" height="142" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="82" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315b78">V16</text>
+<text x="82" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Field identity</text>
+<text x="82" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#315b78">u = 3.58e-06 J/m^3</text>
+<text x="82" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">Poynting z = 4.77464829 W/m^2</text>
+<rect x="375" y="172" width="295" height="142" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="397" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#506b3f">V17</text>
+<text x="397" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Scale invariance</text>
+<text x="397" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#506b3f">max drift 8.4e-15</text>
+<text x="397" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">normalized features stable across 0.1x to 10x</text>
+<rect x="690" y="172" width="295" height="142" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="712" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#7b435c">V18</text>
+<text x="712" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Matched-power test</text>
+<text x="712" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#7b435c">power difference approx 0</text>
+<text x="712" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">phase concentration 1 vs 0</text>
+<rect x="1005" y="172" width="295" height="142" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="1027" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#5b5791">V20</text>
+<text x="1027" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Frequency specificity</text>
+<text x="1027" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#5b5791">10 Hz: 1 | 17 Hz: 0</text>
+<text x="1027" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">organization depends on frequency</text>
+<rect x="60" y="350" width="1280" height="410" rx="12" fill="#fbfcfe" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="86" y="388" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#244c64">V19  Common-mode confound stress test</text>
+<text x="86" y="414" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">A shared contaminant can create apparent phase organization at the sensor level</text>
+<line x1="146" y1="670" x2="1288" y2="670" stroke="#e3e8ef" stroke-width="1"/>
+<text x="134" y="675" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0</text>
+<line x1="146" y1="615" x2="1288" y2="615" stroke="#e3e8ef" stroke-width="1"/>
+<text x="134" y="620" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.25</text>
+<line x1="146" y1="560" x2="1288" y2="560" stroke="#e3e8ef" stroke-width="1"/>
+<text x="134" y="565" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.5</text>
+<line x1="146" y1="505" x2="1288" y2="505" stroke="#e3e8ef" stroke-width="1"/>
+<text x="134" y="510" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.75</text>
+<line x1="146" y1="450" x2="1288" y2="450" stroke="#e3e8ef" stroke-width="1"/>
+<text x="134" y="455" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1</text>
+<line x1="146" y1="450" x2="146" y2="670" stroke="#8f9cad" stroke-width="1.4"/>
+<line x1="146" y1="670" x2="1288" y2="670" stroke="#8f9cad" stroke-width="1.4"/>
+<polyline points="146.0,670.0 288.8,642.3 431.5,613.4 717.0,529.1 1288.0,464.3" fill="none" stroke="#7a425c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="146.0,668.0 288.8,668.0 431.5,668.0 717.0,668.0 1288.0,668.0" fill="none" stroke="#1f6078" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="146" cy="669.9999999999995" r="5.2" fill="#7a425c"/>
+<circle cx="288.75" cy="642.2826700889265" r="5.2" fill="#7a425c"/>
+<circle cx="431.5" cy="613.405815801462" r="5.2" fill="#7a425c"/>
+<circle cx="717" cy="529.0534674049442" r="5.2" fill="#7a425c"/>
+<circle cx="1288" cy="464.3373664391828" r="5.2" fill="#7a425c"/>
+<circle cx="146" cy="668" r="4" fill="#1f6078"/>
+<circle cx="288.75" cy="668" r="4" fill="#1f6078"/>
+<circle cx="431.5" cy="668" r="4" fill="#1f6078"/>
+<circle cx="717" cy="668" r="4" fill="#1f6078"/>
+<circle cx="1288" cy="668" r="4" fill="#1f6078"/>
+<text x="146" y="694" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0</text>
+<text x="288.75" y="694" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.25</text>
+<text x="431.5" y="694" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.5</text>
+<text x="717" y="694" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1</text>
+<text x="1288" y="694" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">2</text>
+<text x="717" y="722" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">shared contaminant amplitude</text>
+<line x1="905" y1="392" x2="931" y2="392" stroke="#7a425c" stroke-width="4"/>
+<text x="942" y="397" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#4f5e72">raw sensor phase concentration</text>
+<line x1="1140" y1="392" x2="1166" y2="392" stroke="#1f6078" stroke-width="3"/>
+<text x="1177" y="397" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#4f5e72">after removal</text>
+<text x="86" y="728" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">Result: nuisance removal collapses the apparent organization to numerical zero.</text>
+<line x1="60" y1="805" x2="1340" y2="805" stroke="#d6dde7" stroke-width="1"/>
+<text x="60" y="833" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">Synthetic validation only. Electromagnetic structure is a candidate evidence channel, not a direct measure of consciousness.</text>
 </svg>

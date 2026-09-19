@@ -1,61 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#ffffff"/>
-  <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V26-V30: electromagnetic resolution and information limits</text>
-  <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Correlated noise, inverse leakage, Fisher information, temporal aliasing, and singular-direction noise amplification.</text>
-
-  <rect x="85" y="155" width="455" height="245" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
-  <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V26 correlated-noise whitening</text>
-  <text x="120" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Weighted residual energy</text>
-  <text x="500" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">0.027382586</text>
-  <text x="120" y="296" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Whitened residual energy</text>
-  <text x="500" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">0.027382586</text>
-  <text x="120" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Absolute identity error</text>
-  <text x="500" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">2.775558e-17</text>
-  <text x="120" y="375" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Whitening converts Mahalanobis geometry to Euclidean geometry.</text>
-
-  <rect x="570" y="155" width="455" height="245" rx="20" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
-  <text x="605" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#3b5b32">V29 temporal aliasing</text>
-  <text x="605" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Sample rate</text>
-  <text x="985" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">100 Hz</text>
-  <text x="605" y="296" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Continuous frequencies</text>
-  <text x="985" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">17 / 83 Hz</text>
-  <text x="605" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max sample difference</text>
-  <text x="985" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">1.391109e-13</text>
-  <text x="605" y="375" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Distinct continuous frequencies can be observationally identical after sampling.</text>
-
-  <rect x="1055" y="155" width="460" height="245" rx="20" fill="#faf6f8" stroke="#d8c8d0" stroke-width="2"/>
-  <text x="1090" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#6a3f57">V30 inverse noise amplification</text>
-  <text x="1090" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Smallest singular value</text>
-  <text x="1470" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">0.01</text>
-  <text x="1090" y="300" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Pseudoinverse norm</text>
-  <text x="1470" y="300" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">100</text>
-  <text x="1090" y="348" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Realized amplification</text>
-  <text x="1470" y="348" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">100</text>
-  <text x="1090" y="378" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Noise aligned with the weakest singular direction reaches the inverse bound.</text>
-
-  <rect x="85" y="440" width="680" height="455" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
-  <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V27 inverse resolution leakage</text>
-  <text x="120" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">The normalized distance from ideal identity resolution remains nonzero.</text>
-  <line x1="220" y1="760" x2="580" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <line x1="220" y1="450" x2="220" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <polyline points="220,517.87 340,517.84 460,515.83 580,487.27" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="400" y="810" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">increasing regularization</text>
-  <text x="150" y="610" transform="rotate(-90 150 610)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">identity error</text>
-  <text x="120" y="850" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Rank-only normalized error floor: 0.707106781</text>
-  <text x="120" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Off-diagonal resolution energy records source leakage and cross-talk.</text>
-
-  <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
-  <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V28 Fisher information under common sensor noise</text>
-  <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Information falls as correlated noise grows along the measured topography.</text>
-  <line x1="760" y1="760" x2="1105" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <line x1="760" y1="450" x2="760" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <polyline points="760,455.00 875,587.63 990,635.00 1105,659.32" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="935" y="810" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">common-noise correlation</text>
-  <text x="690" y="610" transform="rotate(-90 690 610)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">Fisher information</text>
-  <text x="1160" y="590" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">rho = 0: I = 4</text>
-  <text x="1160" y="630" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">rho = 0.9: I = 1.081081081</text>
-  <text x="1160" y="685" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">The CRLB variance therefore rises from</text>
-  <text x="1160" y="713" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">0.25 to 0.925.</text>
-
-  <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Deterministic synthetic measurement validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect x="0" y="0" width="1400" height="900" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+<text x="60" y="56" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3156a3">Research III V26-V30</text>
+<text x="60" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#172236">Electromagnetic resolution and information limits</text>
+<text x="60" y="120" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Noise geometry, inverse leakage, information loss, aliasing, and unstable inverse directions.</text>
+<line x1="60" y1="145" x2="1340" y2="145" stroke="#d6dde7" stroke-width="1.2"/>
+<rect x="60" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="82" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315b78">V26</text>
+<text x="82" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Whitening identity</text>
+<text x="82" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#315b78">2.78e-17</text>
+<text x="82" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">weighted energy equals whitened energy</text>
+<rect x="500" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="522" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#51683f">V29</text>
+<text x="522" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Temporal aliasing</text>
+<text x="522" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#51683f">17 Hz = 83 Hz @ 100 Hz</text>
+<text x="522" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">max sampled difference 1.39e-13</text>
+<rect x="940" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="962" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#7a425c">V30</text>
+<text x="962" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Inverse amplification</text>
+<text x="962" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#7a425c">100x</text>
+<text x="962" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">at smallest singular value 0.01</text>
+<rect x="60" y="365" width="610" height="430" rx="12" fill="#fbfcfe" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="86" y="401" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#244c64">V27  Resolution leakage</text>
+<text x="86" y="426" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">Identity error as regularization increases</text>
+<line x1="138" y1="700" x2="642" y2="700" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="705" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">0.70</text>
+<line x1="138" y1="620.3333333333333" x2="642" y2="620.3333333333333" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="625.3333333333333" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">0.74</text>
+<line x1="138" y1="540.6666666666665" x2="642" y2="540.6666666666665" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="545.6666666666665" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">0.78</text>
+<line x1="138" y1="461" x2="642" y2="461" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="466" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">0.82</text>
+<line x1="138" y1="461" x2="138" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<line x1="138" y1="700" x2="642" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<line x1="138" y1="685.8456608034593" x2="642" y2="685.8456608034593" stroke="#aeb8c5" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="640" y="677.8456608034593" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#778394">rank floor 0.7071</text>
+<polyline points="138.0,685.8 306.0,685.6 474.0,672.3 642.0,482.7" fill="none" stroke="#1f6078" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="138" cy="685.8456399873855" r="5.5" fill="#1f6078"/>
+<circle cx="306" cy="685.647116628185" r="5.5" fill="#1f6078"/>
+<circle cx="474" cy="672.2851704889115" r="5.5" fill="#1f6078"/>
+<circle cx="642" cy="482.731236272551" r="5.5" fill="#1f6078"/>
+<text x="138" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1e-4</text>
+<text x="306" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1e-2</text>
+<text x="474" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.1</text>
+<text x="642" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1</text>
+<text x="390" y="752" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">regularization</text>
+<text x="86" y="762" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">Result: leakage persists and worsens under stronger regularization.</text>
+<rect x="730" y="365" width="610" height="430" rx="12" fill="#fbfcfe" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="756" y="401" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#415f46">V28  Fisher information under common sensor noise</text>
+<text x="756" y="426" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">Information decreases as common-noise correlation increases</text>
+<line x1="808" y1="685.9411764705883" x2="1312" y2="685.9411764705883" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="690.9411764705883" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">1</text>
+<line x1="808" y1="615.6470588235294" x2="1312" y2="615.6470588235294" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="620.6470588235294" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">2</text>
+<line x1="808" y1="545.3529411764706" x2="1312" y2="545.3529411764706" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="550.3529411764706" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">3</text>
+<line x1="808" y1="475.05882352941177" x2="1312" y2="475.05882352941177" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="480.05882352941177" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#657286">4</text>
+<line x1="808" y1="461" x2="808" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<line x1="808" y1="700" x2="1312" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<polyline points="808.0,475.1 976.0,608.2 1144.0,655.8 1312.0,680.2" fill="none" stroke="#456848" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="808" cy="475.05882352941177" r="5.5" fill="#456848"/>
+<circle cx="976" cy="608.2476780185759" r="5.5" fill="#456848"/>
+<circle cx="1144" cy="655.8151260504202" r="5.5" fill="#456848"/>
+<circle cx="1312" cy="680.241653418124" r="5.5" fill="#456848"/>
+<text x="808" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0</text>
+<text x="976" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.3</text>
+<text x="1144" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.6</text>
+<text x="1312" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.9</text>
+<text x="1060" y="752" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">common-noise correlation</text>
+<text x="756" y="762" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">CRLB variance: 0.25 to 0.925</text>
+<line x1="60" y1="840" x2="1340" y2="840" stroke="#d6dde7" stroke-width="1"/>
+<text x="60" y="868" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">Deterministic synthetic validation. These results quantify measurement limits; they do not identify consciousness or qualia.</text>
 </svg>

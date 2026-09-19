@@ -11,6 +11,12 @@ from consciousness_measurement.electromagnetic_simulations import (
     v19_common_mode_confound,
     v20_frequency_specific_structure,
 )
+from consciousness_measurement.figure_svg import circle as svg_circle
+from consciousness_measurement.figure_svg import line as svg_line
+from consciousness_measurement.figure_svg import metric_card
+from consciousness_measurement.figure_svg import polyline as svg_polyline
+from consciousness_measurement.figure_svg import rect as svg_rect
+from consciousness_measurement.figure_svg import text as svg_text
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
@@ -35,53 +41,240 @@ def _fmt(value: float) -> str:
 
 def _validation_svg(
     *,
+    v16: dict[str, float],
+    v17: list[dict[str, float]],
     v18: dict[str, float],
     v19: list[dict[str, float]],
     v20: list[dict[str, float]],
 ) -> str:
-    raw_x = [260 + i * 220 for i in range(len(v19))]
-    raw_y = [780 - 360 * row["phase_concentration_raw"] for row in v19]
-    clean_y = [
-        780 - 360 * row["phase_concentration_after_common_mode_removal"] for row in v19
-    ]
-    raw_points = " ".join(f"{x},{y:.2f}" for x, y in zip(raw_x, raw_y, strict=True))
-    clean_points = " ".join(f"{x},{y:.2f}" for x, y in zip(raw_x, clean_y, strict=True))
+    width, height = 1400, 850
     v20_map = {row["frequency_hz"]: row["phase_concentration"] for row in v20}
+    baseline = v17[1]
+    invariant_keys = (
+        "spectral_entropy",
+        "phase_concentration",
+        "effective_rank",
+        "singular_entropy",
+        "common_mode_fraction",
+    )
+    max_scale_drift = max(
+        abs(row[key] - baseline[key])
+        for row in v17
+        for key in invariant_keys
+    )
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#ffffff"/>
-  <text x="90" y="82" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V16-V20: electromagnetic observables</text>
-  <text x="90" y="124" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#44556a">Physical field quantities + organization descriptors + confound stress tests. Not a consciousness detector.</text>
-  <rect x="90" y="180" width="690" height="250" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
-  <text x="125" y="225" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#173b63">V18 matched-power non-identifiability</text>
-  <text x="125" y="265" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">Max relative channel-power difference</text>
-  <text x="710" y="265" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v18["max_relative_channel_power_difference"])}</text>
-  <text x="125" y="310" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">Coherent phase concentration</text>
-  <text x="710" y="310" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v18["coherent_phase_concentration"])}</text>
-  <text x="125" y="355" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">Phase-balanced concentration</text>
-  <text x="710" y="355" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v18["balanced_phase_concentration"])}</text>
-  <text x="125" y="398" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Same power does not identify spatial phase organization.</text>
-  <rect x="820" y="180" width="690" height="250" rx="20" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
-  <text x="855" y="225" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#3b5b32">V20 frequency-specific structure</text>
-  <text x="855" y="282" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">10 Hz phase concentration</text>
-  <text x="1440" y="282" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">{_fmt(v20_map[10.0])}</text>
-  <text x="855" y="330" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#34495e">17 Hz phase concentration</text>
-  <text x="1440" y="330" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">{_fmt(v20_map[17.0])}</text>
-  <text x="855" y="388" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Organization must be declared in frequency and space, not collapsed into one scalar.</text>
-  <rect x="90" y="470" width="1420" height="430" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
-  <text x="125" y="515" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#6a3f57">V19 common-mode confound stress test</text>
-  <line x1="260" y1="780" x2="1140" y2="780" stroke="#8593a3" stroke-width="2"/>
-  <line x1="260" y1="420" x2="260" y2="780" stroke="#8593a3" stroke-width="2"/>
-  <polyline points="{raw_points}" fill="none" stroke="#6a3f57" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <polyline points="{clean_points}" fill="none" stroke="#2d5f73" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="1180" y="580" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#6a3f57">raw sensor phase concentration</text>
-  <text x="1180" y="620" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#2d5f73">after common-mode removal</text>
-  <text x="700" y="835" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#44556a">shared contaminant amplitude</text>
-  <text x="150" y="620" transform="rotate(-90 150 620)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#44556a">phase concentration</text>
-  <text x="125" y="875" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">A shared field or reference artifact can mimic global organization. Sensor-level synchrony therefore requires explicit nuisance modeling and source/field-spread controls.</text>
-  <text x="90" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Synthetic validation record. No human empirical data and no direct measurement of qualia.</text>
-</svg>
-"""
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        svg_rect(0, 0, width, height, fill="#ffffff", stroke="none", stroke_width=0),
+        svg_text(60, 56, "Research III V16-V20", size=13, weight=700, fill="#3156a3"),
+        svg_text(
+            60,
+            92,
+            "Electromagnetic observables and confound tests",
+            size=31,
+            weight=700,
+            fill="#172236",
+        ),
+        svg_text(
+            60,
+            120,
+            "Field quantities are treated as measurable evidence channels and stress-tested before interpretation.",
+            size=15,
+            fill="#657286",
+        ),
+        svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
+        metric_card(
+            60,
+            172,
+            295,
+            142,
+            kicker="V16",
+            title="Field identity",
+            value=f'u = {v16["energy_density_j_m3"]:.2e} J/m^3',
+            note=f'Poynting z = {_fmt(v16["poynting_z_w_m2"])} W/m^2',
+            accent="#315b78",
+        ),
+        metric_card(
+            375,
+            172,
+            295,
+            142,
+            kicker="V17",
+            title="Scale invariance",
+            value=f"max drift {max_scale_drift:.1e}",
+            note="normalized features stable across 0.1x to 10x",
+            accent="#506b3f",
+        ),
+        metric_card(
+            690,
+            172,
+            295,
+            142,
+            kicker="V18",
+            title="Matched-power test",
+            value="power difference approx 0",
+            note=(
+                "phase concentration "
+                f'{_fmt(v18["coherent_phase_concentration"])} vs '
+                f'{_fmt(v18["balanced_phase_concentration"])}'
+            ),
+            accent="#7b435c",
+        ),
+        metric_card(
+            1005,
+            172,
+            295,
+            142,
+            kicker="V20",
+            title="Frequency specificity",
+            value=(
+                f'10 Hz: {_fmt(v20_map[10.0])} | '
+                f'17 Hz: {_fmt(v20_map[17.0])}'
+            ),
+            note="organization depends on frequency",
+            accent="#5b5791",
+        ),
+    ]
+
+    # V19: common-mode confound stress test
+    x0, y0, panel_width, panel_height = 60, 350, 1280, 410
+    parts.extend(
+        [
+            svg_rect(
+                x0,
+                y0,
+                panel_width,
+                panel_height,
+                fill="#fbfcfe",
+                stroke="#d6dde7",
+                stroke_width=1.2,
+                radius=12,
+            ),
+            svg_text(
+                x0 + 26,
+                y0 + 38,
+                "V19  Common-mode confound stress test",
+                size=18,
+                weight=700,
+                fill="#244c64",
+            ),
+            svg_text(
+                x0 + 26,
+                y0 + 64,
+                "A shared contaminant can create apparent phase organization at the sensor level",
+                size=13,
+                fill="#687588",
+            ),
+        ]
+    )
+    ax_left, ax_right = x0 + 86, x0 + panel_width - 52
+    ax_top, ax_bottom = y0 + 100, y0 + 320
+    for value in (0.0, 0.25, 0.5, 0.75, 1.0):
+        y = ax_bottom - value * (ax_bottom - ax_top)
+        label = f"{value:.2f}".rstrip("0").rstrip(".")
+        parts.append(svg_line(ax_left, y, ax_right, y, stroke="#e3e8ef"))
+        parts.append(
+            svg_text(
+                ax_left - 12,
+                y + 5,
+                label,
+                size=11,
+                fill="#657286",
+                anchor="end",
+            )
+        )
+    parts.extend(
+        [
+            svg_line(ax_left, ax_top, ax_left, ax_bottom, stroke="#8f9cad", width=1.4),
+            svg_line(ax_left, ax_bottom, ax_right, ax_bottom, stroke="#8f9cad", width=1.4),
+        ]
+    )
+    x_values = [
+        ax_left
+        + row["common_mode_amplitude"]
+        / v19[-1]["common_mode_amplitude"]
+        * (ax_right - ax_left)
+        for row in v19
+    ]
+    raw_points = [
+        (
+            x,
+            ax_bottom
+            - row["phase_concentration_raw"] * (ax_bottom - ax_top),
+        )
+        for x, row in zip(x_values, v19, strict=True)
+    ]
+    clean_points = [(x, ax_bottom - 2) for x in x_values]
+    parts.extend(
+        [
+            svg_polyline(raw_points, stroke="#7a425c", width=4),
+            svg_polyline(clean_points, stroke="#1f6078", width=3),
+        ]
+    )
+    for x, y in raw_points:
+        parts.append(svg_circle(x, y, 5.2, fill="#7a425c"))
+    for x, y in clean_points:
+        parts.append(svg_circle(x, y, 4.0, fill="#1f6078"))
+    for x, row in zip(x_values, v19, strict=True):
+        parts.append(
+            svg_text(
+                x,
+                ax_bottom + 24,
+                _fmt(row["common_mode_amplitude"]),
+                size=11,
+                fill="#657286",
+                anchor="middle",
+            )
+        )
+    parts.extend(
+        [
+            svg_text(
+                (ax_left + ax_right) / 2,
+                ax_bottom + 52,
+                "shared contaminant amplitude",
+                size=12,
+                weight=600,
+                fill="#4f5e72",
+                anchor="middle",
+            ),
+            svg_line(x0 + 845, y0 + 42, x0 + 871, y0 + 42, stroke="#7a425c", width=4),
+            svg_text(
+                x0 + 882,
+                y0 + 47,
+                "raw sensor phase concentration",
+                size=11,
+                weight=600,
+                fill="#4f5e72",
+            ),
+            svg_line(x0 + 1080, y0 + 42, x0 + 1106, y0 + 42, stroke="#1f6078", width=3),
+            svg_text(
+                x0 + 1117,
+                y0 + 47,
+                "after removal",
+                size=11,
+                weight=600,
+                fill="#4f5e72",
+            ),
+            svg_text(
+                x0 + 26,
+                y0 + 378,
+                "Result: nuisance removal collapses the apparent organization to numerical zero.",
+                size=12,
+                weight=600,
+                fill="#4f5e72",
+            ),
+            svg_line(60, 805, 1340, 805, stroke="#d6dde7"),
+            svg_text(
+                60,
+                833,
+                "Synthetic validation only. Electromagnetic structure is a candidate evidence channel, not a direct measure of consciousness.",
+                size=12,
+                fill="#697587",
+            ),
+            "</svg>",
+        ]
+    )
+    return "\n".join(parts)
 
 
 def main() -> None:
@@ -106,7 +299,7 @@ def main() -> None:
         encoding="utf-8",
     )
     (FIGURES / "v16_v20_electromagnetic_validation.svg").write_text(
-        _validation_svg(v18=v18, v19=v19, v20=v20),
+        _validation_svg(v16=v16, v17=v17, v18=v18, v19=v19, v20=v20),
         encoding="utf-8",
     )
 
