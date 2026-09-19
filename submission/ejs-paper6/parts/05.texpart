@@ -1,0 +1,51 @@
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\textwidth]{fig5a_abstention.pdf}\hfill
+\includegraphics[width=0.48\textwidth]{fig5b_pilot_gate.pdf}
+\caption{Release design. (a) V10 uses the same data to construct the interval and assess whether its width is small enough to release; marginal validity controls erroneous releases but not nominal conditional coverage automatically. (b) V15 uses an independent pilot gate and fresh confirmatory data, preserving confirmatory coverage among released designs.}
+\label{fig:release}
+\end{figure}
+
+In the version-stable V15 experiment, planned confirmatory size 800 releases 9.69\% of designs, size 900 releases 47.25\%, size 1,000 releases 82.13\%, and size 1,200 releases 98.5\%; confirmatory coverage is 1.00 in every release-positive grid cell under the declared fixed-seed simulation (Figure~\ref{fig:release}). The theorem does not depend on those particular numerical values. Its scientific role is to show that release policy belongs in experimental design, not merely in reporting after the same data have been inspected.
+
+\section{Discussion}
+
+This study treats imperfect-proxy correction as an identification and experimental-design problem rather than as a formula applied after data collection. The central lesson is that a latent-state measurement can fail in several distinct ways even when the observable data are collected without error. Calibration may be uncertain. Outcomes may be missing. The inverse may be ill-conditioned. Pooling may change the estimand. A valid interval may be too wide for the intended claim. A release decision may change the conditioning event on which coverage should be interpreted. Each failure has a different remedy, and no single predictive accuracy statistic resolves them all.
+
+The linked results expose useful design laws. V11 shows that arbitrary missingness consumes latent resolution in direct proportion to the missing fraction and inverse proportion to channel strength. V12 identifies the exact multisite condition under which pooling preserves the population-average target. V13 provides the sharp set when it does not. V14 makes target resolution an explicit planning quantity by translating \(J\), \(\omega\), and \(\delta\) into a sufficient sample size. V15 shows that post-selection validity can be recovered by separating pilot selection from confirmatory inference. Together, these results shift the workflow from ''invert and report'' to ''identify, quantify resolution, design, then release.''
+
+The motivating application is consciousness measurement because the distinction between target and evidence is unusually visible there. Overt behavior can be absent while task-based brain responses remain detectable \cite{claassen2019,bodien2024}. Perturbational measures can provide useful state information while remaining tied to their own validation domain \cite{casali2013,casarotto2016}. Covert measures are valuable precisely when report is unavailable, but their scientific importance does not make them assumption free \cite{kronemer2025}. The present model therefore does not define consciousness as a disease-like binary state, nor does it claim that sensitivity and specificity for consciousness are currently known. The binary target is a transparent test bed for asking what would follow if a target-specific proxy calibration were supplied.
+
+The mathematics applies beyond consciousness. Screening prevalence, sensor networks, ecological detection, algorithmic auditing, remote monitoring, latent safety events, and other inverse measurement systems can face the same distinction between prediction and identification. In any such system, the relevant engineering questions are not only whether the proxy correlates with the target, but whether its calibration transports, whether its inverse is stable, whether the population estimand survives pooling, and whether the achievable interval width is compatible with the intended scientific decision.
+
+Several limitations remain. The validation record is analytic and synthetic rather than prospective human validation of a consciousness instrument or clinical threshold. The binary model is deliberately simple; continuous and multilevel targets, hierarchical dependence, covariate-dependent calibration, adaptive model selection, and correlated calibration datasets require extensions. The Hoeffding designs are conservative and can be improved with sharper finite-sample methods while preserving declared error control. V15 uses strict pilot-confirmatory independence; more data-efficient reuse would require selective-inference machinery rather than the simple independence argument used here. Finally, a resolution threshold is not a utility function. Clinical release policies would need decision-specific costs, benefits, and external validation.
+
+These limitations are consistent with the intended scientific stance. A measurement system should state what is identified, show the assumptions that create that identification, and expose the resolution the data can support. If the target is only set-identified, the output should be a set. If the inverse is weakly conditioned, the instability should be visible. If site heterogeneity changes the estimand, pooling should not erase the strata. If the planned design cannot attain the required resolution, that should be known before data collection. And if a claim is released selectively, the validity statement should match the actual selection design.
+
+\section{Methods}
+
+\subsection{Analytic measurement model}
+
+The analysis uses the binary proxy model \(q = (1 - \beta) + (\alpha + \beta - 1)\pi\) with all probabilities in \([ 0,1]\). Positive information requires \(J = \alpha + \beta - 1 > 0\). All set-valued calculations are clipped to the unit interval and require compatibility with the declared calibration model.
+
+\subsection{Finite calibration uncertainty}
+
+Deployment proxy rate, sensitivity, and specificity are treated as independent binomial proportions. For total failure probability \(\delta\), each Hoeffding interval receives failure probability \(\delta/3\). The simultaneous box is propagated through the inverse map under the positive-information constraint. The V6 deterministic experiment varies the calibration sample size per class and records identification rate, conditional coverage among identified runs, and mean interval width.
+
+\subsection{Missingness and V11 information loss}
+
+For \(N\) intended measurements, \(n_{o}\) observed outcomes, \(s_{o}\) observed positives, and \(m = N - n_{o}\) missing outcomes, the sharp observable-rate set is \(\left[ s_{o}/N,\left( s_{o} + m \right)/N \right]\). Under known positive calibration the endpoints are propagated through the monotone inverse. When neither mapped endpoint is clipped by \([ 0,1]\), the difference of the inverse endpoints gives the exact V11 width \((m/N)/J\).
+
+\subsection{Conditioning and V14 design law}
+
+The local derivatives of the inverse are obtained analytically. The V8 conditioning sweep varies \(J\) from 0.05 to 0.90 and evaluates the exact \(1/J\) amplification. For V14, a two-sided Hoeffding interval for the deployment proxy rate is mapped through the inverse. Solving \(2\epsilon_{n}(\delta)/J \leq \omega\) for \(n\) yields the sufficient sample-size law used by the executable design function. The plotted grid uses \(\delta = 0.05\).
+
+\subsection{Multisite identification and sharp bounds}
+
+For \(K\) known sites, the pooled observable is a linear constraint on the vector of site prevalences. V12 is proved by comparing the coefficient vector of that constraint with the coefficient vector defining the target population average. V13 transforms the problem using \(x_{i} = w_{i}J_{i}\pi_{i}\), reducing the endpoint calculation to a one-constraint linear program. The sharp solution is obtained by greedy allocation in descending or ascending \(J_{i}\), equivalent to the continuous fractional-knapsack solution.
+
+\subsection{Release rules}
+
+V10 uses a predeclared same-data width gate and reports release fraction plus empirical conditional coverage as a diagnostic. Its theorem-level guarantee is marginal erroneous-release control. V15 uses disjoint pilot and confirmatory information sets. The pilot data determine the go/no-go event and are not reused in the confirmatory interval; independence therefore preserves confirmatory coverage conditional on release.
+
+\subsection{Deterministic computation and reproducibility}
