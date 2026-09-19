@@ -212,7 +212,7 @@ def _svg(
         [
             svg_text(
                 (ax_left + ax_right) / 2,
-                ax_bottom + 52,
+                ax_bottom + 44,
                 "regularization",
                 size=12,
                 weight=600,
@@ -221,7 +221,7 @@ def _svg(
             ),
             svg_text(
                 x0 + 26,
-                plot_y + 397,
+                plot_y + 414,
                 "Result: leakage persists and worsens under stronger regularization.",
                 size=12,
                 weight=600,
@@ -318,7 +318,7 @@ def _svg(
         [
             svg_text(
                 (ax_left + ax_right) / 2,
-                ax_bottom + 52,
+                ax_bottom + 44,
                 "common-noise correlation",
                 size=12,
                 weight=600,
@@ -327,7 +327,7 @@ def _svg(
             ),
             svg_text(
                 x0 + 26,
-                plot_y + 397,
+                plot_y + 414,
                 f'CRLB variance: {_fmt(v28[0]["crlb_variance"])} to {_fmt(v28[-1]["crlb_variance"])}',
                 size=12,
                 weight=600,
