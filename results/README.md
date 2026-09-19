@@ -1,6 +1,6 @@
 # Formal validation results
 
-This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V50.
+This directory contains the deterministic analytic and fixed-seed synthetic validation outputs for Research III V1-V55.
 
 These files are **not human empirical data** and must not be described as evidence that consciousness has been measured. They test whether the proposed measurement and inference machinery behaves correctly under known mathematical and synthetic data-generating conditions.
 
@@ -175,9 +175,28 @@ python scripts/run_electromagnetic_replication_validation.py
 
 V46, V48, V49, and V50 are analytic or deterministic. V47 uses fixed seed `20260918` with 50,000 Gaussian common-effect draws. These outputs validate the declared replication-inference calculations. They are not external replication data and do not establish that an electromagnetic association is specific to consciousness.
 
+
+## V51-V55 transportability outputs
+
+- `v51_coordinate_invariance.csv`: exact invariance check for GLS amplitude and Fisher information under a declared invertible sensor-coordinate transform.
+- `v52_projection_information.csv`: retained Fisher information under the full sensor model, a two-sensor projection, and one mixed channel.
+- `v53_topography_mismatch.csv`: exact expected amplitude gain, relative bias, and covariance-weighted Cauchy-Schwarz bias bound across declared topography mismatch.
+- `v54_importance_transport.csv`: exact target expectation recovery under discrete covariate-shift reweighting together with maximum importance weight and effective sample fraction.
+- `v55_total_variation_transport.csv`: total-variation distance, actual bounded-score expectation shift, and the sharp transport budget.
+- `transportability_validation_summary.json`: complete machine-readable V51-V55 transportability record.
+
+Reproduce with:
+
+```bash
+python scripts/run_transportability_validation.py
+```
+
+V51-V55 are analytic or deterministic and require no random seed. They validate coordinate invariance, information loss under projection, a forward/topography mismatch bias law, exact covariate-shift reweighting identities, overlap diagnostics, and a sharp distribution-shift sensitivity bound. They do not constitute empirical cross-device, cross-state, or cross-population validation of a consciousness marker.
+
+
 ## Reader-facing interpretation
 
-Use [Research III Formal Validation V1-V50](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, [Finite-Sample Electromagnetic Inference Program](../docs/electromagnetic-finite-sample-inference.md) for V36-V40, [Multiplicity and Selection-Safe Electromagnetic Inference](../docs/electromagnetic-selection-safe-inference.md) for V41-V45, and [Cross-Site Replication Inference and Stability](../docs/electromagnetic-replication-inference.md) for V46-V50.
+Use [Research III Formal Validation V1-V55](../VALIDATION.md) for the compact program map, [Validation Atlas](../docs/validation-atlas.md) for the complete visual sequence, [Formal Validation V11-V15](../docs/formal-validation-program-v11-v15.md) for the identification and design proofs, [Electromagnetic Field Measurement Program](../docs/electromagnetic-field-program.md) for V16-V20, [Electromagnetic Source Identifiability Program](../docs/electromagnetic-source-identifiability.md) for V21-V25, [Electromagnetic Resolution and Information Program](../docs/electromagnetic-resolution-program.md) for V26-V30, [Electromagnetic Design and Spatial Specificity Program](../docs/electromagnetic-design-spatial-specificity.md) for V31-V35, [Finite-Sample Electromagnetic Inference Program](../docs/electromagnetic-finite-sample-inference.md) for V36-V40, [Multiplicity and Selection-Safe Electromagnetic Inference](../docs/electromagnetic-selection-safe-inference.md) for V41-V45, and [Cross-Site Replication Inference and Stability](../docs/electromagnetic-replication-inference.md) for V46-V50, and [Transportability Across Sensor Systems, Hardware, and States](../docs/transportability-program.md) for V51-V55.
 
 ## Verification rule
 
