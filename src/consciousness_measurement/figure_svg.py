@@ -22,6 +22,34 @@ def text(
     )
 
 
+
+def multiline_text(
+    x: float,
+    y: float,
+    lines: list[str] | tuple[str, ...],
+    *,
+    size: int = 18,
+    weight: int = 400,
+    fill: str = "#253244",
+    anchor: str = "start",
+    line_height: float | None = None,
+) -> str:
+    """Render explicit wrapped SVG text without letting long labels bleed across panels."""
+    if not lines:
+        return ""
+    step = line_height if line_height is not None else size * 1.35
+    tspans = []
+    for index, value in enumerate(lines):
+        dy = 0 if index == 0 else step
+        tspans.append(
+            f'<tspan x="{x}" dy="{dy}">{escape(str(value))}</tspan>'
+        )
+    return (
+        f'<text x="{x}" y="{y}" text-anchor="{anchor}" '
+        f'font-family="{FONT}" font-size="{size}" font-weight="{weight}" '
+        f'fill="{fill}">' + "".join(tspans) + "</text>"
+    )
+
 def line(
     x1: float,
     y1: float,
