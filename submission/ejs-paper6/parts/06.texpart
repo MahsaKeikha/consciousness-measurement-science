@@ -1,0 +1,46 @@
+All numerical values and figures are tied to public Research III snapshot 7a2a1a3a60263e48b7a268642eecc6941e84d1b4 in MahsaKeikha/consciousness-measurement-science. The V6-V10 robustness runner uses canonical seed 20260918; the V11-V15 identification-design runner uses 20260919. The V15 stochastic path uses an explicit PCG64 raw-bit Bernoulli conversion so the committed fixed-seed result is stable across the supported NumPy environments. The merged V11-V15 record passed repository policy, exact regeneration, Ruff, and 98 tests on Python 3.10, 3.11, and 3.12. Scientific figures in this submission are deterministic plots of committed numerical records, not generative images.
+
+\subsection{Use of AI-assisted tools}
+
+AI-assisted tools were used for organization, language editing, consistency checking, and document production. They also supported critical review of methodological statements during manuscript preparation. The author independently checked the mathematical claims, code behavior, references, numerical records, and interpretation against the version-controlled research record and remains responsible for the scientific content and final manuscript. AI was not treated as an author. This statement should be reviewed by the author immediately before submission so that it exactly reflects the final workflow and the journal policy then in force.
+
+\subsection{Data availability}
+
+No human participant dataset is introduced. The numerical evidence consists of analytic calculations and deterministic synthetic validation outputs. Exact CSV and JSON records underlying the figures are available in the public Research III repository under results/ at the cited snapshot and are bundled with the submission package. A source-data workbook maps each main figure panel to its underlying numerical record.
+
+\subsection{Code availability}
+
+Source code for the measurement model, robustness calculations, identification-design theorems, deterministic runners, tests, and figure provenance is publicly available in MahsaKeikha/consciousness-measurement-science at snapshot 7a2a1a3a60263e48b7a268642eecc6941e84d1b4.
+
+\subsection{Ethics statement}
+
+No human participants, animals, clinical records, or private datasets were used in the analytic and synthetic validation reported here. The consciousness-science examples are motivating applications and are not empirical subjects in this study.
+
+\section*{Author contribution}
+M.K. conceived the research program, defined the measurement questions and scientific scope, developed and reviewed the mathematical framework, interpreted the validation results, and approved the manuscript.
+
+\begin{supplement}
+\stitle{Supplementary Information}
+\sdescription{Formal statements, proofs, deterministic simulation specifications, and provenance for the V6--V15 measurement-validation layer.}
+\end{supplement}
+\begin{supplement}
+\stitle{Source data and reproducibility records}
+\sdescription{Numerical records and a source-data workbook supporting Figures 1--5, together with the version-controlled implementation and tests identified in the manuscript.}
+\end{supplement}
+
+\begin{thebibliography}{12}
+\bibitem{rogan1978} Rogan, W. J. and Gladen, B. (1978). Estimating prevalence from the results of a screening test. \textit{American Journal of Epidemiology} \textbf{107}, 71--76. \url{https://doi.org/10.1093/oxfordjournals.aje.a112510}
+\bibitem{hui1980} Hui, S. L. and Walter, S. D. (1980). Estimating the error rates of diagnostic tests. \textit{Biometrics} \textbf{36}, 167--171.
+\bibitem{hui1998} Hui, S. L. and Zhou, X. H. (1998). Evaluation of diagnostic tests without gold standards. \textit{Statistical Methods in Medical Research} \textbf{7}, 354--370. \url{https://doi.org/10.1177/096228029800700404}
+\bibitem{manski2005} Manski, C. F. (2005). Partial identification with missing data: concepts and findings. \textit{International Journal of Approximate Reasoning} \textbf{39}, 151--165. \url{https://doi.org/10.1016/j.ijar.2004.10.006}
+\bibitem{obradovic2024} Obradovic, F. (2024). Measuring diagnostic test performance using imperfect reference tests: A partial identification approach. \textit{Journal of Econometrics} \textbf{244}, 105842. \url{https://doi.org/10.1016/j.jeconom.2024.105842}
+\bibitem{geifman2017} Geifman, Y. and El-Yaniv, R. (2017). Selective classification for deep neural networks. \textit{arXiv:1705.08500}.
+\bibitem{angelopoulos2023} Angelopoulos, A. N. and Bates, S. (2023). Conformal prediction: A gentle introduction. \textit{Foundations and Trends in Machine Learning} \textbf{16}, 494--591. \url{https://doi.org/10.1561/2200000101}
+\bibitem{casali2013} Casali, A. G. et al. (2013). A theoretically based index of consciousness independent of sensory processing and behavior. \textit{Science Translational Medicine} \textbf{5}, 198ra105. \url{https://doi.org/10.1126/scitranslmed.3006294}
+\bibitem{casarotto2016} Casarotto, S. et al. (2016). Stratification of unresponsive patients by an independently validated index of brain complexity. \textit{Annals of Neurology} \textbf{80}, 718--729. \url{https://doi.org/10.1002/ana.24779}
+\bibitem{claassen2019} Claassen, J. et al. (2019). Detection of brain activation in unresponsive patients with acute brain injury. \textit{New England Journal of Medicine} \textbf{380}, 2497--2505. \url{https://doi.org/10.1056/NEJMoa1812757}
+\bibitem{bodien2024} Bodien, Y. G. et al. (2024). Cognitive motor dissociation in disorders of consciousness. \textit{New England Journal of Medicine} \textbf{391}, 598--608. \url{https://doi.org/10.1056/NEJMoa2400645}
+\bibitem{kronemer2025} Kronemer, S. I., Bandettini, P. A. and Gonzalez-Castillo, J. (2025). Sleuthing subjectivity: a review of covert measures of consciousness. \textit{Nature Reviews Neuroscience} \textbf{26}, 476--496. \url{https://doi.org/10.1038/s41583-025-00934-1}
+\end{thebibliography}
+
+\end{document}
