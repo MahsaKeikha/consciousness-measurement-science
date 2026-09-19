@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
   <rect width="1600" height="1000" fill="#ffffff"/>
   <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V46-V50: cross-site replication inference and stability</text>
-  <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Common-effect pooling, heterogeneity, leave-one-site-out influence, partial conjunction, and site-weight concentration.</text>
+  <text x="85" y="108" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#46586c">Common-effect pooling, heterogeneity, leave-one-site-out influence,</text>
+  <text x="85" y="132" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#46586c">partial conjunction, and site-weight concentration.</text>
 
   <rect x="85" y="155" width="455" height="245" rx="18" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V46 pooled common effect</text>
