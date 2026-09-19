@@ -1,0 +1,51 @@
+\[\bar{\pi} = \sum_{i}^{}w_{i}\pi_{i}.\]
+
+The pooled observable and the target use different coefficient vectors whenever the \(J_{i}\) differ. V12 gives the exact identification condition: with known positive calibrations and weights, one pooled proxy rate identifies \(\bar{\pi}\) for every feasible site-prevalence vector if and only if
+
+\[\boxed{J_{1} = J_{2} = \cdots = J_{K}.}\]
+
+Sufficiency follows because a common \(J\) factors out of the pooled equation. For necessity, if two sites have unequal margins, one can perturb their prevalences in opposite directions so that the weighted proxy contribution is unchanged while \(\bar{\pi}\) changes. Equal sensitivities and specificities are not required. Equality of the net information slope is the relevant condition.
+
+When the condition fails, V13 gives the sharp identified interval for arbitrary \(K\). Writing
+
+\[r = \bar{q} - \sum_{i}^{}w_{i}\left( 1 - \beta_{i} \right),\quad\quad x_{i} = w_{i}J_{i}\pi_{i},\]
+
+feasible allocations satisfy \(0 \leq x_{i} \leq w_{i}J_{i}\) and \(\sum_{i}^{}x_{i} = r\), while
+
+\[\bar{\pi} = \sum_{i}^{}\frac{x_{i}}{J_{i}}.\]
+
+This is a one-constraint fractional-knapsack problem. The lower endpoint is obtained by allocating constraint mass first to sites with the largest \(J_{i}\); the upper endpoint uses the smallest \(J_{i}\). At most one site is fractional. The endpoints are attainable, so the interval is sharp.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\textwidth]{fig4a_two_site.pdf}\hfill
+\includegraphics[width=0.48\textwidth]{fig4b_multisite.pdf}
+\caption{Multisite identification. (a) In the canonical two-site construction, one pooled proxy-positive rate can be compatible with a range of population-average latent prevalences. (b) In the V12--V13 multisite sweep, the sharp identified-set width is zero when site information margins are equal and grows as their spread increases.}
+\label{fig:multisite}
+\end{figure}
+
+The earlier two-site counterexample is the \(K = 2\) special case. At pooled proxy rate 0.45, the canonical construction is compatible with average latent prevalence from 0.375 to 0.5625. In the V12-V13 three-site sweep, equal information margins yield width zero, while a margin spread of 0.30 yields sharp width 0.333 (Figure~\ref{fig:multisite}). Site adjustment is therefore not merely a variance or nuisance issue. Heterogeneous calibration can alter what the pooled observation identifies. Retaining site strata can be necessary for the estimand itself.
+
+\subsection{Same-data abstention and selection-safe release are different designs}
+
+An identified interval can be valid yet too wide for the scientific question. Let \(I_{n} = \left[ L_{n},U_{n} \right]\) have width \(w_{n}\), choose a maximum acceptable width \(\omega\) before observing the data, and release only when
+
+\[R_{n} = \mathbf{1}\{ w_{n} \leq \omega\}.\]
+
+If the interval procedure has marginal coverage \(P\left( \pi \in I_{n} \right) \geq 1 - \delta\), then for any release rule
+
+\[P\left( \pi \notin I_{n},R_{n} = 1 \right) \leq \delta.\]
+
+If \(p_{rel} = P\left( R_{n} = 1 \right) > 0\),
+
+\[P\left( \pi \notin I_{n} \mid R_{n} = 1 \right) \leq \min\left( 1,\frac{\delta}{p_{rel}} \right).\]
+
+This controls the overall probability of an erroneous release. It does not automatically imply nominal conditional coverage among released intervals because the release decision can depend on the same data used to construct the interval.
+
+The V10 simulation uses \(\omega = 0.28\). No estimates are released at deployment sizes 250, 500, or 750. At \(n = 1,000\), 44.375\% of runs meet the width criterion; all runs are released at \(n = 1,500\) and \(n = 2,500\). Empirical conditional coverage is 1.00 in the release-positive fixed-seed cells, but that value is a diagnostic rather than a theorem-level consequence of marginal coverage.
+
+V15 provides a simple design with a stronger conditional statement. Split the experiment into an independent pilot set and a confirmatory set. Let \(G\) be the pilot-determined decision to proceed, and let \(C\) be the event that the confirmatory interval covers the true parameter. If the two information sets are independent and \(P(C) \geq 1 - \delta\), then
+
+\[\boxed{P(C \mid G) = P(C) \geq 1 - \delta.}\]
+
+The release decision is separated from confirmatory inference, so conditioning on the pilot gate does not change confirmatory coverage.
