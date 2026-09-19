@@ -3,7 +3,7 @@
 <text x="60" y="56" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3156a3">Research III V26-V30</text>
 <text x="60" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#172236">Electromagnetic resolution and information limits</text>
 <text x="60" y="120" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Noise geometry, inverse leakage, information loss, aliasing, and unstable inverse directions.</text>
-<line x1="60" y1="145" x2="1340" y2="145" stroke="#d6dde7" stroke-width="1.2"/>
+<line x1="60" y1="160" x2="1340" y2="160" stroke="#d6dde7" stroke-width="1.2"/>
 <rect x="60" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
 <text x="82" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315b78">V26</text>
 <text x="82" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Whitening identity</text>
