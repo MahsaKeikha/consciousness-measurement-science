@@ -65,15 +65,22 @@ def _svg(
         ),
         svg_text(
             60,
-            120,
-            "Reference invariance, source ambiguity, regularization sensitivity, multimodal complementarity, and forward-model error.",
+            118,
+            "Reference invariance, source ambiguity, regularization sensitivity,",
             size=15,
             fill="#657286",
         ),
-        svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
+        svg_text(
+            60,
+            140,
+            "multimodal complementarity, and forward-model error.",
+            size=15,
+            fill="#657286",
+        ),
+        svg_line(60, 160, 1340, 160, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
-            172,
+            184,
             400,
             150,
             kicker="V21",
@@ -84,7 +91,7 @@ def _svg(
         ),
         metric_card(
             500,
-            172,
+            184,
             400,
             150,
             kicker="V22",
@@ -95,7 +102,7 @@ def _svg(
         ),
         metric_card(
             940,
-            172,
+            184,
             400,
             150,
             kicker="V24",
@@ -106,7 +113,7 @@ def _svg(
         ),
     ]
 
-    plot_y = 365
+    plot_y = 377
     panel_height = 430
 
     # V23: regularization sensitivity
@@ -196,8 +203,16 @@ def _svg(
             ),
             svg_text(
                 x0 + 26,
-                plot_y + 397,
-                "Result: stronger regularization trades fit for stronger prior influence.",
+                plot_y + 389,
+                "Result: stronger regularization trades fit",
+                size=12,
+                weight=600,
+                fill="#4f5e72",
+            ),
+            svg_text(
+                x0 + 26,
+                plot_y + 408,
+                "for stronger prior influence.",
                 size=12,
                 weight=600,
                 fill="#4f5e72",
@@ -325,8 +340,15 @@ def _svg(
             svg_line(60, 840, 1340, 840, stroke="#d6dde7"),
             svg_text(
                 60,
-                868,
-                "Deterministic synthetic validation. Forward/inverse checks do not uniquely identify neural sources or consciousness.",
+                860,
+                "Deterministic synthetic validation. Forward/inverse checks do not uniquely identify neural sources.",
+                size=12,
+                fill="#697587",
+            ),
+            svg_text(
+                60,
+                878,
+                "They do not identify consciousness.",
                 size=12,
                 fill="#697587",
             ),
