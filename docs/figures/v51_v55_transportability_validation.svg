@@ -45,8 +45,9 @@
   <polyline points="905.0,765.00 1010.0,747.16 1115.0,729.32 1220.0,693.63 1325.0,622.26" fill="none" stroke="#aa879a" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="1375" y="615" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a3f57">bound</text>
   <text x="1375" y="730" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a3f57">bias</text>
-  <text x="840" y="815" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">At whitened mismatch 0.40: bias = 0.141771, bound = 0.509773</text>
-  <text x="840" y="850" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A hardware or forward-model change can bias an amplitude estimate even when the analysis equation is unchanged.</text>
+  <text x="840" y="812" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">At mismatch 0.40: bias = 0.141771</text>
+  <text x="840" y="836" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#34495e">Cauchy-Schwarz bound = 0.509773</text>
+  <text x="840" y="865" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6b7785">Hardware or forward-model changes can bias the amplitude estimate.</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and deterministic transportability validation only. No human dataset, no empirical cross-device replication, and no direct measurement of consciousness or qualia.</text>
 </svg>
