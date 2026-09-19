@@ -18,8 +18,9 @@ SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" view
   <rect width="1600" height="1000" fill="#ffffff"/>
   <rect x="0" y="0" width="1600" height="150" fill="url(#headerBand)"/>
   <text x="78" y="48" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4" fill="#3156a3">RESEARCH III  |  MEASUREMENT SCIENCE ARCHITECTURE</text>
-  <text x="78" y="88" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#172236">From physical evidence to claims that survive identifiability, inference, replication, and transport</text>
-  <text x="78" y="121" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5f6e82">The program advances only when each layer passes its own failure test. No layer, by itself, turns an electromagnetic statistic into a direct measure of consciousness.</text>
+  <text x="78" y="72" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" fill="#172236">From physical evidence to claims that survive</text>
+  <text x="78" y="103" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" fill="#172236">identifiability, inference, replication, and transport</text>
+  <text x="78" y="132" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5f6e82">Each layer must pass its own failure test; no electromagnetic statistic is treated as a direct measure of consciousness.</text>
   <rect x="1260" y="42" width="250" height="34" rx="17" fill="#eef3fb" stroke="#c8d5ea"/>
   <text x="1385" y="64" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#3156a3">ANALYTIC + SYNTHETIC VALIDATION</text>
 
@@ -134,26 +135,32 @@ SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" view
   <rect x="80" y="575" width="1440" height="136" rx="18" fill="#fbfcfe" stroke="#d8dee8" stroke-width="1.5"/>
   <text x="118" y="615" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#3156a3">PHYSICAL OBSERVABLE</text>
   <text x="118" y="647" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#172236">Measured electromagnetic structure</text>
-  <text x="118" y="678" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#5f6e82">Field, sensor, source-model, and statistical quantities are evidence channels.</text>
+  <text x="118" y="674" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5f6e82">Field, sensor, source-model, and statistical</text>
+  <text x="118" y="695" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5f6e82">quantities remain evidence channels.</text>
 
   <line x1="495" y1="645" x2="590" y2="645" stroke="#637083" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="610" y="615" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#506b3f">VALIDATED RELATION</text>
   <text x="610" y="647" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#172236">Identified, calibrated, and transport-tested link</text>
-  <text x="610" y="678" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#5f6e82">The relation must survive the declared assumptions and failure gates above.</text>
+  <text x="610" y="674" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5f6e82">The relation must survive declared assumptions</text>
+  <text x="610" y="695" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5f6e82">and every relevant failure gate.</text>
 
   <line x1="1055" y1="645" x2="1150" y2="645" stroke="#637083" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="1170" y="615" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#7b435c">CLAIM CEILING</text>
   <text x="1170" y="647" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#172236">No direct consciousness claim yet</text>
-  <text x="1170" y="678" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#5f6e82">Human empirical target validation remains a separate scientific requirement.</text>
+  <text x="1170" y="674" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5f6e82">Human empirical target validation remains</text>
+  <text x="1170" y="695" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5f6e82">a separate scientific requirement.</text>
 
   <text x="78" y="768" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#687588">HOW TO READ THE RESULT FIGURES</text>
   <rect x="80" y="798" width="1440" height="116" rx="18" fill="#f6f8fb" stroke="#d4dce7"/>
   <text x="118" y="838" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#3156a3">QUESTION</text>
-  <text x="118" y="868" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4f5e72">What failure mode is this stage designed to expose?</text>
+  <text x="118" y="866" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4f5e72">Which failure mode is this stage</text>
+  <text x="118" y="887" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4f5e72">designed to expose?</text>
   <text x="495" y="838" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#506b3f">EVIDENCE</text>
-  <text x="495" y="868" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4f5e72">What analytic law, deterministic construction, or fixed-seed simulation is plotted?</text>
+  <text x="495" y="866" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4f5e72">Which law, deterministic construction,</text>
+  <text x="495" y="887" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4f5e72">or fixed-seed simulation is plotted?</text>
   <text x="1000" y="838" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#7b435c">INTERPRETATION</text>
-  <text x="1000" y="868" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4f5e72">What does the result establish, and what does it explicitly not establish?</text>
+  <text x="1000" y="866" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4f5e72">What is established, and what remains</text>
+  <text x="1000" y="887" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4f5e72">explicitly outside the claim?</text>
 
   <line x1="80" y1="950" x2="1520" y2="950" stroke="#d8dee8"/>
   <text x="80" y="978" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6a7684">Research III is a measurement-science validation program. The architecture guides empirical design; it is not evidence that consciousness has already been directly measured.</text>
