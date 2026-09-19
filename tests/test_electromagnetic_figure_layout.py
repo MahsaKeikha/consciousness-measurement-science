@@ -168,7 +168,7 @@ def test_research_iii_validation_figures_expose_scientific_guidance() -> None:
         "v46_v50_electromagnetic_replication_validation.svg": (
             "SCIENTIFIC QUESTION",
             "delta_i = mu_hat(-i) - mu_hat",
-            "larger r = stronger replicability requirement",
+            "larger r = stronger replication requirement",
         ),
         "v51_v55_transportability_validation.svg": (
             "SCIENTIFIC QUESTION",
