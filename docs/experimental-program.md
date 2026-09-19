@@ -48,7 +48,7 @@ Primary goal: determine which candidate measurements preserve calibrated relatio
 
 ## Cross-phase electromagnetic measurement arm
 
-The [Electromagnetic Field Measurement Program](electromagnetic-field-program.md), [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md), [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md), [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md), [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md), and [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnetic-selection-safe-inference.md) form a cross-phase acquisition, source-modeling, resolution, design, inference, selection-control, and falsification arm rather than a separate consciousness theory.
+The [Electromagnetic Field Measurement Program](electromagnetic-field-program.md), [Electromagnetic Source Identifiability Program](electromagnetic-source-identifiability.md), [Electromagnetic Resolution and Information Program](electromagnetic-resolution-program.md), [Electromagnetic Design and Spatial Specificity Program](electromagnetic-design-spatial-specificity.md), [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md), [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnetic-selection-safe-inference.md), [Cross-Site Replication Inference and Stability](electromagnetic-replication-inference.md), and [Transportability Across Sensor Systems, Hardware, and States](transportability-program.md) form a cross-phase acquisition, source-modeling, resolution, design, inference, selection-control, replication, transportability, and falsification arm rather than a separate consciousness theory.
 
 For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 
@@ -57,6 +57,14 @@ For EEG, MEG, OPM-MEG, or other electromagnetic recordings, preregister:
 - frequency bands or frequencies of interest before confirmatory analysis;
 - the spatial scale at which phase, covariance, rank, entropy, or perturbational features are computed;
 - environmental reference channels and line-noise characterization;
+- a predeclared cross-hardware transformation when transport across devices or montages is claimed;
+- retained Fisher information after any rank-reducing projection or channel compression;
+- a source-topography or forward-model mismatch diagnostic for cross-device amplitude claims;
+- source and target covariate distributions for cross-state or cross-population transport;
+- support-overlap checks before importance weighting;
+- maximum importance weight and effective sample fraction when reweighting is used;
+- a total-variation or equivalent bounded transport budget for declared bounded outcomes;
+- an explicit transport-abstention rule when information, overlap, or calibration is insufficient;
 - ECG, EOG, respiration, motion, and other plausible physiological contaminants;
 - source-space analysis only when its forward and inverse assumptions are declared;
 - explicit lead-field rank, singular spectrum, conditioning, null-space, inverse resolution matrix, and source-leakage diagnostics when a source-space claim is central;

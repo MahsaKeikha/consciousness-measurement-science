@@ -41,7 +41,8 @@ These three pages are the fastest route for a technically sophisticated reader w
 - [Finite-Sample Electromagnetic Inference Program](electromagnetic-finite-sample-inference.md): efficient scalar-amplitude inference, inverse-covariance bias, Gaussian source discrimination, multiple-search control, and covariance-mismatch calibration.
 - [Multiplicity and Selection-Safe Electromagnetic Inference](electromagnetic-selection-safe-inference.md): arbitrary-dependence multiplicity control, exact randomization, post-selection failure, and independent confirmation.
 - [Cross-Site Replication Inference and Stability](electromagnetic-replication-inference.md): common-effect pooling, heterogeneity calibration, leave-one-site-out influence, partial-conjunction replicability, and site-weight concentration.
-- [Formal Validation V1-V50](../VALIDATION.md): compact executable map of all fifty analytic and synthetic validation stages.
+- [Transportability Across Sensor Systems, Hardware, and States](transportability-program.md): invertible coordinate invariance, information loss under lossy projection, cross-hardware topography mismatch, covariate-shift reweighting, overlap diagnostics, and sharp total-variation transport bounds.
+- [Formal Validation V1-V55](../VALIDATION.md): compact executable map of all fifty-five analytic and synthetic validation stages.
 - [Validation Atlas](validation-atlas.md): equation-to-code-to-result visual audit record for all validation layers.
 - [Statistical Validation](statistical-validation.md): calibration, transport, partial identification, uncertainty, multiplicity, and abstention.
 - [Dependence-Robust Partial Identification](partial-identification.md): sharp marginal-only bounds for multimodal evidence when conditional dependence is unknown.

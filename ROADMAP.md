@@ -57,6 +57,7 @@ Deliverables:
 - waking, sleep, and anesthesia analyses;
 - single-channel baselines;
 - cross-dataset transport analysis;
+- V51-V55 cross-hardware and cross-state transport audit, including information retention, topography mismatch, support overlap, importance-weight concentration, and a declared transport budget;
 - documented failures and confounds.
 
 Exit criteria:
@@ -64,6 +65,7 @@ Exit criteria:
 - frozen preprocessing for confirmatory analyses;
 - participant-level holdout;
 - calibration and uncertainty reported;
+- transport analysis reports retained information, overlap diagnostics, effective sample fraction, and abstention when target support is inadequate;
 - at least one external dataset used for transport analysis.
 
 **Current status:** empirical work not yet completed.
@@ -87,6 +89,7 @@ Primary endpoints:
 - held-out content calibration;
 - report-operation invariance;
 - cross-state transport loss;
+- cross-hardware transport loss or invariance under a preregistered sensor transformation;
 - multimodal incremental value;
 - held-out phenomenal-neural geometry prediction.
 

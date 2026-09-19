@@ -2,7 +2,7 @@
 
 ## From equations to failure tests to reproducible design laws
 
-This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **twenty-one validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
+This page is the visual research record for the executable mathematical layer of Research III. It complements the nine foundational architecture figures with **twenty-two validation-result figures** generated from deterministic analytic and fixed-seed synthetic experiments.
 
 Each stage states a narrow scientific question, the mathematical object used to answer it, the failure condition, and the exact code or machine-readable record that supports the figure.
 
@@ -908,6 +908,131 @@ Audit: [Cross-Site Replication Inference and Stability](electromagnetic-replicat
 
 ---
 
+
+# Transportability layer V51-V55
+
+V51-V55 ask what survives when the measurement system or deployment distribution changes. The layer separates invertible reparameterization from lossy projection, hardware/topography mismatch, exact covariate-shift reweighting, and worst-case distribution-shift sensitivity.
+
+## V51. Invertible sensor-coordinate invariance
+
+For the scalar Gaussian sensor model,
+
+\[
+\widehat a
+=
+\frac{\boldsymbol\ell^\top\mathbf C^{-1}\mathbf y}
+{\boldsymbol\ell^\top\mathbf C^{-1}\boldsymbol\ell},
+\qquad
+\mathcal I
+=
+\boldsymbol\ell^\top\mathbf C^{-1}\boldsymbol\ell.
+\]
+
+If \(\mathbf y'=\mathbf H\mathbf y\), \(\boldsymbol\ell'=\mathbf H\boldsymbol\ell\), and \(\mathbf C'=\mathbf H\mathbf C\mathbf H^\top\) with invertible \(\mathbf H\), then
+
+\[
+\boxed{
+\widehat a'=\widehat a,
+\qquad
+\mathcal I'=\mathcal I.
+}
+\]
+
+The canonical construction preserves the estimate at approximately 0.762418 and information at approximately 0.615696 to floating-point precision.
+
+## V52. Lossy projection cannot increase information
+
+For a full-row-rank projection \(\mathbf P\),
+
+\[
+\mathcal I_P
+=
+\boldsymbol\ell^\top
+\mathbf P^\top
+(\mathbf P\mathbf C\mathbf P^\top)^{-1}
+\mathbf P
+\boldsymbol\ell
+\le
+\mathcal I.
+\]
+
+The canonical two-sensor projection retains about 0.824394 of the full information, while one mixed channel retains about 0.677317.
+
+## V53. Cross-hardware topography mismatch
+
+If the analysis uses nominal topography \(\boldsymbol\ell_0\) while the true topography is \(\boldsymbol\ell_* = \boldsymbol\ell_0+\boldsymbol\delta\), then the relative amplitude bias under weighting matrix \(\mathbf W\) is
+
+\[
+b
+=
+\frac{
+\boldsymbol\ell_0^\top\mathbf W\boldsymbol\delta
+}{
+\boldsymbol\ell_0^\top\mathbf W\boldsymbol\ell_0
+},
+\]
+
+with
+
+\[
+\boxed{
+|b|
+\le
+\frac{
+\|\boldsymbol\delta\|_{\mathbf W}
+}{
+\|\boldsymbol\ell_0\|_{\mathbf W}
+}.
+}
+\]
+
+At declared whitened mismatch 0.40, the canonical absolute relative bias is about 0.141771.
+
+## V54. Covariate-shift reweighting and overlap
+
+When \(Q\ll P\) and \(w=dQ/dP\),
+
+\[
+\boxed{
+E_Q[g]=E_P[w g].
+}
+\]
+
+The population effective-sample fraction is
+
+\[
+\boxed{
+\eta_{\mathrm{ESS}}
+=
+\frac{1}{E_P[w^2]}.
+}
+\]
+
+The canonical severe shift has maximum importance weight 3 and effective sample fraction about 0.471698, even though the transport identity remains exact.
+
+## V55. Sharp total-variation transport budget
+
+For \(m\le g\le M\),
+
+\[
+\boxed{
+|E_Qg-E_Pg|
+\le
+(M-m)\operatorname{TV}(P,Q).
+}
+\]
+
+The canonical discrete construction attains the bound exactly up to floating-point precision.
+
+![Transportability validation V51-V55](figures/v51_v55_transportability_validation.svg)
+
+Audit: [Transportability Across Sensor Systems, Hardware, and States](transportability-program.md), [V51 results](../results/v51_coordinate_invariance.csv), [V52 results](../results/v52_projection_information.csv), [V53 results](../results/v53_topography_mismatch.csv), [V54 results](../results/v54_importance_transport.csv), [V55 results](../results/v55_total_variation_transport.csv), and [summary JSON](../results/transportability_validation_summary.json).
+
+**Claim ceiling:** V51-V55 establish analytic transportability properties and deterministic diagnostics only. They do not establish empirical cross-device, cross-state, or cross-population validity for a consciousness marker.
+
+---
+
+
 # Reproducibility map
 
 | Layer | Reproduce | Code | Tests | Machine-readable record |
@@ -922,9 +1047,10 @@ Audit: [Cross-Site Replication Inference and Stability](electromagnetic-replicat
 | V36-V40 | `python scripts/run_electromagnetic_finite_sample_validation.py` | `electromagnetic_finite_sample.py`, `electromagnetic_finite_sample_simulations.py` | GLS, covariance-bias, discrimination, FWER, and sandwich-variance tests | V36-V40 CSV/JSON files in `results/` |
 | V41-V45 | `python scripts/run_electromagnetic_selection_validation.py` | `electromagnetic_selection.py`, `electromagnetic_selection_simulations.py` | Bonferroni, Holm, sign-flip, selection-coverage, and holdout-confirmation tests | V41-V45 CSV/JSON files in `results/` |
 | V46-V50 | `python scripts/run_electromagnetic_replication_validation.py` | `electromagnetic_replication.py`, `electromagnetic_replication_simulations.py` | common-effect, Q calibration, delete-one, partial-conjunction, and site-weight tests | V46-V50 CSV/JSON files in `results/` |
+| V51-V55 | `python scripts/run_transportability_validation.py` | `transportability.py`, `transportability_simulations.py` | coordinate-invariance, projection-information, topography-mismatch, importance-weight, and total-variation tests | V51-V55 CSV/JSON files in `results/` |
 | Whole repository | `make check` | all source modules | complete pytest suite | repository policy and CI record |
 
-Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, `20260919` for V11-V15 fixed-seed checks, and `20260918` for the V36 Monte Carlo calibration check, V45 holdout simulation, and V47 common-effect Q calibration. V16-V35, V37-V44, V46, and V48-V50 are deterministic or analytic.
+Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, `20260919` for V11-V15 fixed-seed checks, and `20260918` for the V36 Monte Carlo calibration check, V45 holdout simulation, and V47 common-effect Q calibration. V16-V35, V37-V44, V46, V48-V50, and V51-V55 are deterministic or analytic.
 
 # How to read the figures
 
