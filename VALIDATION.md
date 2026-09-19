@@ -1,4 +1,4 @@
-# Research III Formal Validation V1-V50
+# Research III Formal Validation V1-V55
 
 This is the compact entry point to the executable mathematical research layer of Research III.
 
@@ -8,7 +8,7 @@ These are **analytic and synthetic validation results**. They test the measureme
 
 ## Reader path
 
-1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V50 sequence.
+1. [Validation Atlas](docs/validation-atlas.md) for the complete visual V1-V55 sequence.
 2. [Formal Validation V1-V5](docs/formal-validation-program.md) for identification, coverage, transport, dependence, and structural testing.
 3. [Formal Validation V6-V10](docs/formal-validation-program-v6-v10.md) for finite calibration uncertainty, missingness, conditioning, heterogeneous sites, and abstention.
 4. [Formal Validation V11-V15](docs/formal-validation-program-v11-v15.md) for exact resolution laws, multisite identification, design sample size, and independent release gating.
@@ -340,3 +340,44 @@ Canonical seeds are `20260917` for V1-V5, `20260918` for V6-V10, and `20260919` 
 ## Scientific boundary
 
 Passing V1-V50 means that the mathematics and software behave as declared under the stated analytic assumptions and synthetic data-generating models. It does not establish empirical calibration for a human, animal, organoid, or artificial system; it does not identify qualia; and it does not settle the ontology of consciousness. Those remain separate empirical and theoretical burdens.
+
+
+---
+
+## V51-V55. Transportability across sensor systems, hardware, and states
+
+The next layer asks when a result can survive a change in sensor coordinates, hardware response, preprocessing dimension, state distribution, or population composition without silently changing the scientific target.
+
+- **V51** proves exact invariance of the scalar Gaussian GLS estimate and Fisher information under an invertible sensor-coordinate transformation when the observation, topography, and covariance are transformed consistently.
+- **V52** proves that a full-row-rank lossy linear projection cannot increase Fisher information for the declared scalar target. It preserves information only when the whitened target direction lies inside the retained subspace.
+- **V53** derives the exact amplitude gain under nominal-versus-true topography mismatch and a covariance-weighted Cauchy-Schwarz upper bound on absolute relative bias.
+- **V54** implements the exact covariate-shift identity \(E_Q[g]=E_P[w g]\) under target support containment, and quantifies overlap loss with the population effective-sample fraction \(1/E_P[w^2]\).
+- **V55** proves the sharp bounded-outcome transport budget
+  \[
+  |E_Q g-E_P g|
+  \le
+  (M-m)\operatorname{TV}(P,Q),
+  \]
+  and the canonical discrete construction attains the bound.
+
+The committed V51 construction preserves the GLS estimate at approximately \(0.7624178712\) and Fisher information at approximately \(0.6156957929\) to floating-point precision. In V52, dropping one sensor retains about \(82.44\%\) of the declared information and reducing the model to one mixed channel retains about \(67.73\%\). In V53, a declared whitened topography mismatch of \(0.40\) produces about \(14.18\%\) absolute relative amplitude bias while remaining below the analytic worst-case bound. In V54, a severe target shift raises the maximum importance weight to \(3\) and reduces the effective sample fraction to about \(0.4717\). V55 makes the corresponding worst-case expectation shift explicit through total variation.
+
+These are transportability laws and diagnostics. They do not establish empirical cross-device invariance, cross-state generalization, or cross-population validity for a consciousness marker. Those require held-out target-domain data.
+
+### Reproduce V51-V55
+
+```bash
+python scripts/run_transportability_validation.py
+```
+
+The runner writes:
+
+- `results/v51_coordinate_invariance.csv`
+- `results/v52_projection_information.csv`
+- `results/v53_topography_mismatch.csv`
+- `results/v54_importance_transport.csv`
+- `results/v55_total_variation_transport.csv`
+- `results/transportability_validation_summary.json`
+- `docs/figures/v51_v55_transportability_validation.svg`
+
+The complete derivation, proof boundaries, empirical protocol implications, and literature anchors are in [Transportability Across Sensor Systems, Hardware, and States](docs/transportability-program.md).
