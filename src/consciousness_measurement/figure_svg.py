@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from html import escape
+
 FONT = "Arial, Helvetica, sans-serif"
 
 
