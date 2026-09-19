@@ -142,6 +142,19 @@ from .profile import (
     InferenceState,
     Target,
 )
+from .transportability import (
+    bounded_expectation_shift_bound,
+    gls_scalar_amplitude_estimate,
+    importance_weighted_expectation,
+    importance_weights,
+    mismatched_topography_gain,
+    mismatched_topography_relative_bias_bound,
+    population_effective_sample_fraction,
+    projected_scalar_information,
+    scalar_amplitude_information,
+    total_variation_distance,
+    transformed_sensor_model,
+)
 from .structural_alignment import (
     distance_matrix,
     matrix_alignment,
@@ -273,5 +286,16 @@ __all__ = [
     "weighted_amplitude_variance",
     "weighted_residual_energy",
     "worst_case_whitened_perturbation",
+    "bounded_expectation_shift_bound",
+    "gls_scalar_amplitude_estimate",
+    "importance_weighted_expectation",
+    "importance_weights",
+    "mismatched_topography_gain",
+    "mismatched_topography_relative_bias_bound",
+    "population_effective_sample_fraction",
+    "projected_scalar_information",
+    "scalar_amplitude_information",
+    "total_variation_distance",
+    "transformed_sensor_model",
     "youden_index",
 ]
