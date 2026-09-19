@@ -68,6 +68,10 @@ def _render_svg(
   <rect width="1600" height="1000" fill="#ffffff"/>
   <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V41-V45: multiplicity and selection-safe electromagnetic inference</text>
   <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Arbitrary-dependence FWER control, Holm step-down testing, exact sign-flip inference, post-selection coverage, and independent confirmation.</text>
+  <rect x="1085" y="28" width="430" height="88" rx="14" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1.2"/>
+  <text x="1110" y="50" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>
+  <text x="1110" y="72" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Can statistical significance survive multiplicity,</text>
+  <text x="1110" y="92" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">selection, and an independent confirmation requirement?</text>
 
   <rect x="85" y="155" width="455" height="245" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V42 Holm step-down gain</text>
@@ -93,6 +97,12 @@ def _render_svg(
   <text x="1090" y="305" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Independent holdout false positive</text>
   <text x="1470" y="305" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#6a3f57">{_fmt(float(v45["empirical_holdout_false_positive"]))}</text>
   <text x="1090" y="360" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Selection and confirmation use independent Gaussian samples.</text>
+  <rect x="500" y="171" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
+  <text x="513" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#173b63">A</text>
+  <rect x="985" y="171" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
+  <text x="998" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3b5b32">B</text>
+  <rect x="1475" y="171" width="26" height="22" rx="11" fill="#f8f0f4" stroke="#e1cfd8"/>
+  <text x="1488" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6a3f57">C</text>
 
   <rect x="85" y="440" width="680" height="455" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
   <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V41 arbitrary-dependence Bonferroni threshold</text>
@@ -105,12 +115,21 @@ def _render_svg(
   <circle cx="400" cy="650.43" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
   <circle cx="520" cy="594.14" r="5" fill="#ffffff" stroke="#294f64" stroke-width="3"/>
   <text x="340" y="855" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">comparisons: 1, 10, 100, 1000</text>
-  <text x="120" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Target FWER = 0.05 for every union-bound threshold.</text>
+  <rect x="110" y="854" width="625" height="31" rx="8" fill="#eef4f7" stroke="#d7e3e9"/>
+  <text x="120" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#365064">Target FWER = 0.05 for every union-bound threshold.</text>
 
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V44 naive post-selection coverage collapse</text>
   <text x="830" y="518" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">Select the largest absolute null statistic, then reuse its ordinary</text>
   <text x="830" y="540" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">marginal interval.</text>
+  <rect x="725" y="456" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
+  <text x="738" y="471" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#294f64">D</text>
+  <text x="160" y="568" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#526276">required z threshold</text>
+  <text x="735" y="568" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#294f64">t(alpha,K) = Phi^-1(1 - alpha/(2K))</text>
+  <rect x="1475" y="456" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
+  <text x="1488" y="471" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#43634a">E</text>
+  <text x="875" y="568" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#526276">log10 selected coverage</text>
+  <text x="1485" y="568" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#43634a">C_selected = c^K</text>
   <line x1="875" y1="815" x2="1235" y2="815" stroke="#8795a5" stroke-width="2"/>
   <line x1="875" y1="580" x2="875" y2="815" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(coverage_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -119,7 +138,8 @@ def _render_svg(
   <text x="1280" y="650" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">K = 10: coverage = 0.598737</text>
   <text x="1280" y="690" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">K = 100: coverage = 0.005921</text>
   <text x="1280" y="730" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">K = 1000: coverage approx 5.29e-23</text>
-  <text x="830" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">The exact law is marginal_coverage^K under independent null coordinates.</text>
+  <rect x="820" y="854" width="665" height="31" rx="8" fill="#f0f5ef" stroke="#d7e3d5"/>
+  <text x="830" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#3f5d45">The exact law is marginal_coverage^K under independent null coordinates.</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and fixed-seed synthetic inference. No human empirical data and no direct measurement of consciousness or qualia.</text>
 </svg>
