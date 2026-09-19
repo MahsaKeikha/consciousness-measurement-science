@@ -1,0 +1,95 @@
+name: Build Paper 6 EJS submission
+
+on:
+  push:
+    branches:
+      - paper6-ejs-submission
+    paths:
+      - "submission/ejs-paper6/**"
+      - ".github/workflows/build-paper6-ejs.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out research repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install LaTeX and SVG conversion tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-science \
+            librsvg2-bin
+
+      - name: Assemble EJS manuscript source
+        run: |
+          mkdir -p submission/ejs-paper6/build
+          cat submission/ejs-paper6/parts/*.texpart > submission/ejs-paper6/build/Paper6_EJS_Manuscript.tex
+
+      - name: Obtain official EJS LaTeX support files
+        run: |
+          git clone --depth 1 https://github.com/vtex-soft/texsupport.ims_cosponsored-ejs.git /tmp/ejs-template
+          cp /tmp/ejs-template/imsart.cls submission/ejs-paper6/build/
+          cp /tmp/ejs-template/imsart.sty submission/ejs-paper6/build/
+          if [ -f /tmp/ejs-template/imsart-number.bst ]; then
+            cp /tmp/ejs-template/imsart-number.bst submission/ejs-paper6/build/
+          fi
+
+      - name: Recreate manuscript figures from pinned research snapshot
+        env:
+          SNAPSHOT: 7a2a1a3a60263e48b7a268642eecc6941e84d1b4
+        run: |
+          cd submission/ejs-paper6/build
+          git -C ../../.. show "$SNAPSHOT:docs/figures/calibration_sample_uncertainty.svg" > fig1_calibration.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/missingness_identification_loss.svg" > fig2a_missingness.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/v11_missingness_information_law.svg" > fig2b_information_law.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/inverse_conditioning_youden.svg" > fig3a_conditioning.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/v14_resolution_sample_size.svg" > fig3b_sample_size.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/two_site_partial_identification.svg" > fig4a_two_site.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/v12_v13_multisite_heterogeneity.svg" > fig4b_multisite.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/resolution_abstention_frontier.svg" > fig5a_abstention.svg
+          git -C ../../.. show "$SNAPSHOT:docs/figures/v15_independent_pilot_gate.svg" > fig5b_pilot_gate.svg
+          for f in *.svg; do
+            out="$(basename "$f" .svg).pdf"
+            rsvg-convert -f pdf -o "$out" "$f"
+          done
+
+      - name: Compile with official EJS class
+        run: |
+          cd submission/ejs-paper6/build
+          pdflatex -interaction=nonstopmode -halt-on-error Paper6_EJS_Manuscript.tex
+          pdflatex -interaction=nonstopmode -halt-on-error Paper6_EJS_Manuscript.tex
+
+      - name: Verify submission build
+        run: |
+          test -s submission/ejs-paper6/build/Paper6_EJS_Manuscript.pdf
+          grep -q "Output written on Paper6_EJS_Manuscript.pdf" submission/ejs-paper6/build/Paper6_EJS_Manuscript.log
+          if grep -E "LaTeX Error|Emergency stop|Fatal error" submission/ejs-paper6/build/Paper6_EJS_Manuscript.log; then
+            exit 1
+          fi
+
+      - name: Create clean artifact
+        run: |
+          mkdir -p submission/ejs-paper6/dist
+          cp submission/ejs-paper6/build/Paper6_EJS_Manuscript.pdf submission/ejs-paper6/dist/
+          cp submission/ejs-paper6/build/Paper6_EJS_Manuscript.tex submission/ejs-paper6/dist/
+          cp submission/ejs-paper6/build/imsart.cls submission/ejs-paper6/dist/
+          cp submission/ejs-paper6/build/imsart.sty submission/ejs-paper6/dist/
+          cp submission/ejs-paper6/build/fig*.pdf submission/ejs-paper6/dist/
+          cp submission/ejs-paper6/build/Paper6_EJS_Manuscript.log submission/ejs-paper6/dist/
+          cd submission/ejs-paper6/dist
+          zip -9 Paper6_EJS_LaTeX_Package.zip Paper6_EJS_Manuscript.tex imsart.cls imsart.sty fig*.pdf
+
+      - name: Upload EJS submission artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper6-ejs-submission
+          path: submission/ejs-paper6/dist/
+          if-no-files-found: error
