@@ -37,9 +37,9 @@
   <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V38 Gaussian source discrimination</text>
   <text x="120" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Equal-prior Bayes error falls exactly with Mahalanobis separation.</text>
   <text x="120" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">d squared = 0</text>
-  <text x="390" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">error = 0.5</text>
+  <text x="430" y="610" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#294f64">error = 0.5</text>
   <text x="120" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">d squared = 9</text>
-  <text x="390" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">error = 0.066807201</text>
+  <text x="430" y="655" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#294f64">error = 0.066807201</text>
   <line x1="465" y1="805" x2="705" y2="805" stroke="#8795a5" stroke-width="2"/>
   <line x1="465" y1="570" x2="465" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="465.00,570.00 471.67,616.39 491.67,659.99 571.67,730.43 705.00,773.60" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -54,9 +54,9 @@
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V39 exact independent-search FWER control</text>
   <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">The two-sided z threshold rises as the number of searched locations rises.</text>
   <text x="830" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">1 comparison</text>
-  <text x="1105" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">1.959963985</text>
+  <text x="1160" y="610" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#43634a">1.959963985</text>
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">1000 comparisons</text>
-  <text x="1105" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">4.04966055</text>
+  <text x="1160" y="655" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#43634a">4.04966055</text>
   <line x1="1205" y1="805" x2="1490" y2="805" stroke="#8795a5" stroke-width="2"/>
   <line x1="1205" y1="570" x2="1205" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="1205.00,798.59 1300.00,708.90 1395.00,636.87 1490.00,575.38" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
