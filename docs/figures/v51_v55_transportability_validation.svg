@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#ffffff"/>
+  <text x="85" y="70" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V51-V55: transportability across sensor systems and states</text>
+  <text x="85" y="110" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Coordinate invariance, lossy projection, topography mismatch, covariate-shift reweighting, and sharp transport budgets.</text>
+
+  <rect x="85" y="150" width="690" height="270" rx="18" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
+  <text x="120" y="198" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V51 invertible sensor-coordinate invariance</text>
+  <text x="120" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">GLS amplitude estimate before transform</text>
+  <text x="735" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#173b63">0.762418</text>
+  <text x="120" y="300" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">GLS amplitude estimate after transform</text>
+  <text x="735" y="300" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#173b63">0.762418</text>
+  <text x="120" y="350" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Fisher information difference</text>
+  <text x="735" y="350" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#173b63">3.331e-16</text>
+  <text x="120" y="392" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">An invertible change of sensor coordinates preserves the full Gaussian likelihood information when the complete model is transformed consistently.</text>
+
+  <rect x="805" y="150" width="710" height="270" rx="18" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
+  <text x="840" y="198" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#3b5b32">V54-V55 transport under distribution shift</text>
+  <text x="840" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Maximum importance weight at alpha = 0.40</text>
+  <text x="1475" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#3b5b32">3</text>
+  <text x="840" y="300" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Effective sample fraction</text>
+  <text x="1475" y="300" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#3b5b32">0.471698</text>
+  <text x="840" y="350" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Total-variation transport budget</text>
+  <text x="1475" y="350" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#3b5b32">0.4</text>
+  <text x="840" y="392" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Exact reweighting can recover a target expectation under covariate shift, but concentrated weights reduce effective information and expose unstable transport.</text>
+
+  <rect x="85" y="455" width="690" height="440" rx="18" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
+  <text x="120" y="503" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V52 information retained after linear sensor projection</text>
+  <text x="120" y="538" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Information fraction relative to the full three-sensor Gaussian model.</text>
+  <line x1="155" y1="720" x2="650" y2="720" stroke="#8795a5" stroke-width="2"/>
+  <rect x="185" y="570.00" width="92" height="150.00" rx="8" fill="#dce7ef" stroke="#315c7d" stroke-width="2"/><text x="231" y="558.00" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#173b63">1.000</text><rect x="345" y="596.34" width="92" height="123.66" rx="8" fill="#dce7ef" stroke="#315c7d" stroke-width="2"/><text x="391" y="584.34" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#173b63">0.824</text><rect x="505" y="618.40" width="92" height="101.60" rx="8" fill="#dce7ef" stroke="#315c7d" stroke-width="2"/><text x="551" y="606.40" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#173b63">0.677</text>
+  <text x="231" y="755" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#46586c">all</text>
+  <text x="391" y="755" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#46586c">drop S3</text>
+  <text x="551" y="755" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#46586c">one mixture</text>
+  <text x="120" y="835" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">Full information: 0.615696</text>
+  <text x="120" y="870" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A rank-reducing acquisition or preprocessing map cannot increase Fisher information for the declared scalar target.</text>
+
+  <rect x="805" y="455" width="710" height="440" rx="18" fill="#faf6f8" stroke="#d8c8d0" stroke-width="2"/>
+  <text x="840" y="503" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#6a3f57">V53 cross-hardware topography mismatch</text>
+  <text x="840" y="538" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Absolute amplitude bias and the covariance-weighted Cauchy-Schwarz bound.</text>
+  <line x1="875" y1="765" x2="1355" y2="765" stroke="#8795a5" stroke-width="2"/>
+  <polyline points="905.0,765.00 1010.0,760.04 1115.0,755.08 1220.0,745.15 1325.0,725.30" fill="none" stroke="#6a3f57" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="905.0,765.00 1010.0,747.16 1115.0,729.32 1220.0,693.63 1325.0,622.26" fill="none" stroke="#aa879a" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1375" y="615" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a3f57">bound</text>
+  <text x="1375" y="730" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6a3f57">bias</text>
+  <text x="840" y="815" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">At whitened mismatch 0.40: bias = 0.141771, bound = 0.509773</text>
+  <text x="840" y="850" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A hardware or forward-model change can bias an amplitude estimate even when the analysis equation is unchanged.</text>
+
+  <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Analytic and deterministic transportability validation only. No human dataset, no empirical cross-device replication, and no direct measurement of consciousness or qualia.</text>
+</svg>
