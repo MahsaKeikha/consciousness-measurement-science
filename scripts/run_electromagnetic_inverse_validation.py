@@ -187,7 +187,7 @@ def _svg(
         [
             svg_text(
                 (ax_left + ax_right) / 2,
-                ax_bottom + 52,
+                ax_bottom + 44,
                 "regularization",
                 size=12,
                 weight=600,
@@ -196,7 +196,7 @@ def _svg(
             ),
             svg_text(
                 x0 + 26,
-                plot_y + 397,
+                plot_y + 414,
                 "Result: stronger regularization trades fit for stronger prior influence.",
                 size=12,
                 weight=600,
@@ -303,25 +303,25 @@ def _svg(
         [
             svg_text(
                 (ax_left + ax_right) / 2,
-                ax_bottom + 52,
+                ax_bottom + 44,
                 "perturbation operator norm",
                 size=12,
                 weight=600,
                 fill="#4f5e72",
                 anchor="middle",
             ),
-            svg_line(x0 + 326, plot_y + 390, x0 + 350, plot_y + 390, stroke="#456848", width=4),
-            svg_text(x0 + 360, plot_y + 395, "sensor mismatch", size=11, weight=600, fill="#4f5e72"),
+            svg_line(x0 + 326, plot_y + 414, x0 + 350, plot_y + 414, stroke="#456848", width=4),
+            svg_text(x0 + 360, plot_y + 419, "sensor mismatch", size=11, weight=600, fill="#4f5e72"),
             svg_line(
                 x0 + 465,
-                plot_y + 390,
+                plot_y + 414,
                 x0 + 489,
-                plot_y + 390,
+                plot_y + 414,
                 stroke="#9aa7b5",
                 width=3,
                 dash="7 5",
             ),
-            svg_text(x0 + 499, plot_y + 395, "upper bound", size=11, weight=600, fill="#4f5e72"),
+            svg_text(x0 + 499, plot_y + 419, "upper bound", size=11, weight=600, fill="#4f5e72"),
             svg_line(60, 840, 1340, 840, stroke="#d6dde7"),
             svg_text(
                 60,
