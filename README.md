@@ -19,7 +19,7 @@ For the fastest technical orientation, use these three entry points first:
 1. [Visual Research Guide](docs/visual-research-guide.md) for the complete nine-figure scientific record.
 2. [Evidence-to-Claim Audit](docs/evidence-to-claim-audit.md) for the exact path from observable evidence to an allowed scientific claim.
 3. [Figure Catalog](docs/figure-catalog.md) for the canonical figure inventory and primary audit source for every visual.
-4. [Formal Validation V1-V50](VALIDATION.md) for the executable analytic and synthetic validation record, including the electromagnetic measurement, inverse, resolution, design, finite-sample, selection-safe, and cross-site replication-inference layers V16-V50.
+4. [Formal Validation V1-V55](VALIDATION.md) for the executable analytic and synthetic validation record, including the electromagnetic measurement, inverse, resolution, design, finite-sample, selection-safe, and cross-site replication-inference and transportability layers V16-V55.
 
 Then continue with [Start Here](docs/start-here.md), [Research Questions](RESEARCH_QUESTIONS.md), [Formal Measurement Framework](docs/measurement-framework.md), and the full [Documentation Map](docs/README.md).
 
@@ -199,7 +199,7 @@ The program therefore emphasizes triangulation, causal intervention, cross-conte
 
 ## Electromagnetic measurement arm
 
-Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) for V16-V20, an [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md) for V21-V25, an [Electromagnetic Resolution and Information Program](docs/electromagnetic-resolution-program.md) for V26-V30, an [Electromagnetic Design and Spatial Specificity Program](docs/electromagnetic-design-spatial-specificity.md) for V31-V35, a [Finite-Sample Electromagnetic Inference Program](docs/electromagnetic-finite-sample-inference.md) for V36-V40, a [Multiplicity and Selection-Safe Electromagnetic Inference Program](docs/electromagnetic-selection-safe-inference.md) for V41-V45, and a [Cross-Site Replication Inference and Stability Program](docs/electromagnetic-replication-inference.md) for V46-V50.
+Research III now includes a dedicated [Electromagnetic Field Measurement Program](docs/electromagnetic-field-program.md) for V16-V20, an [Electromagnetic Source Identifiability Program](docs/electromagnetic-source-identifiability.md) for V21-V25, an [Electromagnetic Resolution and Information Program](docs/electromagnetic-resolution-program.md) for V26-V30, an [Electromagnetic Design and Spatial Specificity Program](docs/electromagnetic-design-spatial-specificity.md) for V31-V35, a [Finite-Sample Electromagnetic Inference Program](docs/electromagnetic-finite-sample-inference.md) for V36-V40, a [Multiplicity and Selection-Safe Electromagnetic Inference Program](docs/electromagnetic-selection-safe-inference.md) for V41-V45, a [Cross-Site Replication Inference and Stability Program](docs/electromagnetic-replication-inference.md) for V46-V50, and a [Transportability Across Sensor Systems, Hardware, and States Program](docs/transportability-program.md) for V51-V55.
 
 The measurement model is
 
@@ -224,6 +224,8 @@ V26-V30 quantify covariance-aware residual geometry, inverse resolution leakage,
 V41-V45 then make search multiplicity and data reuse explicit: Bonferroni control remains valid under arbitrary dependence, Holm can gain rejections without weakening strong FWER control, exact sign-flip orbits support finite randomization inference under symmetry, naive same-data selection can destroy nominal coverage, and independent holdout confirmation restores selected-coordinate Type I error under the declared null. These are inference-validity results, not consciousness measurements.
 
 V46-V50 add cross-site replication inference without pretending that synthetic sites are external validation. The layer formalizes inverse-variance pooling, the known-variance Cochran Q law, an exact leave-one-site-out influence identity, Bonferroni partial-conjunction replicability, and the effective site count induced by concentrated inverse-variance weights. These are replication-design and evidence-stability results, not evidence that a consciousness marker has replicated in real cohorts.
+
+V51-V55 add an explicit transportability layer. They prove invariance under fully modeled invertible sensor-coordinate changes, show that rank-reducing projections cannot increase target Fisher information, quantify bias from cross-hardware topography mismatch, expose overlap loss under covariate-shift reweighting through effective sample fraction, and give a sharp total-variation transport budget for bounded outputs. These are analytic transportability laws, not empirical evidence of cross-device or cross-state generalization.
 
 The strongest current conclusions are measurement-science conclusions:
 
@@ -257,6 +259,11 @@ The strongest current conclusions are measurement-science conclusions:
 - V48 verifies the exact leave-one-site-out pooled-estimate shift identity for every declared site.
 - V49 converts ordered site-level p-values into Bonferroni partial-conjunction replicability p-values.
 - V50 shows how one dominant site can reduce four nominal sites to an effective count of about 1.394 and make delete-one variance inflate by about 6.33.
+- V51 proves exact sensor-coordinate invariance of the Gaussian GLS amplitude estimate and Fisher information under a consistently transformed invertible measurement system.
+- V52 proves that lossy linear projection cannot increase Fisher information for the declared scalar target.
+- V53 converts cross-hardware or forward-topography mismatch into an exact amplitude-bias law with a covariance-weighted Cauchy-Schwarz bound.
+- V54 shows exact expectation transport under the declared covariate-shift assumptions while making weight concentration and effective sample loss explicit.
+- V55 gives a sharp total-variation transport budget for bounded measurement outputs and the canonical construction attains that budget.
 
 ![Electromagnetic validation V16-V20](docs/figures/v16_v20_electromagnetic_validation.svg)
 
@@ -271,6 +278,8 @@ The strongest current conclusions are measurement-science conclusions:
 ![Multiplicity and selection-safe electromagnetic inference V41-V45](docs/figures/v41_v45_electromagnetic_selection_validation.svg)
 
 ![Cross-site replication inference and stability V46-V50](docs/figures/v46_v50_electromagnetic_replication_validation.svg)
+
+![Transportability validation V51-V55](docs/figures/v51_v55_transportability_validation.svg)
 
 These results justify treating electromagnetic dynamics as a rich candidate evidence channel while keeping sensor measurements, reconstructed sources, and experiential targets scientifically distinct. They do **not** establish an electromagnetic consciousness detector, a universal threshold, or identity between an electromagnetic field and experience.
 
@@ -499,3 +508,6 @@ The goal is not to manufacture certainty where science does not yet have it.
 The goal is to make consciousness measurement progressively harder to fool: harder to fool with behavior, harder to fool with one biomarker, harder to fool with theory-confirming analysis, harder to fool with hidden assumptions, harder to fool with data leakage, and harder to fool with elegant mathematics that lacks discriminating empirical predictions.
 
 If a broadly valid consciousness measure is possible, this program aims to define the evidence required to earn that claim. If it is not possible under available observations and assumptions, the program should make that limitation scientifically visible.
+
+
+Transportability audit: [V51-V55 Transportability Across Sensor Systems, Hardware, and States](docs/transportability-program.md).
