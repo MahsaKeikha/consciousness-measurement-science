@@ -1,57 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#ffffff"/>
-  <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V21-V25: electromagnetic forward and inverse limits</text>
-  <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Reference invariance, source non-identifiability, regularization dependence, multimodal complementarity, and forward-model error.</text>
-
-  <rect x="85" y="155" width="460" height="250" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
-  <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V21 reference invariance</text>
-  <text x="120" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max pairwise-difference error</text>
-  <text x="500" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">1.376677e-14</text>
-  <text x="120" y="304" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Common rereferencing changes absolute voltages</text>
-  <text x="120" y="332" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">but preserves pairwise sensor differences.</text>
-  <text x="120" y="372" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">This does not make source localization reference-free.</text>
-
-  <rect x="570" y="155" width="460" height="250" rx="20" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
-  <text x="605" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#3b5b32">V22 source non-identifiability</text>
-  <text x="605" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Lead-field rank / nullity</text>
-  <text x="985" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">3 / 3</text>
-  <text x="605" y="296" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Sensor residual</text>
-  <text x="985" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">0</text>
-  <text x="605" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Source separation</text>
-  <text x="985" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">1</text>
-  <text x="605" y="377" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Distinct sources can produce the same ideal sensor data.</text>
-
-  <rect x="1055" y="155" width="460" height="250" rx="20" fill="#faf6f8" stroke="#d8c8d0" stroke-width="2"/>
-  <text x="1090" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#6a3f57">V24 multimodal complementarity</text>
-  <text x="1090" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">EEG nullity</text>
-  <text x="1470" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">3</text>
-  <text x="1090" y="298" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">MEG nullity</text>
-  <text x="1470" y="298" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">3</text>
-  <text x="1090" y="344" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Combined nullity</text>
-  <text x="1470" y="344" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">1</text>
-  <text x="1090" y="377" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Complementary modalities can reduce ambiguity without guaranteeing uniqueness.</text>
-
-  <rect x="85" y="440" width="930" height="450" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
-  <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V23 regularization sensitivity</text>
-  <text x="120" y="523" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Measurement residual rises as the L2 prior is strengthened.</text>
-  <line x1="220" y1="780" x2="740" y2="780" stroke="#8795a5" stroke-width="2"/>
-  <line x1="220" y1="550" x2="220" y2="780" stroke="#8795a5" stroke-width="2"/>
-  <polyline points="220,779.99 350,779.38 480,759.32 610,708.69 740,550.00" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="480" y="825" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">increasing regularization</text>
-  <text x="150" y="665" transform="rotate(-90 150 665)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">sensor residual</text>
-  <text x="780" y="610" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">Weak lambda preserves fit</text>
-  <text x="780" y="648" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">Strong lambda shrinks source norm</text>
-  <text x="780" y="700" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">The reconstructed source depends on the inverse prior.</text>
-
-  <rect x="1040" y="440" width="475" height="450" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
-  <text x="1075" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V25 forward-model perturbation</text>
-  <text x="1075" y="543" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max mismatch / bound ratio</text>
-  <text x="1470" y="543" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">0.479255689</text>
-  <text x="1075" y="600" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">For every tested perturbation:</text>
-  <text x="1075" y="645" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#43634a">||delta L j|| &lt;= ||delta L|| ||j||</text>
-  <text x="1075" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Geometry or conductivity error therefore enters</text>
-  <text x="1075" y="731" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">the sensor prediction through a bounded operator perturbation.</text>
-  <text x="1075" y="795" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">A small residual does not prove the forward model is uniquely correct.</text>
-
-  <text x="85" y="950" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Deterministic synthetic measurement validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect x="0" y="0" width="1400" height="900" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+<text x="60" y="56" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3156a3">Research III V21-V25</text>
+<text x="60" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#172236">Electromagnetic forward and inverse limits</text>
+<text x="60" y="120" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Reference invariance, source ambiguity, regularization sensitivity, multimodal complementarity, and forward-model error.</text>
+<line x1="60" y1="145" x2="1340" y2="145" stroke="#d6dde7" stroke-width="1.2"/>
+<rect x="60" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="82" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315b78">V21</text>
+<text x="82" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Reference invariance</text>
+<text x="82" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#315b78">1.38e-14</text>
+<text x="82" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">max pairwise-difference error</text>
+<rect x="500" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="522" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#51683f">V22</text>
+<text x="522" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Source non-identifiability</text>
+<text x="522" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#51683f">rank 3 / nullity 3</text>
+<text x="522" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">zero sensor residual; source separation 1</text>
+<rect x="940" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="962" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#7a425c">V24</text>
+<text x="962" y="230" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#182437">Multimodal complementarity</text>
+<text x="962" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#7a425c">nullity 3 + 3 to 1</text>
+<text x="962" y="304" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#637083">ambiguity reduced, not eliminated</text>
+<rect x="60" y="365" width="610" height="430" rx="12" fill="#fbfcfe" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="86" y="401" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#244c64">V23  Regularization sensitivity</text>
+<text x="86" y="426" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">Sensor residual rises as the inverse prior is strengthened</text>
+<line x1="138" y1="700" x2="642" y2="700" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="705" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text>
+<line x1="138" y1="656.5454545454545" x2="642" y2="656.5454545454545" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="661.5454545454545" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.1</text>
+<line x1="138" y1="613.0909090909091" x2="642" y2="613.0909090909091" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="618.0909090909091" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.2</text>
+<line x1="138" y1="569.6363636363636" x2="642" y2="569.6363636363636" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="574.6363636363636" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.3</text>
+<line x1="138" y1="526.1818181818182" x2="642" y2="526.1818181818182" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="531.1818181818182" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.4</text>
+<line x1="138" y1="482.72727272727275" x2="642" y2="482.72727272727275" stroke="#e3e8ef" stroke-width="1"/>
+<text x="126" y="487.72727272727275" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.5</text>
+<line x1="138" y1="461" x2="138" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<line x1="138" y1="700" x2="642" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<polyline points="138.0,700.0 264.0,699.4 390.0,679.6 516.0,629.8 642.0,473.4" fill="none" stroke="#1f6078" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="138" cy="699.9937674343136" r="5.5" fill="#1f6078"/>
+<circle cx="264" cy="699.391033856817" r="5.5" fill="#1f6078"/>
+<circle cx="390" cy="679.6272359214747" r="5.5" fill="#1f6078"/>
+<circle cx="516" cy="629.7502221411787" r="5.5" fill="#1f6078"/>
+<circle cx="642" cy="473.4092394334675" r="5.5" fill="#1f6078"/>
+<text x="138" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1e-6</text>
+<text x="264" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1e-4</text>
+<text x="390" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1e-2</text>
+<text x="516" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.1</text>
+<text x="642" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1</text>
+<text x="390" y="752" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">regularization</text>
+<text x="86" y="762" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">Result: stronger regularization trades fit for stronger prior influence.</text>
+<rect x="730" y="365" width="610" height="430" rx="12" fill="#fbfcfe" stroke="#d6dde7" stroke-width="1.2"/>
+<text x="756" y="401" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#415f46">V25  Forward-model perturbation</text>
+<text x="756" y="426" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#687588">Observed mismatch remains below the declared perturbation bound</text>
+<line x1="808" y1="700" x2="1312" y2="700" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="705" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.00</text>
+<line x1="808" y1="640.25" x2="1312" y2="640.25" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="645.25" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.04</text>
+<line x1="808" y1="580.5" x2="1312" y2="580.5" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="585.5" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.08</text>
+<line x1="808" y1="520.75" x2="1312" y2="520.75" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="525.75" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.12</text>
+<line x1="808" y1="461" x2="1312" y2="461" stroke="#e3e8ef" stroke-width="1"/>
+<text x="796" y="466" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.16</text>
+<line x1="808" y1="461" x2="808" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<line x1="808" y1="700" x2="1312" y2="700" stroke="#8f9cad" stroke-width="1.4"/>
+<polyline points="808.0,700.0 934.0,697.8 1060.0,677.9 1186.0,589.7 1312.0,479.5" fill="none" stroke="#9aa7b5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<polyline points="808.0,700.0 934.0,698.9 1060.0,689.4 1186.0,647.2 1312.0,594.3" fill="none" stroke="#456848" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="808" cy="700" r="5.2" fill="#456848"/>
+<circle cx="934" cy="698.9430037608761" r="5.2" fill="#456848"/>
+<circle cx="1060" cy="689.4300376087615" r="5.2" fill="#456848"/>
+<circle cx="1186" cy="647.1501880438066" r="5.2" fill="#456848"/>
+<circle cx="1312" cy="594.3003760876136" r="5.2" fill="#456848"/>
+<text x="808" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0</text>
+<text x="934" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.001</text>
+<text x="1060" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.01</text>
+<text x="1186" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.05</text>
+<text x="1312" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.1</text>
+<text x="1060" y="752" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">perturbation operator norm</text>
+<line x1="1056" y1="755" x2="1080" y2="755" stroke="#456848" stroke-width="4"/>
+<text x="1090" y="760" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#4f5e72">sensor mismatch</text>
+<line x1="1195" y1="755" x2="1219" y2="755" stroke="#9aa7b5" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="1229" y="760" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#4f5e72">upper bound</text>
+<line x1="60" y1="840" x2="1340" y2="840" stroke="#d6dde7" stroke-width="1"/>
+<text x="60" y="868" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">Deterministic synthetic validation. Forward/inverse checks do not uniquely identify neural sources or consciousness.</text>
 </svg>
