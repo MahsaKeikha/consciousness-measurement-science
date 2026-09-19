@@ -51,7 +51,8 @@
 
   <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V35 robust information under model uncertainty</text>
-  <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Worst-case information falls as the allowed whitened forward-model error grows.</text>
+  <text x="830" y="518" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">Worst-case Fisher information falls as the allowed whitened</text>
+  <text x="830" y="540" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b6c7c">topography error grows.</text>
   <text x="830" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Nominal information</text>
   <text x="1105" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">1.29</text>
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Radius 1.2 lower bound</text>
