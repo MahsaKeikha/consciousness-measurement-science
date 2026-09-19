@@ -50,12 +50,14 @@ def test_finite_sample_annotations_do_not_cross_plot_axes() -> None:
         encoding="utf-8"
     )
 
-    assert 'x="430" y="610" text-anchor="end"' in text
-    assert 'x="430" y="655" text-anchor="end"' in text
-    assert 'x="1160" y="610" text-anchor="end"' in text
-    assert 'x="1160" y="655" text-anchor="end"' in text
-    assert 'x="390" y="610"' not in text
-    assert 'x="1105" y="610"' not in text
+    assert 'x="395" y="610" text-anchor="end"' in text
+    assert 'x="395" y="655" text-anchor="end"' in text
+    assert 'x="1125" y="610" text-anchor="end"' in text
+    assert 'x="1125" y="655" text-anchor="end"' in text
+    assert 'x1="480" y1="570" x2="480"' in text
+    assert 'x1="1220" y1="570" x2="1220"' in text
+    assert 'x="430" y="610"' not in text
+    assert 'x="1160" y="610"' not in text
 
 
 def test_transportability_panel_copy_is_wrapped_inside_cards() -> None:
@@ -109,3 +111,23 @@ def test_late_stage_panel_copy_is_wrapped_inside_cards() -> None:
     assert (
         "Bonferroni partial-conjunction p-values for requiring at least r nonnull sites."
     ) not in replication
+
+
+def test_inverse_and_resolution_footer_copy_stays_below_axis_labels() -> None:
+    inverse = (FIGURES / "v21_v25_electromagnetic_inverse_validation.svg").read_text(
+        encoding="utf-8"
+    )
+    resolution = (FIGURES / "v26_v30_electromagnetic_resolution_validation.svg").read_text(
+        encoding="utf-8"
+    )
+
+    assert 'y="744"' in inverse
+    assert 'x="86" y="779"' in inverse
+    assert 'y1="779"' in inverse
+    assert 'y="784"' in inverse
+    assert 'y="752"' not in inverse
+
+    assert 'y="744"' in resolution
+    assert 'x="86" y="779"' in resolution
+    assert 'x="756" y="779"' in resolution
+    assert 'y="752"' not in resolution
