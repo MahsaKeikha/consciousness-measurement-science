@@ -11,6 +11,14 @@ from consciousness_measurement.electromagnetic_resolution_simulations import (
     v29_temporal_aliasing,
     v30_inverse_noise_amplification,
 )
+from consciousness_measurement.figure_svg import (
+    circle as svg_circle,
+    line as svg_line,
+    metric_card,
+    polyline as svg_polyline,
+    rect as svg_rect,
+    text as svg_text,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
@@ -41,86 +49,304 @@ def _svg(
     v29: dict[str, float],
     v30: list[dict[str, float]],
 ) -> str:
-    x27 = [220 + 120 * i for i in range(len(v27))]
-    y27 = [
-        730 - 300 * row["identity_error"]
-        for row in v27
+    width, height = 1400, 900
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        svg_rect(0, 0, width, height, fill="#ffffff", stroke="none", stroke_width=0),
+        svg_text(60, 56, "Research III V26-V30", size=13, weight=700, fill="#3156a3"),
+        svg_text(
+            60,
+            92,
+            "Electromagnetic resolution and information limits",
+            size=31,
+            weight=700,
+            fill="#172236",
+        ),
+        svg_text(
+            60,
+            120,
+            "Noise geometry, inverse leakage, information loss, aliasing, and unstable inverse directions.",
+            size=15,
+            fill="#657286",
+        ),
+        svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
+        metric_card(
+            60,
+            172,
+            400,
+            150,
+            kicker="V26",
+            title="Whitening identity",
+            value=f'{v26["absolute_identity_error"]:.2e}',
+            note="weighted energy equals whitened energy",
+            accent="#315b78",
+        ),
+        metric_card(
+            500,
+            172,
+            400,
+            150,
+            kicker="V29",
+            title="Temporal aliasing",
+            value=f'{_fmt(v29["frequency_hz"])} Hz = {_fmt(v29["alias_frequency_hz"])} Hz @ {_fmt(v29["sample_rate_hz"])} Hz',
+            note=f'max sampled difference {v29["max_sample_difference"]:.2e}',
+            accent="#51683f",
+        ),
+        metric_card(
+            940,
+            172,
+            400,
+            150,
+            kicker="V30",
+            title="Inverse amplification",
+            value=f'{_fmt(v30[-1]["realized_noise_amplification"])}x',
+            note=f'at smallest singular value {_fmt(v30[-1]["smallest_singular_value"])}',
+            accent="#7a425c",
+        ),
     ]
-    points27 = " ".join(
-        f"{x},{y:.2f}" for x, y in zip(x27, y27, strict=True)
+
+    plot_y = 365
+    panel_height = 430
+
+    # V27: resolution leakage
+    x0, panel_width = 60, 610
+    parts.extend(
+        [
+            svg_rect(
+                x0,
+                plot_y,
+                panel_width,
+                panel_height,
+                fill="#fbfcfe",
+                stroke="#d6dde7",
+                stroke_width=1.2,
+                radius=12,
+            ),
+            svg_text(
+                x0 + 26,
+                plot_y + 36,
+                "V27  Resolution leakage",
+                size=18,
+                weight=700,
+                fill="#244c64",
+            ),
+            svg_text(
+                x0 + 26,
+                plot_y + 61,
+                "Identity error as regularization increases",
+                size=13,
+                fill="#687588",
+            ),
+        ]
+    )
+    ax_left, ax_right = x0 + 78, x0 + panel_width - 28
+    ax_top, ax_bottom = plot_y + 96, plot_y + 335
+    y_min, y_max = 0.70, 0.82
+    for value in (0.70, 0.74, 0.78, 0.82):
+        y = ax_bottom - (value - y_min) / (y_max - y_min) * (ax_bottom - ax_top)
+        parts.append(svg_line(ax_left, y, ax_right, y, stroke="#e3e8ef"))
+        parts.append(
+            svg_text(
+                ax_left - 12,
+                y + 5,
+                f"{value:.2f}",
+                size=12,
+                fill="#657286",
+                anchor="end",
+            )
+        )
+    parts.extend(
+        [
+            svg_line(ax_left, ax_top, ax_left, ax_bottom, stroke="#8f9cad", width=1.4),
+            svg_line(ax_left, ax_bottom, ax_right, ax_bottom, stroke="#8f9cad", width=1.4),
+        ]
+    )
+    x_values = [
+        ax_left + i * (ax_right - ax_left) / (len(v27) - 1)
+        for i in range(len(v27))
+    ]
+    points = [
+        (
+            x,
+            ax_bottom
+            - (row["identity_error"] - y_min)
+            / (y_max - y_min)
+            * (ax_bottom - ax_top),
+        )
+        for x, row in zip(x_values, v27, strict=True)
+    ]
+    lower_bound = v27[0]["rank_lower_bound"]
+    bound_y = (
+        ax_bottom
+        - (lower_bound - y_min) / (y_max - y_min) * (ax_bottom - ax_top)
+    )
+    parts.extend(
+        [
+            svg_line(
+                ax_left,
+                bound_y,
+                ax_right,
+                bound_y,
+                stroke="#aeb8c5",
+                width=1.6,
+                dash="6 5",
+            ),
+            svg_text(
+                ax_right - 2,
+                bound_y - 8,
+                f"rank floor {lower_bound:.4f}",
+                size=11,
+                weight=600,
+                fill="#778394",
+                anchor="end",
+            ),
+            svg_polyline(points, stroke="#1f6078", width=4),
+        ]
+    )
+    for x, y in points:
+        parts.append(svg_circle(x, y, 5.5, fill="#1f6078"))
+    labels = ("1e-4", "1e-2", "0.1", "1")
+    for x, label in zip(x_values, labels, strict=True):
+        parts.append(
+            svg_text(x, ax_bottom + 24, label, size=11, fill="#657286", anchor="middle")
+        )
+    parts.extend(
+        [
+            svg_text(
+                (ax_left + ax_right) / 2,
+                ax_bottom + 52,
+                "regularization",
+                size=12,
+                weight=600,
+                fill="#4f5e72",
+                anchor="middle",
+            ),
+            svg_text(
+                x0 + 26,
+                plot_y + 397,
+                "Result: leakage persists and worsens under stronger regularization.",
+                size=12,
+                weight=600,
+                fill="#4f5e72",
+            ),
+        ]
     )
 
-    x28 = [760 + 115 * i for i in range(len(v28))]
-    y28 = [
-        735 - 70 * row["fisher_information"]
+    # V28: Fisher information under correlated noise
+    x0, panel_width = 730, 610
+    parts.extend(
+        [
+            svg_rect(
+                x0,
+                plot_y,
+                panel_width,
+                panel_height,
+                fill="#fbfcfe",
+                stroke="#d6dde7",
+                stroke_width=1.2,
+                radius=12,
+            ),
+            svg_text(
+                x0 + 26,
+                plot_y + 36,
+                "V28  Fisher information under common sensor noise",
+                size=18,
+                weight=700,
+                fill="#415f46",
+            ),
+            svg_text(
+                x0 + 26,
+                plot_y + 61,
+                "Information decreases as common-noise correlation increases",
+                size=13,
+                fill="#687588",
+            ),
+        ]
+    )
+    ax_left, ax_right = x0 + 78, x0 + panel_width - 28
+    ax_top, ax_bottom = plot_y + 96, plot_y + 335
+    y_min, y_max = 0.8, 4.2
+    for value in (1.0, 2.0, 3.0, 4.0):
+        y = ax_bottom - (value - y_min) / (y_max - y_min) * (ax_bottom - ax_top)
+        parts.append(svg_line(ax_left, y, ax_right, y, stroke="#e3e8ef"))
+        parts.append(
+            svg_text(
+                ax_left - 12,
+                y + 5,
+                _fmt(value),
+                size=12,
+                fill="#657286",
+                anchor="end",
+            )
+        )
+    parts.extend(
+        [
+            svg_line(ax_left, ax_top, ax_left, ax_bottom, stroke="#8f9cad", width=1.4),
+            svg_line(ax_left, ax_bottom, ax_right, ax_bottom, stroke="#8f9cad", width=1.4),
+        ]
+    )
+    x_values = [
+        ax_left
+        + row["common_noise_correlation"]
+        / v28[-1]["common_noise_correlation"]
+        * (ax_right - ax_left)
         for row in v28
     ]
-    points28 = " ".join(
-        f"{x},{y:.2f}" for x, y in zip(x28, y28, strict=True)
+    points = [
+        (
+            x,
+            ax_bottom
+            - (row["fisher_information"] - y_min)
+            / (y_max - y_min)
+            * (ax_bottom - ax_top),
+        )
+        for x, row in zip(x_values, v28, strict=True)
+    ]
+    parts.append(svg_polyline(points, stroke="#456848", width=4))
+    for x, y in points:
+        parts.append(svg_circle(x, y, 5.5, fill="#456848"))
+    for x, row in zip(x_values, v28, strict=True):
+        parts.append(
+            svg_text(
+                x,
+                ax_bottom + 24,
+                _fmt(row["common_noise_correlation"]),
+                size=11,
+                fill="#657286",
+                anchor="middle",
+            )
+        )
+    parts.extend(
+        [
+            svg_text(
+                (ax_left + ax_right) / 2,
+                ax_bottom + 52,
+                "common-noise correlation",
+                size=12,
+                weight=600,
+                fill="#4f5e72",
+                anchor="middle",
+            ),
+            svg_text(
+                x0 + 26,
+                plot_y + 397,
+                f'CRLB variance: {_fmt(v28[0]["crlb_variance"])} to {_fmt(v28[-1]["crlb_variance"])}',
+                size=12,
+                weight=600,
+                fill="#4f5e72",
+            ),
+            svg_line(60, 840, 1340, 840, stroke="#d6dde7"),
+            svg_text(
+                60,
+                868,
+                "Deterministic synthetic validation. These results quantify measurement limits; they do not identify consciousness or qualia.",
+                size=12,
+                fill="#697587",
+            ),
+            "</svg>",
+        ]
     )
-
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#ffffff"/>
-  <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V26-V30: electromagnetic resolution and information limits</text>
-  <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Correlated noise, inverse leakage, Fisher information, temporal aliasing, and singular-direction noise amplification.</text>
-
-  <rect x="85" y="155" width="455" height="245" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
-  <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V26 correlated-noise whitening</text>
-  <text x="120" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Weighted residual energy</text>
-  <text x="500" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v26["weighted_residual_energy"])}</text>
-  <text x="120" y="296" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Whitened residual energy</text>
-  <text x="500" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v26["whitened_residual_energy"])}</text>
-  <text x="120" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Absolute identity error</text>
-  <text x="500" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#173b63">{_fmt(v26["absolute_identity_error"])}</text>
-  <text x="120" y="375" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Whitening converts Mahalanobis geometry to Euclidean geometry.</text>
-
-  <rect x="570" y="155" width="455" height="245" rx="20" fill="#f7f8f4" stroke="#ced4c2" stroke-width="2"/>
-  <text x="605" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#3b5b32">V29 temporal aliasing</text>
-  <text x="605" y="250" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Sample rate</text>
-  <text x="985" y="250" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">{_fmt(v29["sample_rate_hz"])} Hz</text>
-  <text x="605" y="296" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Continuous frequencies</text>
-  <text x="985" y="296" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">{_fmt(v29["frequency_hz"])} / {_fmt(v29["alias_frequency_hz"])} Hz</text>
-  <text x="605" y="342" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max sample difference</text>
-  <text x="985" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#3b5b32">{_fmt(v29["max_sample_difference"])}</text>
-  <text x="605" y="375" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Distinct continuous frequencies can be observationally identical after sampling.</text>
-
-  <rect x="1055" y="155" width="460" height="245" rx="20" fill="#faf6f8" stroke="#d8c8d0" stroke-width="2"/>
-  <text x="1090" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#6a3f57">V30 inverse noise amplification</text>
-  <text x="1090" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Smallest singular value</text>
-  <text x="1470" y="252" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">{_fmt(v30[-1]["smallest_singular_value"])}</text>
-  <text x="1090" y="300" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Pseudoinverse norm</text>
-  <text x="1470" y="300" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">{_fmt(v30[-1]["pseudoinverse_norm"])}</text>
-  <text x="1090" y="348" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Realized amplification</text>
-  <text x="1470" y="348" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#6a3f57">{_fmt(v30[-1]["realized_noise_amplification"])}</text>
-  <text x="1090" y="378" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Noise aligned with the weakest singular direction reaches the inverse bound.</text>
-
-  <rect x="85" y="440" width="680" height="455" rx="20" fill="#fbfbfc" stroke="#d4d9df" stroke-width="2"/>
-  <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V27 inverse resolution leakage</text>
-  <text x="120" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">The normalized distance from ideal identity resolution remains nonzero.</text>
-  <line x1="220" y1="760" x2="580" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <line x1="220" y1="450" x2="220" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <polyline points="{points27}" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="400" y="810" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">increasing regularization</text>
-  <text x="150" y="610" transform="rotate(-90 150 610)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">identity error</text>
-  <text x="120" y="850" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Rank-only normalized error floor: {_fmt(v27[0]["rank_lower_bound"])}</text>
-  <text x="120" y="875" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">Off-diagonal resolution energy records source leakage and cross-talk.</text>
-
-  <rect x="795" y="440" width="720" height="455" rx="20" fill="#f8faf8" stroke="#ced8ce" stroke-width="2"/>
-  <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V28 Fisher information under common sensor noise</text>
-  <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Information falls as correlated noise grows along the measured topography.</text>
-  <line x1="760" y1="760" x2="1105" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <line x1="760" y1="450" x2="760" y2="760" stroke="#8795a5" stroke-width="2"/>
-  <polyline points="{points28}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="935" y="810" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">common-noise correlation</text>
-  <text x="690" y="610" transform="rotate(-90 690 610)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#46586c">Fisher information</text>
-  <text x="1160" y="590" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">rho = 0: I = {_fmt(v28[0]["fisher_information"])}</text>
-  <text x="1160" y="630" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#34495e">rho = 0.9: I = {_fmt(v28[-1]["fisher_information"])}</text>
-  <text x="1160" y="685" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">The CRLB variance therefore rises from</text>
-  <text x="1160" y="713" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b7785">{_fmt(v28[0]["crlb_variance"])} to {_fmt(v28[-1]["crlb_variance"])}.</text>
-
-  <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Deterministic synthetic measurement validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
-</svg>
-"""
+    return "\n".join(parts)
 
 
 def main() -> None:
