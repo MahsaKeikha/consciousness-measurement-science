@@ -11,14 +11,12 @@ from consciousness_measurement.electromagnetic_inverse_simulations import (
     v24_multimodal_nullity,
     v25_forward_model_perturbation_grid,
 )
-from consciousness_measurement.figure_svg import (
-    circle as svg_circle,
-    line as svg_line,
-    metric_card,
-    polyline as svg_polyline,
-    rect as svg_rect,
-    text as svg_text,
-)
+from consciousness_measurement.figure_svg import circle as svg_circle
+from consciousness_measurement.figure_svg import line as svg_line
+from consciousness_measurement.figure_svg import metric_card
+from consciousness_measurement.figure_svg import polyline as svg_polyline
+from consciousness_measurement.figure_svg import rect as svg_rect
+from consciousness_measurement.figure_svg import text as svg_text
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
