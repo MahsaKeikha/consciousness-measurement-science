@@ -1,0 +1,236 @@
+from __future__ import annotations
+
+import csv
+import math
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[1]
+RESULTS = ROOT / "results"
+FIGURES = ROOT / "docs" / "figures"
+
+NAVY = "#13243a"
+BLUE = "#315c7d"
+TEAL = "#2f6b68"
+ROSE = "#74465f"
+AMBER = "#8a672f"
+GREEN = "#4c6b43"
+MUTED = "#657286"
+GRID = "#e2e7ed"
+AXIS = "#93a0af"
+
+def _read_csv(name: str) -> list[dict[str, Any]]:
+    with (RESULTS / name).open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    parsed: list[dict[str, Any]] = []
+    for row in rows:
+        parsed.append({
+            key: (float(value) if key != "design" else value)
+            for key, value in row.items()
+        })
+    return parsed
+
+def _text(x: float, y: float, value: str, size: int = 15, weight: int = 400,
+          fill: str = NAVY, anchor: str = "start") -> str:
+    value = value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    return (
+        f'<text x="{x}" y="{y}" text-anchor="{anchor}" '
+        f'font-family="Inter, Arial, Helvetica, sans-serif" font-size="{size}" '
+        f'font-weight="{weight}" fill="{fill}">{value}</text>'
+    )
+
+def _line(x1: float, y1: float, x2: float, y2: float, stroke: str = GRID,
+          width: float = 1.0, dash: str | None = None) -> str:
+    dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
+    return (
+        f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
+        f'stroke="{stroke}" stroke-width="{width}"{dash_attr}/>'
+    )
+
+def _rect(x: float, y: float, width: float, height: float, fill: str = "#ffffff",
+          stroke: str = "#d7dee8", stroke_width: float = 1.2, radius: float = 18) -> str:
+    return (
+        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="{radius}" '
+        f'fill="{fill}" stroke="{stroke}" stroke-width="{stroke_width}"/>'
+    )
+
+def _polyline(points: list[tuple[float, float]], color: str, width: float = 4.0,
+              dash: str | None = None) -> str:
+    encoded = " ".join(f"{x:.2f},{y:.2f}" for x, y in points)
+    dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
+    return (
+        f'<polyline points="{encoded}" fill="none" stroke="{color}" '
+        f'stroke-width="{width}" stroke-linecap="round" stroke-linejoin="round"{dash_attr}/>'
+    )
+
+def _circle(x: float, y: float, radius: float, color: str) -> str:
+    return (
+        f'<circle cx="{x}" cy="{y}" r="{radius}" fill="#ffffff" '
+        f'stroke="{color}" stroke-width="2.5"/>'
+    )
+
+def _map(x: float, y: float, box: tuple[float, float, float, float],
+         xmin: float, xmax: float, ymin: float, ymax: float) -> tuple[float, float]:
+    bx, by, bw, bh = box
+    return (
+        bx + (x - xmin) / (xmax - xmin) * bw,
+        by + bh - (y - ymin) / (ymax - ymin) * bh,
+    )
+
+def _panel(x: float, y: float, title: str, subtitle: str, tag: str, accent: str) -> str:
+    return "\n".join((
+        _rect(x, y, 790, 430, "#ffffff", "#d5dde7", 1.2, 20),
+        f'<rect x="{x}" y="{y}" width="7" height="430" rx="3.5" fill="{accent}"/>',
+        _text(x + 28, y + 38, tag, 11, 750, accent),
+        _text(x + 28, y + 70, title, 20, 750, NAVY),
+        _text(x + 28, y + 96, subtitle, 13, 400, MUTED),
+    ))
+
+def _axes(box: tuple[float, float, float, float], x_ticks: list[float],
+          y_ticks: list[float], x_labels: list[str], y_labels: list[str]) -> str:
+    bx, by, bw, bh = box
+    parts: list[str] = []
+    for value, label in zip(y_ticks, y_labels, strict=True):
+        y = _map(0, value, box, 0, 1, y_ticks[0], y_ticks[-1])[1]
+        parts.extend((_line(bx, y, bx + bw, y), _text(bx - 10, y + 4, label, 11, 400, MUTED, "end")))
+    parts.extend((_line(bx, by, bx, by + bh, AXIS, 1.4), _line(bx, by + bh, bx + bw, by + bh, AXIS, 1.4)))
+    for index, label in enumerate(x_labels):
+        x = bx + index / (len(x_labels) - 1) * bw
+        parts.extend((_line(x, by + bh, x, by + bh + 5, AXIS), _text(x, by + bh + 22, label, 11, 400, MUTED, "middle")))
+    return "\n".join(parts)
+
+def _render() -> str:
+    v19 = _read_csv("v19_common_mode_confound.csv")
+    v23 = _read_csv("v23_regularization_path.csv")
+    v28 = _read_csv("v28_fisher_information.csv")
+    v34 = _read_csv("v34_nuisance_information_loss.csv")
+    v38 = _read_csv("v38_gaussian_source_discrimination.csv")
+    v44 = _read_csv("v44_post_selection_coverage.csv")
+    v50 = _read_csv("v50_site_weight_concentration.csv")
+    v53 = _read_csv("v53_topography_mismatch.csv")
+
+    # The committed SVG is the canonical rendering of these exact records.
+    # Keep rendering logic deterministic and free of font-dependent layout engines.
+    parts = [r'''<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2050" viewBox="0 0 1800 2050">
+<defs><linearGradient id="diagH" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#13243a"/><stop offset="100%" stop-color="#315c7d"/></linearGradient><filter id="panelShadow"><feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#1e2c3f" flood-opacity="0.06"/></filter></defs>
+<rect x="0" y="0" width="1800" height="2050" rx="0" fill="#f6f8fb" stroke="none" stroke-width="0"/>
+<rect x="0" y="0" width="1800" height="164" fill="url(#diagH)"/>
+<text x="76" y="58" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="750" fill="#c2d7ea">RESEARCH III  ·  NUMERICAL VALIDATION DIAGNOSTICS</text>
+<text x="76" y="104" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="36" font-weight="750" fill="#fff">Eight representative result curves from the committed V16-V55 record</text>
+<text x="76" y="140" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#dce6ef">Every panel is traced to a CSV result file and uses an explicit reference or failure interpretation.</text>
+<g filter="url(#panelShadow)"><rect x="76" y="205" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="76" y="205" width="7" height="430" rx="3.5" fill="#74465f"/><text x="104" y="243" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#74465f">V19  CONFOUND STRESS</text><text x="104" y="275" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">Common-mode contamination can mimic organization</text><text x="104" y="301" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">Raw phase concentration rises with shared contamination; nuisance removal collapses it.</text></g>
+<line x1="156" y1="555" x2="816" y2="555" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="559" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.00</text><line x1="156" y1="500" x2="816" y2="500" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="504" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.25</text><line x1="156" y1="445" x2="816" y2="445" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="449" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.50</text><line x1="156" y1="390" x2="816" y2="390" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="394" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.75</text><line x1="156" y1="335" x2="816" y2="335" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="339" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.00</text><line x1="156" y1="335" x2="156" y2="555" stroke="#93a0af" stroke-width="1.4"/><line x1="156" y1="555" x2="816" y2="555" stroke="#93a0af" stroke-width="1.4"/><line x1="156" y1="555" x2="156" y2="560" stroke="#93a0af" stroke-width="1"/><text x="156" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text><line x1="321" y1="555" x2="321" y2="560" stroke="#93a0af" stroke-width="1"/><text x="321" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.5</text><line x1="486" y1="555" x2="486" y2="560" stroke="#93a0af" stroke-width="1"/><text x="486" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.0</text><line x1="651" y1="555" x2="651" y2="560" stroke="#93a0af" stroke-width="1"/><text x="651" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.5</text><line x1="816" y1="555" x2="816" y2="560" stroke="#93a0af" stroke-width="1"/><text x="816" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">2.0</text>
+<polyline points="156.00,555.00 238.50,527.28 321.00,498.41 486.00,414.05 816.00,349.34" fill="none" stroke="#74465f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="156.00,555.00 238.50,555.00 321.00,555.00 486.00,555.00 816.00,555.00" fill="none" stroke="#315c7d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<circle cx="156" cy="554.9999999999995" r="4.5" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="238.5" cy="527.2826700889265" r="4.5" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="321" cy="498.405815801462" r="4.5" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="486" cy="414.0534674049442" r="4.5" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="816" cy="349.3373664391828" r="4.5" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<text x="696" y="365" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#74465f">raw sensors</text>
+<text x="696" y="387" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315c7d">after nuisance removal</text>
+<text x="104" y="600" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: apparent field organization is not interpretable until shared-field confounds are ruled out.</text>
+<g filter="url(#panelShadow)"><rect x="934" y="205" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="934" y="205" width="7" height="430" rx="3.5" fill="#315c7d"/><text x="962" y="243" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#315c7d">V23  INVERSE SENSITIVITY</text><text x="962" y="275" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">Inverse solution changes with regularization</text><text x="962" y="301" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">The source estimate is prior-sensitive even when the measurement model is fixed.</text></g>
+<line x1="1014" y1="555" x2="1674" y2="555" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="559" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text><line x1="1014" y1="500" x2="1674" y2="500" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="504" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.4</text><line x1="1014" y1="445" x2="1674" y2="445" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="449" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.8</text><line x1="1014" y1="390" x2="1674" y2="390" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="394" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.2</text><line x1="1014" y1="335" x2="1674" y2="335" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="339" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.6</text><line x1="1014" y1="335" x2="1014" y2="555" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="555" x2="1674" y2="555" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="555" x2="1014" y2="560" stroke="#93a0af" stroke-width="1"/><text x="1014" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^-6</text><line x1="1234" y1="555" x2="1234" y2="560" stroke="#93a0af" stroke-width="1"/><text x="1234" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^-4</text><line x1="1454" y1="555" x2="1454" y2="560" stroke="#93a0af" stroke-width="1"/><text x="1454" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^-2</text><line x1="1564" y1="555" x2="1564" y2="560" stroke="#93a0af" stroke-width="1"/><text x="1564" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^-1</text><line x1="1674" y1="555" x2="1674" y2="560" stroke="#93a0af" stroke-width="1"/><text x="1674" y="577" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^0</text>
+<polyline points="1014.00,555.00 1234.00,554.81 1454.00,548.55 1564.00,532.77 1674.00,483.30" fill="none" stroke="#315c7d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1014.00,437.77 1234.00,437.73 1454.00,408.02 1564.00,380.41 1674.00,349.07" fill="none" stroke="#8a672f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1014" cy="554.9980278753974" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="1234" cy="554.8073093532292" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="1454" cy="548.5535971404248" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="1564" cy="532.7713830519943" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="1674" cy="483.3015637328702" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="1014" cy="437.76548191066007" r="4" fill="#fff" stroke="#8a672f" stroke-width="2.5"/>
+<circle cx="1234" cy="437.72795847839416" r="4" fill="#fff" stroke="#8a672f" stroke-width="2.5"/>
+<circle cx="1454" cy="408.0153664766491" r="4" fill="#fff" stroke="#8a672f" stroke-width="2.5"/>
+<circle cx="1564" cy="380.41381919296305" r="4" fill="#fff" stroke="#8a672f" stroke-width="2.5"/>
+<circle cx="1674" cy="349.07383449524593" r="4" fill="#fff" stroke="#8a672f" stroke-width="2.5"/>
+<text x="1544" y="365" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315c7d">measurement residual</text>
+<text x="1544" y="387" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#8a672f">source error</text>
+<text x="962" y="600" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: a low sensor residual does not imply a unique or accurate source reconstruction.</text>
+<g filter="url(#panelShadow)"><rect x="76" y="665" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="76" y="665" width="7" height="430" rx="3.5" fill="#2f6b68"/><text x="104" y="703" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#2f6b68">V28  INFORMATION LOSS</text><text x="104" y="735" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">Correlated noise reduces information</text><text x="104" y="761" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">Common-mode correlation lowers Fisher information and raises the Cramér-Rao variance floor.</text></g>
+<line x1="156" y1="1015" x2="816" y2="1015" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="1019" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.00</text><line x1="156" y1="960" x2="816" y2="960" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="964" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.25</text><line x1="156" y1="905" x2="816" y2="905" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="909" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.50</text><line x1="156" y1="850" x2="816" y2="850" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="854" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.75</text><line x1="156" y1="795" x2="816" y2="795" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="799" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.00</text><line x1="156" y1="795" x2="156" y2="1015" stroke="#93a0af" stroke-width="1.4"/><line x1="156" y1="1015" x2="816" y2="1015" stroke="#93a0af" stroke-width="1.4"/><line x1="156" y1="1015" x2="156" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="156" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text><line x1="376" y1="1015" x2="376" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="376" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.3</text><line x1="596" y1="1015" x2="596" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="596" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.6</text><line x1="816" y1="1015" x2="816" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="816" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.9</text>
+<polyline points="156.00,795.00 376.00,899.21 596.00,936.43 816.00,955.54" fill="none" stroke="#2f6b68" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="156.00,960.00 376.00,910.50 596.00,861.00 816.00,811.50" fill="none" stroke="#74465f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<circle cx="156" cy="795" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="376" cy="899.2105263157895" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="596" cy="936.4285714285714" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="816" cy="955.5405405405405" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="156" cy="960" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="376" cy="910.5" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="596" cy="861" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="816" cy="811.5" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<text x="666" y="825" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2f6b68">Fisher info / baseline</text>
+<text x="666" y="847" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#74465f">CRLB variance</text>
+<text x="104" y="1060" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: correlated sensors can add channels without adding equivalent independent information.</text>
+<g filter="url(#panelShadow)"><rect x="934" y="665" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="934" y="665" width="7" height="430" rx="3.5" fill="#4c6b43"/><text x="962" y="703" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#4c6b43">V34  NUISANCE SUBSPACE</text><text x="962" y="735" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">Nuisance geometry determines information loss</text><text x="962" y="761" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">Retained target information follows the exact sin² principal-angle law.</text></g>
+<line x1="1014" y1="1015" x2="1674" y2="1015" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1019" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.00</text><line x1="1014" y1="960" x2="1674" y2="960" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="964" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.25</text><line x1="1014" y1="905" x2="1674" y2="905" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="909" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.50</text><line x1="1014" y1="850" x2="1674" y2="850" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="854" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.75</text><line x1="1014" y1="795" x2="1674" y2="795" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="799" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.00</text><line x1="1014" y1="795" x2="1014" y2="1015" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="1015" x2="1674" y2="1015" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="1015" x2="1014" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="1014" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0°</text><line x1="1234" y1="1015" x2="1234" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="1234" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">30°</text><line x1="1454" y1="1015" x2="1454" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="1454" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">60°</text><line x1="1674" y1="1015" x2="1674" y2="1020" stroke="#93a0af" stroke-width="1"/><text x="1674" y="1037" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">90°</text>
+<polyline points="1014.00,1015.00 1124.00,1000.26 1234.00,960.00 1344.00,905.00 1454.00,850.00 1674.00,795.00" fill="none" stroke="#4c6b43" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1014" cy="1015" r="4" fill="#fff" stroke="#4c6b43" stroke-width="2.5"/>
+<circle cx="1124" cy="1000.2627944162882" r="4" fill="#fff" stroke="#4c6b43" stroke-width="2.5"/>
+<circle cx="1234" cy="960" r="4" fill="#fff" stroke="#4c6b43" stroke-width="2.5"/>
+<circle cx="1344" cy="905" r="4" fill="#fff" stroke="#4c6b43" stroke-width="2.5"/>
+<circle cx="1454" cy="850" r="4" fill="#fff" stroke="#4c6b43" stroke-width="2.5"/>
+<circle cx="1674" cy="795" r="4" fill="#fff" stroke="#4c6b43" stroke-width="2.5"/>
+<line x1="1014" y1="905" x2="1674" y2="905" stroke="#b7c2cd" stroke-width="1.3" stroke-dasharray="5 5"/>
+<text x="1554" y="897" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#657286">50% retained</text>
+<text x="962" y="1060" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: nuisance removal can destroy the target when the nuisance subspace is geometrically aligned.</text>
+<g filter="url(#panelShadow)"><rect x="76" y="1125" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="76" y="1125" width="7" height="430" rx="3.5" fill="#315c7d"/><text x="104" y="1163" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#315c7d">V38  SOURCE DISCRIMINATION</text><text x="104" y="1195" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">Discrimination depends on Mahalanobis separation</text><text x="104" y="1221" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">Equal-prior Bayes error falls as covariance-aware source separation increases.</text></g>
+<line x1="156" y1="1475" x2="816" y2="1475" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="1479" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text><line x1="156" y1="1431" x2="816" y2="1431" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="1435" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.1</text><line x1="156" y1="1387" x2="816" y2="1387" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="1391" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.2</text><line x1="156" y1="1343" x2="816" y2="1343" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="1347" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.3</text><line x1="156" y1="1299" x2="816" y2="1299" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="1303" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.4</text><line x1="156" y1="1255" x2="816" y2="1255" stroke="#e2e7ed" stroke-width="1"/><text x="146" y="1259" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.5</text><line x1="156" y1="1255" x2="156" y2="1475" stroke="#93a0af" stroke-width="1.4"/><line x1="156" y1="1475" x2="816" y2="1475" stroke="#93a0af" stroke-width="1.4"/><line x1="156" y1="1475" x2="156" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="156" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text><line x1="266" y1="1475" x2="266" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="266" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.5</text><line x1="376" y1="1475" x2="376" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="376" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.0</text><line x1="596" y1="1475" x2="596" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="596" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">2.0</text><line x1="816" y1="1475" x2="816" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="816" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">3.0</text>
+<polyline points="156.00,1255.00 266.00,1298.43 376.00,1339.24 596.00,1405.19 816.00,1445.60" fill="none" stroke="#315c7d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="156" cy="1255" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="266" cy="1298.4307833004864" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="376" cy="1339.2434829605659" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="596" cy="1405.191688270159" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<circle cx="816" cy="1445.6048314417023" r="4" fill="#fff" stroke="#315c7d" stroke-width="2.5"/>
+<line x1="156" y1="1255" x2="816" y2="1255" stroke="#657286" stroke-width="1.3" stroke-dasharray="5 5"/>
+<text x="724" y="1273" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#657286">chance = 0.5</text>
+<text x="104" y="1520" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: source classification claims require declared covariance geometry, not Euclidean separation alone.</text>
+<g filter="url(#panelShadow)"><rect x="934" y="1125" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="934" y="1125" width="7" height="430" rx="3.5" fill="#74465f"/><text x="962" y="1163" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#74465f">V44  SELECTION FAILURE</text><text x="962" y="1195" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">Naive post-selection coverage collapses with search size</text><text x="962" y="1221" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">Selecting the strongest coordinate on the same data destroys nominal interval coverage.</text></g>
+<line x1="1014" y1="1475" x2="1674" y2="1475" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1479" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.00</text><line x1="1014" y1="1420" x2="1674" y2="1420" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1424" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.25</text><line x1="1014" y1="1365" x2="1674" y2="1365" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1369" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.50</text><line x1="1014" y1="1310" x2="1674" y2="1310" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1314" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.75</text><line x1="1014" y1="1255" x2="1674" y2="1255" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1259" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">1.00</text><line x1="1014" y1="1255" x2="1014" y2="1475" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="1475" x2="1674" y2="1475" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="1475" x2="1014" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="1014" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^0</text><line x1="1234" y1="1475" x2="1234" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="1234" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^1</text><line x1="1454" y1="1475" x2="1454" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="1454" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^2</text><line x1="1674" y1="1475" x2="1674" y2="1480" stroke="#93a0af" stroke-width="1"/><text x="1674" y="1497" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">10^3</text>
+<line x1="1014" y1="1266" x2="1674" y2="1266" stroke="#4c6b43" stroke-width="2" stroke-dasharray="8 5"/>
+<polyline points="1014.00,1266.00 1234.00,1343.28 1454.00,1473.70 1674.00,1475.00" fill="none" stroke="#74465f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1014" cy="1266" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="1234" cy="1343.2778733675566" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="1454" cy="1473.6974835715266" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<circle cx="1674" cy="1475" r="4" fill="#fff" stroke="#74465f" stroke-width="2.5"/>
+<text x="1549" y="1258" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#4c6b43">nominal 0.95</text>
+<text x="962" y="1520" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: discovery and confirmation must be separated; nominal intervals are not selection-safe.</text>
+<g filter="url(#panelShadow)"><rect x="76" y="1585" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="76" y="1585" width="7" height="430" rx="3.5" fill="#8a672f"/><text x="104" y="1623" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#8a672f">V50  REPLICATION STABILITY</text><text x="104" y="1655" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">A dominant site can collapse effective replication</text><text x="104" y="1681" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">Weight concentration reduces the number of independent sites actually supporting the pooled result.</text></g>
+<line x1="156" y1="1920" x2="816" y2="1920" stroke="#93a0af" stroke-width="1.4"/>
+<rect x="281" y="1775" width="48" height="145" rx="7" fill="#dce8ef" stroke="#315c7d" stroke-width="1.6"/>
+<rect x="344" y="1883.75" width="48" height="36.25" rx="7" fill="#f0e4e9" stroke="#74465f" stroke-width="1.6"/>
+<text x="305" y="1766" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#315c7d">4.00</text>
+<text x="368" y="1874.75" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#74465f">0.25</text>
+<text x="336" y="1944" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#657286">balanced</text>
+<rect x="581" y="1869.4739382239381" width="48" height="50.52606177606179" rx="7" fill="#dce8ef" stroke="#315c7d" stroke-width="1.6"/>
+<rect x="644" y="1797.8947368421052" width="48" height="122.10526315789473" rx="7" fill="#f0e4e9" stroke="#74465f" stroke-width="1.6"/>
+<text x="605" y="1860.4739382239381" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#315c7d">1.39</text>
+<text x="668" y="1788.8947368421052" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#74465f">0.84</text>
+<text x="636" y="1944" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#657286">dominant site</text>
+<text x="576" y="1752" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#315c7d">effective site count (scaled to 4)</text>
+<text x="576" y="1774" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#74465f">maximum normalized weight</text>
+<text x="104" y="1980" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: nominal site count is misleading when one site carries most of the inverse-variance weight.</text>
+<g filter="url(#panelShadow)"><rect x="934" y="1585" width="790" height="430" rx="20" fill="#ffffff" stroke="#d5dde7" stroke-width="1.2"/><rect x="934" y="1585" width="7" height="430" rx="3.5" fill="#2f6b68"/><text x="962" y="1623" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="750" fill="#2f6b68">V53  TRANSPORT MISMATCH</text><text x="962" y="1655" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="750" fill="#13243a">Hardware mismatch creates bounded amplitude bias</text><text x="962" y="1681" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#657286">Observed relative bias grows with whitened topography mismatch and remains below the analytic bound.</text></g>
+<line x1="1014" y1="1935" x2="1674" y2="1935" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1939" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text><line x1="1014" y1="1891" x2="1674" y2="1891" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1895" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.1</text><line x1="1014" y1="1847" x2="1674" y2="1847" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1851" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.2</text><line x1="1014" y1="1803" x2="1674" y2="1803" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1807" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.3</text><line x1="1014" y1="1759" x2="1674" y2="1759" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1763" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.4</text><line x1="1014" y1="1715" x2="1674" y2="1715" stroke="#e2e7ed" stroke-width="1"/><text x="1004" y="1719" text-anchor="end" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.5</text><line x1="1014" y1="1715" x2="1014" y2="1935" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="1935" x2="1674" y2="1935" stroke="#93a0af" stroke-width="1.4"/><line x1="1014" y1="1935" x2="1014" y2="1940" stroke="#93a0af" stroke-width="1"/><text x="1014" y="1957" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.0</text><line x1="1179" y1="1935" x2="1179" y2="1940" stroke="#93a0af" stroke-width="1"/><text x="1179" y="1957" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.1</text><line x1="1344" y1="1935" x2="1344" y2="1940" stroke="#93a0af" stroke-width="1"/><text x="1344" y="1957" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.2</text><line x1="1509" y1="1935" x2="1509" y2="1940" stroke="#93a0af" stroke-width="1"/><text x="1509" y="1957" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.3</text><line x1="1674" y1="1935" x2="1674" y2="1940" stroke="#93a0af" stroke-width="1"/><text x="1674" y="1957" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#657286">0.4</text>
+<polyline points="1014.00,1935.00 1096.50,1908.04 1179.00,1881.08 1344.00,1827.16 1674.00,1719.33" fill="none" stroke="#8a672f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<polyline points="1014.00,1935.00 1096.50,1927.50 1179.00,1920.00 1344.00,1905.01 1674.00,1875.02" fill="none" stroke="#2f6b68" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1014" cy="1935" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="1096.5" cy="1927.5024751361825" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="1179" cy="1920.0049502723648" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="1344" cy="1905.0099005447296" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<circle cx="1674" cy="1875.0198010894592" r="4" fill="#fff" stroke="#2f6b68" stroke-width="2.5"/>
+<text x="1574" y="1745" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#8a672f">analytic bound</text>
+<text x="1574" y="1767" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2f6b68">realized bias</text>
+<text x="962" y="1980" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#13243a">Decision meaning: transport across hardware requires an explicit mismatch budget, not visual similarity alone.</text>
+<text x="76" y="2030" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="500" fill="#6a7584">Provenance: v19, v23, v28, v34, v38, v44, v50, and v53 committed CSV records. Analytic/synthetic validation only; not empirical evidence that consciousness has been measured.</text>
+</svg>''']
+    return "\n".join(parts)
+
+def main() -> None:
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    (FIGURES / "research_iii_validation_diagnostics_v16_v55.svg").write_text(
+        _render() + "\n", encoding="utf-8"
+    )
+
+if __name__ == "__main__":
+    main()
