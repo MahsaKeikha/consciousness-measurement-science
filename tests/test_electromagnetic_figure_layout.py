@@ -196,3 +196,36 @@ def test_research_iii_evidence_architecture_exposes_failure_gates_and_claim_ceil
     assert "No direct consciousness claim yet" in text
     assert "HOW TO READ THE RESULT FIGURES" in text
     assert 'markerUnits="userSpaceOnUse"' in text
+
+
+def test_publication_question_panels_use_contained_line_lengths() -> None:
+    figures = [
+        "v16_v20_electromagnetic_validation.svg",
+        "v21_v25_electromagnetic_inverse_validation.svg",
+        "v26_v30_electromagnetic_resolution_validation.svg",
+        "v31_v35_electromagnetic_design_validation.svg",
+        "v36_v40_electromagnetic_finite_sample_validation.svg",
+        "v41_v45_electromagnetic_selection_validation.svg",
+        "v46_v50_electromagnetic_replication_validation.svg",
+        "v51_v55_transportability_validation.svg",
+    ]
+
+    for name in figures:
+        text = (FIGURES / name).read_text(encoding="utf-8")
+        assert "SCIENTIFIC QUESTION" in text
+        question_lines = [
+            line.split(">", 1)[1].split("</text>", 1)[0]
+            for line in text.splitlines()
+            if "<text" in line
+            and (
+                'x="950"' in line
+                or 'x="1110"' in line
+                or 'x="250"' in line
+            )
+            and 'font-weight="700"' in line
+            and "SCIENTIFIC QUESTION" not in line
+        ]
+        assert question_lines, f"{name} is missing contained question copy"
+        assert max(len(line) for line in question_lines) <= 46, (
+            f"{name} has question text too long for its panel: {question_lines}"
+        )
