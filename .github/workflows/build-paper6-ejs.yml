@@ -71,10 +71,62 @@ jobs:
         run: |
           test -s submission/ejs-paper6/build/Paper6_EJS_Manuscript.pdf
           grep -q "Output written on Paper6_EJS_Manuscript.pdf" submission/ejs-paper6/build/Paper6_EJS_Manuscript.log
-          if grep -E "LaTeX Error|Emergency stop|Fatal error" submission/ejs-paper6/build/Paper6_EJS_Manuscript.log; then
+          if grep -E "LaTeX Error|Emergency stop|Fatal error|Citation .* undefined|Reference .* undefined" submission/ejs-paper6/build/Paper6_EJS_Manuscript.log; then
             exit 1
           fi
 
+      - name: Build pinned reproducibility supplement
+        env:
+          SNAPSHOT: 7a2a1a3a60263e48b7a268642eecc6941e84d1b4
+        run: |
+          ROOT="submission/ejs-paper6/reproducibility"
+          rm -rf "$ROOT"
+          mkdir -p "$ROOT"
+          paths=(
+            LICENSE
+            pyproject.toml
+            src/consciousness_measurement/measurement_robustness.py
+            src/consciousness_measurement/robustness_simulations.py
+            src/consciousness_measurement/identification_design.py
+            src/consciousness_measurement/identification_design_simulations.py
+            scripts/run_robustness_validation.py
+            scripts/run_identification_design_validation.py
+            tests/test_measurement_robustness.py
+            tests/test_robustness_simulations.py
+            tests/test_identification_design.py
+            tests/test_identification_design_simulations.py
+            tests/test_identification_design_runner.py
+            results/calibration_sample_uncertainty.csv
+            results/missingness_stress.csv
+            results/v11_missingness_information_law.csv
+            results/conditioning_stress.csv
+            results/v14_resolution_sample_size.csv
+            results/two_site_nonidentifiability.csv
+            results/v12_v13_multisite_identification.csv
+            results/resolution_abstention_frontier.csv
+            results/v15_independent_pilot_gate.csv
+            results/identification_design_summary.json
+            results/robustness_validation_summary.json
+          )
+          for path in "${paths[@]}"; do
+            mkdir -p "$ROOT/$(dirname "$path")"
+            git show "$SNAPSHOT:$path" > "$ROOT/$path"
+          done
+          cat > "$ROOT/REPRODUCIBILITY_README.txt" <<EOF
+          Paper 6 reproducibility supplement
+          Title: Identification Limits and Resolution-Aware Release for Latent-State Measurement with Imperfect Proxies
+          Repository: MahsaKeikha/consciousness-measurement-science
+          Pinned snapshot: $SNAPSHOT
+
+          This archive contains the core implementation, validation runners, focused tests,
+          and numerical records for the V6-V15 results used by the manuscript.
+          It is supplied with the submission so the code and numerical records are not
+          available exclusively through an external link.
+
+          The manuscript scientific boundary remains unchanged: these analytic and
+          deterministic synthetic validations do not establish empirical sensitivity or
+          specificity for consciousness or validate a clinical consciousness instrument.
+          EOF
       - name: Create clean artifact
         run: |
           mkdir -p submission/ejs-paper6/dist
@@ -86,6 +138,8 @@ jobs:
           cp submission/ejs-paper6/build/Paper6_EJS_Manuscript.log submission/ejs-paper6/dist/
           cd submission/ejs-paper6/dist
           zip -9 Paper6_EJS_LaTeX_Package.zip Paper6_EJS_Manuscript.tex imsart.cls imsart.sty fig*.pdf
+          cd ..
+          zip -9 -r dist/Paper6_EJS_Reproducibility.zip reproducibility
 
       - name: Upload EJS submission artifact
         uses: actions/upload-artifact@v4
