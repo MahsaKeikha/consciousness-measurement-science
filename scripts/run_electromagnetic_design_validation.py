@@ -66,8 +66,9 @@ def _render_svg(
   <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Point-spread and cross-talk, source distinguishability, information-aware sensor design, nuisance projection, and robust model uncertainty.</text>
   <rect x="1085" y="28" width="430" height="88" rx="14" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1.2"/>
   <text x="1110" y="50" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>
-  <text x="1110" y="72" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Does sensor design preserve target information while</text>
-  <text x="1110" y="92" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">suppressing leakage, nuisance overlap, and model error?</text>
+  <text x="1110" y="68" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">Does sensor design preserve target</text>
+  <text x="1110" y="84" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">information while suppressing leakage,</text>
+  <text x="1110" y="100" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">nuisance overlap, and model error?</text>
 
   <rect x="85" y="155" width="455" height="245" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V31 PSF and CTF</text>
@@ -136,9 +137,9 @@ def _render_svg(
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Radius 1.2 lower bound</text>
   <text x="1105" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(float(v35[-1]["robust_information_lower_bound"]))}</text>
   <rect x="110" y="861" width="625" height="24" rx="8" fill="#eef4f7" stroke="#d7e3e9"/>
-  <text x="124" y="878" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#365064">Finding: nuisance alignment can erase target information; orthogonality preserves it.</text>
+  <text x="124" y="878" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#365064">Finding: nuisance alignment can erase target information.</text>
   <rect x="820" y="861" width="665" height="24" rx="8" fill="#f0f5ef" stroke="#d7e3d5"/>
-  <text x="834" y="878" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3f5d45">Finding: the worst-case information guarantee collapses as model uncertainty grows.</text>
+  <text x="834" y="878" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#3f5d45">Finding: robust information falls as model uncertainty grows.</text>
 
   <text x="85" y="955" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6a7684">Deterministic analytic and synthetic measurement-design validation. No human empirical data and no direct measurement of consciousness or qualia.</text>
 </svg>

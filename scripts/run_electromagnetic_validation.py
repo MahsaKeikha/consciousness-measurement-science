@@ -84,8 +84,9 @@ def _validation_svg(
         ),
         '<rect x="930" y="28" width="410" height="82" rx="12" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1"/>',
         '<text x="950" y="50" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>',
-        '<text x="950" y="72" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Can field organization survive gain changes,</text>',
-        '<text x="950" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">common-mode confounds, and frequency changes?</text>',
+        '<text x="950" y="68" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">Can field organization survive</text>',
+        '<text x="950" y="84" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">gain, common-mode confounds,</text>',
+        '<text x="950" y="100" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">and frequency changes?</text>',
         svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
         metric_card(
             60,

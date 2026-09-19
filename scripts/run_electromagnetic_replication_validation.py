@@ -71,8 +71,9 @@ def _render_svg(
   <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Common-effect pooling, heterogeneity, leave-one-site-out influence, partial conjunction, and site-weight concentration.</text>
   <rect x="1085" y="28" width="430" height="88" rx="14" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1.2"/>
   <text x="1110" y="50" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>
-  <text x="1110" y="72" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Does an apparent effect remain stable across sites,</text>
-  <text x="1110" y="92" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">deletion checks, and stronger replicability requirements?</text>
+  <text x="1110" y="68" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">Does an apparent effect remain stable</text>
+  <text x="1110" y="84" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">across sites, deletion checks, and</text>
+  <text x="1110" y="100" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">stronger replicability requirements?</text>
 
   <rect x="85" y="155" width="455" height="245" rx="18" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V46 pooled common effect</text>
@@ -98,7 +99,7 @@ def _render_svg(
   <text x="1470" y="307" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#6a3f57">{_fmt(float(dominant["effective_site_count"]))}</text>
   <text x="1090" y="350" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">Max delete variance inflation</text>
   <text x="1470" y="350" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#6a3f57">{_fmt(float(dominant["maximum_delete_variance_inflation"]))}</text>
-  <text x="1090" y="382" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#6a3f57">effective sites = 1 / sum(normalized weight^2)</text>
+  <text x="1090" y="382" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#6a3f57">N_eff = 1 / sum(normalized weight^2)</text>
   <rect x="500" y="171" width="26" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>
   <text x="513" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#173b63">A</text>
   <rect x="985" y="171" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
@@ -128,7 +129,7 @@ def _render_svg(
   <rect x="1475" y="456" width="26" height="22" rx="11" fill="#f1f5ee" stroke="#cfdbc7"/>
   <text x="1488" y="471" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#43634a">E</text>
   <text x="865" y="590" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#526276">partial-conjunction p-value</text>
-  <text x="1485" y="590" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#43634a">larger r = stronger replicability requirement</text>
+  <text x="1485" y="590" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#43634a">larger r = stronger replication requirement</text>
   <line x1="865" y1="810" x2="1285" y2="810" stroke="#8795a5" stroke-width="2"/>
   <line x1="865" y1="605" x2="865" y2="810" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(pc_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>

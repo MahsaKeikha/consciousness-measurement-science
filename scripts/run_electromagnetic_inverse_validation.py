@@ -72,8 +72,9 @@ def _svg(
         ),
         '<rect x="930" y="28" width="410" height="82" rx="12" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1"/>',
         '<text x="950" y="50" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>',
-        '<text x="950" y="72" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Can an inverse remain trustworthy under reference change,</text>',
-        '<text x="950" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">source ambiguity, regularization, and forward-model error?</text>',
+        '<text x="950" y="68" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">Can an inverse remain trustworthy</text>',
+        '<text x="950" y="84" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">under reference change, source ambiguity,</text>',
+        '<text x="950" y="100" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">regularization, and model error?</text>',
         svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
