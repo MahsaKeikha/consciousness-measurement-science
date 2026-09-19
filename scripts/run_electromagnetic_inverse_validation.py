@@ -77,10 +77,10 @@ def _svg(
             size=15,
             fill="#657286",
         ),
-        svg_line(60, 160, 1340, 160, stroke="#d6dde7", width=1.2),
+        svg_line(60, 155, 1340, 155, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
-            184,
+            172,
             400,
             150,
             kicker="V21",
@@ -91,7 +91,7 @@ def _svg(
         ),
         metric_card(
             500,
-            184,
+            172,
             400,
             150,
             kicker="V22",
@@ -102,7 +102,7 @@ def _svg(
         ),
         metric_card(
             940,
-            184,
+            172,
             400,
             150,
             kicker="V24",
@@ -113,7 +113,7 @@ def _svg(
         ),
     ]
 
-    plot_y = 377
+    plot_y = 365
     panel_height = 430
 
     # V23: regularization sensitivity
