@@ -1,0 +1,51 @@
+Thus missingness and weak calibration multiply. Ten percent unrestricted missingness yields width 0.125 when \(J = 0.8\) but width 0.25 when \(J = 0.4\).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\textwidth]{fig2a_missingness.pdf}\hfill
+\includegraphics[width=0.48\textwidth]{fig2b_information_law.pdf}
+\caption{Missingness and information loss. (a) The sharp compatible latent-prevalence set widens as unrestricted missing outcomes increase in the canonical V7 setup. (b) V11 gives the exact interior width $W_{\mathrm{miss}}=(m/N)/J$ for several information margins.}
+\label{fig:missingness}
+\end{figure}
+
+The deterministic records show the same geometry. In the canonical V7 setup, 10\% missingness produces width 0.133, 20\% produces 0.267, 30\% produces 0.400, and 50\% produces 0.667. The V11 sweep shows that at 10\% missingness the exact interior width is 0.333 for \(J = 0.30\), 0.200 for \(J = 0.50\), 0.133 for \(J = 0.75\), and 0.111 for \(J = 0.90\) (Figure~\ref{fig:missingness}). Missing outcomes should therefore remain uncertainty unless the missingness mechanism is itself justified. In a consciousness application, acquisition failure, movement artifact, lesion location, sedation, impaired language, task disengagement, and absence of the targeted state can all produce missing or uninterpretable evidence. Coding those cases as negative evidence can turn measurement failure into an apparent biological result.
+
+\subsection{Inverse conditioning determines attainable resolution}
+
+Even when the point inverse exists, it may be numerically unstable. For
+
+\[\pi(q,\alpha,\beta) = \frac{q + \beta - 1}{J},\]
+
+the local sensitivities are
+
+\[\frac{\partial\pi}{\partial q} = \frac{1}{J},\quad\quad\frac{\partial\pi}{\partial\alpha} = - \frac{\pi}{J},\quad\quad\frac{\partial\pi}{\partial\beta} = \frac{1 - \pi}{J}.\]
+
+As \(J\) approaches zero from above, errors in the observable rate or calibration are amplified without bound. At \(J = 0\), \(q\) no longer depends on \(\pi\) and the latent prevalence is not identified. A proxy can therefore be algebraically invertible while remaining scientifically unusable at the requested precision.
+
+V14 turns that conditioning result into a study-design law. For \(n\) independent deployment observations with point-known positive calibration, a two-sided Hoeffding interval for \(q\) has half-width
+
+\[\epsilon_{n}(\delta) = \sqrt{\frac{\log(2/\delta)}{2n}}.\]
+
+The latent interval width is at most \(2\epsilon_{n}(\delta)/J\). Requiring a predeclared maximum width \(\omega\) gives the sufficient sample size
+
+\[\boxed{n \geq \frac{2\log(2/\delta)}{J^{2}\omega^{2}}}.\]
+
+The penalty is quadratic in inverse channel strength and inverse target resolution.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\textwidth]{fig3a_conditioning.pdf}\hfill
+\includegraphics[width=0.48\textwidth]{fig3b_sample_size.pdf}
+\caption{Conditioning and sample-size design. (a) Proxy-rate error is amplified by exactly $1/J$. (b) V14 converts the desired latent interval width and information margin into a sufficient deployment sample size under a two-sided Hoeffding guarantee.}
+\label{fig:conditioning}
+\end{figure}
+
+At \(J = 0.05\), a proxy-rate error of 0.02 corresponds to latent error 0.40. At \(J = 0.90\), the same perturbation corresponds to 0.022. The design law makes the consequence concrete: for \(J = 0.75\), 95\% Hoeffding coverage and maximum latent width 0.10 require \(n = 1,312\); weakening the channel to \(J = 0.30\) raises the sufficient size to \(n = 8,198\). Halving the desired interval width multiplies the requirement by approximately four. Resolution is therefore not an after-the-fact property of a confidence interval. It is a design input that can be checked before data collection.
+
+\subsection{Multisite pooling has a precise identification condition}
+
+Multisite studies introduce a different identification problem. For site \(i\), let \(w_{i} > 0\) be its population weight, \(\pi_{i}\) its latent prevalence, and \(J_{i} = \alpha_{i} + \beta_{i} - 1\) its information margin. The pooled proxy rate is
+
+\[\bar{q} = \sum_{i}^{}w_{i}\left( 1 - \beta_{i} \right) + \sum_{i}^{}w_{i}J_{i}\pi_{i},\]
+
+while the scientific target is
