@@ -11,14 +11,12 @@ from consciousness_measurement.electromagnetic_simulations import (
     v19_common_mode_confound,
     v20_frequency_specific_structure,
 )
-from consciousness_measurement.figure_svg import (
-    circle as svg_circle,
-    line as svg_line,
-    metric_card,
-    polyline as svg_polyline,
-    rect as svg_rect,
-    text as svg_text,
-)
+from consciousness_measurement.figure_svg import circle as svg_circle
+from consciousness_measurement.figure_svg import line as svg_line
+from consciousness_measurement.figure_svg import metric_card
+from consciousness_measurement.figure_svg import polyline as svg_polyline
+from consciousness_measurement.figure_svg import rect as svg_rect
+from consciousness_measurement.figure_svg import text as svg_text
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
