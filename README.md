@@ -12,11 +12,17 @@ A subject has first-person access to their own experience. An external investiga
 
 ![Research III program map](docs/figures/research_program_map.svg)
 
+### Research III evidence architecture
+
+![Research III evidence architecture](docs/figures/research_iii_evidence_architecture.svg)
+
+This orientation schematic shows the V16-V55 evidence path as eight linked scientific gates: field organization, source identifiability, resolution, measurement design, finite-sample inference, selection safety, replication, and transportability. Each stage states the failure mode it is designed to expose and keeps the claim ceiling visible. It is an orientation map, not an additional empirical result and not part of the nine foundational architecture-figure count.
+
 ## Start here
 
 For the fastest technical orientation, use these three entry points first:
 
-1. [Visual Research Guide](docs/visual-research-guide.md) for the complete nine-figure scientific record.
+1. [Visual Research Guide](docs/visual-research-guide.md) for the foundational visual record and the V16-V55 evidence architecture.
 2. [Evidence-to-Claim Audit](docs/evidence-to-claim-audit.md) for the exact path from observable evidence to an allowed scientific claim.
 3. [Figure Catalog](docs/figure-catalog.md) for the canonical figure inventory and primary audit source for every visual.
 4. [Formal Validation V1-V55](VALIDATION.md) for the executable analytic and synthetic validation record, including the electromagnetic measurement, inverse, resolution, design, finite-sample, selection-safe, and cross-site replication-inference and transportability layers V16-V55.
