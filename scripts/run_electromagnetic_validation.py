@@ -82,6 +82,10 @@ def _validation_svg(
             size=15,
             fill="#657286",
         ),
+        '<rect x="930" y="28" width="410" height="82" rx="12" fill="#f7f9fc" stroke="#d7dee8" stroke-width="1"/>',
+        '<text x="950" y="50" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>',
+        '<text x="950" y="72" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Can field organization survive gain changes,</text>',
+        '<text x="950" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">common-mode confounds, and frequency changes?</text>',
         svg_line(60, 145, 1340, 145, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
@@ -134,6 +138,14 @@ def _validation_svg(
             note="organization depends on frequency",
             accent="#5b5791",
         ),
+        '<rect x="319" y="186" width="24" height="20" rx="10" fill="#eef4f8" stroke="#c8d7e2"/>',
+        '<text x="331" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#315b78">A</text>',
+        '<rect x="634" y="186" width="24" height="20" rx="10" fill="#f1f5ee" stroke="#cfdbc7"/>',
+        '<text x="646" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#506b3f">B</text>',
+        '<rect x="949" y="186" width="24" height="20" rx="10" fill="#f8f0f4" stroke="#e1cfd8"/>',
+        '<text x="961" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#7b435c">C</text>',
+        '<rect x="1264" y="186" width="24" height="20" rx="10" fill="#f2f1f8" stroke="#d8d5e7"/>',
+        '<text x="1276" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#5b5791">D</text>',
     ]
 
     # V19: common-mode confound stress test
@@ -169,6 +181,15 @@ def _validation_svg(
     )
     ax_left, ax_right = x0 + 86, x0 + panel_width - 52
     ax_top, ax_bottom = y0 + 100, y0 + 320
+    parts.extend(
+        [
+            '<rect x="1292" y="366" width="28" height="22" rx="11" fill="#eef4f8" stroke="#c8d7e2"/>',
+            '<text x="1306" y="381" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#244c64">E</text>',
+            svg_text(ax_left, ax_top - 12, "phase concentration", size=11, weight=700, fill="#526276"),
+            svg_text(ax_right, ax_top - 12, "0 = diffuse | 1 = concentrated", size=11, fill="#748195", anchor="end"),
+            svg_text(ax_right, ax_bottom - 18, "post-removal concentration ~ 0", size=11, weight=700, fill="#1f6078", anchor="end"),
+        ]
+    )
     for value in (0.0, 0.25, 0.5, 0.75, 1.0):
         y = ax_bottom - value * (ax_bottom - ax_top)
         label = f"{value:.2f}".rstrip("0").rstrip(".")
@@ -230,7 +251,7 @@ def _validation_svg(
         [
             svg_text(
                 (ax_left + ax_right) / 2,
-                ax_bottom + 52,
+                ax_bottom + 44,
                 "shared contaminant amplitude",
                 size=12,
                 weight=600,
@@ -255,13 +276,23 @@ def _validation_svg(
                 weight=600,
                 fill="#4f5e72",
             ),
+            svg_rect(
+                x0 + 18,
+                y0 + 374,
+                panel_width - 36,
+                24,
+                fill="#eef4f7",
+                stroke="#d7e3e9",
+                stroke_width=1.0,
+                radius=8,
+            ),
             svg_text(
-                x0 + 26,
-                y0 + 378,
-                "Result: nuisance removal collapses the apparent organization to numerical zero.",
+                x0 + 30,
+                y0 + 392,
+                "Finding: nuisance removal collapses the apparent organization to numerical zero.",
                 size=12,
-                weight=600,
-                fill="#4f5e72",
+                weight=700,
+                fill="#365064",
             ),
             svg_line(60, 805, 1340, 805, stroke="#d6dde7"),
             svg_text(
