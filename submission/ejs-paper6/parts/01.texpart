@@ -1,0 +1,52 @@
+\documentclass[ejsv2,submission,noshowframe]{imsart}
+
+\RequirePackage[numbers]{natbib}
+\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue,linkcolor=blue]{hyperref}
+\RequirePackage{graphicx}
+\RequirePackage{amsmath,amssymb}
+
+\startlocaldefs
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\endlocaldefs
+
+\begin{document}
+\begin{frontmatter}
+\title{Identification Limits and Resolution-Aware Release for Latent-State Measurement with Imperfect Proxies}
+\runtitle{Identification Limits for Imperfect Proxy Measurement}
+
+\begin{aug}
+\author[A]{\fnms{Mahsa}~\snm{Keikha}\ead[label=e1]{mahsa@connectioncare.net}}
+\address[A]{Connected Care LLC, California, USA\printead[presep={,\ }]{e1}}
+\runauthor{M. Keikha}
+\end{aug}
+
+\begin{abstract}
+Many scientific targets are latent and are inferred through imperfect proxies. Even when sensitivity and specificity are available, inverse correction can be poorly identified, unstable, or too imprecise for the intended claim. We develop an identification-first framework for latent-state measurement with imperfect binary proxies. The framework propagates finite calibration uncertainty, gives sharp bounds under unrestricted missing outcomes, proves an exact missingness-information law, quantifies inverse instability through the Youden information margin, and derives a finite-sample resolution law. For multisite studies, we prove that a pooled proxy rate identifies population-average latent prevalence for every feasible site composition if and only if site information margins are equal; otherwise we give a sharp closed-form identified set. Finally, we distinguish same-data abstention from a selection-safe design in which an independent pilot gate is separated from confirmatory inference. Deterministic experiments reproduce the analytic regimes and expose their engineering consequences. The motivating application is consciousness measurement, but the results apply to any latent-state system built on fallible proxy channels.
+\end{abstract}
+
+\begin{keyword}[class=MSC]
+\kwdgroup[type=primary]{\kwd{62B15}}
+\kwdgroup[type=secondary]{\kwd{62D10}\kwd{62F25}}
+\end{keyword}
+
+\begin{keyword}
+\kwd{partial identification}
+\kwd{latent measurement}
+\kwd{calibration uncertainty}
+\kwd{missing data}
+\kwd{inverse problems}
+\kwd{multisite inference}
+\kwd{sample-size design}
+\kwd{selective release}
+\end{keyword}
+\end{frontmatter}
+
+\section{Introduction}
+
+A large class of scientific measurements infer an unobserved state from an observable proxy. The proxy may be a screening result, behavioral response, algorithmic detector, physiological readout, neural signature, or sensor event. Once sensitivity and specificity have been estimated, it is tempting to invert the observed positive rate and report a corrected point estimate. Classical prevalence correction makes clear that the raw positive rate is not generally the latent prevalence \cite{rogan1978}. Work on diagnostic testing without a perfect reference standard goes further: reference quality and dependence determine what is identifiable in the first place \cite{hui1980,hui1998}.
+
+The same architecture appears in consciousness science. Experience is not directly available to an external investigator, so evidence is assembled from report, behavior, electrophysiology, functional imaging, perturbational responses, autonomic physiology, and context. Perturbational complexity can stratify brain states without overt behavior \cite{casali2013,casarotto2016}, while task-based electroencephalography and functional magnetic resonance imaging can reveal command-following activity in patients who show no corresponding motor response \cite{claassen2019,bodien2024}. Recent reviews emphasize both the promise and the assumptions of covert measures when report is absent or unreliable \cite{kronemer2025}. A negative observation in such settings can reflect absence of the target, proxy failure, acquisition failure, state-dependent calibration, or insufficient information. Those possibilities should not be collapsed into one binary conclusion.
+
+Here we study the measurement problem underneath these domain-specific examples. Let a declared latent binary target be observed only through a fallible binary evidence channel. Our purpose is not to nominate a new consciousness biomarker. It is to determine what the measurement system is licensed to report as ideal assumptions are relaxed, and how study design should change when the desired inferential resolution is specified in advance.
