@@ -3,7 +3,8 @@
   <text x="85" y="70" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V51-V55: transportability across sensor systems and states</text>
   <text x="85" y="110" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Coordinate invariance, lossy projection, topography mismatch, covariate-shift reweighting, and sharp transport budgets.</text>
   <text x="85" y="137" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#3156a3">SCIENTIFIC QUESTION</text>
-  <text x="250" y="137" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#26374d">Does the measurement relation survive coordinate changes, lossy sensors, hardware mismatch, and distribution shift?</text>
+  <text x="250" y="130" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">Does the measurement relation survive coordinate changes,</text>
+  <text x="250" y="146" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#26374d">lossy sensors, hardware mismatch, and distribution shift?</text>
 
   <rect x="85" y="150" width="690" height="270" rx="18" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="198" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V51 invertible sensor-coordinate invariance</text>
@@ -51,7 +52,7 @@
   <text x="120" y="800" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#294f64">Information monotonicity: I(PY) &lt;= I(Y)</text>
   <rect x="1475" y="471" width="26" height="22" rx="11" fill="#f8f0f4" stroke="#e1cfd8"/>
   <text x="1488" y="486" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6a3f57">D</text>
-  <text x="840" y="568" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#6a3f57">Pass condition: |relative bias| &lt;= covariance-weighted Cauchy-Schwarz bound</text>
+  <text x="840" y="568" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#6a3f57">Pass: |relative bias| &lt;= covariance-weighted bound</text>
   <line x1="875" y1="765" x2="1355" y2="765" stroke="#8795a5" stroke-width="2"/>
   <polyline points="905.0,765.00 1010.0,760.04 1115.0,755.08 1220.0,745.15 1325.0,725.30" fill="none" stroke="#6a3f57" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <polyline points="905.0,765.00 1010.0,747.16 1115.0,729.32 1220.0,693.63 1325.0,622.26" fill="none" stroke="#aa879a" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" stroke-linejoin="round"/>
