@@ -100,9 +100,9 @@ def _render_svg(
   <text x="120" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#294f64">V38 Gaussian source discrimination</text>
   <text x="120" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">Equal-prior Bayes error falls exactly with Mahalanobis separation.</text>
   <text x="120" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">d squared = 0</text>
-  <text x="390" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">error = 0.5</text>
+  <text x="430" y="610" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#294f64">error = 0.5</text>
   <text x="120" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">d squared = 9</text>
-  <text x="390" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#294f64">error = {_fmt(v38[-1]["equal_prior_bayes_error"])}</text>
+  <text x="430" y="655" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#294f64">error = {_fmt(v38[-1]["equal_prior_bayes_error"])}</text>
   <line x1="465" y1="805" x2="705" y2="805" stroke="#8795a5" stroke-width="2"/>
   <line x1="465" y1="570" x2="465" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(discrimination_points)}" fill="none" stroke="#294f64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -117,9 +117,9 @@ def _render_svg(
   <text x="830" y="487" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#43634a">V39 exact independent-search FWER control</text>
   <text x="830" y="522" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6c7c">The two-sided z threshold must rise as the number of searched locations rises.</text>
   <text x="830" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">1 comparison</text>
-  <text x="1105" y="610" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(v39[0]["two_sided_z_threshold"])}</text>
+  <text x="1160" y="610" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#43634a">{_fmt(v39[0]["two_sided_z_threshold"])}</text>
   <text x="830" y="655" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#34495e">1000 comparisons</text>
-  <text x="1105" y="655" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#43634a">{_fmt(v39[-1]["two_sided_z_threshold"])}</text>
+  <text x="1160" y="655" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#43634a">{_fmt(v39[-1]["two_sided_z_threshold"])}</text>
   <line x1="1205" y1="805" x2="1490" y2="805" stroke="#8795a5" stroke-width="2"/>
   <line x1="1205" y1="570" x2="1205" y2="805" stroke="#8795a5" stroke-width="2"/>
   <polyline points="{" ".join(fwer_points)}" fill="none" stroke="#43634a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
