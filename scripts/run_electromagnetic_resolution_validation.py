@@ -74,10 +74,10 @@ def _svg(
             size=15,
             fill="#657286",
         ),
-        svg_line(60, 160, 1340, 160, stroke="#d6dde7", width=1.2),
+        svg_line(60, 155, 1340, 155, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
-            184,
+            172,
             400,
             150,
             kicker="V26",
@@ -88,7 +88,7 @@ def _svg(
         ),
         metric_card(
             500,
-            184,
+            172,
             400,
             150,
             kicker="V29",
@@ -99,7 +99,7 @@ def _svg(
         ),
         metric_card(
             940,
-            184,
+            172,
             400,
             150,
             kicker="V30",
@@ -110,7 +110,7 @@ def _svg(
         ),
     ]
 
-    plot_y = 377
+    plot_y = 365
     panel_height = 430
 
     # V27: resolution leakage
