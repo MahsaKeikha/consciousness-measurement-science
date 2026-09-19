@@ -67,7 +67,8 @@ def _render_svg(
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
   <rect width="1600" height="1000" fill="#ffffff"/>
   <text x="85" y="72" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#13243a">Research III V41-V45: multiplicity and selection-safe electromagnetic inference</text>
-  <text x="85" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#46586c">Arbitrary-dependence FWER control, Holm step-down testing, exact sign-flip inference, post-selection coverage, and independent confirmation.</text>
+  <text x="85" y="108" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#46586c">Arbitrary-dependence FWER control, Holm step-down testing, exact sign-flip inference,</text>
+  <text x="85" y="132" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#46586c">post-selection coverage, and independent confirmation.</text>
 
   <rect x="85" y="155" width="455" height="245" rx="20" fill="#f5f8fb" stroke="#c7d3df" stroke-width="2"/>
   <text x="120" y="202" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#173b63">V42 Holm step-down gain</text>
