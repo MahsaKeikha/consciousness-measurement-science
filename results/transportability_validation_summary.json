@@ -1,0 +1,149 @@
+{
+  "claim_boundary": "transportability calculations do not constitute empirical cross-device, cross-state, or cross-population validation and do not identify consciousness",
+  "status": "analytic_and_deterministic_only",
+  "v51_coordinate_invariance": {
+    "absolute_estimate_difference": 3.3306690738754696e-16,
+    "absolute_information_difference": 3.3306690738754696e-16,
+    "original_gls_estimate": 0.7624178712220763,
+    "original_information": 0.6156957928802589,
+    "transform_determinant": 1.1,
+    "transformed_gls_estimate": 0.7624178712220766,
+    "transformed_information": 0.6156957928802586
+  },
+  "v52_projection_information": [
+    {
+      "information_fraction": 1.0,
+      "information_loss": 0.0,
+      "projection": "all_sensors",
+      "retained_information": 0.6156957928802589
+    },
+    {
+      "information_fraction": 0.8243937402938717,
+      "information_loss": 0.10812003530450132,
+      "projection": "drop_sensor_3",
+      "retained_information": 0.5075757575757576
+    },
+    {
+      "information_fraction": 0.6773170799899347,
+      "information_loss": 0.19867451628451427,
+      "projection": "single_mixed_channel",
+      "retained_information": 0.4170212765957446
+    }
+  ],
+  "v53_topography_mismatch": [
+    {
+      "absolute_relative_bias": 0.0,
+      "cauchy_schwarz_bias_bound": 0.0,
+      "expected_amplitude_gain": 1.0,
+      "relative_bias": 0.0,
+      "whitened_mismatch_norm": 0.0
+    },
+    {
+      "absolute_relative_bias": 0.017721422405386877,
+      "cauchy_schwarz_bias_bound": 0.0637216351057622,
+      "expected_amplitude_gain": 0.9822785775946131,
+      "relative_bias": -0.017721422405386877,
+      "whitened_mismatch_norm": 0.05
+    },
+    {
+      "absolute_relative_bias": 0.0354428448107742,
+      "cauchy_schwarz_bias_bound": 0.12744327021152438,
+      "expected_amplitude_gain": 0.9645571551892258,
+      "relative_bias": -0.0354428448107742,
+      "whitened_mismatch_norm": 0.1
+    },
+    {
+      "absolute_relative_bias": 0.07088568962154806,
+      "cauchy_schwarz_bias_bound": 0.2548865404230488,
+      "expected_amplitude_gain": 0.9291143103784519,
+      "relative_bias": -0.07088568962154806,
+      "whitened_mismatch_norm": 0.2
+    },
+    {
+      "absolute_relative_bias": 0.14177137924309646,
+      "cauchy_schwarz_bias_bound": 0.5097730808460976,
+      "expected_amplitude_gain": 0.8582286207569035,
+      "relative_bias": -0.14177137924309646,
+      "whitened_mismatch_norm": 0.4
+    }
+  ],
+  "v54_importance_transport": [
+    {
+      "absolute_transport_identity_error": 0.0,
+      "effective_sample_fraction": 1.0,
+      "importance_weighted_source_expectation": 0.32,
+      "maximum_importance_weight": 1.0,
+      "shift_alpha": 0.0,
+      "target_expectation": 0.32
+    },
+    {
+      "absolute_transport_identity_error": 0.0,
+      "effective_sample_fraction": 0.9345794392523362,
+      "importance_weighted_source_expectation": 0.42000000000000004,
+      "maximum_importance_weight": 1.5000000000000002,
+      "shift_alpha": 0.1,
+      "target_expectation": 0.42000000000000004
+    },
+    {
+      "absolute_transport_identity_error": 0.0,
+      "effective_sample_fraction": 0.78125,
+      "importance_weighted_source_expectation": 0.52,
+      "maximum_importance_weight": 2.0,
+      "shift_alpha": 0.2,
+      "target_expectation": 0.52
+    },
+    {
+      "absolute_transport_identity_error": 0.0,
+      "effective_sample_fraction": 0.6134969325153374,
+      "importance_weighted_source_expectation": 0.62,
+      "maximum_importance_weight": 2.5,
+      "shift_alpha": 0.3,
+      "target_expectation": 0.62
+    },
+    {
+      "absolute_transport_identity_error": 0.0,
+      "effective_sample_fraction": 0.47169811320754707,
+      "importance_weighted_source_expectation": 0.7200000000000001,
+      "maximum_importance_weight": 3.0000000000000004,
+      "shift_alpha": 0.4,
+      "target_expectation": 0.7200000000000001
+    }
+  ],
+  "v55_total_variation_transport": [
+    {
+      "actual_expectation_shift": 0.0,
+      "bound_slack": 0.0,
+      "sharp_tv_bound": 0.0,
+      "shift_alpha": 0.0,
+      "total_variation": 0.0
+    },
+    {
+      "actual_expectation_shift": 0.10000000000000003,
+      "bound_slack": -2.7755575615628914e-17,
+      "sharp_tv_bound": 0.1,
+      "shift_alpha": 0.1,
+      "total_variation": 0.1
+    },
+    {
+      "actual_expectation_shift": 0.2,
+      "bound_slack": 0.0,
+      "sharp_tv_bound": 0.2,
+      "shift_alpha": 0.2,
+      "total_variation": 0.2
+    },
+    {
+      "actual_expectation_shift": 0.3,
+      "bound_slack": 0.0,
+      "sharp_tv_bound": 0.3,
+      "shift_alpha": 0.3,
+      "total_variation": 0.3
+    },
+    {
+      "actual_expectation_shift": 0.4000000000000001,
+      "bound_slack": -5.551115123125783e-17,
+      "sharp_tv_bound": 0.4,
+      "shift_alpha": 0.4,
+      "total_variation": 0.4
+    }
+  ]
+}
