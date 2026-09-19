@@ -2,7 +2,8 @@
 <rect x="0" y="0" width="1400" height="900" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
 <text x="60" y="56" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3156a3">Research III V26-V30</text>
 <text x="60" y="92" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#172236">Electromagnetic resolution and information limits</text>
-<text x="60" y="120" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Noise geometry, inverse leakage, information loss, aliasing, and unstable inverse directions.</text>
+<text x="60" y="118" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">Noise geometry, inverse leakage, information loss, aliasing,</text>
+<text x="60" y="140" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#657286">and unstable inverse directions.</text>
 <line x1="60" y1="155" x2="1340" y2="155" stroke="#d6dde7" stroke-width="1.2"/>
 <rect x="60" y="172" width="400" height="150" rx="12" fill="#ffffff" stroke="#d6dde7" stroke-width="1.2"/>
 <text x="82" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#315b78">V26</text>
@@ -70,5 +71,6 @@
 <text x="1060" y="752" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">common-noise correlation</text>
 <text x="756" y="762" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#4f5e72">CRLB variance: 0.25 to 0.925</text>
 <line x1="60" y1="840" x2="1340" y2="840" stroke="#d6dde7" stroke-width="1"/>
-<text x="60" y="868" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">Deterministic synthetic validation. These results quantify measurement limits; they do not identify consciousness or qualia.</text>
+<text x="60" y="860" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">Deterministic synthetic validation. These results quantify measurement limits.</text>
+<text x="60" y="878" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#697587">They do not identify consciousness or qualia.</text>
 </svg>
