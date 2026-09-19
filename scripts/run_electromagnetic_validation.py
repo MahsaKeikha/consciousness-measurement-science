@@ -89,10 +89,10 @@ def _validation_svg(
             size=15,
             fill="#657286",
         ),
-        svg_line(60, 160, 1340, 160, stroke="#d6dde7", width=1.2),
+        svg_line(60, 155, 1340, 155, stroke="#d6dde7", width=1.2),
         metric_card(
             60,
-            184,
+            172,
             295,
             142,
             kicker="V16",
@@ -103,7 +103,7 @@ def _validation_svg(
         ),
         metric_card(
             375,
-            184,
+            172,
             295,
             142,
             kicker="V17",
@@ -114,7 +114,7 @@ def _validation_svg(
         ),
         metric_card(
             690,
-            184,
+            172,
             295,
             142,
             kicker="V18",
@@ -129,7 +129,7 @@ def _validation_svg(
         ),
         metric_card(
             1005,
-            184,
+            172,
             295,
             142,
             kicker="V20",
